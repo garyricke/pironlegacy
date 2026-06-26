@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dennis Piron Legacy Scholarship — One-Sheet</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -32,7 +35,7 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
 
 /* Masthead */
 .mast{ border-bottom:3px solid var(--gold); padding-bottom:14px; margin-bottom:16px;
-  display:flex; justify-content:space-between; align-items:flex-end; }
+  display:flex; justify-content:space-between; align-items:center; gap:18px; }
 .mast .title{ }
 .mast .eyebrow{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:8.5pt; letter-spacing:2.5px;
   text-transform:uppercase; color:var(--maroon); margin-bottom:5px; }
@@ -40,10 +43,11 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
 .mast h1 .g{ color:var(--maroon); }
 .mast .sub{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:9pt; letter-spacing:1px;
   text-transform:uppercase; color:var(--muted); margin-top:3px; }
-.mast .crest{ text-align:right; font-family:'Montserrat',sans-serif; }
-.mast .crest .yrs{ font-size:30pt; font-weight:900; color:var(--gold); line-height:.9;
-  -webkit-text-stroke:1.2px var(--black); }
-.mast .crest .yrs-l{ font-size:7.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+.mast .crest-badge{ width:116px; height:116px; flex:none; display:block; }
+.tribute-photo{ margin-top:12px; }
+.tribute-photo img{ width:100%; height:118px; object-fit:cover; object-position:center 32%; border-radius:8px; border:2px solid #e2ddd0; display:block; }
+.tribute-photo .cap{ font-size:8.4pt; color:#444; margin-top:5px; line-height:1.35; }
+.tribute-photo .cap b{ color:var(--black); font-family:'Montserrat',sans-serif; }
 
 /* Lead statement */
 .lead{ font-size:11.5pt; color:#222; margin-bottom:14px; }
@@ -93,10 +97,15 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
 .give .gtxt .ph{ font-weight:700; color:#000; }
 
 /* Footer */
-.foot{ margin-top:14px; border-top:1.5px solid #e2ddd0; padding-top:10px; }
+.foot{ margin-top:14px; border-top:1.5px solid #e2ddd0; padding-top:10px;
+  display:flex; align-items:flex-start; gap:18px; }
+.foot .foot-text{ flex:1; }
 .foot .committee{ font-size:8.7pt; color:#333; margin-bottom:6px; }
 .foot .committee b{ font-family:'Montserrat',sans-serif; color:var(--black); }
 .foot .tax{ font-size:7.6pt; color:#777; line-height:1.4; }
+.foot .foot-bfee{ flex:none; text-align:center; }
+.foot .foot-bfee img{ height:62px; width:auto; display:block; }
+.foot .foot-bfee .sb{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:6pt; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
 
 /* Print */
 @page{ size:Letter; margin:0; }
@@ -127,10 +136,7 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
         <h1>The Dennis Piron<br><span class="g">Legacy Scholarship</span></h1>
         <div class="sub">Endow it forever · No annual fundraising</div>
       </div>
-      <div class="crest">
-        <div class="yrs">10</div>
-        <div class="yrs-l">Years of<br>INCubator@BHS</div>
-      </div>
+      <img class="crest-badge" src="assets/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship emblem">
     </div>
 
     <!-- Lead -->
@@ -179,15 +185,23 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
             <p>Or text/call <span class="ph">630-699-3040</span><br>pledges@pironlegacy.org</p>
           </div>
         </div>
-        <h3 style="margin-top:14px;">Watch the tribute</h3>
-        <p style="font-size:9.3pt;">23 voices — students, coaches, mentors, parents, and board members — on ten years of Coach Piron. Watch the 16-minute reel at <strong>pironlegacy.org</strong>.</p>
+        <div class="tribute-photo">
+          <img src="assets/dennis-piron.jpg" alt="Dennis Piron with Batavia High School students">
+          <div class="cap"><b>23 voices · 16 minutes.</b> Watch the tribute reel at <strong>pironlegacy.org</strong>.</div>
+        </div>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="foot">
+      <div class="foot-text">
       <div class="committee"><b>Steering Committee:</b> Dave Brown · Bob Hansen · Rob Hollis · Bob Hubbard · Gary Ricke · Bob Vaughan</div>
       <div class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3). Contributions are tax-deductible to the extent allowed by law. Pledges are contingent on securing the Dunham Foundation matching grant; no payment is due at the time of pledge.</div>
+      </div>
+      <div class="foot-bfee">
+        <div class="sb">Stewarded by</div>
+        <img src="assets/BFEE-Mark_RGB-8fed48df-1920w.png" alt="Batavia Foundation for Educational Excellence">
+      </div>
     </div>
 
   </div>

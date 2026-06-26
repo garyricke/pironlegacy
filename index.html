@@ -17,6 +17,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
 <style>
 /* ───── RESET & BASE ───── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -180,6 +186,7 @@ a { color: inherit; }
   font-size: .9rem; color: #fff; letter-spacing: .3px;
 }
 .hero-matchpill strong { color: var(--gold); }
+.hero-hl { color: var(--gold); font-weight: 700; box-shadow: inset 0 -2px 0 rgba(250,204,8,.45); }
 .hero-video-col { display: flex; flex-direction: column; align-items: center; }
 .hero-video-label {
   font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem;
@@ -366,6 +373,11 @@ a { color: inherit; }
 .footer { background: var(--black); color: #888; text-align: center; padding: 40px 24px; font-size: .9rem; line-height: 1.7; }
 .footer a { color: #aaa; text-decoration: underline; }
 .footer .tax { max-width: 720px; margin: 0 auto 14px; color: #777; font-size: .82rem; }
+.footer .tax .tax-foundation { color: var(--gold); font-weight: 700; }
+.footer-bfee { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 30px; }
+.footer-bfee .fb-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: 2.5px; text-transform: uppercase; color: #8a8a8a; }
+.footer-bfee .fb-chip { background: #fff; border-radius: 14px; padding: 16px 24px; display: inline-flex; box-shadow: 0 8px 28px rgba(0,0,0,.35); }
+.footer-bfee .fb-chip img { height: 64px; width: auto; display: block; }
 
 /* ───── MOBILE ───── */
 @media (max-width: 860px) {
@@ -402,12 +414,13 @@ a { color: inherit; }
 }
 #adm { position: fixed; bottom: 24px; right: 24px; z-index: 900; font-family: var(--adm-font-display); }
 #adm-btn {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--adm-accent) 35%, transparent);
-  background: rgba(20,13,13,0.4); color: color-mix(in srgb, var(--adm-accent) 55%, transparent);
-  font-size: 0.95rem; cursor: pointer; opacity: 0.35; padding: 0; line-height: 1; font-weight: 900;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--adm-accent) 60%, transparent);
+  background: rgba(20,13,13,0.78); color: var(--adm-accent);
+  font-size: 1.05rem; cursor: pointer; opacity: 0.72; padding: 0; line-height: 1; font-weight: 900;
   display: flex; align-items: center; justify-content: center;
-  transition: opacity .25s, color .25s, border-color .25s, background .25s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  transition: opacity .25s, color .25s, border-color .25s, background .25s, transform .2s;
 }
 #adm-btn:hover, #adm-btn:focus-visible, #adm[aria-expanded="true"] #adm-btn {
   opacity: 1; color: var(--adm-accent); border-color: var(--adm-accent);
@@ -482,6 +495,59 @@ a { color: inherit; }
 </head>
 <body>
 
+<!-- ============================================================
+     PRE-LAUNCH PASSWORD GATE — covers the whole page until approved.
+     Shares the 'pironlegacy_auth' session key + 'piron' password with
+     the admin panel, so unlocking either covers both. Remove this
+     block (and nothing else) to make the page fully public.
+     ============================================================ -->
+<style>
+  #pw-gate{position:fixed;inset:0;z-index:9999;background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%);display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;}
+  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(250,204,8,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,8,.05) 1px,transparent 1px);background-size:42px 42px;pointer-events:none;}
+  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb, #FACC08 25%, transparent);border-radius:18px;padding:46px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.55);}
+  #pw-box img{height:96px;margin:0 auto 22px;display:block;}
+  #pw-box h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;color:#FACC08;letter-spacing:.02em;margin:0 0 8px;}
+  #pw-box .sub{font-size:.88rem;color:rgba(236,236,236,.6);margin:0 0 26px;line-height:1.5;}
+  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb, #FACC08 30%, transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s;}
+  #pw-input:focus{border-color:#FACC08;}
+  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#FACC08;color:#161310;border:0;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+  #pw-btn:hover{background:#ffd84d;}
+  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
+  .pw-shake{animation:pwShake .35s;}
+  @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_220/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship" onerror="this.style.display='none'">
+    <h2>Private Preview</h2>
+    <p class="sub">This page isn't public yet. Enter the password to view it.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='pironlegacy_auth',PASS='piron',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');
+      document.body.style.overflow='';
+      gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');
+      box.classList.remove('pw-shake'); void box.offsetWidth; box.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
 <!-- ───── NAV ───── -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
@@ -500,7 +566,7 @@ a { color: inherit; }
       <img class="hero-badge" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship emblem" width="124" height="124">
       <span class="hero-eyebrow">A Permanent Tribute · Batavia, Illinois</span>
       <h1>The Dennis Piron<br><span class="accent">Legacy Scholarship</span></h1>
-      <p class="hero-sub">For a decade, Dennis Piron turned Batavia students into entrepreneurs. Now we're endowing a scholarship in his name — funded <em>forever</em>, with no annual fundraising.</p>
+      <p class="hero-sub">For a decade, Dennis Piron turned Batavia students into entrepreneurs. Now we're endowing a scholarship in his name — <span class="hero-hl">funded forever, with no annual fundraising.</span></p>
       <div class="hero-matchpill">Every gift <strong>doubled</strong> by the Dunham Foundation, up to <strong>$40,000</strong></div>
       <div class="hero-ctas">
         <a href="#pledge" class="btn btn-gold">Make a Leadership Pledge</a>
@@ -716,9 +782,13 @@ a { color: inherit; }
 
 <!-- ───── FOOTER ───── -->
 <footer class="footer">
-  <p class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3) nonprofit. Contributions are tax-deductible to the extent allowed by law. Pledges are contingent on securing the Dunham Foundation matching grant.</p>
+  <div class="footer-bfee">
+    <span class="fb-label">Stewarded by</span>
+    <span class="fb-chip"><img src="assets/BFEE-Logo_RGB-1920w.png" alt="Batavia Foundation for Educational Excellence"></span>
+  </div>
+  <p class="tax">The Dennis Piron Legacy Scholarship is <span class="tax-foundation">administered by the Batavia Foundation for Educational Excellence,</span> an IRS-registered 501(c)(3) nonprofit. Contributions are tax-deductible to the extent allowed by law. Pledges are contingent on securing the Dunham Foundation matching grant.</p>
   Dennis Piron Legacy Scholarship &middot; Batavia, IL<br>
-  Questions? Text <a href="sms:+16306993040">630-699-3040</a> &middot; <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>
+  Questions? <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>
 </footer>
 
 <!-- ============================================================
