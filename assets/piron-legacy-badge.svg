@@ -18,4 +18,6 @@
 <path d="M 969.0,474.0 L 975.4,491.2 L 993.7,492.0 L 979.4,503.4 L 984.3,521.0 L 969.0,510.9 L 953.7,521.0 L 958.6,503.4 L 944.3,492.0 L 962.6,491.2 Z" fill="#B5202A"/>
 <text class="ct" font-size="92" letter-spacing="6" text-anchor="middle"><textPath href="#topArc" startOffset="50%">DENNIS PIRON</textPath></text>
 <text class="ct" font-size="74" letter-spacing="5" text-anchor="middle"><textPath href="#botArc" startOffset="50%">LEGACY SCHOLARSHIP</textPath></text>
+<!-- outer rim: defines the medallion edge on dark backgrounds -->
+<circle cx="500" cy="500" r="494.5" fill="none" stroke="#EBA31C" stroke-width="9"/>
 </svg>
