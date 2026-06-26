@@ -177,13 +177,13 @@ a { color: inherit; }
   margin-bottom: 16px;
 }
 .hero-matchpill {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 26px; padding: 10px 22px;
+  display: inline-block;
+  margin-top: 26px; padding: 11px 22px;
   background: rgba(250,204,8,.16);
   border: 1px solid rgba(250,204,8,.5);
-  border-radius: 50px;
+  border-radius: 16px;
   font-family: 'Montserrat', sans-serif; font-weight: 700;
-  font-size: .9rem; color: #fff; letter-spacing: .3px;
+  font-size: .9rem; color: #fff; letter-spacing: .3px; line-height: 1.55;
 }
 .hero-matchpill strong { color: var(--gold); }
 .hero-hl { color: var(--gold); font-weight: 700; box-shadow: inset 0 -2px 0 rgba(250,204,8,.45); }
@@ -689,7 +689,10 @@ a { color: inherit; }
         <p class="section-sub" style="margin:0 auto;">Submit your leadership pledge below. A steering-committee member will follow up to confirm. Nothing is charged today.</p>
       </div>
 
-      <form class="pledge-card" id="pledgeForm" autocomplete="on">
+      <form class="pledge-card" id="pledgeForm" name="pledge" method="POST" data-netlify="true" netlify-honeypot="website" autocomplete="on">
+        <!-- Netlify Forms: required hidden field + a clean human-readable amount -->
+        <input type="hidden" name="form-name" value="pledge">
+        <input type="hidden" name="amount_display" id="amount_display">
         <div class="form-field full" style="margin-bottom:18px;">
           <label>Your pledge amount</label>
           <div class="pledge-amounts">
@@ -744,7 +747,7 @@ a { color: inherit; }
         </div>
 
         <p class="pledge-note">
-          <strong>Prefer to talk first?</strong> Text or call <a href="sms:+16306993040">630-699-3040</a>, or email
+          <strong>Prefer to talk first?</strong> Email
           <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>. Gifts are payable to the
           <strong>Batavia Foundation for Educational Excellence</strong>, an IRS-registered 501(c)(3) —
           tax-deductible to the extent allowed by law.
@@ -878,13 +881,12 @@ a { color: inherit; }
 
 <script>
 /* ═══════════════════════════════════════════════════════
-   CONFIG
-   Set PLEDGE_API_URL to a Google Apps Script Web App URL to
-   capture pledges to a Google Sheet (see pledge-setup.md).
-   If left blank, the form falls back to opening a pre-filled
-   email to the committee so it still works on day one.
+   Pledge form → Netlify Forms.
+   The form is submitted via AJAX to Netlify (no page reload),
+   so submissions appear in the Netlify dashboard → Forms.
+   Turn on email notifications there to be alerted on each pledge.
+   If the POST ever fails, it falls back to a pre-filled email.
    ═══════════════════════════════════════════════════════ */
-const PLEDGE_API_URL = '';
 const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
 
 /* ───── NAV scroll behavior ───── */
@@ -945,51 +947,55 @@ pledgeForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (pledgeForm.querySelector('[name="website"]').value) return; // honeypot
 
-  const payload = {
-    amount: getAmount(),
-    name: document.getElementById('pf-name').value.trim(),
-    email: document.getElementById('pf-email').value.trim(),
-    phone: document.getElementById('pf-phone').value.trim(),
-    recognition: document.getElementById('pf-name-recognition').value.trim(),
-    message: document.getElementById('pf-msg').value.trim(),
-    contingent_ack: document.getElementById('pf-ack').checked
-  };
+  const name = document.getElementById('pf-name').value.trim();
+  const email = document.getElementById('pf-email').value.trim();
+  if (!name || !email) { setMeta('Please add your name and email.', 'error'); return; }
+  if (!document.getElementById('pf-ack').checked) { setMeta('Please acknowledge the matching-grant condition.', 'error'); return; }
 
-  if (!payload.name || !payload.email) { setMeta('Please add your name and email.', 'error'); return; }
-  if (!payload.contingent_ack) { setMeta('Please acknowledge the matching-grant condition.', 'error'); return; }
+  // Put a clean, human-readable amount into the dashboard record.
+  document.getElementById('amount_display').value = getAmount();
 
-  // Path A: backend configured → POST to Apps Script
-  if (PLEDGE_API_URL && !PLEDGE_API_URL.includes('PASTE_')) {
-    pfSubmit.disabled = true; pfSubmit.textContent = 'Submitting…'; setMeta('Submitting your pledge…');
-    try {
-      const res = await fetch(PLEDGE_API_URL, { method: 'POST', body: JSON.stringify(payload) });
-      const data = await res.json();
-      if (data.status === 'ok') {
-        pledgeForm.reset(); otherWrap.classList.add('hidden');
-        setMeta('Thank you — your pledge is in. We\'ll be in touch shortly.', 'success');
-      } else { setMeta(data.error || 'Something went wrong. Please try again.', 'error'); }
-    } catch (err) {
-      setMeta('Could not submit right now — please email pledges@pironlegacy.org.', 'error');
-    } finally { pfSubmit.disabled = false; pfSubmit.textContent = 'Submit My Pledge'; }
-    return;
+  pfSubmit.disabled = true; pfSubmit.textContent = 'Submitting…'; setMeta('Submitting your pledge…');
+
+  // POST the form to Netlify Forms (url-encoded, includes form-name).
+  const body = new URLSearchParams(new FormData(pledgeForm)).toString();
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    });
+    if (!res.ok) throw new Error('status ' + res.status);
+    pledgeForm.reset(); otherWrap.classList.add('hidden');
+    setMeta('Thank you — your pledge is in. We\'ll be in touch shortly.', 'success');
+  } catch (err) {
+    // Never lose a pledge: fall back to a pre-filled email.
+    emailFallback({
+      amount: getAmount(), name: name, email: email,
+      phone: document.getElementById('pf-phone').value.trim(),
+      recognition: document.getElementById('pf-name-recognition').value.trim(),
+      message: document.getElementById('pf-msg').value.trim()
+    });
+    setMeta('Opening your email to confirm the pledge — just hit send.', 'success');
+  } finally {
+    pfSubmit.disabled = false; pfSubmit.textContent = 'Submit My Pledge';
   }
-
-  // Path B: no backend yet → open a pre-filled email so it still works
-  const subject = encodeURIComponent('Piron Legacy Scholarship — Pledge: ' + payload.amount);
-  const body = encodeURIComponent(
-    'I\'d like to make a leadership pledge to the Dennis Piron Legacy Scholarship.\n\n' +
-    'Pledge amount: ' + payload.amount + '\n' +
-    'Name: ' + payload.name + '\n' +
-    'Email: ' + payload.email + '\n' +
-    'Phone: ' + (payload.phone || '—') + '\n' +
-    'Recognize as: ' + (payload.recognition || '—') + '\n' +
-    'Note: ' + (payload.message || '—') + '\n\n' +
-    'I understand this pledge is contingent on securing the Dunham Foundation matching grant, ' +
-    'and that no payment is due today.'
-  );
-  window.location.href = 'mailto:' + PLEDGE_FALLBACK_EMAIL + '?subject=' + subject + '&body=' + body;
-  setMeta('Opening your email to confirm the pledge — just hit send.', 'success');
 });
+
+function emailFallback(p) {
+  const subject = encodeURIComponent('Piron Legacy Scholarship — Pledge: ' + p.amount);
+  const lines = [
+    'I\'d like to make a leadership pledge to the Dennis Piron Legacy Scholarship.', '',
+    'Pledge amount: ' + p.amount,
+    'Name: ' + p.name,
+    'Email: ' + p.email,
+    'Phone: ' + (p.phone || '—'),
+    'Recognize as: ' + (p.recognition || '—'),
+    'Note: ' + (p.message || '—'), '',
+    'I understand this pledge is contingent on securing the Dunham Foundation matching grant, and that no payment is due today.'
+  ];
+  window.location.href = 'mailto:' + PLEDGE_FALLBACK_EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(lines.join('\n'));
+}
 </script>
 
 </body>

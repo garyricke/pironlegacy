@@ -1,75 +1,24 @@
-# Pledge capture → Google Sheet (optional but recommended)
+# Pledge capture → Netlify Forms
 
-This wires the pledge form on `index.html` to a Google Sheet via a free Google Apps Script Web App — the same pattern the INCubator comments page already uses. ~10 minutes.
+The pledge form on the landing page is wired to **Netlify Forms**. No backend, no third-party service — Netlify captures every submission automatically because the site is hosted there.
 
-## 1. Create the sheet
-1. New Google Sheet, name it **Piron Legacy — Pledges**.
-2. Row 1 headers (exact order): `timestamp | amount | name | email | phone | recognition | message | contingent_ack`
+## How it's wired (already done in `index.html`)
+- The `<form>` has `name="pledge" method="POST" data-netlify="true" netlify-honeypot="website"`.
+- Hidden `<input name="form-name" value="pledge">` tells Netlify which form it is.
+- A hidden `amount_display` field is filled by JS with a clean value (e.g. `$2,500`) so the dashboard record is readable even when "Other" is chosen.
+- On submit, JS POSTs the form to Netlify via AJAX (no page reload) and shows an inline "thank you." If that POST ever fails, it falls back to opening a pre-filled email to `pledges@pironlegacy.org`, so a pledge is never lost.
+- The off-screen `website` field is a honeypot; Netlify silently drops submissions that fill it.
 
-## 2. Add the Apps Script
-1. In the sheet: **Extensions → Apps Script**.
-2. Replace the default code with:
+## What you need to do once (in the Netlify dashboard)
+1. **Deploy** (already happens on every `git push`). Netlify detects the form by parsing the deployed HTML — after the first deploy with these attributes, a form named **`pledge`** appears under **Site → Forms**.
+2. **Submit one test pledge** on the live site to confirm it lands in **Forms → pledge**.
+3. **Turn on notifications:** Site configuration → **Forms → Form notifications → Add notification → Email notification** → send to your inbox (e.g. gary.ricke@orbisdesign.com). Optionally add a Slack notification.
+4. (Optional) **Spam filtering:** Netlify runs Akismet automatically; the honeypot adds a second layer.
 
-```javascript
-const SHEET_NAME = 'Sheet1'; // tab name
+## Fields captured per pledge
+`amount` (radio value) · `amount_display` (clean $ string) · `otherAmount` · `name` · `email` · `phone` · `recognition` · `message` · `ack` (checkbox) — plus Netlify's timestamp.
 
-function doPost(e) {
-  try {
-    const data = JSON.parse(e.postData.contents);
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    sheet.appendRow([
-      new Date(),
-      data.amount || '',
-      data.name || '',
-      data.email || '',
-      data.phone || '',
-      data.recognition || '',
-      data.message || '',
-      data.contingent_ack ? 'yes' : 'no'
-    ]);
-    return json({ status: 'ok' });
-  } catch (err) {
-    return json({ status: 'error', error: String(err) });
-  }
-}
-
-function json(obj) {
-  return ContentService
-    .createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-```
-
-3. **Deploy → New deployment → type: Web app.**
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-   - Deploy, authorize, and copy the **Web App URL** (ends in `/exec`).
-
-## 3. Connect the page
-In `index.html`, find near the bottom:
-
-```js
-const PLEDGE_API_URL = '';
-```
-
-Paste your URL:
-
-```js
-const PLEDGE_API_URL = 'https://script.google.com/macros/s/AKfyc...../exec';
-```
-
-Re-deploy the site. Pledges now land in the sheet, and the donor sees a "thank you" inline instead of an email popup.
-
-## 4. (Recommended) Get notified on each pledge
-In Apps Script, add inside `doPost`, right after `appendRow`:
-
-```javascript
-MailApp.sendEmail('gary.ricke@orbisdesign.com',
-  'New Piron pledge: ' + (data.amount || ''),
-  data.name + ' (' + data.email + ') — ' + (data.phone || 'no phone') + '\n' + (data.message || ''));
-```
-
-## Notes
-- The form posts JSON with **no Content-Type header** on purpose — that keeps it a "simple" CORS request so Apps Script doesn't need a preflight.
-- A honeypot field (`website`) blocks basic bots. The form also requires the contingency checkbox.
-- If `PLEDGE_API_URL` is ever blank or unreachable, the form automatically falls back to the email-to-committee flow, so you never lose a pledge.
+## Notes / gotchas
+- Netlify only registers the form if it's present in the **static HTML** at deploy time — it is, so detection is automatic. (The pre-launch password gate is just a visual overlay; the form markup is still in the HTML, so detection still works.)
+- Exports: Forms → pledge → **Download CSV** any time.
+- Free tier covers 100 submissions/month — plenty for a lead-donor campaign.

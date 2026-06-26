@@ -23,9 +23,7 @@ The page and one-sheet reference `pledges@pironlegacy.org`. Set it up free with 
 
 ## Pledge capture
 
-Out of the box the pledge form uses an **email fallback** — on submit it opens the donor's email client pre-filled to `pledges@pironlegacy.org`. That works on day one with zero backend.
-
-To capture pledges silently into a **Google Sheet** instead (recommended for a week-long push so nothing gets lost), follow `pledge-setup.md` and paste the resulting Apps Script URL into `PLEDGE_API_URL` near the bottom of `index.html`.
+The pledge form is wired to **Netlify Forms** — submissions are captured automatically and appear under **Site → Forms → pledge**. After the first deploy, submit one test pledge to confirm it lands, then turn on an **email notification** (Site configuration → Forms → Form notifications). Full steps in `pledge-setup.md`. If a submission ever fails to POST, the form falls back to opening a pre-filled email to `pledges@pironlegacy.org`, so a pledge is never lost.
 
 ## After you go live
 
