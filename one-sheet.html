@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dennis Piron Legacy Scholarship — One-Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#FACC08; --maroon:#AC161D; --black:#111; --ink:#1a1a1a; --muted:#5b5b5b; --paper:#f7f5f0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Open Sans',sans-serif; color:var(--ink); background:#e9e9e9; line-height:1.4; }
+h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
+
+/* Screen toolbar */
+.toolbar{ position:fixed; top:0; left:0; right:0; background:#111; color:#fff; padding:10px 18px;
+  display:flex; align-items:center; justify-content:space-between; z-index:50; font-size:.9rem; }
+.toolbar b{ font-family:'Montserrat',sans-serif; }
+.toolbar button{ font-family:'Montserrat',sans-serif; font-weight:700; background:var(--gold); color:#000;
+  border:none; border-radius:50px; padding:9px 20px; cursor:pointer; }
+
+/* The printable sheet — US Letter */
+.sheet{
+  width:8.5in; min-height:11in; margin:64px auto 40px; background:#fff;
+  box-shadow:0 12px 50px rgba(0,0,0,.25); position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.pad{ padding:0.5in 0.55in; display:flex; flex-direction:column; flex:1; }
+
+/* Masthead */
+.mast{ border-bottom:3px solid var(--gold); padding-bottom:14px; margin-bottom:16px;
+  display:flex; justify-content:space-between; align-items:flex-end; }
+.mast .title{ }
+.mast .eyebrow{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:8.5pt; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--maroon); margin-bottom:5px; }
+.mast h1{ font-size:25pt; font-weight:900; color:var(--black); letter-spacing:-.3px; }
+.mast h1 .g{ color:var(--maroon); }
+.mast .sub{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:9pt; letter-spacing:1px;
+  text-transform:uppercase; color:var(--muted); margin-top:3px; }
+.mast .crest{ text-align:right; font-family:'Montserrat',sans-serif; }
+.mast .crest .yrs{ font-size:30pt; font-weight:900; color:var(--gold); line-height:.9;
+  -webkit-text-stroke:1.2px var(--black); }
+.mast .crest .yrs-l{ font-size:7.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+
+/* Lead statement */
+.lead{ font-size:11.5pt; color:#222; margin-bottom:14px; }
+.lead strong{ color:var(--black); }
+
+/* Match banner */
+.match{ background:var(--black); color:#fff; border-radius:12px; padding:14px 20px; margin-bottom:16px;
+  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center; }
+.match .m-amt{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:18pt; }
+.match .m-amt.you{ color:#fff; } .match .m-amt.them{ color:var(--gold); }
+.match .m-op{ font-size:14pt; color:#999; font-family:'Montserrat',sans-serif; font-weight:900; }
+.match .m-cap{ font-size:9.5pt; color:#ddd; font-weight:600; width:100%; margin-top:2px; }
+.match .m-cap strong{ color:var(--gold); }
+
+/* Three numbers */
+.nums{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
+.num{ border:1.5px solid #e2ddd0; border-radius:10px; padding:12px 12px; text-align:center; background:var(--paper); }
+.num .n{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:20pt; color:var(--maroon); line-height:1; }
+.num .nl{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:7.5pt; letter-spacing:1.2px;
+  text-transform:uppercase; color:var(--muted); margin:5px 0 4px; }
+.num .nd{ font-size:8.5pt; color:#444; line-height:1.35; }
+
+/* Two-column body */
+.cols{ display:grid; grid-template-columns:1.25fr 1fr; gap:22px; flex:1; }
+.col h3{ font-size:11pt; font-weight:800; color:var(--black); margin-bottom:8px;
+  border-left:3px solid var(--gold); padding-left:8px; }
+.col p{ font-size:9.8pt; color:#333; margin-bottom:9px; }
+.steps{ list-style:none; counter-reset:s; margin:0; padding:0; }
+.steps li{ counter-increment:s; position:relative; padding-left:26px; margin-bottom:9px; font-size:9.8pt; color:#333; }
+.steps li::before{ content:counter(s); position:absolute; left:0; top:0; width:18px; height:18px; border-radius:50%;
+  background:var(--maroon); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:8.5pt;
+  display:flex; align-items:center; justify-content:center; }
+.steps li strong{ color:var(--black); }
+
+.quote{ border-left:3px solid var(--gold); padding:2px 0 2px 12px; margin:4px 0 12px; font-family:Georgia,serif;
+  font-style:italic; font-size:10pt; color:#222; }
+.quote cite{ display:block; font-family:'Montserrat',sans-serif; font-style:normal; font-weight:700; font-size:7.5pt;
+  letter-spacing:1px; text-transform:uppercase; color:var(--maroon); margin-top:5px; }
+
+/* QR / give box */
+.give{ background:var(--gold); border-radius:12px; padding:14px 16px; display:flex; gap:14px; align-items:center; }
+.give .qr{ width:104px; height:104px; background:#fff; border-radius:8px; padding:6px; flex-shrink:0; }
+.give .qr svg{ width:100%; height:100%; display:block; }
+.give .gtxt h4{ font-size:11pt; font-weight:900; color:#000; margin-bottom:3px; }
+.give .gtxt .url{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:12pt; color:var(--maroon); }
+.give .gtxt p{ font-size:8.7pt; color:#3a3a1a; margin-top:5px; line-height:1.35; }
+.give .gtxt .ph{ font-weight:700; color:#000; }
+
+/* Footer */
+.foot{ margin-top:14px; border-top:1.5px solid #e2ddd0; padding-top:10px; }
+.foot .committee{ font-size:8.7pt; color:#333; margin-bottom:6px; }
+.foot .committee b{ font-family:'Montserrat',sans-serif; color:var(--black); }
+.foot .tax{ font-size:7.6pt; color:#777; line-height:1.4; }
+
+/* Print */
+@page{ size:Letter; margin:0; }
+@media print{
+  body{ background:#fff; }
+  .toolbar{ display:none; }
+  .sheet{ width:auto; min-height:auto; margin:0; box-shadow:none; }
+  .num,.give .qr{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <b>Dennis Piron Legacy Scholarship — Print Leave-Behind</b>
+  <span>US Letter · prints to 1 page</span>
+  <button onclick="window.print()">⬇ Save as PDF / Print</button>
+</div>
+
+<div class="sheet">
+  <div class="pad">
+
+    <!-- Masthead -->
+    <div class="mast">
+      <div class="title">
+        <div class="eyebrow">A Permanent Tribute · Batavia, Illinois</div>
+        <h1>The Dennis Piron<br><span class="g">Legacy Scholarship</span></h1>
+        <div class="sub">Endow it forever · No annual fundraising</div>
+      </div>
+      <div class="crest">
+        <div class="yrs">10</div>
+        <div class="yrs-l">Years of<br>INCubator@BHS</div>
+      </div>
+    </div>
+
+    <!-- Lead -->
+    <p class="lead">For a decade, Dennis Piron turned Batavia High School students into entrepreneurs — coaching them from a raw idea all the way to pitch night. We're raising <strong>$80,000 to permanently endow a scholarship in his name</strong>, so a graduating senior is honored every year, forever.</p>
+
+    <!-- Match banner -->
+    <div class="match">
+      <span class="m-amt you">Your $2,500</span>
+      <span class="m-op">+</span>
+      <span class="m-amt them">$2,500 match</span>
+      <span class="m-op">=</span>
+      <span class="m-amt them">$5,000</span>
+      <span class="m-cap">Every gift is <strong>matched dollar-for-dollar</strong> by the Dunham Foundation, up to $40,000.</span>
+    </div>
+
+    <!-- Three numbers -->
+    <div class="nums">
+      <div class="num"><div class="n">$80K</div><div class="nl">Endowment Goal</div><div class="nd">Funds the scholarship in perpetuity — no annual asks.</div></div>
+      <div class="num"><div class="n">$40K</div><div class="nl">Community Half</div><div class="nd">Raised from lead donors — the trigger for the match.</div></div>
+      <div class="num"><div class="n">$40K</div><div class="nl">Dunham Match</div><div class="nd">Dollar-for-dollar grant requested from the Dunham Foundation.</div></div>
+    </div>
+
+    <!-- Two columns -->
+    <div class="cols">
+      <div class="col">
+        <h3>Why it matters</h3>
+        <p>Through the BHS INCubator program, Dennis guided countless students as they built real businesses — teaching pro-forma financials, teamwork, and the courage to bring an idea to life.</p>
+        <div class="quote">"There's a tough love that prepares them in ways I don't know that college does. Nobody like him. Nobody."<cite>— Gary Ricke, Mentor</cite></div>
+        <h3>How your pledge works</h3>
+        <ol class="steps">
+          <li><strong>You pledge</strong> a leadership gift of $2,000–$5,000 — contingent on the match. Nothing is charged today.</li>
+          <li><strong>We secure the match.</strong> Lead pledges are the evidence that unlocks the Dunham grant.</li>
+          <li><strong>It's endowed — forever,</strong> held by the Batavia Foundation for Educational Excellence.</li>
+        </ol>
+      </div>
+
+      <div class="col">
+        <h3>Pledge today</h3>
+        <div class="give">
+          <div class="qr">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><path transform="scale(1)" stroke="#000" d="M2 2.5h7m3 0h1m1 0h1m5 0h3m1 0h7m-29 1h1m5 0h1m1 0h1m4 0h2m2 0h3m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m1 0h2m3 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h2m1 0h2m2 0h2m1 0h2m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m2 0h1m1 0h1m1 0h3m-14 1h4m1 0h1m3 0h2m3 0h1m1 0h1m1 0h2m3 0h1m-28 1h1m1 0h2m1 0h1m2 0h5m4 0h2m2 0h4m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h2m2 0h1m2 0h1m3 0h1m-29 1h1m2 0h2m4 0h1m1 0h1m3 0h5m1 0h1m1 0h1m1 0h1m1 0h2m-29 1h3m2 0h2m1 0h2m6 0h5m2 0h1m1 0h1m2 0h1m-29 1h1m2 0h2m3 0h2m1 0h2m2 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h1m-29 1h1m2 0h1m2 0h1m2 0h1m1 0h1m2 0h3m1 0h1m2 0h1m2 0h1m3 0h1m-27 1h4m2 0h2m2 0h3m2 0h1m4 0h2m1 0h1m1 0h1m-26 1h1m2 0h3m2 0h1m5 0h1m1 0h2m7 0h2m-29 1h1m2 0h3m2 0h6m3 0h2m3 0h3m1 0h1m1 0h1m-27 1h2m2 0h3m6 0h1m1 0h1m2 0h1m4 0h1m2 0h1m-27 1h1m2 0h1m3 0h1m1 0h3m4 0h3m2 0h1m1 0h1m-26 1h2m1 0h2m1 0h1m1 0h2m1 0h1m1 0h3m4 0h6m1 0h1m-20 1h5m4 0h1m2 0h1m3 0h1m1 0h1m1 0h1m-29 1h7m1 0h3m1 0h2m2 0h1m2 0h2m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m1 0h1m1 0h1m4 0h6m3 0h2m-26 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h3m1 0h8m2 0h2m-29 1h1m1 0h3m1 0h1m3 0h1m1 0h1m3 0h2m5 0h1m2 0h2m-28 1h1m1 0h3m1 0h1m4 0h1m3 0h1m3 0h3m3 0h4m-29 1h1m5 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m-29 1h7m2 0h2m6 0h1m2 0h1m1 0h1m1 0h2m1 0h1"/></svg>
+          </div>
+          <div class="gtxt">
+            <h4>Scan to pledge →</h4>
+            <div class="url">pironlegacy.org</div>
+            <p>Or text/call <span class="ph">630-699-3040</span><br>pledges@pironlegacy.org</p>
+          </div>
+        </div>
+        <h3 style="margin-top:14px;">Watch the tribute</h3>
+        <p style="font-size:9.3pt;">23 voices — students, coaches, mentors, parents, and board members — on ten years of Coach Piron. Watch the 16-minute reel at <strong>pironlegacy.org</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="foot">
+      <div class="committee"><b>Steering Committee:</b> Dave Brown · Bob Hansen · Rob Hollis · Bob Hubbard · Gary Ricke · Bob Vaughan</div>
+      <div class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3). Contributions are tax-deductible to the extent allowed by law. Pledges are contingent on securing the Dunham Foundation matching grant; no payment is due at the time of pledge.</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

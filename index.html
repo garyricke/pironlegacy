@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dennis Piron Legacy Scholarship — Endow It Forever</title>
+<meta name="description" content="Help permanently endow the Dennis Piron Legacy Scholarship through the Batavia Foundation for Educational Excellence. Every gift is matched dollar-for-dollar by the Dunham Foundation, up to $40,000. Make a leadership pledge today.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pironlegacy.org/">
+<meta property="og:title" content="The Dennis Piron Legacy Scholarship">
+<meta property="og:description" content="Endow it forever. Every gift matched dollar-for-dollar by the Dunham Foundation, up to $40,000. Honoring Dennis Piron's decade of building entrepreneurs at Batavia High School.">
+<meta property="og:site_name" content="Dennis Piron Legacy Scholarship">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ───── RESET & BASE ───── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.12; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ───── PALETTE ───── */
+:root {
+  --gold:   #FACC08;
+  --maroon: #AC161D;
+  --black:  #000000;
+  --ink:    #1a1a1a;
+  --muted:  #5b5b5b;
+  --silver: #D1D1D1;
+  --paper:  #f7f5f0;
+}
+
+/* ───── UTILITY ───── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin-bottom: 14px;
+}
+.eyebrow.on-dark { color: var(--gold); }
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 640px;
+}
+.center { text-align: center; }
+.center .section-sub { margin-left: auto; margin-right: auto; }
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  border: 2px solid transparent;
+  letter-spacing: .5px;
+  text-align: center;
+}
+.btn-gold { background: var(--gold); color: var(--black); box-shadow: 0 6px 24px rgba(250,204,8,.4); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(250,204,8,.55); }
+.btn-maroon { background: var(--maroon); color: #fff; box-shadow: 0 6px 24px rgba(172,22,29,.35); }
+.btn-maroon:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(172,22,29,.5); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.btn-outline:hover { background: #fff; color: var(--black); border-color: #fff; }
+
+/* ───── NAV ───── */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 16px 0;
+  transition: background .35s ease, padding .35s ease, box-shadow .35s ease;
+  background: transparent;
+}
+.navbar.scrolled {
+  background: rgba(0,0,0,.92);
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+.nav-brand .nb-name {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: 1.05rem; letter-spacing: .5px; color: #fff;
+}
+.nav-brand .nb-sub {
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: .62rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-top: 3px;
+}
+.nav-cta {
+  padding: 10px 24px; font-size: .9rem; border-radius: 50px;
+  background: var(--gold); color: var(--black);
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  text-decoration: none; transition: all .25s ease;
+  letter-spacing: .5px; white-space: nowrap;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(250,204,8,.5); }
+
+/* ───── HERO ───── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  color: #fff;
+  padding: 140px 24px 80px;
+  background: radial-gradient(125% 125% at 78% 8%, #2a1416 0%, #140d0d 46%, #000 100%);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(46% 40% at 76% 40%, rgba(250,204,8,.12), transparent 70%);
+}
+.hero-inner {
+  position: relative; z-index: 3; width: 100%;
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center;
+}
+.hero-copy { max-width: 600px; }
+.hero-badge { width: 88px; height: 88px; margin-bottom: 22px; filter: drop-shadow(0 8px 24px rgba(0,0,0,.5)); }
+.hero h1 {
+  font-size: clamp(2.1rem, 4.8vw, 3.7rem);
+  font-weight: 900;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 30px rgba(0,0,0,.5);
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  margin-bottom: 18px;
+  max-width: 560px;
+  color: #ececec;
+}
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.hero-matchpill {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 26px; padding: 10px 22px;
+  background: rgba(250,204,8,.16);
+  border: 1px solid rgba(250,204,8,.5);
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: .9rem; color: #fff; letter-spacing: .3px;
+}
+.hero-matchpill strong { color: var(--gold); }
+.hero-video-col { display: flex; flex-direction: column; align-items: center; }
+.hero-video-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 14px; text-align: center;
+}
+.hero-video-col .video-player-wrap { max-width: 330px; width: 100%; }
+
+/* ───── MATCH / MATH SECTION ───── */
+.match { background: var(--gold); padding: 96px 0; }
+.match .eyebrow { color: var(--maroon); }
+.match h2 { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 900; color: var(--black); margin-bottom: 14px; }
+.match-lead { font-size: 1.15rem; color: #2a2a2a; max-width: 680px; margin: 0 auto 52px; }
+.match-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  max-width: 940px; margin: 0 auto 44px;
+}
+.match-card {
+  background: #fff; border-radius: 16px; padding: 34px 26px; text-align: center;
+  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+}
+.match-card.lead { background: var(--black); color: #fff; transform: scale(1.04); }
+.match-card .mc-num {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 3.2rem); line-height: 1; margin-bottom: 8px; color: var(--maroon);
+}
+.match-card.lead .mc-num { color: var(--gold); }
+.match-card .mc-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.match-card.lead .mc-label { color: var(--silver); }
+.match-card .mc-desc { font-size: .95rem; color: #444; }
+.match-card.lead .mc-desc { color: #e2e2e2; }
+.match-doubler {
+  max-width: 760px; margin: 0 auto; background: var(--black); color: #fff;
+  border-radius: 18px; padding: 36px 40px; text-align: center;
+}
+.match-doubler .md-row {
+  display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+}
+.match-doubler .md-amt { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.match-doubler .md-amt.you { color: #fff; }
+.match-doubler .md-amt.them { color: var(--gold); }
+.match-doubler .md-plus, .match-doubler .md-eq { font-size: 1.6rem; color: var(--silver); }
+.match-doubler .md-cap { margin-top: 14px; font-family: 'Open Sans', sans-serif; font-weight: 600; color: #d8d8d8; font-size: 1rem; }
+.match-doubler .md-cap strong { color: var(--gold); }
+
+/* ───── HONOR / IMPACT ───── */
+.honor { padding: 100px 0; background: #fff; }
+.honor-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+.honor-photo { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+.honor-photo img { width: 100%; height: 100%; object-fit: cover; }
+.honor-copy h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 900; margin-bottom: 18px; }
+.honor-copy p { font-size: 1.08rem; color: #333; margin-bottom: 16px; }
+.honor-quote {
+  border-left: 4px solid var(--gold); padding: 6px 0 6px 22px; margin: 26px 0 0;
+  font-family: Georgia, serif; font-style: italic; font-size: 1.1rem; color: var(--ink);
+}
+.honor-quote cite {
+  display: block; margin-top: 10px; font-family: 'Montserrat', sans-serif; font-style: normal;
+  font-weight: 700; font-size: .8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--maroon);
+}
+
+/* ───── TRIBUTE VIDEO ───── */
+.tributes { padding: 100px 0; background: var(--black); color: #e8e8e8; }
+.tributes .eyebrow { color: var(--gold); }
+.tributes .section-title { color: #fff; }
+.tributes-intro { text-align: center; max-width: 760px; margin: 0 auto 50px; }
+.tributes-intro p { font-size: 1.1rem; color: #d8d8d8; }
+.video-player-wrap { max-width: 420px; margin: 0 auto; }
+.video-player-title { text-align: center; font-size: 1.4rem; font-weight: 900; margin-bottom: 22px; color: #fff; }
+.video-player {
+  position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(250,204,8,.18), 0 8px 28px rgba(0,0,0,.6); background: #000; cursor: pointer;
+}
+.video-player video { width: 100%; height: 100%; object-fit: cover; }
+.video-player-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.45) 100%);
+  transition: opacity .3s ease; z-index: 2;
+}
+.video-player.is-playing-with-sound .video-player-overlay { opacity: 0; pointer-events: none; }
+.video-play-btn {
+  width: 84px; height: 84px; border-radius: 50%; background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4), 0 0 0 8px rgba(255,255,255,.18);
+  transition: transform .25s ease;
+}
+.video-player:hover .video-play-btn { transform: scale(1.08); }
+.video-play-btn svg { width: 30px; height: 30px; margin-left: 4px; fill: var(--black); }
+.video-hint {
+  position: absolute; bottom: 18px; left: 0; right: 0; text-align: center;
+  font-family: 'Montserrat', sans-serif; font-size: .72rem; letter-spacing: 2px;
+  text-transform: uppercase; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.5);
+  font-weight: 600; z-index: 3; pointer-events: none;
+}
+
+/* ───── HOW IT WORKS ───── */
+.how { padding: 100px 0; background: var(--paper); }
+.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
+.how-step { background: #fff; border-radius: 16px; padding: 32px 28px; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+.how-step .hs-num {
+  width: 42px; height: 42px; border-radius: 50%; background: var(--maroon); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.1rem; margin-bottom: 18px;
+}
+.how-step h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+.how-step p { font-size: 1rem; color: #444; }
+
+/* ───── PLEDGE FORM ───── */
+.pledge { padding: 100px 0; background: #fff; }
+.pledge-shell { max-width: 760px; margin: 0 auto; }
+.pledge-card {
+  background: var(--paper); border: 1px solid #e8e4da; border-radius: 20px;
+  padding: 44px 40px; box-shadow: 0 16px 50px rgba(0,0,0,.07);
+}
+.pledge-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 22px; }
+.amt-opt { position: relative; }
+.amt-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.amt-opt label {
+  display: block; text-align: center; padding: 16px 8px; border: 2px solid #d4cfc1; border-radius: 12px;
+  background: #fff; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 800;
+  font-size: 1.15rem; color: var(--ink); transition: all .18s ease;
+}
+.amt-opt input:checked + label { border-color: var(--maroon); background: var(--maroon); color: #fff; box-shadow: 0 8px 20px rgba(172,22,29,.25); }
+.amt-opt.other label { font-size: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-field { display: flex; flex-direction: column; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+}
+.form-field input, .form-field textarea {
+  font-family: 'Open Sans', sans-serif; font-size: 1rem; padding: 13px 14px;
+  border: 1px solid #d4cfc1; border-radius: 10px; background: #fff; color: var(--ink);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-field input:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(172,22,29,.15);
+}
+.form-field textarea { resize: vertical; min-height: 90px; }
+#otherAmountWrap { margin-bottom: 16px; }
+#otherAmountWrap.hidden { display: none; }
+.pledge-ack {
+  display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 22px;
+  font-size: .95rem; color: #333;
+}
+.pledge-ack input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--maroon); }
+.form-honeypot { position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; }
+.pledge-submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.pledge-submit-row .btn { flex: 0 0 auto; }
+.form-meta { font-size: .9rem; color: var(--muted); }
+.form-meta.is-success { color: #2a7d3a; font-weight: 700; }
+.form-meta.is-error { color: var(--maroon); font-weight: 700; }
+.pledge-note { font-size: .85rem; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+.pledge-note strong { color: var(--ink); }
+
+/* ───── COMMITTEE ───── */
+.committee { padding: 90px 0; background: var(--black); color: #ddd; text-align: center; }
+.committee .eyebrow { color: var(--gold); }
+.committee h2 { color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 900; margin-bottom: 14px; }
+.committee p.lead { max-width: 640px; margin: 0 auto 36px; color: #cfcfcf; font-size: 1.05rem; }
+.committee-names {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 0; max-width: 720px; margin: 0 auto;
+}
+.committee-names span {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; font-size: 1.05rem;
+  padding: 0 26px; position: relative;
+}
+.committee-names span:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+}
+
+/* ───── FINAL CTA ───── */
+.finalcta { padding: 90px 0; background: var(--gold); text-align: center; }
+.finalcta h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; color: var(--black); margin-bottom: 16px; }
+.finalcta p { font-size: 1.15rem; color: #2a2a2a; max-width: 600px; margin: 0 auto 30px; }
+
+/* ───── FOOTER ───── */
+.footer { background: var(--black); color: #888; text-align: center; padding: 40px 24px; font-size: .9rem; line-height: 1.7; }
+.footer a { color: #aaa; text-decoration: underline; }
+.footer .tax { max-width: 720px; margin: 0 auto 14px; color: #777; font-size: .82rem; }
+
+/* ───── MOBILE ───── */
+@media (max-width: 860px) {
+  .hero { min-height: auto; padding: 120px 24px 70px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 44px; }
+  .hero-copy { max-width: 640px; }
+  .hero-video-col { order: 2; }
+  .match-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .match-card.lead { transform: none; }
+  .honor-grid { grid-template-columns: 1fr; gap: 36px; }
+  .how-steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+  .pledge-amounts { grid-template-columns: 1fr 1fr; }
+  .pledge-card { padding: 32px 22px; }
+  .committee-names span { padding: 0 14px; }
+  .hero { padding: 110px 20px 70px; }
+  .hero-ctas .btn { width: 100%; }
+}
+
+/* ============================================================
+   Admin entry — discreet badge → password modal → slide-in panel
+   ============================================================ */
+:root {
+  --adm-accent:        #FACC08;
+  --adm-accent-hover:  #ffd84d;
+  --adm-ink:           #f1ece2;
+  --adm-panel-bg:      linear-gradient(165deg, #2a1416 0%, #140d0d 45%, #000 100%);
+  --adm-modal-bg:      rgba(20,13,13,0.97);
+  --adm-modal-ink:     #161310;
+  --adm-font-display:  'Montserrat', system-ui, sans-serif;
+  --adm-font-body:     'Open Sans', system-ui, sans-serif;
+}
+#adm { position: fixed; bottom: 24px; right: 24px; z-index: 900; font-family: var(--adm-font-display); }
+#adm-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--adm-accent) 35%, transparent);
+  background: rgba(20,13,13,0.4); color: color-mix(in srgb, var(--adm-accent) 55%, transparent);
+  font-size: 0.95rem; cursor: pointer; opacity: 0.35; padding: 0; line-height: 1; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .25s, color .25s, border-color .25s, background .25s;
+}
+#adm-btn:hover, #adm-btn:focus-visible, #adm[aria-expanded="true"] #adm-btn {
+  opacity: 1; color: var(--adm-accent); border-color: var(--adm-accent);
+  background: rgba(20,13,13,0.9); outline: none;
+}
+#adm-lock {
+  position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center;
+  background: rgba(8,4,4,0.74); backdrop-filter: blur(6px); font-family: var(--adm-font-body);
+  animation: admFade .2s ease-out;
+}
+#adm-lock[hidden] { display: none; }
+#adm-lock-box {
+  position: relative; background: var(--adm-modal-bg);
+  border: 1px solid color-mix(in srgb, var(--adm-accent) 30%, transparent);
+  border-radius: 16px; padding: 40px 36px; width: min(380px, 90vw); text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+}
+#adm-lock-box img { height: 64px; margin: 0 auto 18px; display: block; }
+#adm-lock-box h2 { font-family: var(--adm-font-display); font-size: 1.5rem; font-weight: 900; color: var(--adm-accent); letter-spacing: 0.04em; margin: 0 0 6px; }
+#adm-lock-box .adm-lock-sub { font-size: 0.82rem; color: color-mix(in srgb, var(--adm-ink) 55%, transparent); margin: 0 0 24px; letter-spacing: 0.02em; }
+#adm-lock-input {
+  width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.3);
+  border: 1px solid color-mix(in srgb, var(--adm-accent) 30%, transparent);
+  border-radius: 8px; color: #fff; font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .2s;
+}
+#adm-lock-input:focus { border-color: var(--adm-accent); }
+#adm-lock-btn {
+  margin-top: 14px; width: 100%; padding: 12px; background: var(--adm-accent); color: var(--adm-modal-ink);
+  border: 0; border-radius: 8px; font-family: var(--adm-font-display); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; transition: background .2s;
+}
+#adm-lock-btn:hover { background: var(--adm-accent-hover); }
+#adm-lock-error { font-size: 0.78rem; color: #ff7a7a; margin: 12px 0 0; min-height: 1.1em; }
+.adm-shake { animation: admShake .35s; }
+@keyframes admShake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-7px)} 40%,80%{transform:translateX(7px)} }
+@keyframes admFade { from { opacity: 0; } to { opacity: 1; } }
+#adm-scrim { position: fixed; inset: 0; z-index: 1100; background: rgba(8,4,4,0.55); backdrop-filter: blur(2px); animation: admFade .25s ease-out; }
+#adm-scrim[hidden] { display: none; }
+#adm-panel {
+  position: fixed; top: 0; right: 0; z-index: 1110; width: min(340px, 88vw); height: 100%;
+  background: var(--adm-panel-bg);
+  border-left: 1px solid color-mix(in srgb, var(--adm-accent) 30%, transparent);
+  box-shadow: -24px 0 70px rgba(0,0,0,0.5); transform: translateX(100%);
+  transition: transform .34s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; font-family: var(--adm-font-body);
+}
+#adm-panel.open { transform: translateX(0); }
+.adm-panel-head { display: flex; align-items: flex-end; justify-content: space-between; padding: 26px 24px 18px; border-bottom: 1px solid color-mix(in srgb, var(--adm-accent) 18%, transparent); }
+.adm-eyebrow { display: block; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: color-mix(in srgb, var(--adm-accent) 85%, transparent); margin-bottom: 4px; }
+.adm-panel-brand h3 { font-family: var(--adm-font-display); font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 0.03em; margin: 0; line-height: 1; }
+#adm-panel-close { background: transparent; border: 0; cursor: pointer; color: color-mix(in srgb, var(--adm-ink) 60%, transparent); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; transition: color .15s, background .15s; }
+#adm-panel-close svg { width: 20px; height: 20px; }
+#adm-panel-close:hover { color: var(--adm-accent); background: color-mix(in srgb, var(--adm-accent) 12%, transparent); }
+.adm-links { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+.adm-links a { display: flex; align-items: flex-start; gap: 13px; padding: 13px 14px; border-radius: 10px; text-decoration: none; color: var(--adm-ink); border: 1px solid transparent; transition: background .15s, border-color .15s, transform .15s; }
+.adm-links a:hover { background: color-mix(in srgb, var(--adm-accent) 10%, transparent); border-color: color-mix(in srgb, var(--adm-accent) 28%, transparent); transform: translateX(-2px); }
+.adm-ic { flex: none; width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--adm-accent) 14%, transparent); color: var(--adm-accent); border: 1px solid color-mix(in srgb, var(--adm-accent) 22%, transparent); }
+.adm-ic svg { width: 20px; height: 20px; }
+.adm-links a:hover .adm-ic { background: color-mix(in srgb, var(--adm-accent) 22%, transparent); }
+.adm-txt { display: flex; flex-direction: column; gap: 2px; padding-top: 1px; }
+.adm-txt b { font-weight: 700; font-size: 0.92rem; color: #fff; letter-spacing: 0.01em; }
+.adm-txt small { font-size: 0.72rem; line-height: 1.4; color: color-mix(in srgb, var(--adm-ink) 62%, transparent); font-weight: 400; }
+.adm-panel-foot { padding: 14px 18px 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+#adm-lock-out { display: flex; align-items: center; gap: 9px; width: 100%; padding: 11px 14px; background: transparent; border: 1px solid rgba(255,255,255,0.14); border-radius: 9px; color: color-mix(in srgb, var(--adm-ink) 60%, transparent); font-family: var(--adm-font-body); font-size: 0.8rem; letter-spacing: 0.02em; cursor: pointer; transition: color .15s, border-color .15s, background .15s; }
+#adm-lock-out svg { width: 16px; height: 16px; }
+#adm-lock-out:hover { color: var(--adm-accent); border-color: color-mix(in srgb, var(--adm-accent) 40%, transparent); background: color-mix(in srgb, var(--adm-accent) 8%, transparent); }
+@media (prefers-reduced-motion: reduce) {
+  #adm-panel { transition: none; }
+  #adm-lock, #adm-scrim { animation: none; }
+  .adm-shake { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand" aria-label="Dennis Piron Legacy Scholarship">
+      <span class="nb-name">DENNIS PIRON</span>
+      <span class="nb-sub">Legacy Scholarship</span>
+    </a>
+    <a href="#pledge" class="nav-cta">Make a Pledge</a>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <img class="hero-badge" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_200/v1782505226/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship emblem" width="88" height="88">
+      <span class="hero-eyebrow">A Permanent Tribute · Batavia, Illinois</span>
+      <h1>The Dennis Piron<br><span class="accent">Legacy Scholarship</span></h1>
+      <p class="hero-sub">For a decade, Dennis Piron turned Batavia students into entrepreneurs. Now we're endowing a scholarship in his name — funded <em>forever</em>, with no annual fundraising.</p>
+      <div class="hero-matchpill">Every gift <strong>doubled</strong> by the Dunham Foundation, up to <strong>$40,000</strong></div>
+      <div class="hero-ctas">
+        <a href="#pledge" class="btn btn-gold">Make a Leadership Pledge</a>
+        <a href="#match" class="btn btn-outline">See How Your Gift Doubles</a>
+      </div>
+    </div>
+
+    <div class="hero-video-col">
+      <div class="hero-video-label">In their own words · 23 voices · 16 minutes</div>
+      <div class="video-player-wrap">
+        <div class="video-player" id="tributeVideo">
+          <video id="tributeVideoEl" muted loop playsinline preload="metadata"
+                 src="https://player.vimeo.com/progressive_redirect/playback/1192225252/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&amp;log_user=0&amp;signature=6acc52c2e3ce9274cd079aebfec485aad0581965fb1cd1ac240dadca8d8a2cab">
+          </video>
+          <div class="video-player-overlay" id="tributeOverlay">
+            <div class="video-play-btn" aria-label="Play with sound">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-hint" id="tributeHint">Click to play with sound</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── MATCH / MATH ───── -->
+<section class="match" id="match">
+  <div class="container center">
+    <span class="eyebrow">A Limited Matching Opportunity</span>
+    <h2>Your gift is doubled — dollar for dollar</h2>
+    <p class="match-lead">We're raising <strong>$80,000</strong> to permanently endow the scholarship. We've requested a <strong>$40,000 matching grant from the Dunham Foundation</strong> — which means every dollar the community gives is matched, dollar for dollar.</p>
+
+    <div class="match-grid">
+      <div class="match-card">
+        <div class="mc-num">$80K</div>
+        <div class="mc-label">The Endowment Goal</div>
+        <div class="mc-desc">Fully funds the scholarship in perpetuity — no annual fundraising, ever.</div>
+      </div>
+      <div class="match-card lead">
+        <div class="mc-num">$40K</div>
+        <div class="mc-label">Community Half</div>
+        <div class="mc-desc">Raised from lead donors like you — the trigger that unlocks the match.</div>
+      </div>
+      <div class="match-card">
+        <div class="mc-num">$40K</div>
+        <div class="mc-label">Dunham Match</div>
+        <div class="mc-desc">A dollar-for-dollar matching grant requested from the Dunham Foundation.</div>
+      </div>
+    </div>
+
+    <div class="match-doubler">
+      <div class="md-row">
+        <span class="md-amt you">$2,500</span>
+        <span class="md-plus">+</span>
+        <span class="md-amt them">$2,500</span>
+        <span class="md-eq">=</span>
+        <span class="md-amt them">$5,000</span>
+      </div>
+      <div class="md-cap">A <strong>$2,500</strong> leadership gift becomes <strong>$5,000</strong> toward the endowment. Lead gifts of <strong>$2,000–$5,000</strong> are what get us there.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── HONOR / IMPACT ───── -->
+<section class="honor">
+  <div class="container">
+    <div class="honor-grid">
+      <div class="honor-photo">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782504462/piron-legacy/dennis-piron.jpg"
+             alt="Dennis Piron with Batavia High School students" width="1200" height="800" loading="lazy">
+      </div>
+      <div class="honor-copy">
+        <span class="eyebrow">Why This Scholarship</span>
+        <h2>A decade of building entrepreneurs</h2>
+        <p>Through the Batavia High School INCubator program, Dennis Piron guided countless students as they turned raw ideas into real businesses — coaching them through everything from pro-forma financials to pitch night in front of a room full of investors.</p>
+        <p>He taught them courage, teamwork, and what it feels like to bring something to life. This scholarship — awarded annually to a graduating senior who carries that spirit forward — makes his impact permanent.</p>
+        <blockquote class="honor-quote">
+          "There's a tough love that prepares them in ways I don't know that college does. Nobody like him. Nobody."
+          <cite>— Gary Ricke, Mentor</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── HOW IT WORKS ───── -->
+<section class="how">
+  <div class="container center">
+    <span class="eyebrow">How Your Pledge Works</span>
+    <h2 class="section-title">Low risk. High leverage. Lasting impact.</h2>
+    <p class="section-sub" style="margin:0 auto;">Lead-donor pledges are commitments — nothing is charged today. You only give once the matching grant is secured.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="hs-num">1</div>
+        <h3>You pledge</h3>
+        <p>Commit a leadership gift of $2,000–$5,000. It's a statement of intent, contingent on the Dunham match — no money changes hands now.</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">2</div>
+        <h3>We secure the match</h3>
+        <p>Lead pledges become the evidence we submit to the Dunham Foundation to unlock the dollar-for-dollar matching grant.</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">3</div>
+        <h3>It's endowed — forever</h3>
+        <p>Your gift, doubled, joins the $80,000 endowment held by the Batavia Foundation for Educational Excellence. The scholarship is funded for good.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PLEDGE FORM ───── -->
+<section class="pledge" id="pledge">
+  <div class="container">
+    <div class="pledge-shell">
+      <div class="center" style="margin-bottom:34px;">
+        <span class="eyebrow">Make Your Pledge</span>
+        <h2 class="section-title">Become a lead donor</h2>
+        <p class="section-sub" style="margin:0 auto;">Submit your leadership pledge below. A steering-committee member will follow up to confirm. Nothing is charged today.</p>
+      </div>
+
+      <form class="pledge-card" id="pledgeForm" autocomplete="on">
+        <div class="form-field full" style="margin-bottom:18px;">
+          <label>Your pledge amount</label>
+          <div class="pledge-amounts">
+            <div class="amt-opt"><input type="radio" name="amount" id="a5000" value="5000"><label for="a5000">$5,000</label></div>
+            <div class="amt-opt"><input type="radio" name="amount" id="a2500" value="2500" checked><label for="a2500">$2,500</label></div>
+            <div class="amt-opt"><input type="radio" name="amount" id="a2000" value="2000"><label for="a2000">$2,000</label></div>
+            <div class="amt-opt other"><input type="radio" name="amount" id="aother" value="other"><label for="aother">Other</label></div>
+          </div>
+          <div id="otherAmountWrap" class="hidden">
+            <input type="number" id="otherAmount" name="otherAmount" min="1" step="1" placeholder="Enter amount (USD)" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="pf-name">Full name</label>
+            <input type="text" id="pf-name" name="name" maxlength="80" required placeholder="Jane Smith">
+          </div>
+          <div class="form-field">
+            <label for="pf-email">Email</label>
+            <input type="email" id="pf-email" name="email" maxlength="120" required placeholder="jane@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="pf-phone">Phone (optional)</label>
+            <input type="tel" id="pf-phone" name="phone" maxlength="40" placeholder="(630) 555-0123">
+          </div>
+          <div class="form-field">
+            <label for="pf-name-recognition">Name to recognize (optional)</label>
+            <input type="text" id="pf-name-recognition" name="recognition" maxlength="100" placeholder="e.g. The Smith Family — or 'Anonymous'">
+          </div>
+        </div>
+        <div class="form-field full" style="margin-bottom:18px;">
+          <label for="pf-msg">A note for Dennis or the committee (optional)</label>
+          <textarea id="pf-msg" name="message" maxlength="800" placeholder="Optional — a memory, a reason, a question…"></textarea>
+        </div>
+
+        <label class="pledge-ack">
+          <input type="checkbox" id="pf-ack" name="ack" required>
+          <span>I understand my pledge is <strong>contingent on the Batavia Foundation for Educational Excellence securing the Dunham Foundation matching grant</strong>, and that no payment is due today. The committee will follow up to confirm details.</span>
+        </label>
+
+        <!-- Honeypot -->
+        <div class="form-honeypot" aria-hidden="true">
+          <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="pledge-submit-row">
+          <button type="submit" class="btn btn-maroon" id="pf-submit">Submit My Pledge</button>
+          <span class="form-meta" id="pf-meta">No payment today. Tax-deductible when fulfilled.</span>
+        </div>
+
+        <p class="pledge-note">
+          <strong>Prefer to talk first?</strong> Text or call <a href="sms:+16306993040">630-699-3040</a>, or email
+          <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>. Gifts are payable to the
+          <strong>Batavia Foundation for Educational Excellence</strong>, an IRS-registered 501(c)(3) —
+          tax-deductible to the extent allowed by law.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ───── COMMITTEE ───── -->
+<section class="committee">
+  <div class="container">
+    <span class="eyebrow">The Steering Committee</span>
+    <h2>Led by people who know what's at stake</h2>
+    <p class="lead">This effort is organized by a volunteer steering committee — every member has already made a personal commitment to the scholarship.</p>
+    <div class="committee-names">
+      <span>Dave Brown</span>
+      <span>Bob Hansen</span>
+      <span>Rob Hollis</span>
+      <span>Bob Hubbard</span>
+      <span>Gary Ricke</span>
+      <span>Bob Vaughan</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FINAL CTA ───── -->
+<section class="finalcta">
+  <div class="container">
+    <h2>Help us endow it — before the match window closes</h2>
+    <p>A single leadership gift, doubled, moves us meaningfully toward $80,000. Make your pledge today.</p>
+    <a href="#pledge" class="btn btn-maroon">Make a Leadership Pledge</a>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer class="footer">
+  <p class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3) nonprofit. Contributions are tax-deductible to the extent allowed by law. Pledges are contingent on securing the Dunham Foundation matching grant.</p>
+  Dennis Piron Legacy Scholarship &middot; Batavia, IL<br>
+  Questions? Text <a href="sms:+16306993040">630-699-3040</a> &middot; <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>
+</footer>
+
+<!-- ============================================================
+     Admin entry — password gate → slide-in panel (internal only)
+     ============================================================ -->
+<div id="adm">
+  <button id="adm-btn" type="button" aria-label="Admin access" aria-haspopup="dialog" aria-expanded="false">A</button>
+</div>
+
+<div id="adm-lock" hidden>
+  <div id="adm-lock-box" role="dialog" aria-modal="true" aria-labelledby="adm-lock-title">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_140/v1782505226/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship" onerror="this.style.display='none'">
+    <h2 id="adm-lock-title">Admin Access</h2>
+    <p class="adm-lock-sub">Internal area · enter the password to continue.</p>
+    <input id="adm-lock-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="adm-lock-btn" type="button">Enter</button>
+    <p id="adm-lock-error" role="alert"></p>
+  </div>
+</div>
+
+<div id="adm-scrim" hidden></div>
+<aside id="adm-panel" role="dialog" aria-modal="true" aria-label="Admin links" aria-hidden="true">
+  <div class="adm-panel-head">
+    <div class="adm-panel-brand">
+      <span class="adm-eyebrow">Dennis Piron Legacy</span>
+      <h3>Admin</h3>
+    </div>
+    <button id="adm-panel-close" type="button" aria-label="Close admin panel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+
+  <nav class="adm-links">
+    <a href="one-sheet.html" target="_blank" rel="noopener">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+      <span class="adm-txt"><b>Print One-Sheet</b><small>Preview the leave-behind &amp; print to PDF</small></span>
+    </a>
+    <a href="print/Piron-Legacy-Scholarship-one-sheet.pdf" target="_blank" rel="noopener">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg></span>
+      <span class="adm-txt"><b>Download One-Sheet PDF</b><small>Ready-to-print Letter PDF</small></span>
+    </a>
+  </nav>
+
+  <div class="adm-panel-foot">
+    <button id="adm-lock-out" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      Lock &amp; sign out
+    </button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var KEY='pironlegacy_auth', PASS='piron';
+  var btn=document.getElementById('adm-btn');
+  if(!btn) return;
+  var lock=document.getElementById('adm-lock'),
+      lockInput=document.getElementById('adm-lock-input'),
+      lockBtn=document.getElementById('adm-lock-btn'),
+      lockBox=document.getElementById('adm-lock-box'),
+      lockErr=document.getElementById('adm-lock-error'),
+      panel=document.getElementById('adm-panel'),
+      scrim=document.getElementById('adm-scrim'),
+      panelClose=document.getElementById('adm-panel-close'),
+      signOut=document.getElementById('adm-lock-out');
+
+  function authed(){ try{return sessionStorage.getItem(KEY)==='1';}catch(e){return false;} }
+  function openPanel(){ scrim.hidden=false; panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closePanel(){ panel.classList.remove('open'); scrim.hidden=true; panel.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  function openLock(){ lock.hidden=false; lockErr.textContent=''; lockInput.value=''; setTimeout(function(){lockInput.focus();},30); }
+  function closeLock(){ lock.hidden=true; }
+  function tryPass(){
+    if(lockInput.value===PASS){ try{sessionStorage.setItem(KEY,'1');}catch(e){} closeLock(); openPanel(); }
+    else{ lockErr.textContent='Incorrect password. Try again.'; lockBox.classList.remove('adm-shake'); void lockBox.offsetWidth; lockBox.classList.add('adm-shake'); lockInput.select(); }
+  }
+
+  btn.addEventListener('click',function(e){ e.stopPropagation(); if(authed()) openPanel(); else openLock(); });
+  lockBtn.addEventListener('click',tryPass);
+  lockInput.addEventListener('keydown',function(e){if(e.key==='Enter')tryPass();});
+  panelClose.addEventListener('click',closePanel);
+  scrim.addEventListener('click',closePanel);
+  signOut.addEventListener('click',function(){ try{sessionStorage.removeItem(KEY);}catch(e){} closePanel(); });
+  lock.addEventListener('click',function(e){ if(e.target===lock) closeLock(); });
+  document.addEventListener('keydown',function(e){ if(e.key!=='Escape') return; if(!lock.hidden) closeLock(); else if(panel.classList.contains('open')) closePanel(); });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   CONFIG
+   Set PLEDGE_API_URL to a Google Apps Script Web App URL to
+   capture pledges to a Google Sheet (see pledge-setup.md).
+   If left blank, the form falls back to opening a pre-filled
+   email to the committee so it still works on day one.
+   ═══════════════════════════════════════════════════════ */
+const PLEDGE_API_URL = '';
+const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
+
+/* ───── NAV scroll behavior ───── */
+const navbar = document.getElementById('navbar');
+const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ───── "Other amount" toggle ───── */
+const otherWrap = document.getElementById('otherAmountWrap');
+const otherInput = document.getElementById('otherAmount');
+document.querySelectorAll('input[name="amount"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const isOther = document.getElementById('aother').checked;
+    otherWrap.classList.toggle('hidden', !isOther);
+    if (isOther) otherInput.focus();
+  });
+});
+
+/* ───── 9:16 VIDEO PLAYER ───── */
+const tributeVideo = document.getElementById('tributeVideo');
+const tributeVideoEl = document.getElementById('tributeVideoEl');
+const tributeHint = document.getElementById('tributeHint');
+const ioVideo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && tributeVideoEl.muted) tributeVideoEl.play().catch(() => {});
+    else if (!e.isIntersecting && tributeVideoEl.muted) tributeVideoEl.pause();
+  });
+}, { threshold: 0.4 });
+ioVideo.observe(tributeVideo);
+tributeVideo.addEventListener('mouseenter', () => { if (tributeVideoEl.muted) tributeVideoEl.play().catch(() => {}); });
+tributeVideo.addEventListener('click', () => {
+  if (tributeVideo.classList.contains('is-playing-with-sound')) return;
+  tributeVideo.classList.add('is-playing-with-sound');
+  tributeVideoEl.muted = false; tributeVideoEl.loop = false; tributeVideoEl.controls = true;
+  tributeVideoEl.currentTime = 0; tributeVideoEl.play().catch(() => {});
+  if (tributeHint) tributeHint.style.display = 'none';
+});
+
+/* ───── PLEDGE FORM ───── */
+const pledgeForm = document.getElementById('pledgeForm');
+const pfMeta = document.getElementById('pf-meta');
+const pfSubmit = document.getElementById('pf-submit');
+
+function setMeta(text, kind) {
+  pfMeta.textContent = text;
+  pfMeta.classList.remove('is-success', 'is-error');
+  if (kind) pfMeta.classList.add('is-' + kind);
+}
+function getAmount() {
+  const sel = document.querySelector('input[name="amount"]:checked');
+  if (!sel) return '';
+  if (sel.value === 'other') return otherInput.value ? '$' + Number(otherInput.value).toLocaleString() : '(unspecified)';
+  return '$' + Number(sel.value).toLocaleString();
+}
+
+pledgeForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (pledgeForm.querySelector('[name="website"]').value) return; // honeypot
+
+  const payload = {
+    amount: getAmount(),
+    name: document.getElementById('pf-name').value.trim(),
+    email: document.getElementById('pf-email').value.trim(),
+    phone: document.getElementById('pf-phone').value.trim(),
+    recognition: document.getElementById('pf-name-recognition').value.trim(),
+    message: document.getElementById('pf-msg').value.trim(),
+    contingent_ack: document.getElementById('pf-ack').checked
+  };
+
+  if (!payload.name || !payload.email) { setMeta('Please add your name and email.', 'error'); return; }
+  if (!payload.contingent_ack) { setMeta('Please acknowledge the matching-grant condition.', 'error'); return; }
+
+  // Path A: backend configured → POST to Apps Script
+  if (PLEDGE_API_URL && !PLEDGE_API_URL.includes('PASTE_')) {
+    pfSubmit.disabled = true; pfSubmit.textContent = 'Submitting…'; setMeta('Submitting your pledge…');
+    try {
+      const res = await fetch(PLEDGE_API_URL, { method: 'POST', body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        pledgeForm.reset(); otherWrap.classList.add('hidden');
+        setMeta('Thank you — your pledge is in. We\'ll be in touch shortly.', 'success');
+      } else { setMeta(data.error || 'Something went wrong. Please try again.', 'error'); }
+    } catch (err) {
+      setMeta('Could not submit right now — please email pledges@pironlegacy.org.', 'error');
+    } finally { pfSubmit.disabled = false; pfSubmit.textContent = 'Submit My Pledge'; }
+    return;
+  }
+
+  // Path B: no backend yet → open a pre-filled email so it still works
+  const subject = encodeURIComponent('Piron Legacy Scholarship — Pledge: ' + payload.amount);
+  const body = encodeURIComponent(
+    'I\'d like to make a leadership pledge to the Dennis Piron Legacy Scholarship.\n\n' +
+    'Pledge amount: ' + payload.amount + '\n' +
+    'Name: ' + payload.name + '\n' +
+    'Email: ' + payload.email + '\n' +
+    'Phone: ' + (payload.phone || '—') + '\n' +
+    'Recognize as: ' + (payload.recognition || '—') + '\n' +
+    'Note: ' + (payload.message || '—') + '\n\n' +
+    'I understand this pledge is contingent on securing the Dunham Foundation matching grant, ' +
+    'and that no payment is due today.'
+  );
+  window.location.href = 'mailto:' + PLEDGE_FALLBACK_EMAIL + '?subject=' + subject + '&body=' + body;
+  setMeta('Opening your email to confirm the pledge — just hit send.', 'success');
+});
+</script>
+
+</body>
+</html>
