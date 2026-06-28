@@ -140,6 +140,8 @@ a { color: inherit; }
   letter-spacing: .5px; white-space: nowrap;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(250,204,8,.5); }
+.nav-cta-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.nav-deadline { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
 
 /* ───── HERO ───── */
 .hero {
@@ -589,7 +591,10 @@ a { color: inherit; }
       <span class="nb-name">DENNIS PIRON</span>
       <span class="nb-sub">Legacy Scholarship</span>
     </a>
-    <a href="#pledge" class="nav-cta">Make a Pledge</a>
+    <span class="nav-cta-wrap">
+      <a href="#pledge" class="nav-cta">Make a Pledge</a>
+      <span class="nav-deadline">Commit by July 9</span>
+    </span>
   </div>
 </nav>
 
@@ -632,7 +637,7 @@ a { color: inherit; }
   <div class="container center">
     <span class="eyebrow">A Limited Matching Opportunity</span>
     <h2>Your gift is doubled — dollar for dollar</h2>
-    <p class="match-lead">We're raising <strong>$80,000</strong> to permanently endow the scholarship. We've requested a <strong>$40,000 matching grant from the Dunham Foundation</strong> — which means every dollar the community gives is matched, dollar for dollar.</p>
+    <p class="match-lead">We're raising <strong>$80,000</strong> to permanently endow the scholarship. We've requested a <strong>$40,000 matching grant from the Dunham Foundation</strong> — so every dollar the community commits is matched dollar-for-dollar <strong>when we show the Dunham Foundation our commitments by July 9</strong>.</p>
 
     <div class="match-grid">
       <div class="match-card">
@@ -748,7 +753,7 @@ a { color: inherit; }
       <div class="center" style="margin-bottom:34px;">
         <span class="eyebrow">Make Your Pledge</span>
         <h2 class="section-title">Become a lead donor</h2>
-        <p class="section-sub" style="margin:0 auto;">Submit your leadership pledge below. A steering-committee member will follow up to confirm. Nothing is charged today.</p>
+        <p class="section-sub" style="margin:0 auto;">Submit your leadership pledge below. A steering-committee member will follow up to confirm. Nothing is charged today — <strong style="color:var(--maroon);">pledge by July 9 to be named on the Dunham grant application.</strong></p>
       </div>
 
       <form class="pledge-card" id="pledgeForm" name="pledge" method="POST" data-netlify="true" netlify-honeypot="website" autocomplete="on">
