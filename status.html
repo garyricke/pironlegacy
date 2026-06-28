@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Status — Dennis Piron Legacy Scholarship</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{ --gold:#FACC08; --maroon:#AC161D; --ink:#1a1a1a; --muted:#5b5b5b; --paper:#f7f5f0; --line:#e6e1d6; }
+body{ font-family:'Open Sans',sans-serif; color:var(--ink); background:#f1efe9; line-height:1.6; }
+h1,h2,h3{ font-family:'Montserrat',sans-serif; line-height:1.15; }
+a{ color:var(--maroon); }
+.wrap{ max-width:860px; margin:0 auto; padding:0 24px; }
+
+/* Header */
+.head{ background:radial-gradient(130% 140% at 80% 0%, #2a1416 0%, #140d0d 50%, #000 100%); color:#fff; padding:40px 0 34px; }
+.head-top{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:22px; }
+.head-brand{ display:flex; align-items:center; gap:14px; }
+.head-brand img{ width:54px; height:54px; }
+.head-brand .ht{ font-family:'Montserrat',sans-serif; }
+.head-brand .ht .nm{ font-weight:900; font-size:1.05rem; letter-spacing:.5px; }
+.head-brand .ht .sb{ font-weight:700; font-size:.62rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); }
+.back{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.74rem; letter-spacing:1.5px; text-transform:uppercase; color:#ccc; text-decoration:none; }
+.back:hover{ color:var(--gold); }
+.head h1{ font-size:clamp(1.8rem,4vw,2.5rem); font-weight:900; margin-bottom:10px; }
+.status-pill{ display:inline-flex; align-items:center; gap:9px; background:rgba(46,160,67,.16); border:1px solid rgba(74,201,107,.5); color:#7ee29a; font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.4px; padding:7px 16px; border-radius:50px; }
+.status-pill .dot{ width:9px; height:9px; border-radius:50%; background:#3ddc7a; box-shadow:0 0 0 4px rgba(61,220,122,.25); }
+.head .since{ color:#bdb4b4; font-size:.92rem; margin-top:12px; }
+
+/* Quick facts */
+.facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:-26px auto 0; max-width:860px; padding:0 24px; position:relative; z-index:2; }
+.fact{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 16px; box-shadow:0 6px 22px rgba(0,0,0,.05); }
+.fact .fl{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+.fact .fv{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:.95rem; color:var(--ink); word-break:break-word; }
+.fact .fv a{ color:var(--maroon); text-decoration:none; }
+
+/* Timeline */
+.timeline{ padding:46px 0 60px; }
+.day{ position:relative; padding-left:34px; padding-bottom:30px; border-left:2px solid var(--line); margin-left:6px; }
+.day:last-child{ border-left-color:transparent; padding-bottom:0; }
+.day::before{ content:''; position:absolute; left:-9px; top:2px; width:16px; height:16px; border-radius:50%; background:var(--gold); border:3px solid #f1efe9; box-shadow:0 0 0 2px var(--gold); }
+.day.today::before{ background:var(--maroon); box-shadow:0 0 0 2px var(--maroon); }
+.day-date{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.15rem; color:var(--ink); margin-bottom:3px; }
+.day-label{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--maroon); margin-bottom:16px; }
+.day.today .day-label{ color:#b07d00; }
+.items{ list-style:none; display:flex; flex-direction:column; gap:11px; }
+.items li{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:13px 16px; display:flex; gap:12px; align-items:flex-start; box-shadow:0 3px 12px rgba(0,0,0,.03); }
+.items li .ck{ flex:none; width:20px; height:20px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.items li .ck svg{ width:12px; height:12px; }
+.items li .tx{ font-size:.96rem; }
+.items li .tx b{ font-family:'Montserrat',sans-serif; font-weight:700; }
+.items li.pending .ck{ background:#dfe7df; }
+.foot{ text-align:center; color:var(--muted); font-size:.82rem; padding:0 0 40px; }
+
+@media (max-width:680px){
+  .facts{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:420px){
+  .facts{ grid-template-columns:1fr; }
+}
+
+/* ---- Per-page password gate (shares pironlegacy_auth / piron) ---- */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%);display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb,#FACC08 25%,transparent);border-radius:18px;padding:46px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.55);}
+#pw-box img{height:84px;margin:0 auto 20px;display:block;}
+#pw-box h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#FACC08;margin:0 0 8px;}
+#pw-box .sub{font-size:.86rem;color:rgba(236,236,236,.6);margin:0 0 24px;}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb,#FACC08 30%,transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;}
+#pw-input:focus{border-color:#FACC08;}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:#FACC08;color:#161310;border:0;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
+#pw-btn:hover{background:#ffd84d;}
+#pw-error{font-size:.78rem;color:#ff7a7a;margin:12px 0 0;min-height:1.1em;}
+.pw-shake{animation:pwShake .35s;}
+@keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+</head>
+<body>
+
+<!-- Per-page gate -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_180/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship" onerror="this.style.display='none'">
+    <h2>Internal Status</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <div class="head-top">
+      <a class="head-brand" href="index.html">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_140/v1782508679/piron-legacy/piron-legacy-badge.png" alt="">
+        <span class="ht"><span class="nm">DENNIS PIRON</span><br><span class="sb">Legacy Scholarship</span></span>
+      </a>
+      <a class="back" href="index.html">&larr; Back to site</a>
+    </div>
+    <span class="status-pill"><span class="dot"></span> Live &amp; working</span>
+    <h1>Project Status</h1>
+    <p class="since">Site live at <a href="https://pironlegacy.org" style="color:var(--gold);text-decoration:none;">pironlegacy.org</a> as of June 27, 2026.</p>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="fact"><div class="fl">Domain</div><div class="fv">pironlegacy.org</div></div>
+  <div class="fact"><div class="fl">Hosting</div><div class="fv">Netlify + Cloudflare DNS</div></div>
+  <div class="fact"><div class="fl">Pledges</div><div class="fv">Netlify Forms → Bob &amp; Gary</div></div>
+  <div class="fact"><div class="fl">Status</div><div class="fv">Private preview (gated)</div></div>
+</div>
+
+<main class="timeline">
+  <div class="wrap">
+
+    <!-- June 26 -->
+    <section class="day">
+      <div class="day-date">June 26, 2026</div>
+      <div class="day-label">Design &amp; build</div>
+      <ul class="items">
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Locked the plan and secured the domain — <b>pironlegacy.org</b> (purchased via Cloudflare).</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Built the <b>landing page</b> — matching-grant hero, the $80K / $40K / $40K math, pledge flow, tribute reel, and steering committee.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Created the <b>Dennis Piron Legacy Scholarship badge</b> — a vector medallion built from his pop-art portrait.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Reworked the hero to feature the <b>tribute video</b> (retired the INCubator clip).</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Designed the one-page <b>print leave-behind</b> for in-person asks.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Added the password-gated <b>admin panel</b> and published the code to <b>GitHub</b> (internal planning kept out of the repo).</span></li>
+      </ul>
+    </section>
+
+    <!-- June 27 -->
+    <section class="day">
+      <div class="day-date">June 27, 2026</div>
+      <div class="day-label">Launch &amp; go-live</div>
+      <ul class="items">
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Deployed on <b>Netlify</b> and pointed <b>pironlegacy.org</b> through Cloudflare DNS — HTTPS live.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Set up <b>email routing</b> for pledges@pironlegacy.org and wired the <b>pledge form to Netlify Forms</b> (submissions emailed to Bob &amp; Gary).</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Polished the <b>badge</b> (gold rim, re-seated lettering, larger) and added a <b>favicon</b>.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Added the <b>BFEE &ldquo;Stewarded by&rdquo; logo</b> and a <b>pre-launch password gate</b> until we go public.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Enriched the <b>one-sheet</b> with the badge, a photo, a play icon, and a one-click PDF download.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Built the branded <b>social-share image</b> and fixed the mobile layout. <b>Site went live and working.</b></span></li>
+      </ul>
+    </section>
+
+    <!-- June 28 -->
+    <section class="day today">
+      <div class="day-date">June 28, 2026</div>
+      <div class="day-label">Ongoing</div>
+      <ul class="items">
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Drafted the <b>outreach email to Bob</b> for a review and feedback.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Added this <b>status page</b> to the admin menu.</span></li>
+        <li class="pending"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#9aa39a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/></svg></span><span class="tx" style="color:var(--muted);"><b>Next:</b> gather feedback, confirm pledge-email recipients, then lift the gate to go public.</span></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<p class="foot">Internal status page — Dennis Piron Legacy Scholarship · Batavia, IL</p>
+
+<script>
+(function(){
+  var KEY='pironlegacy_auth', PASS='piron', gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){ gate.style.display='none'; return; }
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1'); document.body.style.overflow=''; gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var b=document.getElementById('pw-box'); b.classList.remove('pw-shake'); void b.offsetWidth; b.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+</body>
+</html>
