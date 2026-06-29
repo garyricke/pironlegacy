@@ -531,59 +531,6 @@ a { color: inherit; }
 </head>
 <body>
 
-<!-- ============================================================
-     PRE-LAUNCH PASSWORD GATE — covers the whole page until approved.
-     Shares the 'pironlegacy_auth' session key + 'piron' password with
-     the admin panel, so unlocking either covers both. Remove this
-     block (and nothing else) to make the page fully public.
-     ============================================================ -->
-<style>
-  #pw-gate{position:fixed;inset:0;z-index:9999;background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%);display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;}
-  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(250,204,8,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,8,.05) 1px,transparent 1px);background-size:42px 42px;pointer-events:none;}
-  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb, #FACC08 25%, transparent);border-radius:18px;padding:46px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.55);}
-  #pw-box img{height:96px;margin:0 auto 22px;display:block;}
-  #pw-box h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;color:#FACC08;letter-spacing:.02em;margin:0 0 8px;}
-  #pw-box .sub{font-size:.88rem;color:rgba(236,236,236,.6);margin:0 0 26px;line-height:1.5;}
-  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb, #FACC08 30%, transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s;}
-  #pw-input:focus{border-color:#FACC08;}
-  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#FACC08;color:#161310;border:0;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
-  #pw-btn:hover{background:#ffd84d;}
-  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
-  .pw-shake{animation:pwShake .35s;}
-  @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
-</style>
-<div id="pw-gate">
-  <div id="pw-box">
-    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_220/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship" onerror="this.style.display='none'">
-    <h2>Private Preview</h2>
-    <p class="sub">This page isn't public yet. Enter the password to view it.</p>
-    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
-    <button id="pw-btn">Enter</button>
-    <p id="pw-error"></p>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='pironlegacy_auth',PASS='piron',gate=document.getElementById('pw-gate');
-  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
-  document.body.style.overflow='hidden';
-  function attempt(){
-    if(document.getElementById('pw-input').value===PASS){
-      sessionStorage.setItem(KEY,'1');
-      document.body.style.overflow='';
-      gate.style.display='none';
-    } else {
-      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
-      var box=document.getElementById('pw-box');
-      box.classList.remove('pw-shake'); void box.offsetWidth; box.classList.add('pw-shake');
-    }
-  }
-  document.getElementById('pw-btn').addEventListener('click',attempt);
-  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
-  document.getElementById('pw-input').focus();
-})();
-</script>
-
 <!-- ───── NAV ───── -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
