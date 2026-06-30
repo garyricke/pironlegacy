@@ -322,6 +322,70 @@ a { color: inherit; }
   font-weight: 600; z-index: 3; pointer-events: none;
 }
 
+/* ───── VOICES / TESTIMONIALS ───── */
+.voices { padding: 100px 0; background: radial-gradient(120% 130% at 20% 0%, #2a1416 0%, #140d0d 48%, #000 100%); color: #ececec; }
+.voices .eyebrow { color: var(--gold); }
+.voices .section-title { color: #fff; }
+.voices-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+.voices-head .section-sub { color: #cfcfcf; margin: 0 auto; }
+
+/* Carousel — one testimonial at a time */
+.voices-carousel { position: relative; max-width: 820px; margin: 0 auto; }
+.vc-track { position: relative; }
+.voice-slide {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0; visibility: hidden; transition: opacity .55s ease, visibility .55s ease;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 46px 52px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); border-radius: 20px;
+}
+.voice-slide.active { opacity: 1; visibility: visible; position: relative; }
+.voice-slide .vs-quote {
+  font-family: Georgia, serif; font-style: italic; font-size: clamp(1.12rem, 2.1vw, 1.5rem);
+  line-height: 1.55; color: #f2f2f2; max-width: 640px;
+}
+.voice-slide .vs-quote::before {
+  content: '\201C'; display: block; color: var(--gold); font-family: Georgia, serif;
+  font-size: 3rem; line-height: .4; margin-bottom: 14px;
+}
+.voice-meta { margin-top: 24px; }
+.voice-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.02rem; color: #fff; }
+.voice-role { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .74rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-top: 5px; }
+/* Lead-donor (pledged) highlight */
+.voice-slide.lead {
+  background: linear-gradient(180deg, rgba(250,204,8,.12), rgba(250,204,8,.03));
+  border-color: rgba(250,204,8,.55); box-shadow: 0 18px 50px rgba(250,204,8,.12);
+}
+.voice-badge {
+  display: inline-flex; align-items: center; gap: 7px; margin-bottom: 22px;
+  background: var(--gold); color: var(--black); border-radius: 50px;
+  font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: .74rem; letter-spacing: 1px; text-transform: uppercase;
+  padding: 7px 16px;
+}
+.voice-badge svg { width: 14px; height: 14px; fill: currentColor; }
+.voice-honor { margin-top: 12px; font-size: .85rem; color: #d9d2bf; font-style: italic; }
+
+/* Carousel controls */
+.vc-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+  width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); color: #fff;
+  display: flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.vc-arrow:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.vc-arrow svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.vc-prev { left: -23px; }
+.vc-next { right: -23px; }
+.vc-dots { display: flex; gap: 9px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.vc-dot {
+  width: 9px; height: 9px; border-radius: 50%; padding: 0; cursor: pointer; border: none;
+  background: rgba(255,255,255,.25); transition: background .2s ease, transform .2s ease;
+}
+.vc-dot.pledged { box-shadow: 0 0 0 2px rgba(250,204,8,.55); }
+.vc-dot.active { background: var(--gold); transform: scale(1.3); }
+.voices-cta { text-align: center; margin-top: 48px; }
+.voices-cta p { color: #cfcfcf; margin-bottom: 20px; font-size: 1.05rem; }
+
 /* ───── HOW IT WORKS ───── */
 .how { padding: 100px 0; background: var(--paper); }
 .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
@@ -374,6 +438,8 @@ a { color: inherit; }
   font-size: .95rem; color: #333;
 }
 .pledge-ack input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--maroon); }
+.pledge-consent { font-size: .88rem; color: #555; margin: 0 0 18px; }
+.pledge-consent em { color: var(--muted); font-style: italic; }
 .form-honeypot { position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; }
 .pledge-submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .pledge-submit-row .btn { flex: 0 0 auto; }
@@ -425,6 +491,10 @@ a { color: inherit; }
   .match-card.lead { transform: none; }
   .honor-grid { grid-template-columns: 1fr; gap: 36px; }
   .how-steps { grid-template-columns: 1fr; }
+  .voice-slide { padding: 40px 26px; }
+  .vc-prev { left: -8px; }
+  .vc-next { right: -8px; }
+  .vc-arrow { width: 40px; height: 40px; background: rgba(0,0,0,.45); }
 }
 @media (max-width: 560px) {
   .form-row { grid-template-columns: 1fr; }
@@ -635,9 +705,9 @@ a { color: inherit; }
       <div class="ld-meter">
         <div class="ld-meter-card">
           <div class="ld-meter-label">Committed so far</div>
-          <div class="ld-meter-amt" id="meterAmt">$18,000</div>
+          <div class="ld-meter-amt" id="meterAmt">$20,500</div>
           <div class="ld-bar"><div class="ld-bar-fill" id="meterFill"></div></div>
-          <div class="ld-meter-foot"><span id="meterPct">45%</span> of the <strong>$40,000</strong> community goal — the half that unlocks the <strong>$40,000 Dunham match</strong>.</div>
+          <div class="ld-meter-foot"><span id="meterPct">51%</span> of the <strong>$40,000</strong> community goal — the half that unlocks the <strong>$40,000 Dunham match</strong>.</div>
           <a href="#pledge" class="btn btn-gold" style="width:100%;">Add Your Commitment</a>
         </div>
       </div>
@@ -663,6 +733,31 @@ a { color: inherit; }
           <cite>— Gary Ricke, Mentor</cite>
         </blockquote>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── VOICES / TESTIMONIALS ───── -->
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="voices-head">
+      <span class="eyebrow">In Their Own Words</span>
+      <h2 class="section-title">The people he shaped</h2>
+      <p class="section-sub">Voices from the 16-minute tribute reel — students, parents, and mentors on what Coach Piron meant to Batavia.</p>
+    </div>
+    <div class="voices-carousel" id="voicesCarousel">
+      <button type="button" class="vc-arrow vc-prev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <div class="vc-track" id="vcTrack"></div>
+      <button type="button" class="vc-arrow vc-next" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="vc-dots" id="vcDots"></div>
+    <div class="voices-cta">
+      <p>Add your name to the people carrying Dennis's work forward.</p>
+      <a href="#pledge" class="btn btn-gold">Make a Leadership Pledge</a>
     </div>
   </div>
 </section>
@@ -706,7 +801,7 @@ a { color: inherit; }
       <form class="pledge-card" id="pledgeForm" name="pledge" method="POST" data-netlify="true" netlify-honeypot="website" autocomplete="on">
         <!-- Netlify Forms: required hidden field + a clean human-readable amount -->
         <input type="hidden" name="form-name" value="pledge">
-        <input type="hidden" name="amount_display" id="amount_display">
+        <input type="hidden" name="pledge_amount" id="amount_display">
         <div class="form-field full" style="margin-bottom:18px;">
           <label>Your pledge amount</label>
           <div class="pledge-amounts">
@@ -740,6 +835,11 @@ a { color: inherit; }
           <label for="pf-msg">A note for Dennis or the committee (optional)</label>
           <textarea id="pf-msg" name="message" maxlength="800" placeholder="Optional — a memory, a reason, a question…"></textarea>
         </div>
+
+        <label class="pledge-ack pledge-consent">
+          <input type="checkbox" id="pf-public" name="public_note">
+          <span>You may <strong>share my note publicly</strong> on the campaign page, alongside my name. We'll never show your email or phone. <em>Leave unchecked to keep it private to the committee.</em></span>
+        </label>
 
         <label class="pledge-ack">
           <input type="checkbox" id="pf-ack" name="ack" required>
@@ -912,7 +1012,7 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
    commitments come in, then redeploy. GOAL is the $40,000
    community half that unlocks the Dunham match.
    ═══════════════════════════════════════════════════════ */
-const COMMITTED = 18000;
+const COMMITTED = 20500;
 const GOAL = 40000;
 (function(){
   var amt=document.getElementById('meterAmt'), fill=document.getElementById('meterFill'), pct=document.getElementById('meterPct');
@@ -922,6 +1022,132 @@ const GOAL = 40000;
   pct.textContent = p + '%';
   // Set the fill (CSS transition animates it in); rAF lets the 0%→p% transition run.
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = p + '%'; }); });
+})();
+
+/* ═══════════════════════════════════════════════════════
+   VOICES / TESTIMONIALS
+   Edit this list to add or remove testimonials. Two kinds:
+   • Tribute quotes (no `pledge`) — pulled from the 16-min reel.
+   • Lead-donor notes — add a `pledge` amount (e.g. "$2,500") to
+     give the card the gold "Lead Donor" highlight + badge. Add an
+     optional `honor` line for who the gift recognizes.
+   Cards with a `pledge` are sorted to the top automatically.
+   NOTE: only publish a donor's name/note here with their OK — the
+   pledge-form note is framed as a message to the committee.
+   ═══════════════════════════════════════════════════════ */
+const TESTIMONIALS = [
+  // Pledge testimonials are HELD until the Dunham match is confirmed AND the
+  // donor checked "share my note publicly" (committee decision, June 30 2026).
+  // To add one then: { quote, name, role:"Lead Donor", pledge:"$X,XXX", honor:"…" }
+  // — the `pledge` field auto-applies the gold highlight and leads the rotation.
+  {
+    quote: "There is no wall. You're making this wall for yourself. There is a way, and you're gonna figure it out on your own — because that's just like real life.",
+    name: "Colin Hervey", role: "Former student"
+  },
+  {
+    quote: "I hated football when I met Coach Piron in 2019. In 10 minutes, I loved football — because of how he mentored these young men to be kind, hardworking, never give up, and care for the community.",
+    name: "Gary Ricke", role: "Mentor"
+  },
+  {
+    quote: "I don't think I've ever met anybody quite like him in how he interacts and mentors these people, even when he's calling kids out. There's a tough love that prepares them in ways I don't know that college does. Nobody like him. Nobody.",
+    name: "Gary Ricke", role: "Mentor"
+  },
+  {
+    quote: "Your servant leadership and the culture you've created of always putting students first has benefited generations of students and made Batavia a better place to live.",
+    name: "Aaron Kilburg", role: "BPS 101 School Board Member"
+  },
+  {
+    quote: "His impact on the Batavia community could not be overstated. He's truly built a legacy that will continue to shape Batavia for many years to come.",
+    name: "Emily Matile", role: "INCubator Mentor"
+  },
+  {
+    quote: "He is endlessly working to find ways to support kids in helping them be successful in the future — making connections with businesses, creating opportunities, helping them start up businesses, helping them have conversations about life and their future goals.",
+    name: "Mike Theriault", role: "Fellow Coach & Teacher"
+  },
+  {
+    quote: "He teaches the kids it's not okay to just come and watch. You have to actually take action. The world needs more people who are willing to not just have an opinion, but to come in and make things better.",
+    name: "Lisa Hichens", role: "INCubator Mentor"
+  },
+  {
+    quote: "I'm sure gonna miss being the Paula Abdul to your Simon Cowell in the way we coach and provide feedback to these students each year. It's been such an amazing ride.",
+    name: "", role: "INCubator Mentor"
+  },
+  {
+    quote: "Watching the hundreds of students who have come through that class — who they were during their first week and what they have become on pitch night. The maturity, the communication skills, the teamwork, the networking — those are life skills they will carry for the rest of their lives.",
+    name: "", role: "Long-time INCubator Mentor"
+  },
+  {
+    quote: "The night before Christmas, my son told Santa the one thing he wanted was a Batavia football helmet. I emailed asking what I could do — and you put a little helmet out on your porch with stickers and decals. Thank you, forever.",
+    name: "", role: "Parent"
+  }
+];
+(function renderVoices(){
+  const track = document.getElementById('vcTrack');
+  const dotsWrap = document.getElementById('vcDots');
+  const carousel = document.getElementById('voicesCarousel');
+  if (!track || !carousel) return;
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>';
+
+  // Pledged (lead-donor) testimonials lead the rotation — they're seen first.
+  // Array.sort is stable, so order within each group is preserved.
+  const ordered = TESTIMONIALS.slice().sort((a, b) => (b.pledge ? 1 : 0) - (a.pledge ? 1 : 0));
+
+  track.innerHTML = ordered.map((t, i) => {
+    const lead = !!t.pledge;
+    const badge = lead ? `<div class="voice-badge">${star}Lead Donor · ${esc(t.pledge)}</div>` : '';
+    const honor = lead && t.honor ? `<div class="voice-honor">${esc(t.honor)}</div>` : '';
+    const name = t.name && t.name.trim() ? `<div class="voice-name">${esc(t.name.trim())}</div>` : '';
+    const role = t.role && t.role.trim() ? `<div class="voice-role">${esc(t.role.trim())}</div>` : '';
+    return `<div class="voice-slide${lead ? ' lead' : ''}${i === 0 ? ' active' : ''}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${ordered.length}">
+        ${badge}
+        <div class="vs-quote">${esc(t.quote)}</div>
+        <div class="voice-meta">${name}${role}${honor}</div>
+      </div>`;
+  }).join('');
+
+  dotsWrap.innerHTML = ordered.map((t, i) =>
+    `<button type="button" class="vc-dot${i === 0 ? ' active' : ''}${t.pledge ? ' pledged' : ''}" data-i="${i}" aria-label="Show testimonial ${i + 1}"></button>`
+  ).join('');
+
+  const slides = Array.from(track.children);
+  const dots = Array.from(dotsWrap.children);
+  const DELAY = 6500;
+  let idx = 0, timer = null, started = false;
+
+  // Lock the track to the tallest slide so rotating never shifts the layout.
+  function sizeTrack(){
+    slides.forEach(s => { s.style.position = 'static'; s.style.visibility = 'visible'; });
+    let max = 0;
+    slides.forEach(s => { max = Math.max(max, s.offsetHeight); });
+    slides.forEach(s => { s.style.position = ''; s.style.visibility = ''; });
+    track.style.height = max + 'px';
+  }
+  function show(n){
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  function tick(){ if (timer) { clearInterval(timer); } timer = setInterval(() => show(idx + 1), DELAY); }
+  function start(){ if (started) return; started = true; tick(); }   // begins only on scroll-into-view
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+
+  carousel.querySelector('.vc-next').addEventListener('click', () => { show(idx + 1); if (started) tick(); });
+  carousel.querySelector('.vc-prev').addEventListener('click', () => { show(idx - 1); if (started) tick(); });
+  dots.forEach(d => d.addEventListener('click', () => { show(+d.dataset.i); if (started) tick(); }));
+  carousel.addEventListener('mouseenter', () => { if (started) stop(); });
+  carousel.addEventListener('mouseleave', () => { if (started) tick(); });
+
+  // Hold on the first (pledged) slide until the section scrolls into view —
+  // guarantees the first testimonial a visitor sees is one that pledged.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { start(); io.disconnect(); } });
+  }, { threshold: 0.55 });
+  io.observe(carousel);
+
+  sizeTrack();
+  window.addEventListener('load', sizeTrack);
+  window.addEventListener('resize', sizeTrack);
 })();
 
 /* ───── NAV scroll behavior ───── */
@@ -982,7 +1208,11 @@ pledgeForm.addEventListener('submit', async (e) => {
   pfSubmit.disabled = true; pfSubmit.textContent = 'Submitting…'; setMeta('Submitting your pledge…');
 
   // POST the form to Netlify Forms (url-encoded, includes form-name).
-  const body = new URLSearchParams(new FormData(pledgeForm)).toString();
+  // Drop the raw radio value — Netlify labels it by the first option ("$5,000"),
+  // which is misleading. The clean "Pledge amount" hidden field carries the amount.
+  const fd = new FormData(pledgeForm);
+  fd.delete('amount');
+  const body = new URLSearchParams(fd).toString();
   try {
     const res = await fetch('/', {
       method: 'POST',
@@ -998,7 +1228,8 @@ pledgeForm.addEventListener('submit', async (e) => {
       amount: getAmount(), name: name, email: email,
       phone: document.getElementById('pf-phone').value.trim(),
       recognition: document.getElementById('pf-name-recognition').value.trim(),
-      message: document.getElementById('pf-msg').value.trim()
+      message: document.getElementById('pf-msg').value.trim(),
+      publicNote: document.getElementById('pf-public').checked
     });
     setMeta('Opening your email to confirm the pledge — just hit send.', 'success');
   } finally {
@@ -1015,7 +1246,8 @@ function emailFallback(p) {
     'Email: ' + p.email,
     'Phone: ' + (p.phone || '—'),
     'Recognize as: ' + (p.recognition || '—'),
-    'Note: ' + (p.message || '—'), '',
+    'Note: ' + (p.message || '—'),
+    'OK to share note publicly: ' + (p.publicNote ? 'Yes' : 'No'), '',
     'I understand this pledge is contingent on securing the Dunham Foundation matching grant, and that no payment is due today.'
   ];
   window.location.href = 'mailto:' + PLEDGE_FALLBACK_EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(lines.join('\n'));
