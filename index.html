@@ -268,6 +268,8 @@ a { color: inherit; }
 .ld-meter-foot { font-size: .95rem; color: #dcd6d6; margin: 14px 0 22px; line-height: 1.5; }
 .ld-meter-foot strong { color: var(--gold); }
 .ld-meter-foot #meterPct { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; }
+.ld-meter-stamp { font-size: .78rem; color: #9a9494; letter-spacing: .3px; margin: -8px 0 20px; }
+.ld-meter-stamp #meterStamp { color: #cfc8c8; font-weight: 600; }
 @media (max-width: 860px) {
   .ld-grid { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -708,6 +710,7 @@ a { color: inherit; }
           <div class="ld-meter-amt" id="meterAmt">$22,500</div>
           <div class="ld-bar"><div class="ld-bar-fill" id="meterFill"></div></div>
           <div class="ld-meter-foot"><span id="meterPct">56%</span> of the <strong>$40,000</strong> community goal — the half that unlocks the <strong>$40,000 Dunham match</strong>.</div>
+          <div class="ld-meter-stamp">Last pledge received <span id="meterStamp">June 30, 2026 · 1:27 PM CDT</span></div>
           <a href="#pledge" class="btn btn-gold" style="width:100%;">Add Your Commitment</a>
         </div>
       </div>
@@ -1010,7 +1013,9 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
 /* ═══════════════════════════════════════════════════════
    COMMITTED BAROMETER — update this number as lead-donor
    commitments come in, then redeploy. GOAL is the $40,000
-   community half that unlocks the Dunham match.
+   community half that unlocks the Dunham match. When you
+   bump COMMITTED, also update the "Last pledge received"
+   stamp (#meterStamp) to the date/time you push live.
    ═══════════════════════════════════════════════════════ */
 const COMMITTED = 22500;
 const GOAL = 40000;
