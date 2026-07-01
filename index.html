@@ -268,6 +268,8 @@ a { color: inherit; }
 .ld-meter-foot { font-size: .95rem; color: #dcd6d6; margin: 14px 0 22px; line-height: 1.5; }
 .ld-meter-foot strong { color: var(--gold); }
 .ld-meter-foot #meterPct { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; }
+.ld-meter-stamp { font-size: .78rem; color: #9a9494; letter-spacing: .3px; margin: -8px 0 20px; }
+.ld-meter-stamp #meterStamp { color: #cfc8c8; font-weight: 600; }
 @media (max-width: 860px) {
   .ld-grid { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -705,9 +707,10 @@ a { color: inherit; }
       <div class="ld-meter">
         <div class="ld-meter-card">
           <div class="ld-meter-label">Committed so far</div>
-          <div class="ld-meter-amt" id="meterAmt">$18,000</div>
+          <div class="ld-meter-amt" id="meterAmt">$20,500</div>
           <div class="ld-bar"><div class="ld-bar-fill" id="meterFill"></div></div>
-          <div class="ld-meter-foot"><span id="meterPct">45%</span> of the <strong>$40,000</strong> community goal — the half that unlocks the <strong>$40,000 Dunham match</strong>.</div>
+          <div class="ld-meter-foot"><span id="meterPct">51%</span> of the <strong>$40,000</strong> community goal — the half that unlocks the <strong>$40,000 Dunham match</strong>.</div>
+          <div class="ld-meter-stamp">Last pledge received <span id="meterStamp">July 1, 2026 · 11:13 AM CDT</span></div>
           <a href="#pledge" class="btn btn-gold" style="width:100%;">Add Your Commitment</a>
         </div>
       </div>
@@ -1010,12 +1013,16 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
 /* ═══════════════════════════════════════════════════════
    COMMITTED BAROMETER — update this number as lead-donor
    commitments come in, then redeploy. GOAL is the $40,000
-   community half that unlocks the Dunham match.
+   community half that unlocks the Dunham match. When you
+   bump COMMITTED, also update the "Last pledge received"
+   stamp (#meterStamp) to the date/time of the pledge.
    NOTE: committee members' own pledges are already in the
    $18,000 baseline — only ADD genuinely new NON-committee
    pledges here (committee decision, Bob Vaughan, June 30 2026).
+   Non-committee pledges added on top of the baseline:
+   • Kurt Hagemann — $2,500 (July 1, 2026) → $20,500
    ═══════════════════════════════════════════════════════ */
-const COMMITTED = 18000;
+const COMMITTED = 20500;
 const GOAL = 40000;
 (function(){
   var amt=document.getElementById('meterAmt'), fill=document.getElementById('meterFill'), pct=document.getElementById('meterPct');
