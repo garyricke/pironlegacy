@@ -12,3 +12,7 @@ plan/
 # Scratch
 scratchpad/
 *.log
+
+# Generated raster (hosted on Cloudinary, never committed)
+generated_imgs/
+assets/lead-donors/
