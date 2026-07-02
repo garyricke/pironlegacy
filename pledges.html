@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pledge Ledger — Dennis Piron Legacy Scholarship</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#FACC08; --maroon:#AC161D; --ink:#1a1a1a; --paper:#f7f5f0;
+  --line:#e4e0d7; --muted:#6b6357;
+  --green:#1a7f4b; --green-bg:#e7f6ee; --amber:#9a6a00; --amber-bg:#fbf1d8;
+  --gray:#5c6470; --gray-bg:#eef0f2;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Open Sans',sans-serif;line-height:1.55;}
+a{color:var(--maroon);}
+
+/* ---- Per-page password gate (shares pironlegacy_auth / piron) ---- */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%);display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb,#FACC08 25%,transparent);border-radius:18px;padding:46px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.55);}
+#pw-box img{height:84px;margin:0 auto 20px;display:block;}
+#pw-box h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#FACC08;margin:0 0 8px;}
+#pw-box .sub{font-size:.86rem;color:rgba(236,236,236,.6);margin:0 0 24px;}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb,#FACC08 30%,transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;}
+#pw-input:focus{border-color:#FACC08;}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:#FACC08;color:#161310;border:0;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
+#pw-btn:hover{background:#ffd84d;}
+#pw-error{font-size:.78rem;color:#ff7a7a;margin:12px 0 0;min-height:1.1em;}
+.pw-shake{animation:pwShake .35s;}
+@keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+
+/* ---- Layout ---- */
+header.top{background:radial-gradient(130% 150% at 80% 0%, #2a1416 0%, #140d0d 60%, #000 100%);color:#fff;padding:26px 0 24px;}
+.wrap{width:min(1080px,92vw);margin:0 auto;}
+.eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+header.top h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;margin:5px 0 4px;}
+header.top p{font-size:.9rem;color:rgba(236,236,236,.72);margin:0;max-width:60ch;}
+.nav-back{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);text-decoration:none;font-weight:600;}
+
+main{padding:26px 0 60px;}
+
+.privacy{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:10px;padding:12px 15px;font-size:.83rem;color:#41474d;margin-bottom:20px;}
+.privacy svg{flex:none;width:17px;height:17px;color:var(--green);margin-top:2px;}
+
+/* Dropzone */
+#drop{border:2px dashed #cdbf9e;background:#fffdf6;border-radius:14px;padding:34px 24px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
+#drop.hot{border-color:var(--maroon);background:#fff5f5;}
+#drop .di{width:40px;height:40px;color:var(--maroon);margin:0 auto 10px;}
+#drop h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.02rem;margin:0 0 4px;}
+#drop p{font-size:.84rem;color:var(--muted);margin:0;}
+#drop .browse{color:var(--maroon);font-weight:700;text-decoration:underline;}
+#fileInput{display:none;}
+
+/* Config */
+details.cfg{margin:16px 0 4px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+details.cfg>summary{cursor:pointer;padding:12px 16px;font-size:.85rem;font-weight:700;font-family:'Montserrat',sans-serif;color:var(--ink);list-style:none;display:flex;align-items:center;gap:8px;}
+details.cfg>summary::-webkit-details-marker{display:none;}
+details.cfg>summary .chev{transition:transform .15s;color:var(--muted);}
+details.cfg[open]>summary .chev{transform:rotate(90deg);}
+.cfg-body{padding:0 16px 16px;font-size:.85rem;color:#41474d;}
+.cfg-body label{display:block;font-weight:600;margin:6px 0 6px;}
+.cfg-body textarea{width:100%;min-height:118px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;resize:vertical;background:#fcfbf7;}
+.cfg-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;}
+.cfg-num label{font-weight:600;font-size:.8rem;display:block;margin-bottom:4px;}
+.cfg-num input{width:130px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit;}
+.cfg-save{margin-top:12px;background:var(--maroon);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;}
+.cfg-save:hover{background:#8e1219;}
+.cfg-hint{font-size:.76rem;color:var(--muted);margin-top:9px;}
+
+/* Results */
+#results{display:none;margin-top:24px;}
+
+.recon{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:22px;}
+.recon h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;margin:0 0 14px;}
+.rec-math{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;font-family:'Montserrat',sans-serif;}
+.rec-cell{text-align:center;}
+.rec-cell .rc-lab{font-size:.62rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.rec-cell .rc-val{font-size:1.25rem;font-weight:900;color:var(--ink);}
+.rec-op{font-size:1.3rem;font-weight:900;color:#c9c0af;}
+.rec-cell.total .rc-val{color:var(--maroon);}
+.rec-verdict{margin-top:16px;padding:12px 15px;border-radius:10px;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:9px;}
+.rec-verdict.ok{background:var(--green-bg);color:var(--green);}
+.rec-verdict.off{background:var(--amber-bg);color:var(--amber);}
+.rec-verdict svg{flex:none;width:18px;height:18px;}
+.rec-src{font-size:.76rem;color:var(--muted);margin-top:10px;}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 16px;}
+.stat .sv{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;}
+.stat .sl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-top:2px;}
+.stat .sc{font-size:.74rem;color:var(--muted);margin-top:3px;}
+.stat.counted{border-top:3px solid var(--green);}
+.stat.baseline{border-top:3px solid var(--gray);}
+.stat.review{border-top:3px solid var(--amber);}
+.stat.all{border-top:3px solid var(--maroon);}
+
+.tbl-wrap{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.tbl-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:640px;}
+thead th{background:#faf8f3;text-align:left;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap;}
+tbody td{padding:12px 14px;border-bottom:1px solid #f0ede5;vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr.rw-review{background:#fffdf4;}
+td.amt{font-weight:700;font-family:'Montserrat',sans-serif;white-space:nowrap;}
+.who{font-weight:700;}
+.who small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:20px;font-size:.72rem;font-weight:700;white-space:nowrap;font-family:'Montserrat',sans-serif;}
+.badge svg{width:12px;height:12px;}
+.badge.b-counted{background:var(--green-bg);color:var(--green);}
+.badge.b-baseline{background:var(--gray-bg);color:var(--gray);}
+.badge.b-review{background:var(--amber-bg);color:var(--amber);}
+.rw-note{font-size:.76rem;color:var(--muted);margin-top:4px;}
+
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.76rem;color:var(--muted);margin:14px 2px 0;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+.legend .dot{width:10px;height:10px;border-radius:50%;}
+
+@media (max-width:760px){ .cards{grid-template-columns:1fr 1fr;} }
+@media (max-width:460px){ .cards{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- Per-page gate -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_180/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship" onerror="this.style.display='none'">
+    <h2>Pledge Ledger</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">Internal · Admin</span>
+    <h1>Pledge Ledger</h1>
+    <p>Every pledge from the Netlify form in one place, with a clear mark for which ones have been applied to the public barometer — and a live check of what the counter should read.</p>
+    <a class="nav-back" href="/status">&larr; Back to status</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="privacy">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <span><strong>Private &amp; local.</strong> The CSV you drop is read entirely in your browser to build the table below &mdash; it is never uploaded, saved, or committed to the site. Donor details and your committee list live only in this browser.</span>
+  </div>
+
+  <!-- Dropzone -->
+  <div id="drop">
+    <svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+    <h3>Drop your pledge CSV here</h3>
+    <p>Export it from Netlify → Forms → <em>pledge</em> → Download CSV, then drop it here or <span class="browse">browse</span>.</p>
+    <input type="file" id="fileInput" accept=".csv,text/csv">
+  </div>
+
+  <!-- Config -->
+  <details class="cfg" id="cfg">
+    <summary><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg> Settings — committee emails &amp; baseline</summary>
+    <div class="cfg-body">
+      <p>Committee members' own pledges are already inside the baseline, so they are <strong>not</strong> re-added to the counter. Paste their pledge-form emails here (one per line) so the ledger can flag them. A pledge from a <em>different</em> address on the same email domain is marked <strong>Review</strong> so you can decide.</p>
+      <label for="committeeEmails">Committee emails — stays in this browser only</label>
+      <textarea id="committeeEmails" placeholder="name1@example.com&#10;name2@example.com&#10;name3@example.com&#10;(paste each committee member's pledge-form email, one per line)"></textarea>
+      <div class="cfg-row">
+        <div class="cfg-num">
+          <label for="baseline">Baseline ($)</label>
+          <input type="number" id="baseline" value="18000" step="500">
+        </div>
+        <div class="cfg-num">
+          <label for="siteCounter">Site counter now ($)</label>
+          <input type="number" id="siteCounter" value="23000" step="500">
+        </div>
+      </div>
+      <button class="cfg-save" id="cfgSave">Save &amp; recalculate</button>
+      <p class="cfg-hint" id="counterSrc">Baseline = committee pledges already counted. &ldquo;Site counter now&rdquo; auto-fills from the live <code>COMMITTED</code> value when reachable.</p>
+    </div>
+  </details>
+
+  <!-- Results -->
+  <div id="results">
+
+    <div class="recon">
+      <h2>Barometer reconciliation</h2>
+      <div class="rec-math">
+        <div class="rec-cell"><div class="rc-lab">Baseline</div><div class="rc-val" id="mBase">$18,000</div></div>
+        <div class="rec-op">+</div>
+        <div class="rec-cell"><div class="rc-lab">New non-committee</div><div class="rc-val" id="mNew">$0</div></div>
+        <div class="rec-op">=</div>
+        <div class="rec-cell total"><div class="rc-lab">Counter should read</div><div class="rc-val" id="mShould">$18,000</div></div>
+      </div>
+      <div class="rec-verdict ok" id="verdict"><span></span></div>
+      <p class="rec-src" id="reviewNote"></p>
+    </div>
+
+    <div class="cards">
+      <div class="stat all"><div class="sv" id="cAllAmt">$0</div><div class="sl">All pledges</div><div class="sc" id="cAllN">0 submissions</div></div>
+      <div class="stat counted"><div class="sv" id="cCntAmt">$0</div><div class="sl">Counted (new)</div><div class="sc" id="cCntN">0 · added to barometer</div></div>
+      <div class="stat baseline"><div class="sv" id="cBaseAmt">$0</div><div class="sl">In baseline</div><div class="sc" id="cBaseN">0 · committee</div></div>
+      <div class="stat review"><div class="sv" id="cRevAmt">$0</div><div class="sl">Needs review</div><div class="sc" id="cRevN">0 · same domain</div></div>
+    </div>
+
+    <div class="tbl-wrap">
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr>
+            <th>Received</th><th>Donor</th><th>Recognition</th><th style="text-align:right;">Amount</th><th>Applied to counter?</th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--green);"></span> Counted — new non-committee pledge, added on top of the baseline</span>
+      <span><span class="dot" style="background:var(--gray);"></span> In baseline — committee member, already counted</span>
+      <span><span class="dot" style="background:var(--amber);"></span> Review — same email domain as a committee member</span>
+    </div>
+
+  </div>
+
+</div>
+</main>
+
+<script>
+/* ---------- Password gate ---------- */
+(function(){
+  var KEY='pironlegacy_auth', PASS='piron', gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){ gate.style.display='none'; return; }
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1'); document.body.style.overflow=''; gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var b=document.getElementById('pw-box'); b.classList.remove('pw-shake'); void b.offsetWidth; b.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+
+/* ---------- Ledger ---------- */
+(function(){
+  var LS_EMAILS='piron_committee_emails', LS_BASE='piron_baseline', LS_CTR='piron_sitecounter';
+  var emailsEl=document.getElementById('committeeEmails'),
+      baseEl=document.getElementById('baseline'),
+      ctrEl=document.getElementById('siteCounter');
+
+  // Restore saved settings
+  var savedEmails=localStorage.getItem(LS_EMAILS); if(savedEmails!==null) emailsEl.value=savedEmails;
+  var savedBase=localStorage.getItem(LS_BASE); if(savedBase!==null) baseEl.value=savedBase;
+  var savedCtr=localStorage.getItem(LS_CTR); if(savedCtr!==null) ctrEl.value=savedCtr;
+
+  var lastRows=null; // parsed pledge rows, kept in memory only
+
+  // Try to read the live COMMITTED value from index.html (same origin) unless user overrode it
+  if(savedCtr===null){
+    fetch('index.html').then(function(r){return r.ok?r.text():null;}).then(function(t){
+      if(!t) return; var m=t.match(/const\s+COMMITTED\s*=\s*(\d+)/);
+      if(m){ ctrEl.value=m[1]; document.getElementById('counterSrc').textContent='Site counter auto-filled from the live COMMITTED value ($'+Number(m[1]).toLocaleString()+'). Edit it if needed.'; if(lastRows) render(lastRows); }
+    }).catch(function(){});
+  }
+
+  document.getElementById('cfgSave').addEventListener('click',function(){
+    localStorage.setItem(LS_EMAILS,emailsEl.value);
+    localStorage.setItem(LS_BASE,baseEl.value);
+    localStorage.setItem(LS_CTR,ctrEl.value);
+    if(lastRows) render(lastRows);
+    var b=document.getElementById('cfgSave'); var o=b.textContent; b.textContent='Saved ✓'; setTimeout(function(){b.textContent=o;},1400);
+  });
+
+  /* ---- CSV parsing (quoted fields, embedded commas/newlines) ---- */
+  function parseCSV(text){
+    text=text.replace(/^﻿/,''); var rows=[],row=[],cur='',q=false;
+    for(var i=0;i<text.length;i++){ var c=text[i];
+      if(q){ if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
+      else { if(c==='"')q=true; else if(c===','){row.push(cur);cur='';} else if(c==='\n'){row.push(cur);rows.push(row);row=[];cur='';} else if(c!=='\r')cur+=c; }
+    }
+    if(cur!==''||row.length){ row.push(cur); rows.push(row); }
+    return rows.filter(function(r){return r.length>1 || (r.length===1 && r[0].trim()!=='');});
+  }
+  function toNum(s){ if(!s) return 0; var n=parseFloat(String(s).replace(/[^0-9.]/g,'')); return isNaN(n)?0:n; }
+  function money(n){ return '$'+Number(Math.round(n)).toLocaleString(); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function fmtDate(iso){ if(!iso) return '—'; var d=new Date(iso); if(isNaN(d)) return esc(iso);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}); }
+  function domain(e){ var m=String(e||'').toLowerCase().match(/@(.+)$/); return m?m[1]:''; }
+
+  function readEmails(){
+    var set={},doms={};
+    emailsEl.value.split(/[\n,;\s]+/).forEach(function(e){ e=e.trim().toLowerCase(); if(e && e.indexOf('@')>0){ set[e]=1; doms[domain(e)]=1; } });
+    return {set:set,doms:doms};
+  }
+
+  /* ---- Ingest a CSV file ---- */
+  function ingest(file){
+    var r=new FileReader();
+    r.onload=function(){
+      var grid=parseCSV(r.result); if(!grid.length){ alert('That file looks empty.'); return; }
+      var head=grid[0].map(function(h){return h.trim().toLowerCase();});
+      function col(name){ return head.indexOf(name); }
+      var iPledge=col('pledge_amount'), iAmt=col('amount'), iName=col('name'), iEmail=col('email'),
+          iRec=col('recognition'), iDate=col('created_at'), iMsg=col('message');
+      var rows=[];
+      for(var k=1;k<grid.length;k++){ var g=grid[k]; if(!g.length) continue;
+        var amount = toNum(iPledge>-1?g[iPledge]:'') || toNum(iAmt>-1?g[iAmt]:'');
+        var name=(iName>-1?g[iName]:'').trim();
+        if(!name && !amount) continue;
+        rows.push({ name:name, email:(iEmail>-1?g[iEmail]:'').trim(),
+          rec:(iRec>-1?g[iRec]:'').trim(), amount:amount,
+          date:(iDate>-1?g[iDate]:'').trim(), msg:(iMsg>-1?g[iMsg]:'').trim() });
+      }
+      rows.sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+      lastRows=rows; render(rows);
+      document.getElementById('results').style.display='block';
+      document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    r.readAsText(file);
+  }
+
+  /* ---- Classify + render ---- */
+  function classify(row,cm){
+    var e=row.email.toLowerCase();
+    if(cm.set[e]) return 'baseline';
+    if(e && cm.doms[domain(e)]) return 'review';
+    return 'counted';
+  }
+
+  var CK={ counted:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8.5 7,12 13,4.5"/></svg>',
+           baseline:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8h8"/></svg>',
+           review:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v4M8 12h.01"/><path d="M8 1.5 15 14H1z"/></svg>' };
+  var LABEL={counted:'Counted',baseline:'In baseline',review:'Review'};
+
+  function render(rows){
+    var cm=readEmails();
+    var base=toNum(baseEl.value), ctr=toNum(ctrEl.value);
+    var sums={counted:0,baseline:0,review:0}, cnts={counted:0,baseline:0,review:0}, allSum=0;
+    var tb=document.getElementById('tbody'); tb.innerHTML='';
+
+    rows.forEach(function(row){
+      var cls=classify(row,cm); sums[cls]+=row.amount; cnts[cls]++; allSum+=row.amount;
+      var tr=document.createElement('tr'); if(cls==='review') tr.className='rw-review';
+      tr.innerHTML =
+        '<td>'+fmtDate(row.date)+'</td>'+
+        '<td class="who">'+esc(row.name||'—')+(row.email?'<small>'+esc(row.email)+'</small>':'')+'</td>'+
+        '<td>'+(row.rec?esc(row.rec):'<span style="color:#b8b1a4">—</span>')+
+          (cls==='review'?'<div class="rw-note">Same domain as a committee email — confirm whether this is a separate gift.</div>':'')+'</td>'+
+        '<td class="amt" style="text-align:right;">'+money(row.amount)+'</td>'+
+        '<td><span class="badge b-'+cls+'">'+CK[cls]+LABEL[cls]+'</span></td>';
+      tb.appendChild(tr);
+    });
+
+    var should=base+sums.counted;
+    document.getElementById('mBase').textContent=money(base);
+    document.getElementById('mNew').textContent=money(sums.counted);
+    document.getElementById('mShould').textContent=money(should);
+
+    var v=document.getElementById('verdict');
+    if(Math.round(should)===Math.round(ctr)){
+      v.className='rec-verdict ok';
+      v.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 20,6"/></svg><span>The site counter ('+money(ctr)+') matches. Nothing to update.</span>';
+    } else {
+      var diff=should-ctr;
+      v.className='rec-verdict off';
+      v.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><span>Update the site counter from '+money(ctr)+' to <strong>'+money(should)+'</strong> ('+(diff>0?'+':'')+money(diff)+' from new pledges).</span>';
+    }
+
+    var rn=document.getElementById('reviewNote');
+    rn.textContent = cnts.review ? cnts.review+' pledge'+(cnts.review>1?'s':'')+' flagged for review ('+money(sums.review)+') are NOT included above — resolve them in Settings by adding the email to the committee list (exclude) or leaving it off (then they count).' : '';
+
+    document.getElementById('cAllAmt').textContent=money(allSum);
+    document.getElementById('cAllN').textContent=rows.length+' submission'+(rows.length===1?'':'s');
+    document.getElementById('cCntAmt').textContent=money(sums.counted);
+    document.getElementById('cCntN').textContent=cnts.counted+' · added to barometer';
+    document.getElementById('cBaseAmt').textContent=money(sums.baseline);
+    document.getElementById('cBaseN').textContent=cnts.baseline+' · committee';
+    document.getElementById('cRevAmt').textContent=money(sums.review);
+    document.getElementById('cRevN').textContent=cnts.review+' · same domain';
+  }
+
+  /* ---- Dropzone wiring ---- */
+  var drop=document.getElementById('drop'), fi=document.getElementById('fileInput');
+  drop.addEventListener('click',function(){ fi.click(); });
+  fi.addEventListener('change',function(){ if(fi.files[0]) ingest(fi.files[0]); });
+  ['dragenter','dragover'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.add('hot'); }); });
+  ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.remove('hot'); }); });
+  drop.addEventListener('drop',function(e){ var f=e.dataTransfer.files[0]; if(f) ingest(f); });
+})();
+</script>
+</body>
+</html>
