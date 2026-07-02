@@ -78,6 +78,45 @@ a{ color:var(--maroon); }
 #pw-error{font-size:.78rem;color:#ff7a7a;margin:12px 0 0;min-height:1.1em;}
 .pw-shake{animation:pwShake .35s;}
 @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+
+/* ---- "How it was built" pop-up ---- */
+.build-btn{ display:inline-flex; align-items:center; gap:8px; margin-top:12px; background:var(--maroon); color:#fff; border:0; border-radius:8px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:.74rem; letter-spacing:.6px; padding:10px 15px; cursor:pointer; text-transform:uppercase; }
+.build-btn:hover{ background:#8e1219; }
+.build-btn svg{ width:15px; height:15px; }
+.bm-modal{ position:fixed; inset:0; z-index:9998; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(8,4,4,.72); backdrop-filter:blur(6px); }
+.bm-modal[hidden]{ display:none; }
+.bm-dialog{ position:relative; background:#fff; border-radius:18px; width:min(880px,100%); max-height:90vh; overflow-y:auto; box-shadow:0 40px 100px rgba(0,0,0,.5); }
+.bm-head{ position:sticky; top:0; background:radial-gradient(130% 140% at 80% 0%, #2a1416 0%, #140d0d 60%, #000 100%); color:#fff; padding:24px 30px; z-index:2; }
+.bm-head .bm-eyebrow{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); }
+.bm-head h2{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.4rem; margin-top:4px; }
+.bm-close{ position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.bm-close:hover{ background:var(--maroon); }
+.bm-close svg{ width:18px; height:18px; }
+.bm-body{ padding:24px 30px 32px; }
+.bm-body > p{ font-size:.96rem; color:#333; margin-bottom:16px; }
+.bm-step{ margin:24px 0; padding-top:22px; border-top:1px solid var(--line); }
+.bm-step:first-of-type{ border-top:0; padding-top:0; }
+.bm-step h3{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.02rem; color:var(--ink); margin-bottom:4px; }
+.bm-step .bm-sub{ font-size:.86rem; color:var(--muted); margin-bottom:12px; }
+.bm-label{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:.6rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--maroon); margin:16px 0 8px; }
+.bm-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+.bm-grid img{ width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
+.bm-flow{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.bm-shot{ text-align:center; }
+.bm-shot img{ width:150px; aspect-ratio:4/5; object-fit:cover; border-radius:10px; border:1px solid var(--line); box-shadow:0 6px 18px rgba(0,0,0,.1); display:block; }
+.bm-shot span{ display:block; font-size:.72rem; color:var(--muted); margin-top:7px; font-weight:600; }
+.bm-shot.win img{ border:2px solid var(--gold); }
+.bm-shot.win span{ color:#b07d00; }
+.bm-arrow{ color:var(--maroon); font-size:1.6rem; font-weight:700; line-height:1; }
+.bm-note{ background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:13px 15px; font-size:.86rem; color:#444; margin-top:14px; }
+.bm-ask{ list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+.bm-ask li{ display:flex; gap:11px; align-items:flex-start; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:12px 15px; font-size:.9rem; color:#333; }
+.bm-ask li .bm-ck{ flex:none; width:18px; height:18px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.bm-ask li .bm-ck svg{ width:11px; height:11px; }
+@media (max-width:560px){
+  .bm-grid{ grid-template-columns:repeat(3,1fr); }
+  .bm-shot img{ width:120px; }
+}
 </style>
 </head>
 <body>
@@ -119,8 +158,19 @@ a{ color:var(--maroon); }
 <main class="timeline">
   <div class="wrap">
 
-    <!-- July 1 (most recent first) -->
+    <!-- July 2 (most recent first) -->
     <section class="day today">
+      <div class="day-date">July 2, 2026</div>
+      <div class="day-label">Lead Donor Spotlight — premium donor profiles</div>
+      <ul class="items">
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Built a new <b>Lead Donor Spotlight</b> section for the landing page — premium profile cards that open a full &ldquo;mini landing page&rdquo; for each lead donor (studio portrait, their story, key facts, and links). First two profiles live in the build: <b>Rob Hollis</b> and <b>Bob Vaughan</b>. Shipped on a <b>preview branch</b> for committee &amp; donor review (<a href="https://github.com/garyricke/pironlegacy/pull/1">GitHub PR #1</a>) — <b>not yet on the live site</b>, and pending each donor&rsquo;s OK on their likeness and bio.
+          <br><button type="button" class="build-btn" id="bmOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> See how it was built</button></span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">The portraits are <b>AI-assisted</b> and built from donor-supplied photos: Rob had no headshot, so a <b>studio portrait was synthesized from his casual photos</b>; Bob&rsquo;s real headshot had only its <b>background harmonized</b> to match. The pop-up above shows the source photos and renderings — and exactly <b>what to request from the next lead donors</b>.</span></li>
+      </ul>
+    </section>
+
+    <!-- July 1 -->
+    <section class="day">
       <div class="day-date">July 1, 2026</div>
       <div class="day-label">First non-committee pledge &middot; Reply to Bob</div>
       <ul class="items">
@@ -199,6 +249,99 @@ a{ color:var(--maroon); }
 </main>
 
 <p class="foot">Internal status page — Dennis Piron Legacy Scholarship · Batavia, IL</p>
+
+<!-- "How the lead donor profiles were built" pop-up -->
+<div class="bm-modal" id="buildModal" hidden role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+  <div class="bm-dialog">
+    <div class="bm-head">
+      <button type="button" class="bm-close" id="bmClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <span class="bm-eyebrow">Behind the Build</span>
+      <h2 id="bmTitle">How the Lead Donor Profiles Were Built</h2>
+    </div>
+    <div class="bm-body">
+      <p>Each lead-donor profile pairs a <b>studio-quality portrait</b> with a short researched story, key facts, and links. Because most donors don&rsquo;t have a polished headshot on hand, we use <b>AI image tools to build one from the photos they already have</b> — then host everything on Cloudinary. Here&rsquo;s exactly how the first two were made, and what to collect from the next donors.</p>
+
+      <div class="bm-step">
+        <h3>1 · Rob Hollis — a studio portrait synthesized from casual photos</h3>
+        <div class="bm-sub">Rob didn&rsquo;t have a professional headshot, so we generated one from everyday photos he supplied.</div>
+
+        <div class="bm-label">Source photos Rob supplied</div>
+        <div class="bm-grid">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_260/piron-legacy/sources/rob-src-1.jpg" alt="Rob source photo 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_260/piron-legacy/sources/rob-src-2.jpg" alt="Rob source photo 2" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_260/piron-legacy/sources/rob-src-3.jpg" alt="Rob source photo 3" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_260/piron-legacy/sources/rob-src-4.jpg" alt="Rob source photo 4" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_260/piron-legacy/sources/rob-src-5.jpg" alt="Rob source photo 5" loading="lazy">
+        </div>
+
+        <div class="bm-label">AI studio renders — we generated two and chose the stronger likeness</div>
+        <div class="bm-flow">
+          <div class="bm-shot win">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/rob-hollis-portrait.jpg" alt="Rob render — Gemini">
+            <span>Gemini (Nano Banana Pro) — chosen</span>
+          </div>
+          <div class="bm-shot">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/sources/rob-openai.png" alt="Rob render — OpenAI">
+            <span>OpenAI (gpt-image-2) — alternate</span>
+          </div>
+        </div>
+        <div class="bm-note">Both were generated by <b>editing from Rob&rsquo;s real photos</b> (not invented from scratch), so the likeness stays true. We picked the Gemini version for its faithful glasses/hairline, cleaner backdrop, and better handling of the original glare.</div>
+
+        <div class="bm-label">Plus one authentic candid — used inside the profile</div>
+        <div class="bm-flow">
+          <div class="bm-shot">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/rob-hollis-khollis.jpg" alt="Rob and Karen at K. Hollis Jewelers">
+            <span>Rob &amp; Karen · K. Hollis Jewelers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bm-step">
+        <h3>2 · Bob Vaughan — real headshot, background harmonized</h3>
+        <div class="bm-sub">Bob already had a professional headshot, so we only swapped its background to match Rob&rsquo;s — for a cohesive lead-donor wall.</div>
+        <div class="bm-flow">
+          <div class="bm-shot">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/bob-vaughan-portrait.jpg" alt="Bob original headshot">
+            <span>Original (as supplied)</span>
+          </div>
+          <span class="bm-arrow">&rarr;</span>
+          <div class="bm-shot win">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/bob-vaughan-studio.jpg" alt="Bob with harmonized background">
+            <span>Background swapped to match</span>
+          </div>
+        </div>
+        <div class="bm-note">His face, hair, expression, and clothing are <b>completely untouched</b> — only the black background became the same warm-gray studio backdrop as Rob&rsquo;s.</div>
+      </div>
+
+      <div class="bm-step">
+        <h3>3 · What to request from the next lead donors</h3>
+        <div class="bm-sub">To build each profile at this quality, ask every donor for:</div>
+        <ul class="bm-ask">
+          <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span>A <b>professional headshot if they have one</b> — otherwise <b>3–5 clear, well-lit photos</b> (front-on, head &amp; shoulders, a couple of angles). Higher resolution is better.</span></li>
+          <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span>One <b>candid &ldquo;in their element&rdquo; photo</b> (at their business, on-site, or with family) for a warm moment inside the profile.</span></li>
+          <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span>A few sentences on their <b>connection to Dennis / the INCubator</b> and why they&rsquo;re supporting the scholarship.</span></li>
+          <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span><b>Links to feature</b> — LinkedIn, their company, or their organization.</span></li>
+          <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span>Their <b>OK to feature an AI-assisted portrait and published bio</b> — likeness and copy approved before go-live.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var m=document.getElementById('buildModal'), openBtn=document.getElementById('bmOpen'), closeBtn=document.getElementById('bmClose');
+  if(!m||!openBtn) return;
+  function show(){ m.hidden=false; document.body.style.overflow='hidden'; closeBtn.focus(); }
+  function hide(){ m.hidden=true; document.body.style.overflow=''; openBtn.focus(); }
+  openBtn.addEventListener('click',show);
+  closeBtn.addEventListener('click',hide);
+  m.addEventListener('click',function(e){ if(e.target===m) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !m.hidden) hide(); });
+})();
+</script>
 
 <script>
 (function(){
