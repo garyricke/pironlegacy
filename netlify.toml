@@ -1,0 +1,13 @@
+# Static site at the repo root + serverless functions for the live pledge ledger.
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Clean URLs for the functions:  /api/committed  ->  /.netlify/functions/committed
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

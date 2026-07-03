@@ -938,6 +938,10 @@ a { color: inherit; }
   </div>
 
   <nav class="adm-links">
+    <a href="pledges.html" target="_blank" rel="noopener">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M16 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/></svg></span>
+      <span class="adm-txt"><b>Pledge Ledger</b><small>Live pledges &amp; the committed barometer</small></span>
+    </a>
     <a href="status.html" target="_blank" rel="noopener">
       <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-14 2 7h6"/></svg></span>
       <span class="adm-txt"><b>Project Status</b><small>Accomplishments &amp; build log by date</small></span>
@@ -1023,16 +1027,26 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
    • Kurt Hagemann — $2,500 (July 1, 2026) → $20,500
    • Robert Brown / Bob & Pat Brown Family — $2,500 (July 2, 2026) → $23,000
    ═══════════════════════════════════════════════════════ */
+// COMMITTED is the fallback shown instantly and if the live endpoint is
+// unavailable; the live total comes from /api/committed (Netlify function
+// reading the pledge form + ledger settings). Keep this in sync as a safety net.
 const COMMITTED = 23000;
 const GOAL = 40000;
 (function(){
   var amt=document.getElementById('meterAmt'), fill=document.getElementById('meterFill'), pct=document.getElementById('meterPct');
   if(!amt) return;
-  var p=Math.max(0, Math.min(100, Math.round(COMMITTED / GOAL * 100)));
-  amt.textContent = '$' + COMMITTED.toLocaleString();
-  pct.textContent = p + '%';
-  // Set the fill (CSS transition animates it in); rAF lets the 0%→p% transition run.
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = p + '%'; }); });
+  function apply(value){
+    var p=Math.max(0, Math.min(100, Math.round(value / GOAL * 100)));
+    amt.textContent = '$' + Number(value).toLocaleString();
+    pct.textContent = p + '%';
+    // Set the fill (CSS transition animates it in); rAF lets the 0%→p% transition run.
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = p + '%'; }); });
+  }
+  apply(COMMITTED); // instant paint with the safe fallback
+  // Then refresh from the live ledger; ignore failures (keeps the fallback).
+  fetch('/api/committed').then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if(d && typeof d.committed === 'number' && d.committed > 0) apply(d.committed);
+  }).catch(function(){});
 })();
 
 /* ═══════════════════════════════════════════════════════
