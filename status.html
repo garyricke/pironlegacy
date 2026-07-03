@@ -163,9 +163,10 @@ a{ color:var(--maroon); }
       <div class="day-date">July 2, 2026</div>
       <div class="day-label">Lead Donor Spotlight — premium donor profiles</div>
       <ul class="items">
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Built a new <b>Lead Donor Spotlight</b> section for the landing page — premium profile cards that open a full &ldquo;mini landing page&rdquo; for each lead donor (studio portrait, their story, key facts, and links). First two profiles live in the build: <b>Rob Hollis</b> and <b>Bob Vaughan</b>. Shipped on a <b>preview branch</b> for committee &amp; donor review (<a href="https://github.com/garyricke/pironlegacy/pull/1">GitHub PR #1</a>) — <b>not yet on the live site</b>, and pending each donor&rsquo;s OK on their likeness and bio.
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Built a new <b>Lead Donor Spotlight</b> section for the landing page — premium profile cards that open a full &ldquo;mini landing page&rdquo; for each lead donor (studio portrait, their story, key facts, and links). Three profiles now in the build: <b>Rob Hollis</b>, <b>Bob Vaughan</b>, and <b>Bob Hubbard</b>. Shipped on a <b>preview branch</b> for committee &amp; donor review (<a href="https://github.com/garyricke/pironlegacy/pull/1">GitHub PR #1</a>) — <b>not yet on the live site</b>, and pending each donor&rsquo;s OK on their likeness and bio.
           <br><button type="button" class="build-btn" id="bmOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> See how it was built</button></span></li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">The portraits are <b>AI-assisted</b> and built from donor-supplied photos: Rob had no headshot, so a <b>studio portrait was synthesized from his casual photos</b>; Bob&rsquo;s real headshot had only its <b>background harmonized</b> to match. The pop-up above shows the source photos and renderings — and exactly <b>what to request from the next lead donors</b>.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">Added a third profile — <b>Bob Hubbard</b>, INCubator Community Champion and <b>2024 Batavia Citizen of the Year</b>. It debuts two new touches: the <b>&ldquo;Bob Hubbard Boardroom&rdquo;</b> naming photo as an in-profile tribute, and a first <b>embedded video</b> — his 37-second segment (12:05–12:42) trimmed from the 16-minute tribute reel and hosted on Cloudinary.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span class="tx">The portraits are <b>AI-assisted</b> and built from donor-supplied photos: Rob had no headshot, so a <b>studio portrait was synthesized from his casual photos</b>; Bob Vaughan&rsquo;s real headshot had only its <b>background harmonized</b>; and Bob Hubbard&rsquo;s was <b>built from a podium photo and a magazine cover</b>. The pop-up above shows the source photos and renderings — and exactly <b>what to request from the next lead donors</b>.</span></li>
       </ul>
     </section>
 
@@ -316,7 +317,40 @@ a{ color:var(--maroon); }
       </div>
 
       <div class="bm-step">
-        <h3>3 · What to request from the next lead donors</h3>
+        <h3>3 · Bob Hubbard — a studio portrait from a podium shot and a magazine cover</h3>
+        <div class="bm-sub">Bob didn&rsquo;t have a studio headshot, so we synthesized one from two photos he already appears in — keeping his exact likeness.</div>
+
+        <div class="bm-label">Source photos</div>
+        <div class="bm-grid" style="grid-template-columns:repeat(2,1fr); max-width:330px;">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/piron-legacy/sources/bob-hubbard-src-1.jpg" alt="Bob Hubbard source photo — at a podium" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/piron-legacy/sources/bob-hubbard-src-2.jpg" alt="Bob Hubbard source photo — Batavia Living cover" loading="lazy">
+        </div>
+
+        <div class="bm-label">AI studio render (Gemini / Nano Banana Pro)</div>
+        <div class="bm-flow">
+          <div class="bm-shot win">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/bob-hubbard-portrait.jpg" alt="Bob Hubbard studio render">
+            <span>Studio portrait — chosen</span>
+          </div>
+        </div>
+        <div class="bm-note">Generated by <b>editing from his real photos</b> (not invented), so the glasses, white hair, and features stay true — then set on the same warm-gray backdrop as the others.</div>
+
+        <div class="bm-label">Two firsts for this profile — a tribute photo and an embedded video</div>
+        <div class="bm-flow">
+          <div class="bm-shot">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_360/piron-legacy/bob-hubbard-boardroom.jpg" alt="The Bob Hubbard Boardroom naming">
+            <span>&ldquo;Bob Hubbard Boardroom&rdquo; tribute</span>
+          </div>
+          <div class="bm-shot">
+            <img src="https://res.cloudinary.com/dsbllwpbh/video/upload/so_3,f_auto,q_auto,w_360/piron-legacy/bob-hubbard-tribute.jpg" alt="Bob Hubbard tribute video clip">
+            <span>37-sec reel clip (12:05&ndash;12:42)</span>
+          </div>
+        </div>
+        <div class="bm-note">New this round: we <b>trimmed Bob&rsquo;s 37-second segment</b> from the 16-minute tribute reel and host it on Cloudinary, so it plays right inside his profile — alongside the photo of Coach Piron naming the INCubator boardroom in his honor.</div>
+      </div>
+
+      <div class="bm-step">
+        <h3>4 · What to request from the next lead donors</h3>
         <div class="bm-sub">To build each profile at this quality, ask every donor for:</div>
         <ul class="bm-ask">
           <li><span class="bm-ck"><svg viewBox="0 0 16 16" fill="none" stroke="#161310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,8 7,11 13,4.5"/></svg></span><span>A <b>professional headshot if they have one</b> — otherwise <b>3–5 clear, well-lit photos</b> (front-on, head &amp; shoulders, a couple of angles). Higher resolution is better.</span></li>
