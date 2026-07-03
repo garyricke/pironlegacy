@@ -3,6 +3,13 @@
 .env.*
 *.key
 
+# Dependencies (Netlify installs these at build time)
+node_modules/
+
+# Raster assets live on Cloudinary, never in the repo
+generated_imgs/
+assets/lead-donors/
+
 # OS
 .DS_Store
 

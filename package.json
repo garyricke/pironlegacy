@@ -1,0 +1,9 @@
+{
+  "name": "pironlegacy-functions",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Serverless functions for the Dennis Piron Legacy Scholarship pledge ledger.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
