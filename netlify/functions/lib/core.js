@@ -25,7 +25,15 @@ const DEFAULT_SETTINGS = {
 };
 
 function store() {
-  return getStore({ name: 'pledge-ledger', consistency: 'strong' });
+  // Configure Blobs explicitly via the Netlify API using the creds we already
+  // have. This avoids relying on the auto-injected Blobs context, which isn't
+  // always present in the function runtime (that made setJSON throw -> 500).
+  var opts = { name: 'pledge-ledger', consistency: 'strong' };
+  if (process.env.NETLIFY_SITE_ID && process.env.NETLIFY_API_TOKEN) {
+    opts.siteID = process.env.NETLIFY_SITE_ID;
+    opts.token = process.env.NETLIFY_API_TOKEN;
+  }
+  return getStore(opts);
 }
 
 async function getSettings() {
