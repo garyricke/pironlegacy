@@ -1042,10 +1042,28 @@ const GOAL = 40000;
     // Set the fill (CSS transition animates it in); rAF lets the 0%→p% transition run.
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = p + '%'; }); });
   }
+  // Format an ISO timestamp as e.g. "July 2, 2026 · 5:03 PM CDT" in Batavia's
+  // (Central) time — so the "Last pledge received" stamp tracks the real pledge.
+  function fmtStamp(iso){
+    var dt = new Date(iso);
+    if (isNaN(dt.getTime())) return null;
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', {
+        timeZone:'America/Chicago', month:'long', day:'numeric', year:'numeric',
+        hour:'numeric', minute:'2-digit', hour12:true, timeZoneName:'short'
+      }).formatToParts(dt);
+      var m={}; parts.forEach(function(p){ m[p.type]=p.value; });
+      return m.month+' '+m.day+', '+m.year+' · '+m.hour+':'+m.minute+' '+m.dayPeriod+' '+m.timeZoneName;
+    } catch(e){ return null; }
+  }
   apply(COMMITTED); // instant paint with the safe fallback
   // Then refresh from the live ledger; ignore failures (keeps the fallback).
   fetch('/api/committed').then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
     if(d && typeof d.committed === 'number' && d.committed > 0) apply(d.committed);
+    if(d && d.lastPledgeAt){
+      var s = fmtStamp(d.lastPledgeAt), el = document.getElementById('meterStamp');
+      if(s && el) el.textContent = s;
+    }
   }).catch(function(){});
 })();
 

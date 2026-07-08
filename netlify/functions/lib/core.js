@@ -105,12 +105,17 @@ function isApplied(status) { return status === 'counted' || status === 'included
 
 function compute(subs, settings) {
   const committeeSet = new Set((settings.committee || []).map(normName));
-  let counted = 0, baseSum = 0, all = 0, appliedCount = 0;
+  let counted = 0, baseSum = 0, all = 0, appliedCount = 0, lastAppliedDate = '';
 
   const rows = subs.map(function (sub) {
     const status = classify(sub, settings, committeeSet);
     all += sub.amount;
-    if (isApplied(status)) { counted += sub.amount; appliedCount++; }
+    if (isApplied(status)) {
+      counted += sub.amount; appliedCount++;
+      // Track the most recent applied pledge so the page can stamp "Last pledge
+      // received …" dynamically. created_at is ISO 8601, so string compare = chronological.
+      if (sub.date && (!lastAppliedDate || sub.date > lastAppliedDate)) lastAppliedDate = sub.date;
+    }
     else if (status === 'baseline') baseSum += sub.amount;
     return Object.assign({}, sub, { status: status });
   });
@@ -129,6 +134,7 @@ function compute(subs, settings) {
       publicShown: settings.autoLive ? committed : (settings.fallbackTotal || 0),
       goal: GOAL,
       appliedCount: appliedCount,
+      lastAppliedDate: lastAppliedDate || null,
       submissionCount: rows.length
     }
   };

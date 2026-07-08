@@ -24,7 +24,8 @@ exports.handler = async function () {
     const subs = await fetchSubmissions();
     const out = compute(subs, settings);
     return { statusCode: 200, headers: headers, body: JSON.stringify({
-      committed: out.totals.committed, goal: GOAL, appliedCount: out.totals.appliedCount, live: true
+      committed: out.totals.committed, goal: GOAL, appliedCount: out.totals.appliedCount,
+      lastPledgeAt: out.totals.lastAppliedDate, live: true
     }) };
   } catch (e) {
     // Never break the page — signal null so the client keeps its fallback.
