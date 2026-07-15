@@ -243,7 +243,7 @@ td.amt{font-weight:700;font-family:'Montserrat',sans-serif;white-space:nowrap;te
       <div class="stat all"><div class="sv" id="cAllAmt">$0</div><div class="sl">All pledges</div><div class="sc" id="cAllN">0 submissions</div></div>
       <div class="stat applied"><div class="sv" id="cAppAmt">$0</div><div class="sl">Applied to counter</div><div class="sc" id="cAppN">0 pledges</div></div>
       <div class="stat baseline"><div class="sv" id="cBaseAmt">$0</div><div class="sl">In baseline</div><div class="sc" id="cBaseN">0 · committee</div></div>
-      <div class="stat all" style="border-top-color:var(--gold);"><div class="sv" id="cGoal">—</div><div class="sl">Of $40k goal</div><div class="sc" id="cPct">0%</div></div>
+      <div class="stat all" style="border-top-color:var(--gold);"><div class="sv" id="cGoal">—</div><div class="sl">Of $50k goal</div><div class="sc" id="cPct">0%</div></div>
     </div>
 
     <!-- Table -->
@@ -409,8 +409,8 @@ function renderTable(){
   el('cAllAmt').textContent=money(r.all); el('cAllN').textContent=r.rows.length+' submission'+(r.rows.length===1?'':'s');
   el('cAppAmt').textContent=money(r.counted); el('cAppN').textContent=r.applied+' pledge'+(r.applied===1?'':'s');
   el('cBaseAmt').textContent=money(r.baseP); el('cBaseN').textContent=r.rows.filter(function(x){return x.status==='baseline';}).length+' · committee';
-  var pct=Math.max(0,Math.min(100,Math.round(r.committed/40000*100)));
-  el('cGoal').textContent=pct+'%'; el('cPct').textContent=money(r.committed)+' of $40,000';
+  var pct=Math.max(0,Math.min(100,Math.round(r.committed/50000*100)));
+  el('cGoal').textContent=pct+'%'; el('cPct').textContent=money(r.committed)+' of $50,000';
 
   var tb=el('tbody'); tb.innerHTML='';
   r.rows.forEach(function(row){
