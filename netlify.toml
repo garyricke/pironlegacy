@@ -12,9 +12,10 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# TEMPORARY: site-wide password. Every path 401s until the visitor sends the
-# Basic Auth password, which is what keeps the site (and the one-sheet PDF)
-# out of search results. Delete this block to go public again.
+# TEMPORARY: site-wide password. Every path is withheld until the visitor
+# enters the password on the branded gate page (cookie-based, single field —
+# no browser Basic-Auth dialog), which is what keeps the site (and the
+# one-sheet PDF) out of search results. Delete this block to go public again.
 [[edge_functions]]
   path = "/*"
   function = "password-gate"
