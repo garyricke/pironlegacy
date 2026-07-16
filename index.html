@@ -715,9 +715,9 @@ a { color: inherit; }
       <div class="ld-meter">
         <div class="ld-meter-card">
           <div class="ld-meter-label">Committed so far</div>
-          <div class="ld-meter-amt" id="meterAmt">$33,000</div>
+          <div class="ld-meter-amt" id="meterAmt">$36,000</div>
           <div class="ld-bar"><div class="ld-bar-fill" id="meterFill"></div></div>
-          <div class="ld-meter-foot"><span id="meterPct">66%</span> of the <strong>$50,000</strong> community goal — the half that unlocks the <strong>$50,000 Dunham match</strong>.</div>
+          <div class="ld-meter-foot"><span id="meterPct">72%</span> of the <strong>$50,000</strong> community goal — the half that unlocks the <strong>$50,000 Dunham match</strong>.</div>
           <div class="ld-meter-stamp">Last pledge received <span id="meterStamp">July 8, 2026 · 9:31 AM CDT</span></div>
           <a href="#pledge" class="btn btn-gold" style="width:100%;">Add Your Commitment</a>
         </div>
@@ -1031,19 +1031,21 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
    NOTE: committee members' own pledges are already in the
    $18,000 baseline — only ADD genuinely new NON-committee
    pledges here (committee decision, Bob Vaughan, June 30 2026).
-   Fallback synced to the live ledger total: $33,000 (the $18,000 committee
-   baseline + applied non-committee pledges), per the July 15, 2026
-   reconciliation. Last pledge received: July 8, 2026 · 9:31 AM CDT.
+   Fallback synced to the committee's official accounting: $36,000 (72% of the
+   $50,000 half), per Bob Vaughan's July 15, 2026 tally. This includes verbal /
+   offline commitments that never came through the online form, so the LIVE
+   /api/committed value only reaches $36,000 once the ledger BASELINE is set to
+   $21,000 in the /pledges admin console (committee pledges + the two offline
+   verbal / Pitch Night commitments); keep it Live so new online pledges still
+   auto-add on top. Until then the live endpoint returns the online-only total
+   and overrides this fallback on the deployed site.
    Do NOT list donor names or amounts here — this repo is public; individual
    pledge records live only in the git-ignored plan/ tracker.
-   NOTE: the live total may read higher than this until a duplicate
-   submission is excluded via an override in the /pledges admin console.
-   The live /api/committed value overrides this fallback on the deployed site.
    ═══════════════════════════════════════════════════════ */
 // COMMITTED is the fallback shown instantly and if the live endpoint is
 // unavailable; the live total comes from /api/committed (Netlify function
 // reading the pledge form + ledger settings). Keep this in sync as a safety net.
-const COMMITTED = 33000;
+const COMMITTED = 36000;
 const GOAL = 50000;
 (function(){
   var amt=document.getElementById('meterAmt'), fill=document.getElementById('meterFill'), pct=document.getElementById('meterPct');
