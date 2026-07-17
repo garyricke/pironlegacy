@@ -290,6 +290,58 @@ a { color: inherit; }
   font-weight: 700; font-size: .8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--maroon);
 }
 
+/* ───── PRESS / IN THE NEWS ───── */
+.press { padding: 100px 0; background: var(--paper); }
+.press-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.press-copy h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 900; margin-bottom: 24px; }
+.press-copy p { font-size: 1.05rem; color: #333; margin-bottom: 16px; }
+
+/* the clipping */
+.press-clip {
+  background: #fff; border: 1px solid #e5e0d4; border-left: 4px solid var(--maroon);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 26px;
+  box-shadow: 0 6px 22px rgba(0,0,0,.05);
+}
+.press-source { display: flex; align-items: center; gap: 9px; margin-bottom: 11px; color: var(--maroon); }
+.press-source svg { width: 18px; height: 18px; flex: none; }
+.press-source span {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem;
+  letter-spacing: 1.8px; text-transform: uppercase;
+}
+.press-clip h3 { font-family: Georgia, serif; font-size: 1.45rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.press-deck { font-family: Georgia, serif; font-style: italic; font-size: .95rem; color: #4a4a4a; line-height: 1.5; }
+
+.press-quote {
+  border-left: 4px solid var(--gold); padding: 6px 0 6px 22px; margin: 28px 0 0;
+  font-family: Georgia, serif; font-style: italic; font-size: 1.05rem; color: var(--ink);
+}
+.press-quote cite {
+  display: block; margin-top: 10px; font-family: 'Montserrat', sans-serif; font-style: normal;
+  font-weight: 700; font-size: .78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--maroon);
+}
+.press-tie { font-weight: 600; color: var(--ink) !important; }
+
+.press-cta {
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 8px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem;
+  color: var(--maroon); text-decoration: none;
+  border-bottom: 2px solid rgba(172,22,29,.3); padding-bottom: 3px;
+  transition: color .25s ease, border-color .25s ease, gap .25s ease;
+}
+.press-cta:hover { color: var(--black); border-color: var(--gold); gap: 13px; }
+.press-cta svg { width: 17px; height: 17px; flex: none; }
+
+.press-figure { margin: 0; }
+.press-media > .press-quote { margin-top: 28px; }
+.press-photo { border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 24px 60px rgba(0,0,0,.22); }
+.press-photo img { width: 100%; height: auto; }
+.press-caption { margin-top: 14px; font-size: .84rem; line-height: 1.55; color: var(--muted); }
+.press-caption strong { color: var(--ink); font-weight: 700; }
+.press-credit {
+  display: block; margin-top: 7px; font-family: 'Montserrat', sans-serif;
+  font-size: .66rem; letter-spacing: 1.4px; text-transform: uppercase; color: #8f8a80;
+}
+
 /* ───── TRIBUTE VIDEO ───── */
 .tributes { padding: 100px 0; background: var(--black); color: #e8e8e8; }
 .tributes .eyebrow { color: var(--gold); }
@@ -492,6 +544,7 @@ a { color: inherit; }
   .match-grid { grid-template-columns: 1fr; max-width: 420px; }
   .match-card.lead { transform: none; }
   .honor-grid { grid-template-columns: 1fr; gap: 36px; }
+  .press-grid { grid-template-columns: 1fr; gap: 36px; }
   .how-steps { grid-template-columns: 1fr; }
   .voice-slide { padding: 40px 26px; }
   .vc-prev { left: -8px; }
@@ -742,6 +795,63 @@ a { color: inherit; }
         <blockquote class="honor-quote">
           "There's a tough love that prepares them in ways I don't know that college does. Nobody like him. Nobody."
           <cite>— Gary Ricke, Mentor</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PRESS / IN THE NEWS ───── -->
+<section class="press" id="press">
+  <div class="container">
+    <div class="press-grid">
+      <div class="press-copy">
+        <span class="eyebrow">In the News</span>
+        <h2>This is what his mentorship builds</h2>
+
+        <div class="press-clip">
+          <div class="press-source">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+              <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>
+            </svg>
+            <span>Daily Herald · July 17, 2026</span>
+          </div>
+          <h3>Getting the word out</h3>
+          <p class="press-deck">Student-run Batavia newspaper for seniors earns top prize at pitch night, plans to expand</p>
+        </div>
+
+        <p>When Batavia High School senior Bryan Wnek's grandmother was living in a care center, what she missed most was her newspaper. In Dennis Piron's INCubator class, that observation became a company. Guided by Piron, Wnek and classmates Ben Manikas and Lexie Kammes built <strong>The Windmill Weekly</strong> — a 12- to 16-page tabloid, printed in oversized type, for residents of care centers and assisted-living facilities.</p>
+
+        <p>At the INCubator's Pitch Night, their pitch won the program's top donation prize: a <strong>$3,400 check</strong> for equipment, a website, and marketing. The Daily Herald caught up with the team this month as they prepare for a July 28 ribbon-cutting at the Batavia Chamber of Commerce and plan an expansion into Aurora, Geneva, and St. Charles. All three students are carrying the business into next school year.</p>
+
+        <p class="press-tie">A student's observation, coached into a business that serves its community — that is the work this scholarship exists to carry forward.</p>
+
+        <a class="press-cta" href="https://e-edition.dailyherald.com/infinity/article_popover_share.aspx?guid=0816b96a-e8ed-4b28-95d5-2cb3f3640d7e&amp;share=true" target="_blank" rel="noopener noreferrer">
+          Read the full story in the Daily Herald
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 3h6v6"/><path d="M10 14 21 3"/>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="press-media">
+        <figure class="press-figure">
+          <div class="press-photo">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/e_enhance,f_auto,q_auto,w_1200/v1784293368/piron-legacy/windmill-weekly-pitch-night.jpg"
+                 alt="Dennis Piron with Batavia High School students Ben Manikas, Lexie Kammes and Bryan Wnek, holding a $3,400 check awarded to The Windmill Weekly at INCubator Pitch Night"
+                 width="1170" height="1146" loading="lazy">
+          </div>
+          <figcaption class="press-caption">
+            From left: senior <strong>Ben Manikas</strong>, INCubator instructor <strong>Dennis Piron</strong>, junior <strong>Lexie Kammes</strong>, and senior <strong>Bryan Wnek</strong> with the Windmill Weekly's top prize at Batavia High School's INCubator Pitch Night.
+            <span class="press-credit">Courtesy of Windmill Weekly</span>
+          </figcaption>
+        </figure>
+
+        <blockquote class="press-quote">
+          "The students crafted this new business through the guidance of INCubator instructor Dennis Piron."
+          <cite>— Dave Heun, Daily Herald</cite>
         </blockquote>
       </div>
     </div>
