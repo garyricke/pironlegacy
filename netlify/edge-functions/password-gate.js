@@ -27,6 +27,25 @@ const COOKIE_NAME = "piron_gate";
 const COOKIE_TOKEN = "granted-2026-07"; // bump to invalidate existing sessions
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
+/**
+ * Paths served WITHOUT the password, even while the rest of the site is private.
+ *
+ * /thank-you.html is where PayPal returns donors after a completed donation.
+ * It has to be public for two reasons:
+ *   1. PayPal VALIDATES the Auto Return URL when the setting is saved and
+ *      refuses to activate Auto Return if the URL doesn't resolve — a 401
+ *      would silently block the whole feature.
+ *   2. A donor bounced back from PayPal must never hit a password wall
+ *      moments after giving money.
+ *
+ * Keep this list as short as possible — every entry is a hole in the gate.
+ * The thank-you page is deliberately self-contained (fonts + badge load from
+ * Google/Cloudinary, nothing from /assets), so this one path is all it needs.
+ * The page carries its own noindex, so opening it does not expose the campaign
+ * to search while the main site is still private.
+ */
+const PUBLIC_PATHS = new Set(["/thank-you.html", "/thank-you"]);
+
 const BADGE =
   "https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_220/v1782508679/piron-legacy/piron-legacy-badge.png";
 
@@ -91,6 +110,13 @@ export default async (request) => {
   if (authorized) return;
 
   const url = new URL(request.url);
+
+  // Explicitly public paths bypass the gate (see PUBLIC_PATHS above). Compared
+  // against the pathname only, so query strings PayPal appends (?tx=…&amt=…)
+  // don't defeat the match. Trailing slash normalized; matching is exact, so
+  // this can't be widened by a crafted path.
+  const path = url.pathname.replace(/\/+$/, "") || "/";
+  if (PUBLIC_PATHS.has(path)) return;
 
   // A password submission (only unauthorized visitors reach here; an authorized
   // visitor's form posts — e.g. the pledge form — pass through above via cookie).

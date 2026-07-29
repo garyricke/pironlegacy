@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- This page is PUBLIC even while the rest of the site sits behind the edge
+     password gate (see netlify/edge-functions/password-gate.js → PUBLIC_PATHS).
+     PayPal validates the Auto Return URL when the setting is saved and will not
+     activate Auto Return if it can't fetch this page — and a donor bounced back
+     from PayPal must never land on a password prompt. It carries its own
+     noindex so opening it doesn't expose the campaign to search early. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Thank You — Dennis Piron Legacy Scholarship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold:   #FACC08;
+  --maroon: #AC161D;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%);
+  font-family: 'Open Sans', system-ui, sans-serif;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 22px;
+}
+/* Faint gold grid, same texture as the gate page and hero. */
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(250,204,8,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250,204,8,.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.card {
+  position: relative;
+  width: min(620px, 100%);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(250,204,8,.28);
+  border-radius: 20px;
+  padding: 52px 46px 44px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.55);
+}
+.badge { height: 104px; width: auto; display: block; margin: 0 auto 26px; }
+
+.check {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gold); color: #161310;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px;
+  box-shadow: 0 8px 30px rgba(250,204,8,.4);
+}
+.check svg { width: 30px; height: 30px; stroke: currentColor; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+h1 {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.15;
+  margin: 0 0 14px; color: #fff;
+}
+h1 .accent { color: var(--gold); }
+.lede { font-size: 1.05rem; line-height: 1.6; color: #e2dede; margin: 0 0 26px; }
+.lede strong { color: #fff; }
+
+/* Shown only when PayPal returns an amount (requires Payment Data Transfer). */
+.amt {
+  display: none;
+  background: rgba(0,0,0,.32); border: 1px solid rgba(250,204,8,.3);
+  border-radius: 14px; padding: 20px 24px; margin: 0 0 26px;
+}
+.amt.show { display: block; }
+.amt-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+}
+.amt-row .you { color: #fff; }
+.amt-row .them { color: var(--gold); }
+.amt-row .op { color: #b9b2b2; font-size: 1.1rem; font-weight: 700; }
+.amt-cap { margin: 12px 0 0; font-size: .88rem; color: #cfc8c8; }
+
+.doubled {
+  background: rgba(172,22,29,.18); border: 1px solid rgba(172,22,29,.5);
+  border-radius: 12px; padding: 18px 22px; margin: 0 0 30px;
+  font-size: .98rem; line-height: 1.55; color: #f3e9e9; text-align: left;
+}
+.doubled strong { color: var(--gold); }
+
+.ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 14px 30px; border-radius: 50px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem;
+  letter-spacing: .5px; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+.btn-gold { background: var(--gold); color: #161310; box-shadow: 0 6px 24px rgba(250,204,8,.35); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(250,204,8,.5); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
+.btn-outline:hover { background: #fff; color: #161310; border-color: #fff; }
+
+.fine {
+  margin: 30px 0 0; padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: .8rem; line-height: 1.6; color: #9a9494;
+}
+.fine a { color: #cfc8c8; }
+.fine strong { color: #cfc8c8; }
+
+@media (max-width: 560px) {
+  .card { padding: 40px 26px 34px; }
+  .ctas .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <img class="badge"
+       src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/v1782508679/piron-legacy/piron-legacy-badge.png"
+       alt="Dennis Piron Legacy Scholarship" width="104" height="104"
+       onerror="this.style.display='none'">
+
+  <div class="check" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+  </div>
+
+  <h1>Thank you — your gift is <span class="accent">doubled</span></h1>
+
+  <p class="lede">Your donation to the <strong>Dennis Piron Legacy Scholarship</strong> came through. You've just helped endow, permanently, the program that turned a decade of Batavia students into entrepreneurs.</p>
+
+  <!-- Populated from PayPal's return parameters when Payment Data Transfer is
+       on; stays hidden otherwise so the page reads correctly either way. -->
+  <div class="amt" id="amtBox">
+    <div class="amt-row">
+      <span class="you" id="amtYou">$0</span>
+      <span class="op">+</span>
+      <span class="them" id="amtMatch">$0</span>
+      <span class="op">=</span>
+      <span class="them" id="amtTotal">$0</span>
+    </div>
+    <p class="amt-cap">Your gift, plus the Dunham Foundation match it draws down.</p>
+  </div>
+
+  <div class="doubled">
+    The Dunham Foundation has approved a <strong>$50,000 dollar-for-dollar matching grant</strong>. It's released to the endowment once our community half of $50,000 has been raised and received — so a gift that's actually in the bank, like yours, is exactly what unlocks it.
+  </div>
+
+  <div class="ctas">
+    <a class="btn btn-gold" href="/">Back to the Campaign</a>
+    <a class="btn btn-outline" href="mailto:pledges@pironlegacy.org">Questions? Email Us</a>
+  </div>
+
+  <p class="fine">
+    A receipt has been emailed to you by PayPal. The Dennis Piron Legacy Scholarship is administered by the
+    <strong>Batavia Foundation for Educational Excellence</strong>, an IRS-registered 501(c)(3) nonprofit —
+    contributions are tax-deductible to the extent allowed by law, and a W-9 is available on request from
+    <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>.
+  </p>
+</main>
+
+<script>
+/* PayPal's Auto Return appends transaction details ONLY when Payment Data
+   Transfer is also enabled on the account; with plain Auto Return the query
+   string may be empty. So treat the amount as optional: personalize when it's
+   there, stay generic when it isn't. Never trust it for anything but display —
+   these values are user-editable in the URL bar. */
+(function () {
+  var amt = new URLSearchParams(location.search).get('amt');
+  var value = parseFloat(amt);
+  if (!isFinite(value) || value <= 0) return;
+
+  var fmt = function (n) {
+    return n.toLocaleString('en-US', {
+      style: 'currency', currency: 'USD',
+      minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2
+    });
+  };
+  document.getElementById('amtYou').textContent = fmt(value);
+  document.getElementById('amtMatch').textContent = fmt(value);
+  document.getElementById('amtTotal').textContent = fmt(value * 2);
+  document.getElementById('amtBox').classList.add('show');
+})();
+</script>
+
+</body>
+</html>

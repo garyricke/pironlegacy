@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Dennis Piron Legacy Scholarship — Endow It Forever</title>
-<meta name="description" content="Help permanently endow the Dennis Piron Legacy Scholarship through the Batavia Foundation for Educational Excellence. Every gift is matched dollar-for-dollar by the Dunham Foundation, up to $50,000. Make a leadership pledge today.">
+<meta name="description" content="Help permanently endow the Dennis Piron Legacy Scholarship through the Batavia Foundation for Educational Excellence. Every gift is matched dollar-for-dollar by the Dunham Foundation, up to $50,000, once our community half is raised. Give now or make a leadership pledge.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Dennis Piron Legacy Scholarship">
-<meta name="twitter:description" content="Endow it forever. The Dunham Foundation's $50,000 dollar-for-dollar match is secured — every gift now doubled.">
+<meta name="twitter:description" content="Endow it forever. The Dunham Foundation's $50,000 dollar-for-dollar match is secured — released once our community half is raised. Every gift doubled.">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsbllwpbh/image/upload/v1782512494/piron-legacy/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,6 +140,15 @@ a { color: inherit; }
   letter-spacing: .5px; white-space: nowrap;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(250,204,8,.5); }
+.nav-cta-alt {
+  padding: 10px 20px; font-size: .9rem; border-radius: 50px;
+  background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.45);
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  text-decoration: none; transition: all .25s ease;
+  letter-spacing: .5px; white-space: nowrap;
+}
+.nav-cta-alt:hover { background: #fff; color: var(--black); border-color: #fff; }
+.nav-cta-row { display: flex; align-items: center; gap: 10px; }
 .nav-cta-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 .nav-deadline { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
 
@@ -178,6 +187,13 @@ a { color: inherit; }
   color: #ececec;
 }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.hero-link {
+  display: inline-block; margin-top: 18px; color: var(--gold);
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .88rem;
+  letter-spacing: .5px; text-decoration: none; border-bottom: 1px solid rgba(250,204,8,.4);
+  padding-bottom: 2px; transition: border-color .25s ease;
+}
+.hero-link:hover { border-bottom-color: var(--gold); }
 .hero-eyebrow {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -263,8 +279,18 @@ a { color: inherit; }
 .ld-meter-card { background: rgba(255,255,255,.05); border: 1px solid rgba(250,204,8,.35); border-radius: 18px; padding: 34px 32px; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
 .ld-meter-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
 .ld-meter-amt { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.6rem, 6vw, 3.6rem); line-height: 1; color: #fff; margin-bottom: 18px; }
-.ld-bar { height: 18px; border-radius: 50px; background: rgba(255,255,255,.12); overflow: hidden; }
-.ld-bar-fill { height: 100%; width: 0; border-radius: 50px; background: linear-gradient(90deg, #E89A1A, var(--gold)); transition: width 1.1s cubic-bezier(.4,0,.2,1); box-shadow: 0 0 18px rgba(250,204,8,.5); }
+.ld-bar { position: relative; height: 18px; border-radius: 50px; background: rgba(255,255,255,.12); overflow: hidden; }
+/* Two stacked segments: the ghosted fill is everything COMMITTED (pledges,
+   including money not yet in the bank); the solid fill on top is what has
+   actually been RECEIVED. The Dunham match releases on received, not pledged. */
+.ld-bar-fill { position: absolute; inset: 0 auto 0 0; height: 100%; width: 0; border-radius: 50px; background: repeating-linear-gradient(115deg, rgba(250,204,8,.42) 0 7px, rgba(250,204,8,.20) 7px 14px); transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+.ld-bar-recv { position: absolute; inset: 0 auto 0 0; height: 100%; width: 0; border-radius: 50px; background: linear-gradient(90deg, #E89A1A, var(--gold)); transition: width 1.1s cubic-bezier(.4,0,.2,1); box-shadow: 0 0 18px rgba(250,204,8,.5); }
+.ld-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 14px; font-size: .82rem; color: #cfc8c8; }
+.ld-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.ld-legend i { width: 14px; height: 10px; border-radius: 3px; flex: none; }
+.ld-legend .lg-recv { background: linear-gradient(90deg, #E89A1A, var(--gold)); }
+.ld-legend .lg-pled { background: repeating-linear-gradient(115deg, rgba(250,204,8,.42) 0 5px, rgba(250,204,8,.20) 5px 10px); }
+.ld-legend b { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; }
 .ld-meter-foot { font-size: .95rem; color: #dcd6d6; margin: 14px 0 22px; line-height: 1.5; }
 .ld-meter-foot strong { color: var(--gold); }
 .ld-meter-foot #meterPct { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; }
@@ -437,8 +463,12 @@ a { color: inherit; }
 }
 .vc-dot.pledged { box-shadow: 0 0 0 2px rgba(250,204,8,.55); }
 .vc-dot.active { background: var(--gold); transform: scale(1.3); }
-.voices-cta { text-align: center; margin-top: 48px; }
-.voices-cta p { color: #cfcfcf; margin-bottom: 20px; font-size: 1.05rem; }
+.voices-cta { text-align: center; margin-top: 48px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.voices-cta p { color: #cfcfcf; margin-bottom: 6px; font-size: 1.05rem; }
+@media (min-width: 561px) {
+  .voices-cta { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .voices-cta p { flex: 1 0 100%; margin-bottom: 6px; }
+}
 
 /* ───── HOW IT WORKS ───── */
 .how { padding: 100px 0; background: var(--paper); }
@@ -524,6 +554,10 @@ a { color: inherit; }
 .finalcta { padding: 90px 0; background: var(--gold); text-align: center; }
 .finalcta h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; color: var(--black); margin-bottom: 16px; }
 .finalcta p { font-size: 1.15rem; color: #2a2a2a; max-width: 600px; margin: 0 auto 30px; }
+.finalcta-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+/* Secondary CTA on the gold band — outlined dark, since btn-outline is white-on-dark. */
+.btn-dark { background: transparent; color: var(--black); border-color: rgba(0,0,0,.45); }
+.btn-dark:hover { background: var(--black); color: var(--gold); border-color: var(--black); transform: translateY(-2px); }
 
 /* ───── FOOTER ───── */
 .footer { background: var(--black); color: #888; text-align: center; padding: 40px 24px; font-size: .9rem; line-height: 1.7; }
@@ -558,6 +592,10 @@ a { color: inherit; }
   .committee-names span { padding: 0 14px; }
   .hero { padding: 110px 20px 70px; }
   .hero-ctas .btn { width: 100%; }
+  /* Two nav CTAs have to share a phone-width bar — tighten them up. */
+  .nav-cta { padding: 9px 15px; font-size: .78rem; letter-spacing: .2px; }
+  .nav-cta-alt { padding: 9px 13px; font-size: .78rem; letter-spacing: .2px; }
+  .nav-cta-row { gap: 7px; }
 }
 
 /* ============================================================
@@ -672,7 +710,15 @@ a { color: inherit; }
       <span class="nb-sub">Legacy Scholarship</span>
     </a>
     <span class="nav-cta-wrap">
-      <a href="#pledge" class="nav-cta">Make a Pledge</a>
+      <span class="nav-cta-row">
+        <!-- PayPal donate button, Batavia Foundation for Educational Excellence.
+             Hosted button VZUFTNTFE9MU8 — the fee-cover-enabled link Ashley
+             Murtaugh confirmed by test donation on July 25, 2026. (An earlier
+             /ncp/payment/ link she sent that morning did NOT offer fee cover
+             and must not be used.) -->
+        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="nav-cta">Give Now</a>
+        <a href="#pledge" class="nav-cta-alt">Pledge</a>
+      </span>
       <span class="nav-deadline">$50K match secured</span>
     </span>
   </div>
@@ -686,11 +732,12 @@ a { color: inherit; }
       <span class="hero-eyebrow">A Permanent Tribute · Batavia, Illinois</span>
       <h1>The Dennis Piron<br><span class="accent">Legacy Scholarship</span></h1>
       <p class="hero-sub">For a decade, Dennis Piron turned Batavia students into entrepreneurs. Now we're endowing a scholarship in his name — <span class="hero-hl">funded forever, with no annual fundraising.</span></p>
-      <div class="hero-matchpill">Every gift <strong>doubled</strong> — the Dunham Foundation's <strong>$50,000 match is secured</strong></div>
+      <div class="hero-matchpill">Every gift <strong>doubled</strong> — the Dunham Foundation's <strong>$50,000 match is secured</strong>, released when our half is raised</div>
       <div class="hero-ctas">
-        <a href="#pledge" class="btn btn-gold">Make a Leadership Pledge</a>
-        <a href="#match" class="btn btn-outline">See How Your Gift Doubles</a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give Now</a>
+        <a href="#pledge" class="btn btn-outline">Make a Leadership Pledge</a>
       </div>
+      <a href="#match" class="hero-link">See how your gift doubles →</a>
     </div>
 
     <div class="hero-video-col">
@@ -717,7 +764,7 @@ a { color: inherit; }
   <div class="container center">
     <span class="eyebrow">The Match Is Secured</span>
     <h2>Your gift is doubled — dollar for dollar</h2>
-    <p class="match-lead">We're raising <strong>$100,000</strong> to permanently endow the scholarship. The <strong>Dunham Foundation has approved a $50,000 matching grant</strong> — so every dollar the community commits is now <strong>guaranteed to be matched dollar-for-dollar</strong>, up to $50,000.</p>
+    <p class="match-lead">We're raising <strong>$100,000</strong> to permanently endow the scholarship. The <strong>Dunham Foundation has approved a $50,000 matching grant</strong> — so every dollar the community commits is now <strong>guaranteed to be matched dollar-for-dollar</strong>, up to $50,000. The grant is <strong>released once the community's first $50,000 has been raised and received</strong>, which is why fulfilled gifts — not just pledges — are what get us there.</p>
 
     <div class="match-grid">
       <div class="match-card">
@@ -728,12 +775,12 @@ a { color: inherit; }
       <div class="match-card lead">
         <div class="mc-num">$50K</div>
         <div class="mc-label">Community Half</div>
-        <div class="mc-desc">Raised from lead donors like you — the trigger that unlocks the match.</div>
+        <div class="mc-desc">Raised from lead donors like you — and received in full, which is what triggers the match.</div>
       </div>
       <div class="match-card">
         <div class="mc-num">$50K</div>
         <div class="mc-label">Dunham Match</div>
-        <div class="mc-desc">A dollar-for-dollar matching grant — approved and secured from the Dunham Foundation.</div>
+        <div class="mc-desc">A dollar-for-dollar matching grant, approved and secured — released to the endowment once our $50,000 half is in the bank.</div>
       </div>
     </div>
 
@@ -762,17 +809,25 @@ a { color: inherit; }
           <div class="ld-dl-ic">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
           </div>
-          <div class="ld-dl-tx">The Dunham Foundation has <strong>approved a $50,000 dollar-for-dollar match</strong>. Now we're raising the community's $50,000 half — every gift committed is <strong>guaranteed to be doubled</strong>.</div>
+          <div class="ld-dl-tx">The Dunham Foundation has <strong>approved a $50,000 dollar-for-dollar match</strong>. Now we're raising the community's $50,000 half — every gift committed is <strong>guaranteed to be doubled</strong>. The match is <strong>released once that half is raised and received</strong>, so fulfilling a pledge is what draws the money down.</div>
         </div>
       </div>
       <div class="ld-meter">
         <div class="ld-meter-card">
           <div class="ld-meter-label">Committed so far</div>
           <div class="ld-meter-amt" id="meterAmt">$36,000</div>
-          <div class="ld-bar"><div class="ld-bar-fill" id="meterFill"></div></div>
-          <div class="ld-meter-foot"><span id="meterPct">72%</span> of the <strong>$50,000</strong> community goal — the half that unlocks the <strong>$50,000 Dunham match</strong>.</div>
+          <div class="ld-bar">
+            <div class="ld-bar-fill" id="meterFill"></div>
+            <div class="ld-bar-recv" id="meterRecvFill"></div>
+          </div>
+          <div class="ld-legend">
+            <span><i class="lg-recv"></i>In the bank <b id="meterRecv">$14,100</b></span>
+            <span><i class="lg-pled"></i>Pledged, not yet received <b id="meterOut">$21,900</b></span>
+          </div>
+          <div class="ld-meter-foot"><span id="meterPct">72%</span> of the <strong>$50,000</strong> community goal. The <strong>$50,000 Dunham match</strong> is released once that half is raised <strong>and received</strong> — so fulfilled pledges are what unlock it.</div>
           <div class="ld-meter-stamp">Last pledge received <span id="meterStamp">July 8, 2026 · 9:31 AM CDT</span></div>
-          <a href="#pledge" class="btn btn-gold" style="width:100%;">Add Your Commitment</a>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width:100%;">Give Now</a>
+          <a href="#pledge" class="btn btn-outline" style="width:100%; margin-top:10px;">Make a Leadership Pledge</a>
         </div>
       </div>
     </div>
@@ -878,7 +933,8 @@ a { color: inherit; }
     <div class="vc-dots" id="vcDots"></div>
     <div class="voices-cta">
       <p>Add your name to the people carrying Dennis's work forward.</p>
-      <a href="#pledge" class="btn btn-gold">Make a Leadership Pledge</a>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give Now</a>
+      <a href="#pledge" class="btn btn-outline">Make a Leadership Pledge</a>
     </div>
   </div>
 </section>
@@ -888,7 +944,7 @@ a { color: inherit; }
   <div class="container center">
     <span class="eyebrow">How Your Pledge Works</span>
     <h2 class="section-title">Low risk. High leverage. Lasting impact.</h2>
-    <p class="section-sub" style="margin:0 auto;">Lead-donor pledges are commitments — nothing is charged today. With the Dunham match secured, every pledge is now guaranteed to be doubled.</p>
+    <p class="section-sub" style="margin:0 auto;">Lead-donor pledges are commitments — nothing is charged today. With the Dunham match secured, every pledge is guaranteed to be doubled the moment it's fulfilled. Prefer to give straight away? <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" style="color:var(--maroon); font-weight:700;">Donate securely now</a>.</p>
     <div class="how-steps">
       <div class="how-step">
         <div class="hs-num">1</div>
@@ -978,10 +1034,13 @@ a { color: inherit; }
         </div>
 
         <p class="pledge-note">
+          <strong>Ready to give today instead?</strong>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer">Donate securely online</a>
+          — a fulfilled gift is what draws down the Dunham match.
           <strong>Prefer to talk first?</strong> Email
           <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>. Gifts are payable to the
           <strong>Batavia Foundation for Educational Excellence</strong>, an IRS-registered 501(c)(3) —
-          tax-deductible to the extent allowed by law.
+          tax-deductible to the extent allowed by law. A W-9 is available on request.
         </p>
       </form>
     </div>
@@ -1009,8 +1068,11 @@ a { color: inherit; }
 <section class="finalcta">
   <div class="container">
     <h2>Help us raise our half — every gift is now doubled</h2>
-    <p>The $50,000 match is secured. A single leadership gift, doubled, moves us meaningfully toward $100,000. Make your pledge today.</p>
-    <a href="#pledge" class="btn btn-maroon">Make a Leadership Pledge</a>
+    <p>The $50,000 match is secured, and it releases as soon as our half is raised and received. A single leadership gift, doubled, moves us meaningfully toward $100,000.</p>
+    <div class="finalcta-ctas">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-maroon">Give Now</a>
+      <a href="#pledge" class="btn btn-dark">Make a Leadership Pledge</a>
+    </div>
   </div>
 </section>
 
@@ -1020,7 +1082,7 @@ a { color: inherit; }
     <span class="fb-label">Stewarded by</span>
     <span class="fb-chip"><img src="assets/BFEE-Logo_RGB-1920w.png" alt="Batavia Foundation for Educational Excellence"></span>
   </div>
-  <p class="tax">The Dennis Piron Legacy Scholarship is <span class="tax-foundation">administered by the Batavia Foundation for Educational Excellence,</span> an IRS-registered 501(c)(3) nonprofit. Contributions are tax-deductible to the extent allowed by law. The Dunham Foundation matching grant is secured; pledges are commitments toward the endowment, and no payment is due at the time of pledge.</p>
+  <p class="tax">The Dennis Piron Legacy Scholarship is <span class="tax-foundation">administered by the Batavia Foundation for Educational Excellence,</span> an IRS-registered 501(c)(3) nonprofit. Contributions are tax-deductible to the extent allowed by law. The Dunham Foundation matching grant has been approved and is secured; it is released to the endowment once the community's $50,000 half has been raised and received. Pledges are commitments toward the endowment, and no payment is due at the time of pledge.</p>
   Dennis Piron Legacy Scholarship &middot; Batavia, IL<br>
   Questions? <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>
 </footer>
@@ -1157,15 +1219,34 @@ const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
 // reading the pledge form + ledger settings). Keep this in sync as a safety net.
 const COMMITTED = 36000;
 const GOAL = 50000;
+/* RECEIVED is the portion of COMMITTED that has actually cleared into the
+   Foundation's account — the number the Dunham match is judged on, since the
+   grant is only released once the community's $50,000 half is raised AND in
+   the bank. There is no live feed for this (the pledge form can't know when a
+   check lands), so it is a manual figure: update it from the committee's
+   accounting whenever COMMITTED is updated, and never let it exceed COMMITTED.
+   Currently $14,100 per the committee's July 26, 2026 accounting.
+   As with COMMITTED: no donor names or individual amounts here — repo is public. */
+const RECEIVED = 14100;
 (function(){
   var amt=document.getElementById('meterAmt'), fill=document.getElementById('meterFill'), pct=document.getElementById('meterPct');
+  var recvFill=document.getElementById('meterRecvFill'), recvEl=document.getElementById('meterRecv'), outEl=document.getElementById('meterOut');
   if(!amt) return;
+  function money(v){ return '$' + Number(v).toLocaleString(); }
   function apply(value){
     var p=Math.max(0, Math.min(100, Math.round(value / GOAL * 100)));
-    amt.textContent = '$' + Number(value).toLocaleString();
+    // RECEIVED can never exceed the committed total it is a subset of.
+    var recv=Math.max(0, Math.min(RECEIVED, value));
+    var rp=Math.max(0, Math.min(100, Math.round(recv / GOAL * 100)));
+    amt.textContent = money(value);
     pct.textContent = p + '%';
-    // Set the fill (CSS transition animates it in); rAF lets the 0%→p% transition run.
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = p + '%'; }); });
+    if(recvEl) recvEl.textContent = money(recv);
+    if(outEl) outEl.textContent = money(value - recv);
+    // Set the fills (CSS transition animates them in); rAF lets the 0%→p% transition run.
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      fill.style.width = p + '%';
+      if(recvFill) recvFill.style.width = rp + '%';
+    }); });
   }
   // Format an ISO timestamp as e.g. "July 2, 2026 · 5:03 PM CDT" in Batavia's
   // (Central) time — so the "Last pledge received" stamp tracks the real pledge.
