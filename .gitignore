@@ -16,6 +16,10 @@ assets/lead-donors/
 # Internal planning — keep out of the public repo
 plan/
 
+# Local Netlify build artifacts
+.netlify/
+deno.lock
+
 # Scratch
 scratchpad/
 *.log

@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 
-const SRC = new URL('./password-gate.js', import.meta.url).pathname;
+const SRC = new URL('../netlify/edge-functions/password-gate.js', import.meta.url).pathname;
 const TMP = tmpdir();
 
 const ADMIN_PW = 'test-admin-pw-9f3a';
