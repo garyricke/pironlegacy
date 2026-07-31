@@ -4,18 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- ═══════════════════════════════════════════════════════════════════
-     PRIVATE REVIEW PAGE — for Dennis Piron only.
+     PRIVATE REVIEW PAGE — for Dennis Piron only. noindex. Delete once
+     the release is final.
 
-     This holds an UNAPPROVED draft containing a quote attributed to a
-     real person and an unresolved factual question about him. It must
-     never be indexed, and the link should only ever go to Dennis.
-
-     It is an ordinary gated page: while the site is behind the preview
-     password it inherits that protection, and it carries its own noindex
-     for after launch. It is deliberately NOT added to PUBLIC_PATHS in
-     the edge gate — no new holes for a draft.
-
-     DELETE THIS PAGE once the release is final.
+     KEEP THIS PAGE SHORT. Dennis has not seen any earlier draft, so
+     never explain our editorial reasoning to him — commentary about
+     wording we considered and rejected is meaningless to a first-time
+     reader and reads as fussing. He gets: a short note, the clean
+     draft, and one ask. Nothing else.
      ═══════════════════════════════════════════════════════════════════ -->
 <meta name="robots" content="noindex, nofollow">
 <title>A quick favor, Dennis — Piron Legacy Scholarship</title>
@@ -29,49 +25,40 @@
 :root { --gold:#FACC08; --maroon:#AC161D; --ink:#1a1a1a; --muted:#5b5b5b; --paper:#f7f5f0; }
 * { box-sizing:border-box; }
 html,body { margin:0; }
-body { font-family:'Open Sans',system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.65; }
-.wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+body { font-family:'Open Sans',system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.7; }
+.wrap { max-width:660px; margin:0 auto; padding:0 24px; }
 
-.top { background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%); color:#fff; padding:48px 0 42px; position:relative; text-align:center; }
+.top { background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%); color:#fff; padding:46px 0 40px; position:relative; text-align:center; }
 .top::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(250,204,8,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,8,.05) 1px,transparent 1px); background-size:42px 42px; pointer-events:none; }
 .top .wrap { position:relative; }
-.top img { height:82px; margin-bottom:20px; }
-.top h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(1.7rem,4.6vw,2.3rem); margin:0 0 12px; line-height:1.15; }
-.top p { color:#ddd6d6; margin:0 auto; max-width:520px; }
+.top img { height:78px; margin-bottom:18px; }
+.top h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(1.6rem,4.4vw,2.1rem); margin:0; line-height:1.2; }
 
-section { padding:44px 0; }
-.note { font-size:1.05rem; }
-.note p { margin:0 0 16px; }
+section { padding:40px 0; }
+.note { font-size:1.12rem; }
+.note p { margin:0 0 18px; }
 .note p:last-child { margin-bottom:0; }
+.note strong { color:var(--maroon); }
 
-h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; margin:0 0 6px; }
-.sub { color:var(--muted); margin:0 0 24px; }
+.release { border:1px solid #e6e2da; border-radius:14px; padding:30px 32px; background:#fdfcfa; margin-top:8px; }
+.release .rl { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.64rem; letter-spacing:1.8px; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+.release h3 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.2rem; line-height:1.3; margin:0 0 16px; }
+.release p { margin:0 0 14px; font-size:.97rem; }
+.release p:last-child { margin-bottom:0; }
+.release .slot { background:#fff8e1; border:1px dashed var(--gold); border-radius:10px; padding:16px 18px; color:#7a6200; font-style:italic; }
 
-.asks { counter-reset:ask; display:grid; gap:16px; }
-.ask { background:var(--paper); border-radius:14px; padding:22px 24px 22px 62px; position:relative; }
-.ask::before { counter-increment:ask; content:counter(ask); position:absolute; left:20px; top:20px; width:28px; height:28px; border-radius:50%; background:var(--maroon); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:.86rem; display:flex; align-items:center; justify-content:center; }
-.ask h3 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; margin:0 0 6px; }
-.ask p { margin:0; font-size:.95rem; color:#3d3d3d; }
-.ask .opt { display:inline-block; margin-top:8px; font-size:.85rem; color:var(--muted); font-style:italic; }
-
-.release { border:1px solid #e6e2da; border-radius:14px; padding:30px 32px; background:#fff; }
-.release .rl { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.66rem; letter-spacing:1.8px; text-transform:uppercase; color:var(--maroon); margin-bottom:14px; }
-.release h3 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.25rem; line-height:1.25; margin:0 0 10px; }
-.release .deck { color:var(--muted); margin:0 0 20px; }
-.release p { margin:0 0 14px; font-size:.96rem; }
-.release .quote { background:var(--paper); border-left:3px solid #cfc8c8; padding:14px 18px; font-style:italic; color:#4a4a4a; }
-.release .yours { background:#fff8e1; border-left:3px solid var(--gold); padding:16px 18px; }
-.release .yours b { display:block; font-family:'Montserrat',sans-serif; font-size:.66rem; letter-spacing:1.6px; text-transform:uppercase; color:#8a6d00; margin-bottom:6px; }
-
-.cta { text-align:center; padding:12px 0 0; }
-.btn { display:inline-block; padding:15px 34px; border-radius:50px; background:var(--maroon); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; text-decoration:none; font-size:1rem; box-shadow:0 6px 24px rgba(172,22,29,.3); transition:transform .25s ease, box-shadow .25s ease; }
+.askbox { background:var(--paper); border-radius:16px; padding:30px 32px; margin-top:36px; text-align:center; }
+.askbox h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.25rem; margin:0 0 10px; }
+.askbox p { margin:0 0 8px; color:#3d3d3d; }
+.askbox .prompts { margin:18px 0 24px; font-size:.97rem; color:var(--muted); font-style:italic; line-height:2; }
+.btn { display:inline-block; padding:16px 38px; border-radius:50px; background:var(--maroon); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; text-decoration:none; font-size:1.02rem; box-shadow:0 6px 24px rgba(172,22,29,.3); transition:transform .25s ease, box-shadow .25s ease; }
 .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(172,22,29,.45); }
-.cta .alt { margin:14px 0 0; font-size:.9rem; color:var(--muted); }
+.askbox .alt { margin:16px 0 0; font-size:.92rem; color:var(--muted); }
 
-.foot { background:#111; color:#9a9494; padding:30px 0; font-size:.84rem; text-align:center; }
+.foot { background:#111; color:#9a9494; padding:28px 0; font-size:.84rem; text-align:center; margin-top:20px; }
 .foot a { color:#cfc8c8; }
 
-@media (max-width:560px) { .release { padding:24px 20px; } .ask { padding:20px 20px 20px 56px; } }
+@media (max-width:560px) { .release, .askbox { padding:24px 20px; } .btn { width:100%; } }
 </style>
 </head>
 <body>
@@ -79,95 +66,49 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; mar
 <header class="top">
   <div class="wrap">
     <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_240/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship">
-    <h1>Dennis &mdash; before this goes anywhere, we need you to see it</h1>
-    <p>A draft press release about the scholarship. Nothing below has been sent to anyone.</p>
+    <h1>Dennis &mdash; a quick favor</h1>
   </div>
 </header>
 
 <section>
   <div class="wrap note">
-    <p>Dennis,</p>
-    <p>The committee has been talking to the <em>Daily Herald</em> about a story on the scholarship &mdash; Dave Heun, who wrote the Windmill Weekly piece in July, seemed like the right person for it.</p>
-    <p>Before any of that happens, we wanted you to read what we'd be sending, because it's about you and you should get the final say on it. <strong>Nothing has gone out.</strong> Nothing will until you've looked at this.</p>
-    <p>Four things we'd like from you &mdash; and &ldquo;no&rdquo; is a perfectly good answer to any of them.</p>
-  </div>
-</section>
-
-<section style="padding-top:0;">
-  <div class="wrap">
-    <h2>What we need</h2>
-    <p class="sub">Reply however's easiest &mdash; email, text, or grab Gary.</p>
-    <div class="asks">
-
-      <div class="ask">
-        <h3>Did we get the retirement right?</h3>
-        <p>Here's how we've written it: <strong>you're retiring from teaching, you're staying on as head football coach for this coming season, and INCubator's new lead was chosen from a field of applicants.</strong> We want that exactly right &mdash; a paper that says you've simply &ldquo;retired&rdquo; will confuse everyone who sees you on the sideline this fall.</p>
-        <span class="opt">Tell us how you'd phrase it, and that's how it reads.</span>
-      </div>
-
-      <div class="ask">
-        <h3>Is Alex alright with being named?</h3>
-        <p>Any reporter will want this part, and we've been careful with how it's written: Alex <strong>applied and won the job out of a field of candidates</strong>. We're saying that explicitly, because &ldquo;he handed the program to his daughter&rdquo; is both wrong and unfair to her &mdash; and it's the version a rushed writer would default to. But we're not putting her name in a press release without her say-so. <strong>Could you ask her?</strong> If she'd rather stay out of it, we'll write that the program continues and leave it there.</p>
-        <span class="opt">Also &mdash; what's her correct title, and is she happy with how we've described the hiring?</span>
-      </div>
-
-      <div class="ask">
-        <h3>Would you like to be quoted?</h3>
-        <p>We left your quote blank on purpose &mdash; it didn't feel right to write words and put your name under them. If you want to say something about what the program was really about, or what you'd want this scholarship to reward in a student, send it over in your own words.</p>
-        <span class="opt">Equally fine to decline. The release works without it.</span>
-      </div>
-
-      <div class="ask">
-        <h3>Anything we got wrong</h3>
-        <p>Read the draft below with a red pen. How many years you taught, program details, how you'd describe what you do &mdash; if a detail is off or a characterization makes you wince, tell us and it changes. One more: we have the photo of you with the <strong>Illinois High School Football</strong> Hall of Fame plaque. Worth mentioning, or would you rather this stayed about the students?</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:8px;">
-  <div class="wrap">
-    <h2>The draft</h2>
-    <p class="sub">As it stands today. Highlighted parts are the ones waiting on you.</p>
+    <p>We're sending this to Dave Heun at the <em>Daily Herald</em> for his Talk of the Town column. Nothing has gone out yet.</p>
+    <p>Two things, and then we'll leave you alone:</p>
+    <p><strong>1. Read it over.</strong> If anything's wrong, tell us and we'll fix it.<br>
+       <strong>2. Would you add a line or two in your own words?</strong> There's a spot for it below.</p>
+    <p>That's it. If you'd rather not be quoted, that's completely fine &mdash; just say so.</p>
 
     <div class="release">
-      <div class="rl">Draft &mdash; not sent</div>
-      <h3>Batavia Community Moves to Permanently Endow Scholarship Honoring INCubator Teacher Dennis Piron</h3>
-      <p class="deck">Dunham Foundation will match the community's first $50,000 dollar-for-dollar, creating a $100,000 endowment that funds a graduating senior every year &mdash; permanently</p>
+      <div class="rl">Draft</div>
+      <h3>As Dennis Piron Retires From Teaching, Batavia Moves to Endow a Scholarship in His Name</h3>
 
       <p><strong>BATAVIA, Ill. &mdash;</strong> As Dennis Piron retires from teaching at Batavia High School, a group of Batavia business leaders and former mentors has launched a campaign to permanently endow a scholarship in his name &mdash; honoring the decade he spent turning students into entrepreneurs through the school's INCubator program.</p>
 
-      <p class="yours"><b>Waiting on you &mdash; the succession</b>Our draft continues: Piron remains head football coach through the coming season, and INCubator's new lead is Alex Piron, chosen from a field of applicants for the position &mdash; and also his daughter. Confirm the wording, and whether Alex is comfortable being named.</p>
+      <p>By the program's own estimate, nearly 700 students came through the class in those ten years.</p>
 
-      <p>The Dennis Piron Legacy Scholarship will be awarded annually to a graduating Batavia High School senior. Because the fund is endowed rather than raised year to year, the award continues indefinitely without further fundraising.</p>
+      <p>The Dennis Piron Legacy Scholarship will be awarded every year to a graduating Batavia High School senior. Because the fund is endowed rather than raised year to year, the award continues indefinitely.</p>
 
-      <p>The campaign has a $100,000 goal, structured as two halves. The Dunham Foundation has approved a $50,000 dollar-for-dollar matching grant, released once the community raises and delivers the first $50,000. More than $36,000 has already been committed by an initial group of lead donors.</p>
+      <p>The campaign has a $100,000 goal. The Dunham Foundation has approved a $50,000 dollar-for-dollar matching grant, released once the community raises and delivers the first $50,000. More than $36,000 has already been committed. The scholarship is held by the Batavia Foundation for Educational Excellence, a 501(c)(3) nonprofit.</p>
 
-      <p>The scholarship is held and administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3) nonprofit.</p>
+      <p>Piron is not leaving Batavia. He remains head football coach through the coming season, and stays with INCubator as a community champion alongside Bob Hubbard. The program's new teacher is Alexandra Piron &mdash; a Batavia High graduate who joined the school's math department last year and was selected from a field of candidates for the role. She is also his daughter.</p>
 
-      <p class="quote">&ldquo;Every one of us on this committee watched Dennis do something for kids that most schools never manage. We didn't want that to end when he does. Endowing it means a Batavia student gets that push every single year, forever.&rdquo; &mdash; Rob Hollis, Piron Legacy Scholarship Committee</p>
+      <p class="slot">[ Dennis's own words go here &mdash; see below ]</p>
 
-      <p style="margin-top:20px;"><strong>A decade of building entrepreneurs</strong></p>
+      <p>Donations can be made at pironlegacy.org. Gifts are tax-deductible to the extent allowed by law.</p>
 
-      <p>Through the Batavia High School INCubator program, Piron has guided students as they turn raw ideas into real businesses &mdash; coaching them through everything from pro-forma financials to Pitch Night, where teams present to a room full of investors.</p>
-
-      <p>The program's results are visible around town. This spring, a Windmill Weekly team of Batavia High students built a large-type newspaper for residents of care centers and assisted-living facilities, took the top donation prize at INCubator's Pitch Night, and held a Batavia Chamber of Commerce ribbon-cutting in July. The idea began with a student's grandmother, who missed her newspaper while living in a care center.</p>
-
-      <p class="yours"><b>Waiting on you &mdash; your quote</b>Your words about what the program was really about, and what you'd want this scholarship to reward. Or nothing at all, if you'd rather.</p>
-
-      <p style="margin-top:20px;"><strong>How to give</strong></p>
-
-      <p>Donations can be made at pironlegacy.org, where the campaign's progress is posted publicly. Gifts are tax-deductible to the extent allowed by law. Because the Dunham match is released only after the community's $50,000 is received, fulfilled gifts &mdash; not pledges alone &mdash; are what unlock the matching funds.</p>
-
-      <p>The effort is organized by a volunteer steering committee of Batavia business leaders and former INCubator mentors: Dave Brown, Bob Hansen, Rob Hollis, Bob Hubbard, Gary Ricke and Bob Vaughan.</p>
-
-      <p style="text-align:center; font-weight:700; color:var(--muted); margin-top:22px;">###</p>
+      <p>The effort is organized by a volunteer steering committee: Dave Brown, Bob Hansen, Rob Hollis, Bob Hubbard, Gary Ricke and Bob Vaughan.</p>
     </div>
 
-    <div class="cta">
-      <a class="btn" href="mailto:gary.ricke@pironlegacy.org?subject=Press%20release%20%E2%80%94%20my%20notes&amp;body=Gary%2C%0A%0A1.%20Retirement%20%E2%80%94%20%0A%0A2.%20My%20quote%20(or%20skip%20it)%20%E2%80%94%20%0A%0A3.%20Photo%20%E2%80%94%20%0A%0A4.%20Anything%20wrong%20in%20the%20draft%20%E2%80%94%20%0A%0A">Send Gary your notes</a>
-      <p class="alt">Or just reply to the email this link came in &mdash; whatever's easiest.</p>
+    <div class="askbox">
+      <h2>Your words</h2>
+      <p>A sentence or two is plenty. If it helps, pick whichever of these you feel like answering:</p>
+      <div class="prompts">
+        What was the class really about?<br>
+        What should this scholarship reward in a kid?<br>
+        What are you proudest of?
+      </div>
+      <a class="btn" href="mailto:gary.ricke@pironlegacy.org?subject=Press%20release%20%E2%80%94%20Dennis&amp;body=%0A%0A(Anything%20wrong%20in%20the%20draft%3F)%0A%0A%0A(A%20line%20or%20two%20in%20your%20own%20words%2C%20if%20you'd%20like%3A)%0A%0A">Reply to Gary</a>
+      <p class="alt">Or just reply to the email this came in &mdash; or call. Whatever's easiest.</p>
     </div>
   </div>
 </section>
