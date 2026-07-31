@@ -695,12 +695,15 @@ a { color: inherit; }
 <body>
 
 <!-- ============================================================
-     Site privacy is enforced at the edge (netlify/edge-functions/
-     password-gate.js) with a branded single-password gate + cookie,
-     which withholds the real content, PDF, and assets from crawlers.
-     The old cosmetic in-page JS gate was removed so there is exactly
-     one prompt. The admin panel keeps its own separate password gate.
-     To go public: delete the [[edge_functions]] block in netlify.toml.
+     THIS PAGE IS PUBLIC. The pre-launch preview gate was switched off
+     at launch via PREVIEW_ENABLED in netlify/edge-functions/
+     password-gate.js.
+
+     DO NOT delete the [[edge_functions]] block in netlify.toml — that
+     edge function is still what locks /pledges, /status and
+     /outreach-email, and removing it would expose all three. Re-gating
+     the marketing site is a one-line flip of PREVIEW_ENABLED; the admin
+     tier is independent of it and stays locked either way.
      ============================================================ -->
 <!-- ───── NAV ───── -->
 <nav class="navbar" id="navbar">

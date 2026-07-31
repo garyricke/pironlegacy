@@ -31,7 +31,9 @@
 /* ── Tier 1: preview ───────────────────────────────────────────────────── */
 
 // Flip to false to open the public site. Admin stays locked either way.
-const PREVIEW_ENABLED = true;
+// PUBLIC since August 2026 — the campaign launched. Setting this back to true
+// re-gates the marketing site; it has no effect on the admin tier below.
+const PREVIEW_ENABLED = false;
 
 const PASSWORD = "piron"; // shareable; deliberately weak, guards nothing private
 const COOKIE_NAME = "piron_gate";
