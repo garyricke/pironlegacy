@@ -65,8 +65,18 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
 .assets { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; }
 .asset { border:1px solid #e6e2da; border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
 .asset .thumb { background:var(--paper); aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.asset .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-.asset .thumb.contain img { width:auto; height:72%; object-fit:contain; }
+/* NEVER CROP A HEAD OFF — the rule for every photo thumbnail on this site.
+   Do the crop at Cloudinary, not in CSS: add `c_fill,ar_3:2,g_auto:faces`
+   to the delivery URL. g_auto:faces detects faces and keeps them in frame,
+   and falls back to content-aware framing when there are none — so it is
+   safe to apply blindly to portraits, group shots and empty stages alike.
+   CSS object-fit:cover crops from the CENTRE, which is exactly what
+   decapitated the two portrait-orientation photos here.
+   object-position below is only a backstop for any image that arrives
+   without the Cloudinary transform; it biases toward the upper third,
+   where heads live. */
+.asset .thumb img { width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block; }
+.asset .thumb.contain img { width:auto; height:72%; object-fit:contain; object-position:center; }
 .asset .meta { padding:16px 18px; flex:1; display:flex; flex-direction:column; }
 .asset .at { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.95rem; margin-bottom:4px; }
 .asset .ad { font-size:.84rem; color:var(--muted); flex:1; margin-bottom:14px; }
@@ -156,7 +166,7 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
 
       <div class="asset">
         <div class="thumb">
-          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_600/v1785517358/piron-legacy/press/dennis-piron-portrait.jpg" alt="Dennis Piron" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_3:2,g_auto:faces,w_600/v1785517358/piron-legacy/press/dennis-piron-portrait.jpg" alt="Dennis Piron" loading="lazy">
         </div>
         <div class="meta">
           <div class="at">Dennis Piron</div>
@@ -170,7 +180,7 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
 
       <div class="asset">
         <div class="thumb">
-          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_600/v1785517359/piron-legacy/press/dennis-piron-hubbard-award.jpg" alt="Dennis Piron receiving an award alongside Bob Hubbard" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_3:2,g_auto:faces,w_600/v1785517359/piron-legacy/press/dennis-piron-hubbard-award.jpg" alt="Dennis Piron receiving an award alongside Bob Hubbard" loading="lazy">
         </div>
         <div class="meta">
           <div class="at">Piron with Bob Hubbard</div>
@@ -184,7 +194,7 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
 
       <div class="asset">
         <div class="thumb">
-          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_600/v1785517361/piron-legacy/press/incubator-pitch-night-teams.jpg" alt="Student teams on stage at Batavia High School INCubator Pitch Night" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_3:2,g_auto:faces,w_600/v1785517361/piron-legacy/press/incubator-pitch-night-teams.jpg" alt="Student teams on stage at Batavia High School INCubator Pitch Night" loading="lazy">
         </div>
         <div class="meta">
           <div class="at">INCubator Pitch Night</div>
@@ -198,7 +208,7 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
 
       <div class="asset">
         <div class="thumb">
-          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_600/v1785517363/piron-legacy/press/incubator-pitch-night-stage.jpg" alt="The INCubator at BHS Pitch Night stage" loading="lazy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_3:2,g_auto:faces,w_600/v1785517363/piron-legacy/press/incubator-pitch-night-stage.jpg" alt="The INCubator at BHS Pitch Night stage" loading="lazy">
         </div>
         <div class="meta">
           <div class="at">Pitch Night stage</div>
