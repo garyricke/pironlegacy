@@ -118,9 +118,13 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
 .foot{ margin-top:14px; border-top:1.5px solid #e2ddd0; padding-top:10px;
   display:flex; align-items:flex-start; gap:18px; }
 .foot .foot-text{ flex:1; }
-.foot .committee{ font-size:8.7pt; color:#333; margin-bottom:6px; }
+/* The 8-name roster wraps to two lines and that is fine — but it costs ~16px,
+   which pushed the sheet past 11in onto a second page. The margin below is
+   trimmed to pay for it. If a member is ever added, re-measure the fit:
+   the sheet must stay under 1056px (11in) at 816px width. */
+.foot .committee{ font-size:8.1pt; letter-spacing:-.05px; color:#333; margin-bottom:2px; }
 .foot .committee b{ font-family:'Montserrat',sans-serif; color:var(--black); }
-.foot .tax{ font-size:7.6pt; color:#777; line-height:1.4; }
+.foot .tax{ font-size:7.6pt; color:#777; line-height:1.35; }
 .foot .foot-bfee{ flex:none; text-align:center; }
 .foot .foot-bfee img{ height:62px; width:auto; display:block; }
 .foot .foot-bfee .sb{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:6pt; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
@@ -170,9 +174,16 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
       <span class="m-cap">Every gift is <strong>matched dollar-for-dollar</strong> by the Dunham Foundation — the $50,000 match is secured.</span>
     </div>
 
-    <!-- Commitment / deadline strip -->
+    <!-- Match strip.
+         The "$36,000 already committed" figure that used to sit here was
+         removed on August 7, 2026 at the committee's direction (Dave Brown,
+         Bob Vaughan), along with the running total on the website: the
+         endowment is not capped at $100,000, and a near-goal number talks
+         donors out of giving. "2×" is fixed structure, so this sheet never
+         goes stale in someone's folder. Do not reinstate a raised-to-date
+         figure here without the committee's say-so. -->
     <div class="status-strip">
-      <div class="sd">$36,000<small>Already committed</small></div>
+      <div class="sd">2&times;<small>Every gift, doubled</small></div>
       <div class="sv"></div>
       <div class="st">The Dunham Foundation's <b>$50,000 dollar-for-dollar match is approved and secured</b> — now we're raising the community's $50,000 half. Every gift is doubled.</div>
     </div>
@@ -190,22 +201,22 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
         <h3>Why it matters</h3>
         <p>Through the BHS INCubator program, Dennis guided countless students as they built real businesses — teaching pro-forma financials, teamwork, and the courage to bring an idea to life.</p>
         <div class="quote">"There's a tough love that prepares them in ways I don't know that college does. Nobody like him. Nobody."<cite>— Gary Ricke, Mentor</cite></div>
-        <h3>How your pledge works</h3>
+        <h3>How your gift works</h3>
         <ol class="steps">
-          <li><strong>You pledge</strong> a leadership gift of $2,000–$5,000. Nothing is charged today.</li>
-          <li><strong>The match is secured.</strong> The Dunham Foundation has <strong>approved a $50,000 dollar-for-dollar grant</strong> — every pledge you make is doubled.</li>
+          <li><strong>You give</strong> — a leadership gift of $2,000–$5,000 moves this fastest, and every gift is matched.</li>
+          <li><strong>The match doubles it.</strong> The Dunham Foundation has <strong>approved a $50,000 dollar-for-dollar grant</strong> — your gift arrives worth twice what you gave.</li>
           <li><strong>It's endowed — forever,</strong> held by the Batavia Foundation for Educational Excellence.</li>
         </ol>
       </div>
 
       <div class="col">
-        <h3>Pledge today</h3>
+        <h3>Give today</h3>
         <div class="give">
           <div class="qr">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><path transform="scale(1)" stroke="#000" d="M2 2.5h7m3 0h1m1 0h1m5 0h3m1 0h7m-29 1h1m5 0h1m1 0h1m4 0h2m2 0h3m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m1 0h2m3 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h2m1 0h2m2 0h2m1 0h2m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m2 0h1m1 0h1m1 0h3m-14 1h4m1 0h1m3 0h2m3 0h1m1 0h1m1 0h2m3 0h1m-28 1h1m1 0h2m1 0h1m2 0h5m4 0h2m2 0h4m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h2m2 0h1m2 0h1m3 0h1m-29 1h1m2 0h2m4 0h1m1 0h1m3 0h5m1 0h1m1 0h1m1 0h1m1 0h2m-29 1h3m2 0h2m1 0h2m6 0h5m2 0h1m1 0h1m2 0h1m-29 1h1m2 0h2m3 0h2m1 0h2m2 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h1m-29 1h1m2 0h1m2 0h1m2 0h1m1 0h1m2 0h3m1 0h1m2 0h1m2 0h1m3 0h1m-27 1h4m2 0h2m2 0h3m2 0h1m4 0h2m1 0h1m1 0h1m-26 1h1m2 0h3m2 0h1m5 0h1m1 0h2m7 0h2m-29 1h1m2 0h3m2 0h6m3 0h2m3 0h3m1 0h1m1 0h1m-27 1h2m2 0h3m6 0h1m1 0h1m2 0h1m4 0h1m2 0h1m-27 1h1m2 0h1m3 0h1m1 0h3m4 0h3m2 0h1m1 0h1m-26 1h2m1 0h2m1 0h1m1 0h2m1 0h1m1 0h3m4 0h6m1 0h1m-20 1h5m4 0h1m2 0h1m3 0h1m1 0h1m1 0h1m-29 1h7m1 0h3m1 0h2m2 0h1m2 0h2m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m1 0h1m1 0h1m4 0h6m3 0h2m-26 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h3m1 0h8m2 0h2m-29 1h1m1 0h3m1 0h1m3 0h1m1 0h1m3 0h2m5 0h1m2 0h2m-28 1h1m1 0h3m1 0h1m4 0h1m3 0h1m3 0h3m3 0h4m-29 1h1m5 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m-29 1h7m2 0h2m6 0h1m2 0h1m1 0h1m1 0h2m1 0h1"/></svg>
           </div>
           <div class="gtxt">
-            <h4>Scan to pledge →</h4>
+            <h4>Scan to give →</h4>
             <div class="url">pironlegacy.org</div>
             <p>Or email<br><span class="ph">pledges@pironlegacy.org</span></p>
           </div>
@@ -223,8 +234,8 @@ h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; line-height:1.1; }
     <!-- Footer -->
     <div class="foot">
       <div class="foot-text">
-      <div class="committee"><b>Steering Committee:</b> Dave Brown · Bob Hansen · Rob Hollis · Bob Hubbard · Gary Ricke · Bob Vaughan</div>
-      <div class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3). Contributions are tax-deductible to the extent allowed by law. The Dunham Foundation matching grant is secured; pledges are commitments toward the endowment, and no payment is due at the time of pledge.</div>
+      <div class="committee"><b>Steering Committee:</b> Dave Brown · Bob Hansen · Dominic Hansen · Rob Hollis · Bob Hubbard · Tyler Piron · Gary Ricke · Bob Vaughan</div>
+      <div class="tax">The Dennis Piron Legacy Scholarship is administered by the Batavia Foundation for Educational Excellence, an IRS-registered 501(c)(3). Contributions are tax-deductible to the extent allowed by law. The Dunham Foundation matching grant is secured; it is released to the endowment once the community's $50,000 half has been raised and received.</div>
       </div>
       <div class="foot-bfee">
         <div class="sb">Stewarded by</div>

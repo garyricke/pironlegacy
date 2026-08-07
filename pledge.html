@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make a Leadership Pledge — Dennis Piron Legacy Scholarship</title>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     LEADERSHIP PLEDGE FORM — unlinked by design.
+
+     WHY THIS PAGE EXISTS: on August 7, 2026 the committee (Dave Brown
+     and Bob Vaughan) decided the public site should ask for ONE thing —
+     a donation. Every "Make a Leadership Pledge" button was removed from
+     index.html and the one-sheet, along with the running total, so that
+     a near-goal number never talks a donor out of giving.
+
+     The FORM itself was not deleted, for three reasons:
+       1. Roughly $21,900 in pledges is committed but not yet received.
+          Those donors were promised a way to formalize a commitment.
+       2. The /pledges admin console and the /api/committed function both
+          read the Netlify form named "pledge". Deleting the form would
+          break the ledger and lose the submission history.
+       3. Netlify only registers a form it can find in deployed HTML at
+          build time. The form had to live in SOME page to stay alive.
+
+     SO: nothing on the public site links here. Hand this URL out
+     directly — pironlegacy.org/pledge — when a donor asks to pledge
+     rather than give today.
+
+     DO NOT add a link to this page from index.html without checking
+     with the committee first; that would undo the August 7 decision.
+
+     NOINDEX: unlinked is not the same as private. This is deliberately
+     kept out of search results so it can't turn up as a competing
+     "pledge instead" path next to the donate button.
+     ═══════════════════════════════════════════════════════════════════ -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Submit a leadership pledge to the Dennis Piron Legacy Scholarship endowment.">
+<link rel="canonical" href="https://pironlegacy.org/pledge">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+
+<style>
+:root {
+  --gold:   #FACC08;
+  --maroon: #AC161D;
+  --black:  #000000;
+  --ink:    #1a1a1a;
+  --muted:  #5b5b5b;
+  --paper:  #f7f5f0;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: 'Open Sans', system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.7; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.center { text-align: center; }
+
+.eyebrow {
+  display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: .75rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--maroon); margin-bottom: 14px;
+}
+.section-title { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; margin: 0 0 16px; line-height: 1.15; }
+.section-sub { font-size: 1.1rem; color: var(--muted); max-width: 640px; }
+.center .section-sub { margin-left: auto; margin-right: auto; }
+
+.btn {
+  display: inline-block; padding: 16px 36px; border-radius: 50px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem;
+  text-decoration: none; cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  border: 2px solid transparent; letter-spacing: .5px; text-align: center;
+}
+.btn-maroon { background: var(--maroon); color: #fff; box-shadow: 0 6px 24px rgba(172,22,29,.35); }
+.btn-maroon:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(172,22,29,.5); }
+
+/* ───── MASTHEAD ───── */
+.masthead { background: radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%); color: #fff; padding: 40px 0 36px; }
+.mh-top { display: inline-flex; align-items: center; gap: 16px; text-decoration: none; }
+.mh-top img { height: 56px; width: auto; }
+.mh-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: .82rem; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; line-height: 1.35; }
+.mh-name span { display: block; color: var(--gold); }
+
+/* ───── PLEDGE FORM ───── */
+.pledge { padding: 70px 0 100px; background: #fff; }
+.pledge-shell { max-width: 760px; margin: 0 auto; }
+.pledge-card {
+  background: var(--paper); border: 1px solid #e8e4da; border-radius: 20px;
+  padding: 44px 40px; box-shadow: 0 16px 50px rgba(0,0,0,.07);
+}
+.pledge-amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+.amt-opt { position: relative; }
+.amt-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.amt-opt label {
+  display: block; text-align: center; padding: 16px 8px; border: 2px solid #d4cfc1; border-radius: 12px;
+  background: #fff; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 800;
+  font-size: 1.15rem; color: var(--ink); transition: all .18s ease;
+}
+.amt-opt input:checked + label { border-color: var(--maroon); background: var(--maroon); color: #fff; box-shadow: 0 8px 20px rgba(172,22,29,.25); }
+.amt-opt input:focus-visible + label { outline: 3px solid rgba(172,22,29,.35); outline-offset: 2px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-field { display: flex; flex-direction: column; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+}
+.form-field input, .form-field textarea {
+  font-family: 'Open Sans', sans-serif; font-size: 1rem; padding: 13px 14px;
+  border: 1px solid #d4cfc1; border-radius: 10px; background: #fff; color: var(--ink);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-field input:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(172,22,29,.15);
+}
+.form-field textarea { resize: vertical; min-height: 90px; }
+.pledge-ack { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 22px; font-size: .95rem; color: #333; }
+.pledge-ack input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--maroon); }
+.pledge-consent { font-size: .88rem; color: #555; margin: 0 0 18px; }
+.pledge-consent em { color: var(--muted); font-style: italic; }
+.form-honeypot { position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; }
+.pledge-submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.pledge-submit-row .btn { flex: 0 0 auto; }
+.form-meta { font-size: .9rem; color: var(--muted); }
+.form-meta.is-success { color: #2a7d3a; font-weight: 700; }
+.form-meta.is-error { color: var(--maroon); font-weight: 700; }
+.pledge-note { font-size: .85rem; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+.pledge-note strong { color: var(--ink); }
+.pledge-note a { color: var(--maroon); font-weight: 600; }
+
+.foot { background: #111; color: #9a9494; padding: 34px 0; font-size: .84rem; text-align: center; }
+.foot a { color: #cfc8c8; }
+
+@media (max-width: 620px) {
+  .pledge-amounts { grid-template-columns: 1fr 1fr; }
+  .pledge-card { padding: 32px 22px; }
+  .form-row { grid-template-columns: 1fr; }
+  .mh-top img { height: 46px; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container">
+    <a class="mh-top" href="/">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_200/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship">
+      <span class="mh-name">Dennis Piron<span>Legacy Scholarship</span></span>
+    </a>
+  </div>
+</header>
+
+<section class="pledge">
+  <div class="container">
+    <div class="pledge-shell">
+      <div class="center" style="margin-bottom:34px;">
+        <span class="eyebrow">Make Your Pledge</span>
+        <h1 class="section-title">Become a lead donor</h1>
+        <p class="section-sub">Submit your leadership pledge below. A steering-committee member will follow up to confirm. Nothing is charged today — <strong style="color:var(--maroon);">the Dunham match is secured, so every pledge is guaranteed to be doubled.</strong></p>
+      </div>
+
+      <form class="pledge-card" id="pledgeForm" name="pledge" method="POST" data-netlify="true" netlify-honeypot="website" autocomplete="on">
+        <!-- Netlify Forms: required hidden field + a clean human-readable amount -->
+        <input type="hidden" name="form-name" value="pledge">
+        <input type="hidden" name="pledge_amount" id="amount_display">
+        <div class="form-field full" style="margin-bottom:18px;">
+          <label>Your pledge amount</label>
+          <div class="pledge-amounts">
+            <div class="amt-opt"><input type="radio" name="amount" id="a5000" value="5000"><label for="a5000">$5,000</label></div>
+            <div class="amt-opt"><input type="radio" name="amount" id="a2500" value="2500" checked><label for="a2500">$2,500</label></div>
+            <div class="amt-opt"><input type="radio" name="amount" id="a2000" value="2000"><label for="a2000">$2,000</label></div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="pf-name">Full name</label>
+            <input type="text" id="pf-name" name="name" maxlength="80" required placeholder="Jane Smith">
+          </div>
+          <div class="form-field">
+            <label for="pf-email">Email</label>
+            <input type="email" id="pf-email" name="email" maxlength="120" required placeholder="jane@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="pf-phone">Phone (optional)</label>
+            <input type="tel" id="pf-phone" name="phone" maxlength="40" placeholder="(630) 555-0123">
+          </div>
+          <div class="form-field">
+            <label for="pf-name-recognition">Name to recognize (optional)</label>
+            <input type="text" id="pf-name-recognition" name="recognition" maxlength="100" placeholder="e.g. The Smith Family — or 'Anonymous'">
+          </div>
+        </div>
+        <div class="form-field full" style="margin-bottom:18px;">
+          <label for="pf-msg">A note for Dennis or the committee (optional)</label>
+          <textarea id="pf-msg" name="message" maxlength="800" placeholder="Optional — a memory, a reason, a question…"></textarea>
+        </div>
+
+        <label class="pledge-ack pledge-consent">
+          <input type="checkbox" id="pf-public" name="public_note">
+          <span>You may <strong>share my note publicly</strong> on the campaign page, alongside my name. We'll never show your email or phone. <em>Leave unchecked to keep it private to the committee.</em></span>
+        </label>
+
+        <label class="pledge-ack">
+          <input type="checkbox" id="pf-ack" name="ack" required>
+          <span>I understand my pledge is a <strong>commitment toward the endowment</strong>, that no payment is due today, and that the committee will follow up to confirm details.</span>
+        </label>
+
+        <!-- Honeypot -->
+        <div class="form-honeypot" aria-hidden="true">
+          <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="pledge-submit-row">
+          <button type="submit" class="btn btn-maroon" id="pf-submit">Submit My Pledge</button>
+          <span class="form-meta" id="pf-meta">No payment today. Tax-deductible when fulfilled.</span>
+        </div>
+
+        <p class="pledge-note">
+          <strong>Ready to give today instead?</strong>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer">Donate securely online</a>
+          — a fulfilled gift is what draws down the Dunham match.
+          <strong>Prefer to talk first?</strong> Email
+          <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a>. Gifts are payable to the
+          <strong>Batavia Foundation for Educational Excellence</strong>, an IRS-registered 501(c)(3) —
+          tax-deductible to the extent allowed by law. A W-9 is available on request.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="container">
+    Dennis Piron Legacy Scholarship &middot; Batavia, IL<br>
+    Questions? <a href="mailto:pledges@pironlegacy.org">pledges@pironlegacy.org</a> &nbsp;&middot;&nbsp; <a href="/">Back to the campaign</a>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   Pledge form → Netlify Forms.
+   Submitted via AJAX (no page reload), so submissions appear in the
+   Netlify dashboard → Forms under the form named "pledge" — the same
+   form the /pledges console and /api/committed read.
+   If the POST ever fails, it falls back to a pre-filled email.
+   ═══════════════════════════════════════════════════════ */
+const PLEDGE_FALLBACK_EMAIL = 'pledges@pironlegacy.org';
+
+const pledgeForm = document.getElementById('pledgeForm');
+const pfMeta = document.getElementById('pf-meta');
+const pfSubmit = document.getElementById('pf-submit');
+
+function setMeta(text, kind) {
+  pfMeta.textContent = text;
+  pfMeta.classList.remove('is-success', 'is-error');
+  if (kind) pfMeta.classList.add('is-' + kind);
+}
+function getAmount() {
+  const sel = document.querySelector('input[name="amount"]:checked');
+  if (!sel) return '';
+  return '$' + Number(sel.value).toLocaleString();
+}
+
+pledgeForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (pledgeForm.querySelector('[name="website"]').value) return; // honeypot
+
+  const name = document.getElementById('pf-name').value.trim();
+  const email = document.getElementById('pf-email').value.trim();
+  if (!name || !email) { setMeta('Please add your name and email.', 'error'); return; }
+  if (!document.getElementById('pf-ack').checked) { setMeta('Please acknowledge the matching-grant condition.', 'error'); return; }
+
+  // Put a clean, human-readable amount into the dashboard record.
+  document.getElementById('amount_display').value = getAmount();
+
+  pfSubmit.disabled = true; pfSubmit.textContent = 'Submitting…'; setMeta('Submitting your pledge…');
+
+  // POST the form to Netlify Forms (url-encoded, includes form-name).
+  // Drop the raw radio value — Netlify labels it by the first option ("$5,000"),
+  // which is misleading. The clean "Pledge amount" hidden field carries the amount.
+  const fd = new FormData(pledgeForm);
+  fd.delete('amount');
+  const body = new URLSearchParams(fd).toString();
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    });
+    if (!res.ok) throw new Error('status ' + res.status);
+    pledgeForm.reset();
+    setMeta('Thank you — your pledge is in. We\'ll be in touch shortly.', 'success');
+  } catch (err) {
+    // Never lose a pledge: fall back to a pre-filled email.
+    emailFallback({
+      amount: getAmount(), name: name, email: email,
+      phone: document.getElementById('pf-phone').value.trim(),
+      recognition: document.getElementById('pf-name-recognition').value.trim(),
+      message: document.getElementById('pf-msg').value.trim(),
+      publicNote: document.getElementById('pf-public').checked
+    });
+    setMeta('Opening your email to confirm the pledge — just hit send.', 'success');
+  } finally {
+    pfSubmit.disabled = false; pfSubmit.textContent = 'Submit My Pledge';
+  }
+});
+
+function emailFallback(p) {
+  const subject = encodeURIComponent('Piron Legacy Scholarship — Pledge: ' + p.amount);
+  const lines = [
+    'I\'d like to make a leadership pledge to the Dennis Piron Legacy Scholarship.', '',
+    'Pledge amount: ' + p.amount,
+    'Name: ' + p.name,
+    'Email: ' + p.email,
+    'Phone: ' + (p.phone || '—'),
+    'Recognize as: ' + (p.recognition || '—'),
+    'Note: ' + (p.message || '—'),
+    'OK to share note publicly: ' + (p.publicNote ? 'Yes' : 'No'), '',
+    'I understand this pledge is a commitment toward the endowment, and that no payment is due today.'
+  ];
+  window.location.href = 'mailto:' + PLEDGE_FALLBACK_EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(lines.join('\n'));
+}
+</script>
+
+</body>
+</html>
