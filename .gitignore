@@ -23,3 +23,6 @@ deno.lock
 # Scratch
 scratchpad/
 *.log
+
+# Source photos for the trading-card concepts (news photos — not ours to redistribute)
+assets/playing-cards/

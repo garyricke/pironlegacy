@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://pironlegacy.org/cards">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<title>Piron Trading Cards — Concept Board</title>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     CONCEPT BOARD ONLY — nothing here is approved, licensed, or final.
+
+     PHOTOS: every image on this page is a NEWS PHOTOGRAPH pulled from
+     Shaw Local / Chicago Tribune / Aurora Beacon-News. They are fine for
+     an internal brainstorm. They are NOT licensed for merchandise, and a
+     trading card handed out around town is merchandise. Before any card
+     is printed, each frame must be replaced with a photo we own (Gary's
+     INCubator library) or licensed in writing from the outlet.
+
+     STATS: anything in a dashed box is a PLACEHOLDER we do not yet have.
+     Do not fill these in by guessing — a wrong win-loss record printed on
+     a card about a coach, handed out in his own town, is the one mistake
+     this project cannot make. See "What we still need" at the bottom.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#FACC08; --maroon:#AC161D; --ink:#14161a; --muted:#6b7280;
+  --paper:#f7f5f0; --line:#e2e0da;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f0ec;color:var(--ink);font-family:'Open Sans',system-ui,sans-serif;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ── page header ── */
+.masthead{background:linear-gradient(160deg,#1c0f10 0%,#2a1416 45%,#0b0708 100%);color:#fff;padding:54px 0 46px;border-bottom:5px solid var(--gold)}
+.masthead .eyebrow{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.7rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.masthead h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:0 0 16px;letter-spacing:-.5px}
+.masthead p{max-width:720px;margin:0;color:#d9d2c8;font-size:1.05rem}
+
+/* ── section furniture ── */
+section{padding:56px 0}
+section + section{border-top:1px solid var(--line)}
+.sec-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--maroon);margin:0 0 10px}
+h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 12px;letter-spacing:-.3px}
+.lede{max-width:760px;color:#41474f;font-size:1.03rem;margin:0 0 34px}
+h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.12rem;margin:0 0 8px}
+
+/* ══════════════════════════════════════════════════
+   THE CARD — 2.5 × 3.5in trading-card ratio (1 : 1.4)
+   ══════════════════════════════════════════════════ */
+.card{
+  position:relative;width:286px;height:400px;border-radius:12px;overflow:hidden;
+  box-shadow:0 14px 34px rgba(0,0,0,.24),0 2px 6px rgba(0,0,0,.14);
+  flex:0 0 auto;user-select:none;
+}
+/* NB: keep this selector on .photo, not .card .photo — the phone mockup in the
+   scan section reuses .photo outside a .card and needs cover too. */
+.photo{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat}
+
+/* ══════════════════════════════════════════════════
+   FLIP — click or tab+Enter to turn the card over
+   ══════════════════════════════════════════════════ */
+.flip{width:286px;height:400px;perspective:1400px;cursor:pointer;flex:0 0 auto;
+  background:none;border:0;padding:0;font:inherit;text-align:left;display:block}
+.flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  transition:transform .62s cubic-bezier(.22,.72,.24,1)}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.b{transform:rotateY(180deg)}
+.flip .card,.flip .back{position:absolute;inset:0;width:auto;height:auto}
+.flip:focus-visible{outline:3px solid var(--maroon);outline-offset:6px;border-radius:14px}
+/* the little turn-me affordance */
+.flip-hint{position:absolute;bottom:9px;left:9px;z-index:6;width:23px;height:23px;border-radius:50%;
+  background:rgba(12,10,10,.55);color:#fff;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(3px);transition:background .2s}
+.flip:hover .flip-hint{background:var(--maroon)}
+.flip-hint svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.1;
+  stroke-linecap:round;stroke-linejoin:round}
+/* on a back, bottom-left is the legal line — move the hint over and clear room for it */
+.back .flip-hint{background:rgba(12,10,10,.35);left:auto;right:9px}
+.back .fine{padding-right:28px}
+.rail-head{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:0 0 24px}
+.rail-head .flip-lede{margin:0}
+.rail-count{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:1.8px;
+  text-transform:uppercase;color:#8b8578;white-space:nowrap}
+.flip-lede{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
+  border-radius:100px;padding:9px 17px 9px 12px;font-size:.86rem;color:#4b5158;margin:0 0 24px}
+.flip-lede svg{width:17px;height:17px;stroke:var(--maroon);fill:none;stroke-width:2.1;
+  stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.flip-lede b{font-family:'Montserrat',sans-serif;color:#14161a}
+
+/* AI placeholder marking — these are NOT photos of Dennis, and must never read as if they are */
+/* top-RIGHT, not left: the dir-a team banner already owns the top-left corner */
+.ai-tag{position:absolute;top:10px;right:10px;z-index:6;background:rgba(12,10,10,.78);color:#ffd84d;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.46rem;letter-spacing:1.2px;
+  padding:4px 7px;border-radius:3px;line-height:1.35;text-transform:uppercase;backdrop-filter:blur(3px)}
+.ai-tag span{display:block;color:#fff;font-weight:700;letter-spacing:.4px;font-size:.44rem;text-transform:none;opacity:.85}
+
+/* photo crops — each tuned to keep Dennis's face in frame on a portrait card */
+.p-rookie{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222053/piron-legacy/cards/ph-rookie.jpg');background-position:50% 30%}
+.p-prospect{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222054/piron-legacy/cards/ph-prospect.jpg');background-position:50% 34%}
+.p-player{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222055/piron-legacy/cards/ph-player.jpg');background-position:50% 30%}
+.p-headset{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222048/piron-legacy/cards/headset.jpg');background-position:52% 24%}
+.p-celebrate{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222050/piron-legacy/cards/celebrate.webp');background-size:auto 128%;background-position:38% 36%}
+.p-mentor{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222050/piron-legacy/cards/mentor.webp');background-position:56% 30%}
+.p-whistle{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222048/piron-legacy/cards/whistle.jpg');background-position:29% 46%}
+.p-running{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222049/piron-legacy/cards/running.jpg');background-position:24% 52%}
+.p-shades{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222051/piron-legacy/cards/shades.jpg');background-position:40% 28%}
+.p-sideline{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222052/piron-legacy/cards/sideline.jpg');background-position:34% 42%}
+.p-gameday{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222051/piron-legacy/cards/gameday.webp');background-size:auto 142%;background-position:26% 22%}
+
+/* ── DIRECTION A — 1987 woodgrain ── */
+.dir-a{padding:13px 13px 0;background:
+  repeating-linear-gradient(94deg,#8a5a2b 0 3px,#7a4d22 3px 5px,#9c6a35 5px 9px,#8a5a2b 9px 13px);}
+.dir-a .frame{position:relative;height:308px;overflow:hidden;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.dir-a .team{position:absolute;top:0;left:0;background:var(--maroon);color:var(--gold);
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.56rem;letter-spacing:2px;padding:5px 9px}
+.dir-a .pennant{position:absolute;bottom:0;right:0;width:0;height:0;
+  border-left:56px solid transparent;border-bottom:56px solid var(--gold)}
+.dir-a .pennant-txt{position:absolute;bottom:6px;right:6px;font-family:'Montserrat',sans-serif;
+  font-weight:900;font-size:.9rem;color:#2a1416;z-index:2}
+.dir-a .plate{padding:9px 4px 0;text-align:center}
+.dir-a .plate .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.24rem;color:#fff;
+  text-shadow:1px 1px 0 #4a2c10;letter-spacing:.3px;line-height:1}
+.dir-a .plate .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:2.4px;
+  color:#ffe9a8;margin-top:4px;text-transform:uppercase}
+
+/* ══════════════════════════════════════════════════
+   BASE-CARD ALTERNATIVES — four ways to build the tier-1 card
+   without woodgrain. Same size, same photo, so they compare fairly.
+   ══════════════════════════════════════════════════ */
+
+/* A5 — Base weight. Card 7's exact composition, framed and unfoiled.
+   Same full-bleed photo, same gold rule, same Bebas nameplate. The premium
+   bleeds off the edge, runs a deep veil and takes the foil sweep; this one
+   sits inside a cream border, keeps the photo bright and takes neither.
+   Hold the two together and the upgrade is legible without a caption. */
+.dir-base{background:#f4f1e8;padding:10px}
+.dir-base .win{position:absolute;inset:10px;overflow:hidden;border-radius:4px;background:#0b0c0e}
+.dir-base .photo{filter:contrast(1.04) saturate(1.02)}
+.dir-base .veil{position:absolute;inset:0;background:linear-gradient(178deg,
+  rgba(0,0,0,.34) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.06) 52%,rgba(16,13,11,.9) 92%)}
+.dir-base .rule{position:absolute;left:0;right:0;bottom:78px;height:2px;
+  background:linear-gradient(90deg,var(--maroon),var(--gold) 60%,#fff6d6)}
+.dir-base .meta{position:absolute;left:15px;right:15px;bottom:15px}
+.dir-base .nm{font-family:'Bebas Neue',sans-serif;font-size:1.98rem;line-height:.9;color:#fff;letter-spacing:.9px}
+.dir-base .nm em{font-style:normal;color:var(--gold)}
+.dir-base .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.53rem;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(247,240,224,.84);margin-top:6px}
+.dir-base .badge{position:absolute;top:12px;right:12px;border:1.5px solid rgba(250,204,8,.85);
+  color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:900;font-size:.5rem;
+  letter-spacing:1.5px;padding:4px 7px;border-radius:3px}
+
+/* the two-finish comparison */
+.family{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
+  background:#faf9f6;border:1px solid var(--line);border-radius:12px;padding:28px 30px;margin:30px 0 0}
+.fam-pair{display:flex;gap:20px;flex:0 0 auto}
+.fam-cap{text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.58rem;
+  letter-spacing:2px;text-transform:uppercase;color:#8b8578;margin-top:11px}
+.fam-cap b{display:block;color:var(--maroon);font-size:.72rem;letter-spacing:1.4px;margin-bottom:2px}
+.family h3{margin:0 0 10px}
+.family p{margin:0 0 11px;color:#4b5158;font-size:.95rem;line-height:1.6}
+.family p:last-child{margin:0}
+.family b{color:#14161a}
+@media (max-width:900px){.family{grid-template-columns:1fr;gap:24px}}
+
+/* A1 — Bulldog Varsity: flat red field, gold keyline, block nameplate */
+.dir-varsity{background:var(--maroon);padding:13px 13px 0}
+.dir-varsity .frame{position:relative;height:298px;overflow:hidden;border:2px solid var(--gold);
+  box-shadow:0 2px 7px rgba(0,0,0,.4)}
+.dir-varsity .num{position:absolute;top:9px;left:9px;z-index:3;width:31px;height:31px;border-radius:50%;
+  background:var(--gold);color:#7a0f14;font-family:'Montserrat',sans-serif;font-weight:900;font-size:.78rem;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.35)}
+.dir-varsity .plate{padding:12px 6px 0;text-align:center}
+.dir-varsity .nm{font-family:'Bebas Neue',sans-serif;font-size:1.92rem;color:#fff;line-height:.94;letter-spacing:1.3px}
+.dir-varsity .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.55rem;letter-spacing:2.7px;
+  color:var(--gold);margin-top:6px;text-transform:uppercase}
+
+/* A2 — Clean White Classic: white border, maroon+gold double rule */
+.dir-white{background:#fff;padding:12px 12px 0;border:1px solid #e2ded6}
+.dir-white .frame{position:relative;height:290px;overflow:hidden;border:1px solid #dcd8cf}
+.dir-white .rule2{margin:10px 1px 0;height:2px;background:var(--maroon);box-shadow:0 4px 0 var(--gold)}
+.dir-white .plate{padding:15px 2px 0}
+.dir-white .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.2rem;color:#14161a;line-height:1;letter-spacing:-.2px}
+.dir-white .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.53rem;letter-spacing:2.4px;
+  color:var(--maroon);margin-top:6px;text-transform:uppercase}
+.dir-white .num{position:absolute;bottom:13px;right:13px;width:27px;height:27px;border-radius:50%;
+  border:1.5px solid var(--maroon);color:var(--maroon);font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:.64rem;display:flex;align-items:center;justify-content:center}
+
+/* A3 — Ticket Stub: perforated stub, ticket furniture, souvenir of one night */
+.dir-ticket{background:#f7f2e6;display:flex}
+.dir-ticket .stub{width:50px;flex:0 0 auto;background:var(--maroon);position:relative;
+  display:flex;align-items:center;justify-content:center}
+.dir-ticket .stub span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Montserrat',sans-serif;
+  font-weight:900;font-size:.58rem;letter-spacing:3.4px;color:var(--gold);text-transform:uppercase}
+.dir-ticket .perf{position:absolute;right:-7px;top:0;bottom:0;width:14px;z-index:3;
+  background-image:radial-gradient(circle at 7px 7px,#f7f2e6 5.5px,transparent 6px);background-size:14px 18px}
+.dir-ticket .main{flex:1;min-width:0;padding:13px 13px 0;position:relative}
+.dir-ticket .frame{position:relative;height:232px;overflow:hidden;border:1px solid #ded7c5}
+.dir-ticket .tk{display:flex;justify-content:space-between;font-family:'Courier Prime',monospace;font-size:.5rem;
+  letter-spacing:.9px;color:#8d8369;border-top:1px dashed #cfc7b2;margin-top:9px;padding-top:7px}
+.dir-ticket .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.12rem;line-height:1.03;margin-top:8px;color:#14161a}
+.dir-ticket .pos{font-family:'Courier Prime',monospace;font-size:.56rem;color:var(--maroon);margin-top:4px;letter-spacing:.3px}
+
+/* A4 — Letterman Felt: chenille patch, stitched edge, Batavia black and gold */
+.dir-felt{background:#161514;padding:14px 14px 0}
+.dir-felt .fuzz{position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+                   radial-gradient(rgba(0,0,0,.4) 1px,transparent 1px);
+  background-size:4px 4px,7px 7px;background-position:0 0,2px 3px}
+.dir-felt .stitch{position:absolute;inset:6px;border:2px dashed rgba(240,226,192,.45);border-radius:7px;
+  pointer-events:none;z-index:4}
+.dir-felt .frame{position:relative;z-index:2;height:284px;overflow:hidden;border:3px solid #f0e2c0;
+  box-shadow:0 3px 11px rgba(0,0,0,.55)}
+.dir-felt .patch{position:absolute;top:8px;right:9px;z-index:5;width:50px;height:50px;border-radius:50%;
+  background:var(--gold);border:3px solid #fffdf4;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:var(--maroon);line-height:1;
+  box-shadow:0 3px 9px rgba(0,0,0,.5)}
+.dir-felt .plate{position:relative;z-index:2;padding:13px 4px 0;text-align:center}
+.dir-felt .nm{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#f0e2c0;line-height:.95;letter-spacing:1.4px}
+.dir-felt .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.53rem;letter-spacing:2.6px;
+  color:rgba(240,226,192,.62);margin-top:5px;text-transform:uppercase}
+
+/* ── DIRECTION B — Bulldog premium / foil ── */
+.dir-b{background:#08090b}
+.dir-b .photo{filter:contrast(1.08) saturate(1.05)}
+.dir-b .veil{position:absolute;inset:0;background:linear-gradient(178deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.2) 55%,rgba(6,7,9,.94) 88%)}
+.dir-b .foil{position:absolute;inset:0;
+  background:linear-gradient(118deg,transparent 34%,rgba(250,204,8,.30) 45%,rgba(255,255,255,.42) 50%,rgba(250,204,8,.30) 55%,transparent 66%);
+  mix-blend-mode:screen;pointer-events:none}
+.dir-b .rule{position:absolute;left:0;right:0;bottom:96px;height:3px;
+  background:linear-gradient(90deg,var(--maroon),var(--gold) 55%,#fff8d8)}
+.dir-b .meta{position:absolute;left:18px;right:18px;bottom:20px}
+.dir-b .nm{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:.9;color:#fff;letter-spacing:1px}
+.dir-b .nm em{font-style:normal;color:var(--gold)}
+.dir-b .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.56rem;letter-spacing:2.6px;
+  text-transform:uppercase;color:#c9cdd4;margin-top:7px}
+.dir-b .badge{position:absolute;top:14px;right:14px;background:var(--gold);color:#12060a;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.52rem;letter-spacing:1.6px;padding:5px 8px;border-radius:3px}
+
+/* ── DIRECTION C — INCubator / whiteboard ── */
+.dir-c{background:#fdfdfb;border:1px solid #d8d5cd}
+.dir-c .grid{position:absolute;inset:0;
+  background-image:linear-gradient(#e8f0f7 1px,transparent 1px),linear-gradient(90deg,#e8f0f7 1px,transparent 1px);
+  background-size:19px 19px}
+.dir-c .frame{position:absolute;top:52px;left:20px;right:20px;height:196px;overflow:hidden;
+  border-radius:3px;filter:grayscale(1) contrast(1.14);box-shadow:0 3px 12px rgba(0,0,0,.2)}
+.dir-c .frame .photo{position:absolute;inset:0}
+.dir-c .tape{position:absolute;width:62px;height:19px;background:rgba(250,204,8,.62);
+  border:1px solid rgba(0,0,0,.05);transform:rotate(-4deg)}
+.dir-c .tape.l{top:44px;left:8px}
+.dir-c .tape.r{top:44px;right:8px;transform:rotate(5deg)}
+.dir-c .hdr{position:absolute;top:16px;left:20px;right:20px;font-family:'Courier Prime',monospace;
+  font-size:.58rem;letter-spacing:1.4px;text-transform:uppercase;color:#8b9099;
+  display:flex;justify-content:space-between}
+.dir-c .meta{position:absolute;left:20px;right:20px;top:262px}
+.dir-c .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.28rem;line-height:1.05;color:#14161a}
+.dir-c .pos{font-family:'Courier Prime',monospace;font-size:.62rem;color:var(--maroon);margin-top:5px;letter-spacing:.4px}
+.dir-c .scrawl{position:absolute;left:20px;right:20px;bottom:18px;font-family:'Courier Prime',monospace;
+  font-size:.63rem;line-height:1.45;color:#4b5158;border-top:1px dashed #cdd2d8;padding-top:9px}
+
+/* ══════════════════════════════════════════════════
+   ROSTER RAIL + its scroll affordances
+
+   Three signals, deliberately: arrows (the obvious one), a fade at
+   whichever edge has more content behind it, and a real scrollbar.
+   Any one alone gets missed — the half-cut card on its own certainly did.
+   ══════════════════════════════════════════════════ */
+.rail-wrap{position:relative}
+.rail{display:flex;gap:26px;overflow-x:auto;padding:6px 4px 26px;scroll-snap-type:x proximity;
+  scrollbar-width:thin;scrollbar-color:#b8b3a6 #e5e2db}
+.rail > *{scroll-snap-align:start}
+.rail::-webkit-scrollbar{height:9px}
+.rail::-webkit-scrollbar-track{background:#e5e2db;border-radius:100px}
+.rail::-webkit-scrollbar-thumb{background:#b8b3a6;border-radius:100px}
+.rail::-webkit-scrollbar-thumb:hover{background:var(--maroon)}
+
+/* edge fades — pointer-events:none so they never swallow a card click */
+.rail-wrap::before,.rail-wrap::after{content:'';position:absolute;top:0;height:412px;width:72px;
+  pointer-events:none;z-index:3;transition:opacity .28s ease}
+.rail-wrap::before{left:0;background:linear-gradient(90deg,var(--rail-bg,#f2f0ec) 15%,rgba(242,240,236,0))}
+.rail-wrap::after{right:0;background:linear-gradient(270deg,var(--rail-bg,#f2f0ec) 15%,rgba(242,240,236,0))}
+.rail-wrap.at-start::before,.rail-wrap.at-end::after,
+.rail-wrap.no-scroll::before,.rail-wrap.no-scroll::after{opacity:0}
+
+/* arrows */
+.rail-arrow{position:absolute;top:206px;transform:translateY(-50%);z-index:4;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--maroon);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.16);transition:background .18s,color .18s,opacity .28s,transform .18s}
+.rail-arrow:hover{background:var(--maroon);color:#fff;transform:translateY(-50%) scale(1.06)}
+.rail-arrow:focus-visible{outline:3px solid var(--maroon);outline-offset:3px}
+.rail-arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+.rail-arrow.prev{left:-14px}
+.rail-arrow.next{right:-14px}
+.rail-wrap.at-start .rail-arrow.prev,
+.rail-wrap.at-end .rail-arrow.next,
+.rail-wrap.no-scroll .rail-arrow{opacity:0;pointer-events:none}
+@media (max-width:760px){.rail-arrow{display:none}}
+.slot{width:286px;flex:0 0 auto}
+.slot .cap{margin-top:14px}
+.slot .cap .n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.68rem;letter-spacing:2px;color:var(--maroon);text-transform:uppercase}
+.slot .cap h4{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;margin:4px 0 5px}
+.slot .cap p{margin:0;font-size:.88rem;color:#565c64;line-height:1.5}
+
+/* placeholder card (photos Dennis hasn't sent yet) */
+.card.ghost{background:repeating-linear-gradient(135deg,#e9e6df 0 12px,#e3e0d8 12px 24px);
+  border:2px dashed #b8b3a6;box-shadow:none;display:flex;align-items:center;justify-content:center;text-align:center}
+.card.ghost .g{padding:26px}
+.card.ghost .g .ic{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:#b8b3a6;line-height:1}
+.card.ghost .g h5{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1rem;margin:8px 0 6px;color:#6c675b}
+.card.ghost .g p{margin:0;font-size:.8rem;color:#8b8578;line-height:1.5}
+
+/* ── card back ── */
+.back{position:relative;width:286px;height:400px;border-radius:12px;background:var(--paper);border:1px solid #ddd9d0;
+  box-shadow:0 14px 34px rgba(0,0,0,.18);padding:16px 17px;display:flex;flex-direction:column;flex:0 0 auto;overflow:hidden}
+.back .bh{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--maroon);padding-bottom:8px}
+.back .bh .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.02rem;line-height:1.05}
+.back .bh .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.5rem;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--maroon);margin-top:3px}
+.back .bh .no{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--maroon);line-height:.8}
+.back .bh .no small{display:block;font-family:'Montserrat',sans-serif;font-size:.42rem;letter-spacing:1.4px;color:#8b8578;font-weight:700}
+.statline{margin:11px 0 0;border-collapse:collapse;width:100%;font-family:'Montserrat',sans-serif}
+.statline th{background:#2a1416;color:var(--gold);font-size:.46rem;letter-spacing:1.1px;padding:4px 3px;text-transform:uppercase;font-weight:800}
+.statline td{font-size:.72rem;font-weight:700;text-align:center;padding:5px 3px;border-bottom:1px solid #e6e2d8}
+.tbd{display:inline-block;border:1px dashed #c0392b;color:#c0392b;border-radius:3px;padding:0 4px;font-size:.6rem}
+.back .story{font-size:.66rem;line-height:1.52;color:#3f444b;margin:11px 0 0;flex:1}
+.back .story b{color:#14161a}
+.back .ask{border-top:1px dashed #c9c4b8;padding-top:9px;display:flex;gap:10px;align-items:center}
+.back .ask .qr{width:52px;height:52px;flex:0 0 auto;background:#fff;border:1px solid #ddd;padding:3px}
+.back .ask .qr img{width:100%;height:100%;display:block}
+.back .ask .txt{font-size:.6rem;line-height:1.42;color:#3f444b}
+.back .ask .txt b{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:.68rem;color:var(--maroon);letter-spacing:.2px}
+.back .fine{font-size:.44rem;color:#9a958a;margin:7px 0 0;line-height:1.4}
+
+/* ── tier table ── */
+.tiers{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.93rem}
+.tiers th{background:#2a1416;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:800;font-size:.66rem;
+  letter-spacing:1.6px;text-transform:uppercase;padding:12px 16px;text-align:left}
+.tiers td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+.tiers td:first-child{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--maroon);white-space:nowrap}
+.tiers tr:last-child td{background:#fffbe9}
+
+/* ── callouts ── */
+.note{border-left:4px solid var(--gold);background:#fffdf2;padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 26px}
+.note.warn{border-left-color:#c0392b;background:#fdf3f2}
+.note p{margin:0 0 8px;font-size:.94rem}
+.note p:last-child{margin:0}
+.note strong{font-family:'Montserrat',sans-serif}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;align-items:start}
+.needs{list-style:none;padding:0;margin:0}
+.needs li{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:0 8px 8px 0;
+  padding:14px 18px;margin-bottom:12px;font-size:.93rem}
+.needs li b{font-family:'Montserrat',sans-serif;display:block;margin-bottom:3px}
+.needs li span{color:#565c64}
+
+/* ── the scan: 4-step explainer ── */
+.chain-explain{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin:0 0 6px}
+.ce-step{background:#faf9f6;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.ce-n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
+  background:var(--maroon);color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:900;font-size:.78rem;margin-bottom:9px}
+.ce-step p{margin:0;font-size:.9rem;line-height:1.5;color:#4b5158}
+.ce-step b{color:#14161a}
+code{font-family:'Courier Prime',monospace;background:#f0ede6;padding:1px 5px;border-radius:3px;font-size:.9em}
+
+/* ── the scan: demo layout ── */
+.scan-demo{display:grid;grid-template-columns:308px 1fr;gap:38px;align-items:start;margin-top:8px}
+@media (max-width:880px){.scan-demo{grid-template-columns:1fr}}
+
+/* phone */
+.phone{width:308px;background:#14161a;border-radius:34px;padding:11px;box-shadow:0 20px 46px rgba(0,0,0,.3)}
+.phone-scr{background:#fff;border-radius:25px;overflow:hidden}
+.ps-bar{background:#eceae4;padding:9px 14px;font-family:'Courier Prime',monospace;font-size:.62rem;color:#6b7280;
+  text-align:center;border-bottom:1px solid #ddd9d0}
+.ps-body{padding:18px 18px 22px}
+.ps-hero{text-align:center;margin-bottom:14px}
+.ps-card{width:96px;height:134px;margin:0 auto;border-radius:7px;overflow:hidden;position:relative;
+  box-shadow:0 6px 16px rgba(0,0,0,.26)}
+.ps-card .photo{position:absolute;inset:0}
+.ps-id{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.54rem;letter-spacing:2px;color:var(--maroon);margin-top:9px}
+.ps-h{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.02rem;text-align:center;margin:0 0 14px;line-height:1.3}
+.ps-h b{color:var(--maroon)}
+.ps-chain{border-left:2px solid #e2e0da;margin:0 0 14px;padding-left:0}
+.pc-row{display:flex;align-items:center;gap:9px;padding:5px 0 5px 13px;position:relative;font-size:.78rem}
+.pc-dot{position:absolute;left:-6px;width:9px;height:9px;border-radius:50%;background:#cfcbc1;border:2px solid #fff}
+.pc-row.now .pc-dot{background:var(--gold);box-shadow:0 0 0 3px rgba(250,204,8,.28)}
+.pc-nm{flex:1;font-weight:600;color:#3f444b}
+.pc-row.now .pc-nm{font-weight:800;color:#14161a}
+.pc-when{font-size:.66rem;color:#9a958a}
+.ps-sub{font-size:.8rem;color:#4b5158;margin:0 0 11px;text-align:center}
+.ps-in{width:100%;border:1px solid #d8d5cd;border-radius:8px;padding:10px 12px;font-family:inherit;
+  font-size:.85rem;color:#a3a099;margin-bottom:9px;background:#fbfaf7}
+.ps-btn{background:var(--maroon);color:#fff;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;
+  font-size:.88rem;padding:12px;border-radius:8px}
+.ps-fine{font-size:.68rem;color:#9a958a;text-align:center;margin:10px 0 0;line-height:1.45}
+
+/* leaderboard */
+.board{background:#faf9f6;border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+.bd-h,.bd-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.06rem;margin:0 0 3px}
+.bd-h2{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.bd-sub{font-size:.78rem;color:#8b8578;margin:0 0 14px}
+.bd-row{display:flex;align-items:center;gap:13px;padding:10px 0;border-bottom:1px solid #eceae4}
+.bd-row.dim{opacity:.5}
+.bd-r{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:#b8b3a6;width:16px;flex:0 0 auto}
+.bd-c{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.62rem;letter-spacing:1px;background:#2a1416;color:var(--gold);
+  padding:5px 7px;border-radius:4px;flex:0 0 auto;white-space:nowrap}
+.bd-t{flex:1;line-height:1.3}
+.bd-t b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;display:block}
+.bd-t i{font-style:normal;font-size:.72rem;color:#8b8578}
+.bd-v{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.95rem;color:var(--maroon);flex:0 0 auto}
+.bd-note{background:#fffbe9;border-left:3px solid var(--gold);padding:12px 15px;margin:16px 0 0;font-size:.85rem;
+  line-height:1.55;color:#4b5158;border-radius:0 6px 6px 0}
+.bd-note b{font-family:'Montserrat',sans-serif;color:#14161a}
+
+/* ── Bob's quote + game-day timeline ── */
+.quote-bob{border-left:4px solid var(--maroon);background:#faf9f6;padding:18px 24px;border-radius:0 10px 10px 0;margin:0 0 26px;max-width:780px}
+.quote-bob p{margin:0 0 9px;font-family:Georgia,serif;font-style:italic;font-size:1.05rem;line-height:1.6;color:#2f353c}
+.quote-bob cite{font-family:'Montserrat',sans-serif;font-style:normal;font-weight:700;font-size:.66rem;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--maroon)}
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.tl-row{display:flex;gap:18px;align-items:flex-start;padding:11px 0 11px 22px;position:relative}
+.tl-row::before{content:'';position:absolute;left:-7px;top:18px;width:12px;height:12px;border-radius:50%;
+  background:#cfcbc1;border:2px solid #f2f0ec}
+.tl-row.now::before{background:var(--gold);box-shadow:0 0 0 4px rgba(250,204,8,.25)}
+.tl-d{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.72rem;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--maroon);width:100px;flex:0 0 auto;padding-top:2px}
+.tl-row.now .tl-d{color:#14161a}
+.tl-b{font-size:.95rem;color:#565c64;line-height:1.55}
+.tl-b b{color:#14161a;font-family:'Montserrat',sans-serif;font-weight:800}
+@media (max-width:620px){.tl-row{flex-direction:column;gap:4px}.tl-d{width:auto}}
+
+footer{background:#14161a;color:#9aa0a8;padding:34px 0;font-size:.84rem}
+footer b{color:#fff;font-family:'Montserrat',sans-serif}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Concept board &middot; nothing approved &middot; August 8, 2026</p>
+    <h1>The Piron Collection</h1>
+    <p>Trading cards as a fundraising device: something a committee member can physically hand someone, that survives a wallet, and that turns a two-minute conversation into a scan and a gift. Three visual directions, a ten-card set, the back &mdash; and a per-card QR system that turns every printed card into a numbered baton with a public history of everyone who held it.</p>
+  </div>
+</div>
+
+<!-- ══════════ 1. THE MECHANIC ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-num">01 &mdash; The mechanic</p>
+    <h2>Why a card gets a gift when a flyer doesn't</h2>
+    <p class="lede">A flyer is litter. A card is an object &mdash; people keep it, and a kept object keeps asking. But cards only raise money if getting the <em>rest</em> of them requires giving. Two moves, working together:</p>
+
+    <div class="two" style="margin-bottom:34px">
+      <div>
+        <h3>The handout card is free</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem">Every committee member carries a stack of one card &mdash; <b>#4, Head Coach</b>. Hand it to anyone: at the Chamber, at a game, across a desk. It's the icebreaker and the business card in one. On the back: the story, the QR, the ask.</p>
+      </div>
+      <div>
+        <h3>The other nine you have to earn</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem">The full set isn't for sale and isn't handed out. It arrives when you give. That's the whole engine: the card in someone's hand advertises nine cards they can't have yet, and the only way to get them is at pironlegacy.org.</p>
+      </div>
+    </div>
+
+    <table class="tiers">
+      <tr><th style="width:130px">Gift</th><th>What arrives in the mail</th><th style="width:280px">Why it works</th></tr>
+      <tr><td>$25</td><td>Three-card pack, randomized</td><td>Cheap enough to be an impulse; random means duplicates, and duplicates mean trading.</td></tr>
+      <tr><td>$100</td><td>The complete 10-card set, sleeved</td><td>The jump from 3 to 10 is the whole reason people go from $25 to $100.</td></tr>
+      <tr><td>$500</td><td>Gold parallel set, hand-numbered /50</td><td>Scarcity you can hold. Fifty exist, and the number is written on it.</td></tr>
+      <tr><td>$1,000+</td><td>Signed card, numbered 1 of 700</td><td>One per donor, numbered against the 700 students &mdash; the number <em>is</em> the message.</td></tr>
+      <tr><td>The 1/1</td><td>A single signed, framed error card</td><td>One exists. Auction it at an event; let the room bid against each other.</td></tr>
+    </table>
+
+    <div class="note" style="margin-top:26px">
+      <p><strong>The number to steal:</strong> the set is 10 cards for ten years, and the signed cards number to 700 for the 700 students. Every piece of the collection carries a real fact about the campaign, so explaining the cards <em>is</em> explaining the scholarship.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2. THREE DIRECTIONS ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-num">02 &mdash; Three directions</p>
+    <h2>Pick a look before we pick photos</h2>
+    <p class="lede">Same man, same card size, three very different personalities. A is affectionate and funny. B looks expensive and justifies the higher tiers. C is the one nobody expects from a football coach &mdash; and it's the one that tells the INCubator half of the story.</p>
+
+    <div class="rail-wrap">
+    <button class="rail-arrow prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="rail-arrow next" aria-label="Scroll right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="rail">
+
+      <!-- A — woodgrain -->
+      <div class="slot">
+        <div class="card dir-a">
+          <div class="frame">
+            <div class="photo p-headset"></div>
+            <span class="team">BATAVIA BULLDOGS</span>
+            <span class="pennant"></span><span class="pennant-txt">HC</span>
+          </div>
+          <div class="plate">
+            <div class="nm">DENNIS PIRON</div>
+            <div class="pos">Head Coach &middot; Teacher</div>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="n">Direction A</div>
+          <h4>1987 Woodgrain</h4>
+          <p>Straight out of a shoebox in the basement. The joke is that it's played completely straight &mdash; woodgrain, pennant, all-caps nameplate. Cheapest to print, warmest to receive, and instantly readable to anyone over forty.</p>
+        </div>
+      </div>
+
+      <!-- B — premium -->
+      <div class="slot">
+        <div class="card dir-b">
+          <div class="photo p-celebrate"></div>
+          <div class="veil"></div>
+          <div class="foil"></div>
+          <span class="badge">10 YEARS</span>
+          <div class="rule"></div>
+          <div class="meta">
+            <div class="nm">DENNIS <em>PIRON</em></div>
+            <div class="pos">Batavia Bulldogs &middot; Head Coach</div>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="n">Direction B</div>
+          <h4>Bulldog Premium</h4>
+          <p>Black, gold foil, angular. This is the one that looks like it cost money &mdash; which is exactly what you want on the $500 parallel. Needs real foil stock to land; flat-printed it just looks dark.</p>
+        </div>
+      </div>
+
+      <!-- C — INCubator -->
+      <div class="slot">
+        <div class="card dir-c">
+          <div class="grid"></div>
+          <div class="hdr"><span>INCUBATOR@BHS</span><span>CARD 09</span></div>
+          <div class="frame"><div class="photo p-mentor"></div></div>
+          <span class="tape l"></span><span class="tape r"></span>
+          <div class="meta">
+            <div class="nm">Mr. Piron</div>
+            <div class="pos">&gt; instructor, 10 cohorts</div>
+          </div>
+          <div class="scrawl">"What good people children are." &mdash; overheard, roughly 700 times</div>
+        </div>
+        <div class="cap">
+          <div class="n">Direction C</div>
+          <h4>The INCubator Card</h4>
+          <p>Graph paper, gaffer tape, a marker scrawl. It reads like something a student made, which is the point &mdash; it's the only direction that carries the classroom, and the pull-quote lives right on the front.</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="note">
+      <p><strong>The three-tier structure holds:</strong> one look for the base set, a premium look for the paid parallels, and one deliberate oddball &mdash; card #9, the INCubator card. A set that's uniform <em>except</em> for one outlier is more collectible than a set that's uniform, and the outlier is the one that explains the scholarship.</p>
+      <p style="margin-top:10px">What's up for grabs is <b>which look fills the base slot.</b> Woodgrain is one answer and it's a loud one &mdash; it decides the card is a nostalgia object before the photo gets a say. Four alternatives below.</p>
+    </div>
+
+    <h2 style="margin-top:46px">The base card, five ways</h2>
+    <p class="lede"><b>Cards 7 and 10 aren't in play here &mdash; nothing below touches them.</b> They're Direction B, the premium tier, and they stay exactly as they are. The only slot being decided is tier 1: the card that prints in the highest volume and gets handed to strangers, so it has to survive cheap printing, mediocre photos and a jacket pocket. Same photo in all five, so the only thing changing is the treatment.</p>
+
+    <div class="rail-wrap">
+    <button class="rail-arrow prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="rail-arrow next" aria-label="Scroll right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="rail">
+
+      <!-- A5 base weight — the one that keeps 7 and 10 -->
+      <div class="slot">
+        <div class="card dir-base">
+          <div class="win">
+            <div class="photo p-headset"></div>
+            <div class="veil"></div>
+            <span class="badge">CARD 04</span>
+            <div class="rule"></div>
+            <div class="meta">
+              <div class="nm">DENNIS <em>PIRON</em></div>
+              <div class="pos">Head Coach &middot; Batavia Bulldogs</div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="n">Option A5 &middot; my pick</div><h4>Base Weight</h4>
+          <p>Card 7's composition exactly &mdash; full-bleed photo, gold rule, Bebas nameplate &mdash; framed in a cream border, with the veil lifted and the foil removed. It's the same card at a lower finish, which is precisely how real sets separate a base from a parallel.</p>
+        </div>
+      </div>
+
+      <!-- A1 varsity -->
+      <div class="slot">
+        <div class="card dir-varsity">
+          <div class="frame">
+            <div class="photo p-headset"></div>
+            <span class="num">04</span>
+          </div>
+          <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach &middot; Batavia</div></div>
+        </div>
+        <div class="cap">
+          <div class="n">Option A1</div><h4>Bulldog Varsity</h4>
+          <p>Flat Batavia red, gold keyline, block nameplate. Same 1970s bones as the woodgrain but the school colors carry it instead of a wood texture. Boldest of the four across a table, and the cheapest to print well &mdash; one flat ink, nowhere for a press to go wrong.</p>
+        </div>
+      </div>
+
+      <!-- A2 white -->
+      <div class="slot">
+        <div class="card dir-white">
+          <div class="frame"><div class="photo p-headset"></div></div>
+          <div class="rule2"></div>
+          <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach &middot; Batavia Bulldogs</div></div>
+          <span class="num">04</span>
+        </div>
+        <div class="cap">
+          <div class="n">Option A2</div><h4>Clean White Classic</h4>
+          <p>White border, a maroon rule with gold under it, name set quietly. The photo does all the work, which is exactly what you want when the photos are the best asset we have. It's also the one that still looks right in three years &mdash; no era stamped on it.</p>
+        </div>
+      </div>
+
+      <!-- A3 ticket -->
+      <div class="slot">
+        <div class="card dir-ticket">
+          <div class="stub"><span>Admit One</span><span class="perf"></span></div>
+          <div class="main">
+            <div class="frame"><div class="photo p-headset"></div></div>
+            <div class="tk"><span>GATE A</span><span>SEC 12</span><span>NO. 0173</span></div>
+            <div class="nm">DENNIS PIRON</div>
+            <div class="pos">&gt; head coach, batavia</div>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="n">Option A3</div><h4>The Ticket Stub</h4>
+          <p>Perforated stub, gate and section numbers, serial printed where a ticket number goes. Built for August 21 &mdash; put <em>vs. Maine South</em> on it and it stops being a leaflet and becomes a souvenir of that specific night. People keep ticket stubs. They do not keep flyers.</p>
+        </div>
+      </div>
+
+      <!-- A4 felt -->
+      <div class="slot">
+        <div class="card dir-felt">
+          <span class="fuzz"></span>
+          <div class="frame"><div class="photo p-headset"></div></div>
+          <span class="patch">B</span>
+          <span class="stitch"></span>
+          <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach</div></div>
+        </div>
+        <div class="cap">
+          <div class="n">Option A4</div><h4>Letterman Felt</h4>
+          <p>Black felt, chenille patch, stitched edge &mdash; the card as a piece of a letterman jacket. The most distinctive and the most <em>Batavia</em> of the four. Also the riskiest: felt texture and a dark field need good stock and a good printer, or it turns muddy.</p>
+        </div>
+      </div>
+
+      <!-- the incumbent, for comparison -->
+      <div class="slot">
+        <div class="card dir-a" style="opacity:.62">
+          <div class="frame">
+            <div class="photo p-headset"></div>
+            <span class="team">BATAVIA BULLDOGS</span>
+            <span class="pennant"></span><span class="pennant-txt">HC</span>
+          </div>
+          <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach</div></div>
+        </div>
+        <div class="cap">
+          <div class="n">For comparison</div><h4>1987 Woodgrain</h4>
+          <p>The incumbent, dimmed. Put it next to A1 and the problem shows: the wood is louder than the man in the photo, and it commits the whole set to a single joke about 1987.</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="family">
+      <div class="fam-pair">
+        <div>
+          <div class="card dir-base">
+            <div class="win">
+              <div class="photo p-celebrate"></div>
+              <div class="veil"></div>
+              <span class="badge">CARD 07</span>
+              <div class="rule"></div>
+              <div class="meta"><div class="nm">THE <em>MOMENT</em></div><div class="pos">Sideline &middot; final whistle</div></div>
+            </div>
+          </div>
+          <div class="fam-cap"><b>Base</b>in the set</div>
+        </div>
+        <div>
+          <div class="card dir-b">
+            <div class="photo p-celebrate"></div><div class="veil"></div><div class="foil"></div>
+            <span class="badge">CARD 07</span>
+            <div class="rule"></div>
+            <div class="meta"><div class="nm">THE <em>MOMENT</em></div><div class="pos">Sideline &middot; final whistle</div></div>
+          </div>
+          <div class="fam-cap"><b>Gold parallel</b>/50, foiled</div>
+        </div>
+      </div>
+      <div>
+        <h3>Same card, two finishes</h3>
+        <p>This is why A5 is worth more than a style preference. Every card in the set gets built once, then printed twice: once framed and flat for the base, once bleeding to the edge with foil and a deeper veil for the parallel. <b>Card 7 as you already like it becomes the $500 version of card 7.</b></p>
+        <p>It's how Topps separates a base card from a Chrome card, and it works because a collector can tell them apart across a table without reading a word. The tier ladder stops being something we assert on a donation page and becomes something you can hold in two hands.</p>
+        <p>It also means <b>no card gets designed twice.</b> One composition, one photo, two output settings &mdash; which is the difference between ten designs and twenty.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>If it were mine: A5 for the base set, A3 for the August 21 handout.</strong> A5 keeps the two cards you like and promotes them &mdash; they stop being two nice cards in a mixed set and become the top of a ladder the whole set climbs. A3 is a separate job: a souvenir of one specific night, printed once, which is exactly what a stranger walking through a turnstile will keep.</p>
+      <p style="margin-top:10px">The honest cost of A5: <b>heavy dark coverage on every base card.</b> It uses more ink than A1 or A2, shows fingerprints, and scuffs at the edges in a pocket. A satin or matte finish handles it, but ask the printer before committing &mdash; on two thousand cards it's a real line item, and it's the one argument for A2 that isn't about taste.</p>
+      <p style="margin-top:10px">A1 still wins if you want the stack to read as <em>Batavia</em> from across a room, which at a football game is a real argument. A4 I'd move up to the premium tier rather than spend it on the base.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3. THE SET ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-num">03 &mdash; The set</p>
+    <h2>Ten cards for ten years</h2>
+    <p class="lede">Cards 1&ndash;3 are the ones Dennis hasn't sent yet, so I've mocked them with AI stand-ins to show him what he's holding up &mdash; <b>those three faces are not Dennis, and every one is badged as a placeholder.</b> Cards 4&ndash;10 use photos that already exist. Scroll sideways.</p>
+
+    <div class="rail-head">
+      <p class="flip-lede">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+        <span><b>Click any card to flip it.</b> Every one has a real back &mdash; stats, story, and the ask.</span>
+      </p>
+      <span class="rail-count" aria-live="polite">1&ndash;4 of 10</span>
+    </div>
+
+    <div class="rail-wrap">
+    <button class="rail-arrow prev" aria-label="Scroll to earlier cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="rail-arrow next" aria-label="Scroll to later cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="rail">
+
+      <!-- ── 01 ROOKIE ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Rookie card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-rookie"></div>
+              <span class="team">ROOKIE CARD</span>
+              <span class="pennant"></span><span class="pennant-txt">01</span>
+            </div>
+            <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Age 5 &middot; Undrafted</div></div>
+            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">DENNIS PIRON</div><div class="pos">Rookie Card &middot; Age 5</div></div><div class="no">01<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>YEAR</th><th>HEIGHT</th><th>CARRIES</th><th>FUMBLES</th></tr>
+              <tr><td><span class="tbd">19&mdash;</span></td><td>3'2"</td><td>0</td><td>0</td></tr>
+            </table>
+            <p class="story">Every coach was a kid on a lawn once, holding a ball two sizes too big, waiting for somebody to throw it to him. <b>Somebody always did.</b><br><br>That's the whole idea behind this scholarship. One Batavia senior gets handed the ball every year &mdash; not once, not while the money lasts. Every year.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Nine more cards.</b>pironlegacy.org &mdash; give, and the rest of the set comes to you.</span>
+            </div>
+            <p class="fine">Card 1 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 01</div><h4>The Rookie</h4><p>The set opens on a five-year-old holding a ball too big for him, played completely straight. Everything after it is funnier for having started here &mdash; and the back turns the joke into the ask in two sentences.</p></div>
+      </div>
+
+      <!-- ── 02 PROSPECT ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Prospect card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-prospect"></div>
+              <span class="team">SCOUTING REPORT</span>
+              <span class="pennant"></span><span class="pennant-txt">02</span>
+            </div>
+            <div class="plate"><div class="nm">THE PROSPECT</div><div class="pos">4th Grade &middot; Picture Day</div></div>
+            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE PROSPECT</div><div class="pos">Scouting Report &middot; Grade 4</div></div><div class="no">02<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>MOTOR</th><th>COACHABLE</th><th>CONDUCT</th><th>HAIR</th></tr>
+              <tr><td>A+</td><td>A</td><td>B&minus;</td><td><span class="tbd">D</span></td></tr>
+            </table>
+            <p class="story"><b>SCOUT'S NOTES:</b> High motor. Coachable. Natural leader &mdash; other kids listen to him, which is either a gift or a discipline problem depending on the day. Talks in class.<br><br><b>PROJECTION:</b> Teacher. Coach. Both, probably. Will spend thirty years giving other people's kids the thing he got.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>The projection was right.</b>Help make it permanent at pironlegacy.org.</span>
+            </div>
+            <p class="fine">Card 2 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 02</div><h4>The Prospect</h4><p>The gag is scouting a nine-year-old in total earnest &mdash; then letting the projection land on what he actually became. Flip it; the last line does the work.</p></div>
+      </div>
+
+      <!-- ── 03 THE PLAYER ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Player card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-player"></div>
+              <span class="team">HIGH SCHOOL</span>
+              <span class="pennant"></span><span class="pennant-txt">03</span>
+            </div>
+            <div class="plate"><div class="nm">THE PLAYER</div><div class="pos">Before the headset</div></div>
+            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE PLAYER</div><div class="pos">High School &middot; Before the headset</div></div><div class="no">03<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>SCHOOL</th><th>POSITION</th><th>YEARS</th><th>NUMBER</th></tr>
+              <tr><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+            </table>
+            <p class="story">The hinge of the set. On one side of this card he's a kid being coached. On the other side, for the next three decades, <b>he is the one doing the coaching</b> &mdash; and eventually the teaching, which turned out to be the same job with different equipment.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Cards 4 through 10.</b>What he did with it. See them at pironlegacy.org.</span>
+            </div>
+            <p class="fine">Card 3 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 03</div><h4>The Player</h4><p>The turn of the set &mdash; the last card where someone is coaching him. Four blanks on the back: school, position, years, number. All four are things only he can tell us.</p></div>
+      </div>
+
+      <!-- ── 04 HEAD COACH ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Head Coach card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-headset"></div>
+              <span class="team">BATAVIA BULLDOGS</span>
+              <span class="pennant"></span><span class="pennant-txt">HC</span>
+            </div>
+            <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach &middot; Batavia Bulldogs</div></div><div class="no">04<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>SEASONS</th><th>RECORD</th><th>PLAYOFFS</th><th>HOF</th></tr>
+              <tr><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td>2026</td></tr>
+            </table>
+            <p class="story">He is not going anywhere. Dennis retired from <b>teaching</b> in 2026 &mdash; he is still the head football coach, and still an INCubator community champion. What ended was the classroom, and that is exactly what this scholarship replaces: <b>one Batavia senior, funded every single year, permanently.</b></p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Scan it. Give.</b>pironlegacy.org &middot; The Dunham Foundation doubles the first $50,000, dollar for dollar.</span>
+            </div>
+            <p class="fine">Held by the Batavia Foundation for Educational Excellence, a 501(c)(3). Gifts tax-deductible as allowed by law.</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 04 &middot; the handout</div><h4>Head Coach</h4><p>The common. Printed ten to one against everything else, and the only card that gets given away. This is the one in every committee member's jacket pocket &mdash; and the one to print for August 21.</p></div>
+      </div>
+
+      <!-- ── 05 THE WHISTLE ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Whistle card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-whistle"></div>
+              <span class="team">BATAVIA BULLDOGS</span>
+              <span class="pennant"></span><span class="pennant-txt">05</span>
+            </div>
+            <div class="plate"><div class="nm">THE WHISTLE</div><div class="pos">Relic Card</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE WHISTLE</div><div class="pos">Authentic Relic &middot; /50</div></div><div class="no">05<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>MATERIAL</th><th>TONE</th><th>RANGE</th><th>IGNORED</th></tr>
+              <tr><td>NYLON</td><td>SHRILL</td><td>40 YD</td><td>NEVER</td></tr>
+            </table>
+            <p class="story">The card you are holding contains <b>an actual snip of coach's lanyard.</b> Not game-used in any sense that would survive a lawyer. Used, though. By a coach. That's more than most relic cards can honestly say.<br><br>Fifty of these exist. This one is numbered by hand.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>You gave. Thank you.</b>Now hand this to someone who hasn't. pironlegacy.org</span>
+            </div>
+            <p class="fine">Card 5 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 05</div><h4>The Whistle</h4><p>Sold as a "game-used relic," the way real card companies embed a jersey swatch. The back is funny <em>because</em> it refuses to oversell &mdash; and that honesty is what makes it work at an auction table.</p></div>
+      </div>
+
+      <!-- ── 06 STILL GOT IT ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Still Got It card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-running"></div>
+              <span class="team">BATAVIA BULLDOGS</span>
+              <span class="pennant"></span><span class="pennant-txt">06</span>
+            </div>
+            <div class="plate"><div class="nm">STILL GOT IT</div><div class="pos">Action Shot</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">STILL GOT IT</div><div class="pos">Practice Field &middot; Undisputed</div></div><div class="no">06<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>40 TIME</th><th>SNAPS</th><th>TACKLED</th><th>POINT MADE</th></tr>
+              <tr><td>CLASSIFIED</td><td>0</td><td>NO</td><td>YES</td></tr>
+            </table>
+            <p class="story">Nobody asked him to run it. He ran it anyway, in sunglasses, at full commitment, in front of teenagers who are all faster than he is.<br><br><b>Every player he ever coached has seen this exact face.</b> Most of them will tell you it's the reason they ran through something they didn't think they could.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Played for him?</b>Then you know. pironlegacy.org</span>
+            </div>
+            <p class="fine">Card 6 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 06</div><h4>Still Got It</h4><p>The coach running the ball at practice, fully committed. The back aims straight at former players &mdash; "played for him? then you know" is the single best conversion line in the set.</p></div>
+      </div>
+
+      <!-- ── 07 THE MOMENT ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Moment card"><div class="flip-in">
+          <div class="face"><div class="card dir-b">
+            <div class="photo p-celebrate"></div><div class="veil"></div><div class="foil"></div>
+            <span class="badge">CARD 07</span>
+            <div class="rule"></div>
+            <div class="meta"><div class="nm">THE <em>MOMENT</em></div><div class="pos">Sideline &middot; final whistle</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE MOMENT</div><div class="pos">Sideline &middot; Final Whistle</div></div><div class="no">07<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>GAME</th><th>OPPONENT</th><th>RESULT</th><th>ROSTER</th></tr>
+              <tr><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td>IN HAND</td></tr>
+            </table>
+            <p class="story">Both arms up. Roster still clenched in one fist, because he never put it down. Whatever happened on that field, <b>he is not celebrating himself</b> &mdash; look where he's facing.<br><br>Ten years of that. Then he walked out of the classroom, and a group of us decided that shouldn't be the end of it.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Make it permanent.</b>pironlegacy.org &mdash; every dollar doubled to $50,000.</span>
+            </div>
+            <p class="fine">Card 7 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 07</div><h4>The Moment</h4><p>Arms up, roster in hand, mid-roar. The premium treatment earns its keep here &mdash; this is the card people put on a shelf instead of in a box.</p></div>
+      </div>
+
+      <!-- ── 08 THE MENTOR ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Mentor card"><div class="flip-in">
+          <div class="face"><div class="card dir-a">
+            <div class="frame">
+              <div class="photo p-mentor"></div>
+              <span class="team">BATAVIA BULLDOGS</span>
+              <span class="pennant"></span><span class="pennant-txt">08</span>
+            </div>
+            <div class="plate"><div class="nm">THE MENTOR</div><div class="pos">What it's actually about</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE MENTOR</div><div class="pos">The whole point</div></div><div class="no">08<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>STUDENTS</th><th>YEARS</th><th>PLAYERS</th><th>FORGOT HIM</th></tr>
+              <tr><td>~700</td><td>10</td><td><span class="tbd">TBD</span></td><td>NONE</td></tr>
+            </table>
+            <p class="story">This is the card that isn't a joke.<br><br>Ask anyone who came through that program what Piron did for them and you will not get a short answer. You'll get a specific one &mdash; a conversation, a deadline he refused to move, a time he was the only adult who thought the idea was any good.<br><br><b>Roughly 700 people have a version of that story.</b></p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Add the next one.</b>pironlegacy.org &mdash; one senior, every year, forever.</span>
+            </div>
+            <p class="fine">Card 8 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 08</div><h4>The Mentor</h4><p>Arm around a player, both laughing. The one card in the set that isn't a joke &mdash; and, per the mock leaderboard, the one that converts best. Straight copy, no wink.</p></div>
+      </div>
+
+      <!-- ── 09 THE TEACHER ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Teacher card"><div class="flip-in">
+          <div class="face"><div class="card dir-c">
+            <div class="grid"></div>
+            <div class="hdr"><span>INCUBATOR@BHS</span><span>CARD 09</span></div>
+            <div class="frame"><div class="photo p-shades"></div></div>
+            <span class="tape l"></span><span class="tape r"></span>
+            <div class="meta"><div class="nm">Mr. Piron</div><div class="pos">&gt; instructor, 10 cohorts</div></div>
+            <div class="scrawl">700 students. 10 years. One classroom that ran like a company.</div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">MR. PIRON</div><div class="pos">INCubator@BHS &middot; Instructor</div></div><div class="no">09<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>YEARS</th><th>STUDENTS</th><th>COMPANIES</th><th>PITCH&nbsp;NIGHTS</th></tr>
+              <tr><td>10</td><td>~700</td><td><span class="tbd">TBD</span></td><td>10</td></tr>
+            </table>
+            <p class="story">In his class, teenagers built real companies. One team &mdash; three Batavia students &mdash; made a large-type newspaper for people in care centers because one of their grandmothers missed hers. It won Pitch Night and got a <b>Chamber ribbon-cutting in July.</b><br><br>"What good people children are. Given the opportunity to serve &mdash; how willing they are to do it."</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>Nine more like this.</b>Give at pironlegacy.org and the full set comes to you.</span>
+            </div>
+            <p class="fine">Card 9 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 09</div><h4>The Teacher</h4><p>The odd one out by design. Needs a real classroom or Pitch Night photo &mdash; the frame here is standing in for one Gary already owns. The approved Piron quote closes the back.</p></div>
+      </div>
+
+      <!-- ── 10 THE LEGACY ── -->
+      <div class="slot">
+        <button class="flip" aria-label="Flip the Legacy card"><div class="flip-in">
+          <div class="face"><div class="card dir-b">
+            <div class="photo p-gameday"></div><div class="veil"></div><div class="foil"></div>
+            <span class="badge">CARD 10</span>
+            <div class="rule"></div>
+            <div class="meta"><div class="nm">THE <em>LEGACY</em></div><div class="pos">Endowed &middot; in perpetuity</div></div>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+          <div class="face b"><div class="back">
+            <div class="bh"><div><div class="nm">THE LEGACY</div><div class="pos">The Dennis Piron Legacy Scholarship</div></div><div class="no">10<small>OF 10</small></div></div>
+            <table class="statline">
+              <tr><th>GOAL</th><th>MATCH</th><th>AWARDED</th><th>LASTS</th></tr>
+              <tr><td>$100,000</td><td>$50,000</td><td>YEARLY</td><td>FOREVER</td></tr>
+            </table>
+            <p class="story"><b>Endowed</b> means the fund is never spent. It's invested, and what it earns pays for one Batavia High School senior's scholarship &mdash; this year, next year, and in a year when nobody reading this is still on the committee.<br><br>The Dunham Foundation matches the community's first $50,000 dollar for dollar. The match is released once that $50,000 is actually received.</p>
+            <div class="ask">
+              <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+              <span class="txt"><b>That's the whole set.</b>Finish it at pironlegacy.org.</span>
+            </div>
+            <p class="fine">Card 10 of 10. Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+            <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          </div></div>
+        </div></button>
+        <div class="cap"><div class="n">Card 10</div><h4>The Legacy</h4><p>Closes the set on the scholarship itself, not on him. The back is the only place in the whole set that plainly explains what "endowed" means &mdash; which is the thing most donors don't actually know.</p></div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4. THE BACK ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-num">04 &mdash; The back</p>
+    <h2>The back is where the money is</h2>
+    <p class="lede">Fronts get picked up. Backs get read &mdash; and the back is where the QR lives. Same skeleton on all ten: stat line, one true story, the ask, the code. Here's card 4 and card 9, so you can see how the tone shifts while the furniture stays put.</p>
+
+    <div class="rail-wrap">
+    <button class="rail-arrow prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="rail-arrow next" aria-label="Scroll right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="rail">
+
+      <!-- back: card 04 -->
+      <div class="slot" style="width:286px">
+        <div class="back">
+          <div class="bh">
+            <div><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach &middot; Batavia Bulldogs</div></div>
+            <div class="no">04<small>OF 10</small></div>
+          </div>
+          <table class="statline">
+            <tr><th>SEASONS</th><th>RECORD</th><th>PLAYOFFS</th><th>HOF</th></tr>
+            <tr>
+              <td><span class="tbd">TBD</span></td>
+              <td><span class="tbd">TBD</span></td>
+              <td><span class="tbd">TBD</span></td>
+              <td>2026</td>
+            </tr>
+          </table>
+          <p class="story">He is not going anywhere. Dennis retired from <b>teaching</b> in 2026 &mdash; he is still the head football coach, and still an INCubator community champion. What ended was the classroom, and that is exactly what this scholarship replaces: <b>one Batavia senior, funded every single year, permanently.</b></p>
+          <div class="ask">
+            <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+            <span class="txt"><b>Scan it. Give.</b>pironlegacy.org &middot; The Dunham Foundation doubles the first $50,000, dollar for dollar.</span>
+          </div>
+          <p class="fine">Held by the Batavia Foundation for Educational Excellence, a 501(c)(3). Gifts tax-deductible as allowed by law.</p>
+        </div>
+        <div class="cap"><div class="n">Back &middot; card 04</div><h4>The football back</h4><p>Stat line up top, because that's what a hand expects to find. Note the dashed boxes &mdash; those are real gaps, not design.</p></div>
+      </div>
+
+      <!-- back: card 09 -->
+      <div class="slot" style="width:286px">
+        <div class="back">
+          <div class="bh">
+            <div><div class="nm">MR. PIRON</div><div class="pos">INCubator@BHS &middot; Instructor</div></div>
+            <div class="no">09<small>OF 10</small></div>
+          </div>
+          <table class="statline">
+            <tr><th>YEARS</th><th>STUDENTS</th><th>COMPANIES</th><th>PITCH&nbsp;NIGHTS</th></tr>
+            <tr>
+              <td>10</td>
+              <td>~700</td>
+              <td><span class="tbd">TBD</span></td>
+              <td>10</td>
+            </tr>
+          </table>
+          <p class="story">In his class, teenagers built real companies. One team &mdash; three Batavia students &mdash; made a large-type newspaper for people in care centers because one of their grandmothers missed hers. It won Pitch Night and got a <b>Chamber ribbon-cutting in July.</b><br><br>"What good people children are. Given the opportunity to serve &mdash; how willing they are to do it."</p>
+          <div class="ask">
+            <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
+            <span class="txt"><b>Nine more like this.</b>Give at pironlegacy.org and the full set comes to you.</span>
+          </div>
+          <p class="fine">Card 9 of 10. Held by the Batavia Foundation for Educational Excellence, a 501(c)(3).</p>
+        </div>
+        <div class="cap"><div class="n">Back &middot; card 09</div><h4>The classroom back</h4><p>Same furniture, different voice. The approved Piron quote does the closing here instead of a stat.</p></div>
+      </div>
+
+      <!-- the error card -->
+      <div class="slot" style="width:286px">
+        <div class="card dir-a">
+          <div class="frame">
+            <div class="photo p-headset"></div>
+            <span class="team">BATAVIA BULLDOGS</span>
+            <span class="pennant"></span><span class="pennant-txt">!</span>
+          </div>
+          <div class="plate"><div class="nm">DENNIS PRION</div><div class="pos">Assistant Water Boy</div></div>
+        </div>
+        <div class="cap"><div class="n">Chase card</div><h4>The Error Card</h4><p>Name misspelled, title wrong, "corrected" version issued later. Real collectors hunt errors &mdash; it's the most famous thing a card can be. Print 50, seed them randomly, and tell nobody. The people who find one will tell everybody.</p></div>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="note">
+      <p><strong>On the QR:</strong> the code shown is the site's existing one, standing in. In the real thing every single printed card carries its <em>own</em> code and serial &mdash; that's the next section, and it's where this gets interesting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5. THE SCAN ══════════ -->
+<section style="background:#fff">
+  <div class="wrap">
+    <p class="sec-num">05 &mdash; The scan</p>
+    <h2>Every card is a numbered baton</h2>
+    <p class="lede">Here's the move that makes the trading real: <b>the QR isn't per design, it's per physical card.</b> Card 4 doesn't have one code &mdash; each of the 500 printed copies of card 4 has its own serial. <code>04&ndash;0173</code>. So the site doesn't just know which design someone scanned, it knows which <em>object</em>, and it can keep a history on it.</p>
+
+    <div class="chain-explain">
+      <div class="ce-step"><span class="ce-n">1</span><p>Gary hands card <b>04&ndash;0173</b> to someone at the Chamber.</p></div>
+      <div class="ce-step"><span class="ce-n">2</span><p>They scan. The page says: <b>"You're the 1st person to hold this card."</b> They give, and add their name.</p></div>
+      <div class="ce-step"><span class="ce-n">3</span><p>The page then asks the only thing that matters: <b>"Now pass it on. Who's next?"</b></p></div>
+      <div class="ce-step"><span class="ce-n">4</span><p>Next person scans the same card. <b>"You're the 2nd. Ted Nelson held this before you."</b></p></div>
+    </div>
+
+    <p class="lede" style="margin-top:30px">That's the whole engine. A card in a drawer is worth nothing; a card with four names on it and a fifth slot open is worth passing along. And it answers your question exactly &mdash; not just which <em>design</em> is winning, but which individual card has traveled furthest.</p>
+
+    <div class="scan-demo">
+      <!-- phone mockup -->
+      <div class="phone">
+        <div class="phone-scr">
+          <div class="ps-bar"><span>pironlegacy.org/c/04-0173</span></div>
+          <div class="ps-body">
+            <div class="ps-hero">
+              <div class="ps-card"><div class="photo p-headset"></div></div>
+              <div class="ps-id">CARD 04 &middot; NO. 0173</div>
+            </div>
+            <p class="ps-h">You're the <b>3rd person</b> to hold this card.</p>
+            <div class="ps-chain">
+              <div class="pc-row"><span class="pc-dot"></span><span class="pc-nm">Ted Nelson</span><span class="pc-when">Aug 2</span></div>
+              <div class="pc-row"><span class="pc-dot"></span><span class="pc-nm">Marcy Alvarado</span><span class="pc-when">Aug 5</span></div>
+              <div class="pc-row now"><span class="pc-dot"></span><span class="pc-nm">You</span><span class="pc-when">today</span></div>
+            </div>
+            <p class="ps-sub">This card has raised <b>$275</b> so far. Add your name to it.</p>
+            <input class="ps-in" value="Your name" readonly>
+            <div class="ps-btn">Give &amp; sign the card &rarr;</div>
+            <p class="ps-fine">Then hand it to someone. That's the point of it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- leaderboard -->
+      <div class="board">
+        <div class="bd-h">Which card is winning</div>
+        <p class="bd-sub">Public page at <b>pironlegacy.org/cards</b>. Sample numbers &mdash; illustrative only.</p>
+        <div class="bd-row"><span class="bd-r">1</span><span class="bd-c">07</span><span class="bd-t"><b>The Moment</b><i>31 hands &middot; 12 gifts</i></span><span class="bd-v">$4,150</span></div>
+        <div class="bd-row"><span class="bd-r">2</span><span class="bd-c">08</span><span class="bd-t"><b>The Mentor</b><i>27 hands &middot; 14 gifts</i></span><span class="bd-v">$3,600</span></div>
+        <div class="bd-row"><span class="bd-r">3</span><span class="bd-c">04</span><span class="bd-t"><b>Head Coach</b><i>96 hands &middot; 9 gifts</i></span><span class="bd-v">$2,275</span></div>
+        <div class="bd-row"><span class="bd-r">4</span><span class="bd-c">05</span><span class="bd-t"><b>The Whistle</b><i>11 hands &middot; 6 gifts</i></span><span class="bd-v">$1,900</span></div>
+        <div class="bd-row dim"><span class="bd-r">5</span><span class="bd-c">01</span><span class="bd-t"><b>The Rookie</b><i>9 hands &middot; 3 gifts</i></span><span class="bd-v">$450</span></div>
+        <p class="bd-note"><b>Read the third row.</b> Card 4 got handed out ten times as often and converted worst. That's the number that tells you to print more of card 8 next run &mdash; and you only ever learn it because the QR is per-card.</p>
+        <div class="bd-h2">The single card leaderboard</div>
+        <p class="bd-sub" style="margin-bottom:12px">The one people will actually check.</p>
+        <div class="bd-row"><span class="bd-r">1</span><span class="bd-c">08&ndash;0042</span><span class="bd-t"><b>Nine hands</b><i>Batavia &rarr; Geneva &rarr; St. Charles</i></span><span class="bd-v">$1,100</span></div>
+        <div class="bd-row"><span class="bd-r">2</span><span class="bd-c">07&ndash;0119</span><span class="bd-t"><b>Seven hands</b><i>all inside one INCubator cohort</i></span><span class="bd-v">$900</span></div>
+      </div>
+    </div>
+
+    <div class="note warn" style="margin-top:34px">
+      <p><strong>One flag on the form step, because it crosses something the committee just decided.</strong> Asking a scanner to type their name <em>and how much they intend to give</em> before sending them to PayPal rebuilds the pledge-then-donate two-step &mdash; which is precisely what Dave Brown asked us to remove on August 7, and what we took off the site yesterday.</p>
+      <p>So: <b>keep the name, drop the amount.</b> The name is the game &mdash; it's what goes on the card's chain and what makes the next person want to sign it. The amount we already learn from the actual gift, without asking anyone to type a number twice or letting them stop at "I intend to."</p>
+    </div>
+
+    <div class="two" style="margin-top:6px">
+      <div>
+        <h3>What it costs to build</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem">Less than you'd think, because the plumbing already exists. The site runs Netlify Functions and Blobs today &mdash; that's exactly what the ledger uses. A card record is one blob: serial, design number, list of names, total. Roughly a day of work for the scan page, the chain, and the leaderboard.</p>
+      </div>
+      <div>
+        <h3>The one hard part</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem">PayPal doesn't reliably tell our page what someone gave. Two honest options: attribute on the return URL and accept some slippage, or show <b>hands and gifts</b> rather than dollars. I'd show hands &mdash; "this card has been held nine times" is a better story than a dollar figure anyway, and it can't be wrong.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Printing serials is the small catch.</strong> Unique codes mean variable-data printing &mdash; every card gets a different QR and number. Most decent printers do it and it's usually a small setup fee, not a per-card one. Worth confirming in the same quote as the foil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 6. GAME DAY — answering Bob Vaughan ══════════ -->
+<section style="background:#fff">
+  <div class="wrap">
+    <p class="sec-num">06 &mdash; Answering Bob</p>
+    <h2>Friday, August 21 vs. Maine South</h2>
+
+    <div class="quote-bob">
+      <p>&ldquo;The first home football game Friday, August 21st against Maine South, an 8A football powerhouse which should draw a big crowd. I think this will be a good time to invite those attending the game to participate in the Piron Legacy Scholarship program. Do we have a plan?&rdquo;</p>
+      <cite>Bob Vaughan &middot; August 8</cite>
+    </div>
+
+    <p class="lede">Bob's right, and it's better than right &mdash; it's <b>Dennis's own first home game</b>, a packed house, and an audience that already knows exactly who he is. No press release ever gets you that. The honest answer is <b>yes, with one correction: on August 21 we hand out one card, not ten.</b></p>
+
+    <div class="two" style="margin-bottom:30px">
+      <div>
+        <h3>Why one card</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem">Thirteen days. The ten-card set needs Dennis's childhood photos, a licensed photo for every frame, his coaching record, his sign-off on the jokes, and variable-data serial printing. None of that compresses into two weeks &mdash; and a rushed set is worse than no set, because you only launch once.</p>
+      </div>
+      <div>
+        <h3>What one card gets you</h3>
+        <p style="margin:0;color:#565c64;font-size:.95rem"><b>Card 4, Head Coach.</b> One photo to license, one design to approve, one QR to the site, no serials. That's a normal rush print job. And it seeds everything: the crowd that takes one on August 21 is the crowd that finds out in October there are nine more.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:14px">Working backward from kickoff</h3>
+    <div class="tl">
+      <div class="tl-row"><span class="tl-d">Mon Aug 10</span><span class="tl-b"><b>Three asks go out.</b> Brian Gamlin: may we hand cards out at the gates? BHS athletics: a photo we can license. Dennis: sign-off on the card and his record.</span></div>
+      <div class="tl-row"><span class="tl-d">Wed Aug 12</span><span class="tl-b"><b>Design locked.</b> One card, front and back. Whatever's still missing on that date doesn't go on it.</span></div>
+      <div class="tl-row"><span class="tl-d">Thu Aug 13</span><span class="tl-b"><b>Proof approved and sent to print.</b> Rush turnaround. A local printer beats an online one here &mdash; you can drive over if something's wrong.</span></div>
+      <div class="tl-row"><span class="tl-d">Tue Aug 18</span><span class="tl-b"><b>Cards in hand.</b> Three days of float on purpose. If the printer slips, we still make it.</span></div>
+      <div class="tl-row now"><span class="tl-d">Fri Aug 21</span><span class="tl-b"><b>Kickoff.</b> Two people per gate, plus students, from an hour before through halftime.</span></div>
+    </div>
+
+    <h3 style="margin:34px 0 12px">What game night actually looks like</h3>
+    <ul class="needs">
+      <li><b>Cards at the gates, not a table</b><span>A table waits for people to come to it, and at a football game nobody does. Two volunteers per entrance, handing a card to everyone walking in, is a completely different number. Give it to them &mdash; don't ask them for anything.</span></li>
+      <li><b>Put INCubator students on the gates</b><span>The most persuasive person handing out this card is a kid who took the class. "He was my teacher" ends the conversation in four words. It also solves the volunteer problem, and Alex can reach them.</span></li>
+      <li><b>Do not collect money at the gate</b><span>Cash slows the line, needs two people to count it, and creates a reconciliation problem for Ashley and BFEE that a QR code doesn't. The card <em>is</em> the ask. They'll give from the stands or from their couch on Saturday, and we'll know it came from the game.</span></li>
+      <li><b>One PA read, at a natural break</b><span>Thirty seconds, once, and only with Brian's blessing. Two sentences: what the scholarship is, and that there's a card in their hand with a code on it. If there's a video board, put the QR up at halftime &mdash; a QR on a screen in front of a seated crowd converts better than almost anything.</span></li>
+      <li><b>Leave Dennis alone on Friday</b><span>He's coaching his first home game of the season against an 8A program. No field ceremony, no presentation, nothing that pulls at him. If the night goes well he'll hear about it Saturday. Getting this wrong would sour the one person the whole thing is for.</span></li>
+    </ul>
+
+    <div class="note">
+      <p><strong>One number I can't give you.</strong> How many to print depends on the gate, and Bob and Brian know that far better than I do. If it's a couple of thousand through the turnstiles, print more than that &mdash; cards left over are the stack that carries the campaign through October, and a second short run costs far more per card than the first.</p>
+    </div>
+
+    <div class="note warn">
+      <p><strong>The one thing that can kill August 21 is the photo, not the printer.</strong> Every frame on this board is a news photograph we can't put on merchandise. Card 4 needs one usable image and it needs it by Wednesday. BHS athletics is the fastest yes &mdash; and if they can't, a plain typographic card with the gold badge and the QR still works fine. A card that says the right thing beats a beautiful card that doesn't exist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 7. WHAT WE NEED ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-num">07 &mdash; Before anything gets printed</p>
+    <h2>What we still need</h2>
+
+    <div class="note warn">
+      <p><strong>Photo rights are the blocker, not the design.</strong> Every photo on this board came from Shaw Local, the Tribune, or the Beacon-News. They're fine for an internal brainstorm like this one. They are <em>not</em> licensed for merchandise, and a card handed out around town is merchandise &mdash; printing them would put a copyright problem on an object with the scholarship's name on it.</p>
+      <p>Two clean ways through: use photos Gary shot and owns (the INCubator library), or write to the outlets for a one-time nonprofit license. Batavia High's athletics department is a third source and the likeliest to just say yes.</p>
+    </div>
+
+    <ul class="needs">
+      <li><b>Dennis's childhood photos</b><span>Cards 1&ndash;3 are the reason this set is funny instead of just nice. The three AI stand-ins are there to <em>show him what he's holding up</em> &mdash; send him those cards, not another reminder. Nothing makes a man go find the real picture faster than seeing a stranger's kid wearing his card. <b>Every one of those three faces must be swapped before anything prints</b>, and they must never leave this board unbadged.</span></li>
+      <li><b>His actual coaching record</b><span>Seasons, wins&ndash;losses, playoff appearances. Every dashed red box on the backs is a number I refused to guess at. Batavia athletics or the IHSA database will have all of it in one place.</span></li>
+      <li><b>Confirmation of the Hall of Fame</b><span>The March 2026 induction reads as the Illinois High School Football Hall of Fame, but the plaque in the photo we have is only partly legible. Get the exact name of the body before it goes on a card.</span></li>
+      <li><b>A classroom or Pitch Night photo</b><span>Card 9 is standing in with a football frame right now. It needs the classroom. Student faces bring the district media-release question with them &mdash; Brian Gamlin in-district is the person to ask.</span></li>
+      <li><b>Dennis's blessing on the jokes</b><span>"Assistant Water Boy" and a baby picture are funny <em>with</em> him and unkind without him. He should see the error card before it's printed, not after.</span></li>
+      <li><b>Print quote &mdash; ask about variable data</b><span>2.5&times;3.5in, 16pt stock, gloss front / matte back. Quantities: ~500 of card 4, ~150 sets, 50 gold, 50 errors. Three questions for the printer: foil for the parallels, hand-numbering for the /50, and <b>variable-data printing</b> so every card gets a unique QR and serial. That last one is what the whole scan system depends on &mdash; confirm it before the design is locked, not after.</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Dennis Piron Legacy Scholarship</b> &mdash; internal concept board, August 8, 2026. Not approved, not licensed, not final.<br>
+    Photos shown are third-party news images used here for internal discussion only.
+  </div>
+</footer>
+
+<script>
+  /* Flip on click. The card is a <button>, so Enter/Space already work and
+     screen readers announce it — no keydown handler needed. */
+  document.querySelectorAll('.flip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.classList.toggle('on');
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    c.setAttribute('aria-pressed', 'false');
+  });
+
+  /* Rail scrolling. The arrows, the edge fades and the counter all hang off
+     one scroll handler so they can never disagree with each other. */
+  document.querySelectorAll('.rail-wrap').forEach(function (wrap) {
+    var rail  = wrap.querySelector('.rail'),
+        prev  = wrap.querySelector('.rail-arrow.prev'),
+        next  = wrap.querySelector('.rail-arrow.next'),
+        count = wrap.parentNode.querySelector('.rail-count'),
+        slots = rail.querySelectorAll('.slot'),
+        total = slots.length;
+
+    /* Step by whole cards, and by however many are actually on screen —
+       a fixed step feels wrong at every width except the one it was tuned to. */
+    function step() {
+      var w = slots.length ? slots[0].offsetWidth + 26 : 312;
+      return Math.max(1, Math.floor(rail.clientWidth / w)) * w;
+    }
+
+    /* Tolerance, not zero. The rail has 4px of left padding and scroll-snap, so it
+       rests at scrollLeft 4 — a `<= 2` test is never true and the left arrow never
+       hides. Anything under ~12px is visually "at the start". */
+    var TOL = 12;
+
+    function update() {
+      var max     = rail.scrollWidth - rail.clientWidth,
+          atStart = rail.scrollLeft <= TOL,
+          atEnd   = rail.scrollLeft >= max - TOL;
+      wrap.classList.toggle('no-scroll', max <= TOL);
+      wrap.classList.toggle('at-start', atStart);
+      wrap.classList.toggle('at-end', atEnd);
+
+      if (!count || !total) return;
+      var w = slots[0].offsetWidth + 26,
+          per = Math.max(1, Math.floor(rail.clientWidth / w)),
+          first, last;
+      if (max <= 2) { count.textContent = total + ' cards'; return; }
+      /* The last page is partial, so counting forward from scrollLeft undershoots
+         and claims card 10 isn't showing when it plainly is. Anchor to the end instead. */
+      if (atEnd) { last = total; first = Math.max(1, total - per + 1); }
+      else       { first = Math.round(rail.scrollLeft / w) + 1; last = Math.min(total, first + per - 1); }
+      count.textContent = first + '–' + last + ' of ' + total;
+    }
+
+    prev.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { rail.scrollBy({ left:  step(), behavior: 'smooth' }); });
+    rail.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    /* Run it now, again next frame, and again once images/webfonts have settled —
+       the first pass can measure a rail whose metrics aren't final yet. */
+    update();
+    requestAnimationFrame(update);
+    window.addEventListener('load', update);
+  });
+</script>
+</body>
+</html>

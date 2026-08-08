@@ -56,6 +56,13 @@ const ADMIN_PATHS = [
   /^\/pledges(\.html)?(\/|$)/,
   /^\/status(\.html)?(\/|$)/,
   /^\/outreach-email(\.html)?(\/|$)/,
+  // /cards — the trading-card concept board. Tier 2 and not Tier 1, because it
+  // carries things that must not be public even though the marketing site is:
+  // news photos we hold no licence to, AI stand-in faces for Dennis's missing
+  // childhood photos, the "Assistant Water Boy" gag he has not approved, and
+  // the donation-tier and print-quantity planning. It is noindex'd as well —
+  // belt and braces, since the gate is the thing actually keeping it private.
+  /^\/cards(\.html)?(\/|$)/,
 ];
 
 /* ── Always public ─────────────────────────────────────────────────────── */
