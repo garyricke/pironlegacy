@@ -105,6 +105,18 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
    longer shows a running total: a dated release is a point-in-time
    document, and the gap between $36,000 and $50,000 is the story. The
    standing facts grid above deliberately omits it. */
+.rel-dl {
+  display:inline-flex; align-items:center; gap:12px; margin:0 0 24px;
+  background:var(--maroon); color:#fff; text-decoration:none;
+  border-radius:10px; padding:14px 22px;
+  transition:transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 6px 20px rgba(172,22,29,.28);
+}
+.rel-dl:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(172,22,29,.4); }
+.rel-dl svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+.rel-dl .rd-t { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.95rem; line-height:1.3; }
+.rel-dl .rd-m { display:block; font-family:'Open Sans',sans-serif; font-weight:400; font-size:.76rem; letter-spacing:.3px; color:rgba(255,255,255,.8); margin-top:2px; }
+
 .release { border:1px solid #e6e2da; border-radius:14px; padding:34px 38px; background:#fff; }
 .rel-head { display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:22px; }
 .rel-fir { font-family:'Montserrat',sans-serif; font-weight:900; font-size:.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--maroon); }
@@ -184,6 +196,13 @@ h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.45rem; ma
   <div class="wrap">
     <h2>Full press release</h2>
     <p class="sub">Free to reproduce in whole or in part. Both quotes below are approved by the people who said them.</p>
+
+    <!-- PDF is generated from press-release.html — see the note in that file.
+         Its text must stay identical to the release printed below. -->
+    <a class="rel-dl" href="/print/Piron-Legacy-Scholarship-press-release.pdf" target="_blank" rel="noopener noreferrer" download>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      <span class="rd-t">Download the release <span class="rd-m">PDF &middot; 2 pages &middot; 236 KB</span></span>
+    </a>
 
     <div class="release">
       <div class="rel-head">
