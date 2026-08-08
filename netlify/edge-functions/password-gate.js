@@ -56,12 +56,29 @@ const ADMIN_PATHS = [
   /^\/pledges(\.html)?(\/|$)/,
   /^\/status(\.html)?(\/|$)/,
   /^\/outreach-email(\.html)?(\/|$)/,
-  // /cards — the trading-card concept board. Tier 2 and not Tier 1, because it
-  // carries things that must not be public even though the marketing site is:
-  // news photos we hold no licence to, AI stand-in faces for Dennis's missing
-  // childhood photos, the "Assistant Water Boy" gag he has not approved, and
-  // the donation-tier and print-quantity planning. It is noindex'd as well —
-  // belt and braces, since the gate is the thing actually keeping it private.
+];
+
+/* ── Tier 1b: shared ───────────────────────────────────────────────────── */
+
+/**
+ * Pages the committee must be able to open from a link in an email, but that
+ * must stay off the public site and out of search.
+ *
+ * These use the SHAREABLE Tier 1 password, never the admin one. That is the
+ * whole reason this tier exists: the admin password also opens the pledge
+ * ledger, so circulating it to ten people to let them look at a concept board
+ * would hand out donor data as a side effect.
+ *
+ * Unlike Tier 1, this list is enforced regardless of PREVIEW_ENABLED — the
+ * public launch must not silently expose them.
+ *
+ * /cards is the trading-card concept board. It carries news photographs we
+ * hold no licence to, AI stand-in faces for the childhood photos Dennis has
+ * not sent, a joke card he has not approved, and internal print quantities
+ * and donation tiers. The page is noindex'd too, but this gate is the thing
+ * actually keeping it off the public web.
+ */
+const SHARED_PATHS = [
   /^\/cards(\.html)?(\/|$)/,
 ];
 
@@ -264,6 +281,27 @@ export default async (request) => {
       status: 401,
       headers: htmlHeaders(),
     });
+  }
+
+  /* Tier 1b — shared. Checked before the PREVIEW_ENABLED early return, so
+     these stay locked after the public launch, and with the shareable
+     password rather than the admin one. */
+  if (SHARED_PATHS.some((re) => re.test(path))) {
+    if (hasCookie(request, COOKIE_NAME, COOKIE_TOKEN)) return;
+
+    if (request.method === "POST") {
+      if (safeEqual(await submittedPassword(request), PASSWORD)) {
+        return redirectWithCookies(url, [
+          `${COOKIE_NAME}=${COOKIE_TOKEN}; Path=/; Max-Age=${MAX_AGE}; HttpOnly; Secure; SameSite=Lax`,
+        ]);
+      }
+      return new Response(gatePage({ error: true }), {
+        status: 401,
+        headers: htmlHeaders(),
+      });
+    }
+
+    return new Response(gatePage(), { status: 401, headers: htmlHeaders() });
   }
 
   /* Tier 1 — preview. Everything else. */
