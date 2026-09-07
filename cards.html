@@ -102,13 +102,32 @@ h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.12rem;margin:
   padding:4px 7px;border-radius:3px;line-height:1.35;text-transform:uppercase;backdrop-filter:blur(3px)}
 .ai-tag span{display:block;color:#fff;font-weight:700;letter-spacing:.4px;font-size:.44rem;text-transform:none;opacity:.85}
 
+/* Rights badge — the photo is real and approved by the family, but the
+   PHOTOGRAPHER hasn't cleared it for print yet. Different problem, so it
+   gets a different colour: amber = chase this, don't ship it. */
+.rights-tag{position:absolute;top:10px;right:10px;z-index:6;background:rgba(120,53,15,.86);color:#ffd08a;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.46rem;letter-spacing:1.2px;
+  padding:4px 7px;border-radius:3px;line-height:1.35;text-transform:uppercase;backdrop-filter:blur(3px)}
+.rights-tag span{display:block;color:#fff;font-weight:700;letter-spacing:.4px;font-size:.44rem;text-transform:none;opacity:.85}
+/* Cleared badge — the opposite signal, used where rights are already ours */
+.clear-tag{position:absolute;top:10px;right:10px;z-index:6;background:rgba(6,60,34,.82);color:#8ff0bb;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.46rem;letter-spacing:1.2px;
+  padding:4px 7px;border-radius:3px;line-height:1.35;text-transform:uppercase;backdrop-filter:blur(3px)}
+.clear-tag span{display:block;color:#fff;font-weight:700;letter-spacing:.4px;font-size:.44rem;text-transform:none;opacity:.85}
+/* News badge — sourced from press coverage. Not a pending question like the
+   amber tag: these are known-unlicensed for merchandise and need replacing. */
+.news-tag{position:absolute;top:10px;right:10px;z-index:6;background:rgba(127,17,17,.88);color:#ffc9c9;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.46rem;letter-spacing:1.2px;
+  padding:4px 7px;border-radius:3px;line-height:1.35;text-transform:uppercase;backdrop-filter:blur(3px)}
+.news-tag span{display:block;color:#fff;font-weight:700;letter-spacing:.4px;font-size:.44rem;text-transform:none;opacity:.85}
+
 /* photo crops — each tuned to keep Dennis's face in frame on a portrait card */
-.p-rookie{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222053/piron-legacy/cards/ph-rookie.jpg');background-position:50% 30%}
-.p-prospect{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222054/piron-legacy/cards/ph-prospect.jpg');background-position:50% 34%}
-.p-player{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222055/piron-legacy/cards/ph-player.jpg');background-position:50% 30%}
-.p-headset{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222048/piron-legacy/cards/headset.jpg');background-position:52% 24%}
-.p-celebrate{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222050/piron-legacy/cards/celebrate.webp');background-size:auto 128%;background-position:38% 36%}
-.p-mentor{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222050/piron-legacy/cards/mentor.webp');background-position:56% 30%}
+.p-rookie{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_13:14,g_center,w_900/v1787076418/piron-legacy/cards/baby-real.jpg');background-position:50% 50%}
+.p-prospect{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_13:14,g_auto:faces,w_900/v1787076412/piron-legacy/cards/prospect-real.jpg');background-position:50% 50%}
+.p-player{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_13:14,g_auto:faces,w_900/v1787076408/piron-legacy/cards/player-89.jpg');background-position:50% 50%}
+.p-headset{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_13:14,g_auto:faces,w_900/v1787076273/piron-legacy/cards/headcoach-fay.jpg');background-position:50% 50%}
+.p-celebrate{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_5:7,g_auto:faces,w_900/v1787076275/piron-legacy/cards/moment-fay.jpg');background-position:50% 45%}
+.p-mentor{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_13:14,g_auto:faces,w_900/v1787076277/piron-legacy/cards/mentor-clean.jpg');background-position:50% 45%}
 .p-whistle{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222048/piron-legacy/cards/whistle.jpg');background-position:29% 46%}
 .p-running{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222049/piron-legacy/cards/running.jpg');background-position:24% 52%}
 .p-shades{background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/v1786222051/piron-legacy/cards/shades.jpg');background-position:40% 28%}
@@ -718,7 +737,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
   <div class="wrap">
     <p class="sec-num">03 &mdash; The set</p>
     <h2>Ten cards for ten years</h2>
-    <p class="lede">Cards 1&ndash;3 are the ones Dennis hasn't sent yet, so I've mocked them with AI stand-ins to show him what he's holding up &mdash; <b>those three faces are not Dennis, and every one is badged as a placeholder.</b> Cards 4&ndash;10 use photos that already exist. Scroll sideways.</p>
+    <p class="lede"><b>The AI stand-ins are gone.</b> Dennis's family sent the shoebox, and every face on this board is now really him &mdash; Cards 1, 2 and 3 come off 600dpi scans of the actual prints. Two cards carry an amber badge: the photo is real and the family approved it, but the <em>photographer</em> hasn't cleared it for print yet. Green means it's ours to print today. Scroll sideways; click any card to flip it.</p>
 
     <div class="rail-head">
       <p class="flip-lede">
@@ -742,17 +761,17 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="team">ROOKIE CARD</span>
               <span class="pennant"></span><span class="pennant-txt">01</span>
             </div>
-            <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Age 5 &middot; Undrafted</div></div>
-            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Age 1 &middot; Undrafted</div></div>
+            <span class="clear-tag">Cleared<span>Piron family photo</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
-            <div class="bh"><div><div class="nm">DENNIS PIRON</div><div class="pos">Rookie Card &middot; Age 5</div></div><div class="no">01<small>OF 10</small></div></div>
+            <div class="bh"><div><div class="nm">DENNIS PIRON</div><div class="pos">Rookie Card &middot; Age 1</div></div><div class="no">01<small>OF 10</small></div></div>
             <table class="statline">
               <tr><th>YEAR</th><th>HEIGHT</th><th>CARRIES</th><th>FUMBLES</th></tr>
-              <tr><td><span class="tbd">19&mdash;</span></td><td>3'2"</td><td>0</td><td>0</td></tr>
+              <tr><td><span class="tbd">19&mdash;</span></td><td>2'1"</td><td>0</td><td>0</td></tr>
             </table>
-            <p class="story">Every coach was a kid on a lawn once, holding a ball two sizes too big, waiting for somebody to throw it to him. <b>Somebody always did.</b><br><br>That's the whole idea behind this scholarship. One Batavia senior gets handed the ball every year &mdash; not once, not while the money lasts. Every year.</p>
+            <p class="story">No record. No film. No idea what's coming. Just somebody's kid and a bear, and a room full of people who had already decided he was going to be all right. <b>Somebody always decides that first.</b><br><br>That's the whole idea behind this scholarship. One Batavia senior gets handed the ball every year &mdash; not once, not while the money lasts. Every year.</p>
             <div class="ask">
               <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
               <span class="txt"><b>Nine more cards.</b>pironlegacy.org &mdash; give, and the rest of the set comes to you.</span>
@@ -761,7 +780,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
         </div></button>
-        <div class="cap"><div class="n">Card 01</div><h4>The Rookie</h4><p>The set opens on a five-year-old holding a ball too big for him, played completely straight. Everything after it is funnier for having started here &mdash; and the back turns the joke into the ask in two sentences.</p></div>
+        <div class="cap"><div class="n">Card 01</div><h4>The Rookie</h4><p>The set opens on a baby in a crib, played completely straight &mdash; a rookie card of someone who can't walk yet. Everything after it is funnier for having started here, and the back turns the joke into the ask in two sentences. <b>The five-year-old in the plaid suit moves to the bonus pile.</b></p></div>
       </div>
 
       <!-- ── 02 PROSPECT ── -->
@@ -774,7 +793,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="pennant"></span><span class="pennant-txt">02</span>
             </div>
             <div class="plate"><div class="nm">THE PROSPECT</div><div class="pos">4th Grade &middot; Picture Day</div></div>
-            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <span class="clear-tag">Cleared<span>Piron family photo</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -801,20 +820,20 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
           <div class="face"><div class="card dir-a">
             <div class="frame">
               <div class="photo p-player"></div>
-              <span class="team">HIGH SCHOOL</span>
+              <span class="team">BATAVIA &middot; 89</span>
               <span class="pennant"></span><span class="pennant-txt">03</span>
             </div>
-            <div class="plate"><div class="nm">THE PLAYER</div><div class="pos">Before the headset</div></div>
-            <span class="ai-tag">AI Placeholder<span>not a photo of Dennis</span></span>
+            <div class="plate"><div class="nm">THE PLAYER</div><div class="pos">Batavia &middot; #89 &middot; 1980&ndash;83</div></div>
+            <span class="clear-tag">Cleared<span>Piron family photo</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
-            <div class="bh"><div><div class="nm">THE PLAYER</div><div class="pos">High School &middot; Before the headset</div></div><div class="no">03<small>OF 10</small></div></div>
+            <div class="bh"><div><div class="nm">THE PLAYER</div><div class="pos">Batavia Bulldogs &middot; #89</div></div><div class="no">03<small>OF 10</small></div></div>
             <table class="statline">
               <tr><th>SCHOOL</th><th>POSITION</th><th>YEARS</th><th>NUMBER</th></tr>
-              <tr><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+              <tr><td>BATAVIA</td><td><span class="tbd">&mdash;</span></td><td>1980&ndash;83</td><td>89</td></tr>
             </table>
-            <p class="story">The hinge of the set. On one side of this card he's a kid being coached. On the other side, for the next three decades, <b>he is the one doing the coaching</b> &mdash; and eventually the teaching, which turned out to be the same job with different equipment.</p>
+            <p class="story">Same town. Same colors. <b>Same field.</b><br><br>The hinge of the set: on one side of this card he's a Batavia kid being coached. On the other, for the next three decades, he is the one doing the coaching &mdash; and eventually the teaching, which turned out to be the same job with different equipment.</p>
             <div class="ask">
               <span class="qr"><img src="assets/qr-pironlegacy.png" alt="QR code to pironlegacy.org"></span>
               <span class="txt"><b>Cards 4 through 10.</b>What he did with it. See them at pironlegacy.org.</span>
@@ -823,7 +842,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
         </div></button>
-        <div class="cap"><div class="n">Card 03</div><h4>The Player</h4><p>The turn of the set &mdash; the last card where someone is coaching him. Four blanks on the back: school, position, years, number. All four are things only he can tell us.</p></div>
+        <div class="cap"><div class="n">Card 03 &middot; game-day handout</div><h4>The Player</h4><p>The turn of the set &mdash; the last card where someone is coaching him. Batavia, 1980&ndash;83, #89, on the same field he coaches now. <b>This is the one to print for August 21:</b> nobody in that stadium has seen it, and the number does the teasing.</p></div>
       </div>
 
       <!-- ── 04 HEAD COACH ── -->
@@ -836,6 +855,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="pennant"></span><span class="pennant-txt">HC</span>
             </div>
             <div class="plate"><div class="nm">DENNIS PIRON</div><div class="pos">Head Coach</div></div>
+            <span class="rights-tag">Rights pending<span>&copy; Ced Fay Photography</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -853,7 +873,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
         </div></button>
-        <div class="cap"><div class="n">Card 04 &middot; the handout</div><h4>Head Coach</h4><p>The common. Printed ten to one against everything else, and the only card that gets given away. This is the one in every committee member's jacket pocket &mdash; and the one to print for August 21.</p></div>
+        <div class="cap"><div class="n">Card 04 &middot; the common</div><h4>Head Coach</h4><p>The common, printed ten to one against everything else &mdash; the card in every committee member's jacket pocket year-round. <b>It is no longer the August 21 card:</b> it needs Ced Fay's permission, and it's the one image in Batavia everybody has already seen. Card 03 goes to the game instead.</p></div>
       </div>
 
       <!-- ── 05 THE WHISTLE ── -->
@@ -866,6 +886,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="pennant"></span><span class="pennant-txt">05</span>
             </div>
             <div class="plate"><div class="nm">THE WHISTLE</div><div class="pos">Relic Card</div></div>
+            <span class="news-tag">News photo<span>not licensed for merch</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -896,6 +917,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="pennant"></span><span class="pennant-txt">06</span>
             </div>
             <div class="plate"><div class="nm">STILL GOT IT</div><div class="pos">Action Shot</div></div>
+            <span class="news-tag">News photo<span>not licensed for merch</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -924,6 +946,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="badge">CARD 07</span>
             <div class="rule"></div>
             <div class="meta"><div class="nm">THE <em>MOMENT</em></div><div class="pos">Sideline &middot; final whistle</div></div>
+            <span class="rights-tag">Rights pending<span>&copy; Ced Fay Photography</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -954,6 +977,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
               <span class="pennant"></span><span class="pennant-txt">08</span>
             </div>
             <div class="plate"><div class="nm">THE MENTOR</div><div class="pos">What it's actually about</div></div>
+            <span class="clear-tag">Cleared<span>Piron family photo</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -984,6 +1008,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="tape l"></span><span class="tape r"></span>
             <div class="meta"><div class="nm">Mr. Piron</div><div class="pos">&gt; instructor, 10 cohorts</div></div>
             <div class="scrawl">700 students. 10 years. One classroom that ran like a company.</div>
+            <span class="news-tag">News photo<span>not licensed for merch</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -1001,7 +1026,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
         </div></button>
-        <div class="cap"><div class="n">Card 09</div><h4>The Teacher</h4><p>The odd one out by design. Needs a real classroom or Pitch Night photo &mdash; the frame here is standing in for one Gary already owns. The approved Piron quote closes the back.</p></div>
+        <div class="cap"><div class="n">Card 09 &middot; photo inbound</div><h4>The Teacher</h4><p>The odd one out by design, and the last real hole in the set. Gary is asking Dennis's wife and daughter for a classroom or Pitch&nbsp;Night photo &mdash; the frame here stands in until it lands. The approved Piron quote closes the back.</p></div>
       </div>
 
       <!-- ── 10 THE LEGACY ── -->
@@ -1012,6 +1037,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
             <span class="badge">CARD 10</span>
             <div class="rule"></div>
             <div class="meta"><div class="nm">THE <em>LEGACY</em></div><div class="pos">Endowed &middot; in perpetuity</div></div>
+            <span class="news-tag">News photo<span>not licensed for merch</span></span>
             <span class="flip-hint"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
           </div></div>
           <div class="face b"><div class="back">
@@ -1213,7 +1239,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
       <cite>Bob Vaughan &middot; August 8</cite>
     </div>
 
-    <p class="lede">Bob's right, and it's better than right &mdash; it's <b>Dennis's own first home game</b>, a packed house, and an audience that already knows exactly who he is. No press release ever gets you that. The honest answer is <b>yes, with one correction: on August 21 we hand out one card, not ten.</b></p>
+    <p class="lede">Bob's right, and it's better than right &mdash; it's <b>Dennis's own first home game</b>, a packed house, and an audience that already knows exactly who he is. No press release ever gets you that. The honest answer is <b>yes, with one correction: on August 21 we hand out one card, not ten &mdash; and it's Card 3, not Card 4.</b></p>
 
     <div class="two" style="margin-bottom:30px">
       <div>
@@ -1222,7 +1248,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
       </div>
       <div>
         <h3>What one card gets you</h3>
-        <p style="margin:0;color:#565c64;font-size:.95rem"><b>Card 4, Head Coach.</b> One photo to license, one design to approve, one QR to the site, no serials. That's a normal rush print job. And it seeds everything: the crowd that takes one on August 21 is the crowd that finds out in October there are nine more.</p>
+        <p style="margin:0;color:#565c64;font-size:.95rem"><b>Card 3, The Player.</b> Dennis at Batavia, 1980&ndash;83, #89, on the same field he coaches now &mdash; from the family's own shoebox, so there is no photographer to clear. One design, one QR, no serials: a normal rush print job. And it teases better than any coach photo could, because <em>nobody in that stadium has seen it</em>. A card stamped 03 of 10 tells you there are two before and seven after without saying a word.</p>
       </div>
     </div>
 
@@ -1249,7 +1275,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
     </div>
 
     <div class="note warn">
-      <p><strong>The one thing that can kill August 21 is the photo, not the printer.</strong> Every frame on this board is a news photograph we can't put on merchandise. Card 4 needs one usable image and it needs it by Wednesday. BHS athletics is the fastest yes &mdash; and if they can't, a plain typographic card with the gold badge and the QR still works fine. A card that says the right thing beats a beautiful card that doesn't exist.</p>
+      <p><strong>The photo problem that could have killed August 21 is solved.</strong> It was real: the coach-era frames on this board are news photographs we cannot put on merchandise, and two more belong to Ced Fay Photography. Card 3 sidesteps all of it &mdash; the Piron family scanned the print themselves, so it is ours to print today. <b>Press-ready artwork is built:</b> 2.5&times;3.5 with 0.125&Prime; bleed, QR verified to resolve at 300dpi. The remaining gate is turnaround, not rights.</p>
     </div>
   </div>
 </section>
@@ -1266,7 +1292,7 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif}
     </div>
 
     <ul class="needs">
-      <li><b>Dennis's childhood photos</b><span>Cards 1&ndash;3 are the reason this set is funny instead of just nice. The three AI stand-ins are there to <em>show him what he's holding up</em> &mdash; send him those cards, not another reminder. Nothing makes a man go find the real picture faster than seeing a stranger's kid wearing his card. <b>Every one of those three faces must be swapped before anything prints</b>, and they must never leave this board unbadged.</span></li>
+      <li><b>Photographer permission &mdash; Ced Fay</b><span>Cards 1&ndash;3 are <em>done</em>; the family's scans came in and all three are real. The open item moved: Cards 04 and 07 use frames shot by <b>Ced Fay Photography</b>, and the family owning a copy is not the same as a licence to print merchandise. One email covers both &mdash; offer a credit line on the card back, which is the normal trade. <b>Card 04 is the common, printed ten-to-one, so this is the single highest-value permission in the set.</b> Card 08 needs no one's permission; it's a family phone photo.</span></li>
       <li><b>His actual coaching record</b><span>Seasons, wins&ndash;losses, playoff appearances. Every dashed red box on the backs is a number I refused to guess at. Batavia athletics or the IHSA database will have all of it in one place.</span></li>
       <li><b>Confirmation of the Hall of Fame</b><span>The March 2026 induction reads as the Illinois High School Football Hall of Fame, but the plaque in the photo we have is only partly legible. Get the exact name of the body before it goes on a card.</span></li>
       <li><b>A classroom or Pitch Night photo</b><span>Card 9 is standing in with a football frame right now. It needs the classroom. Student faces bring the district media-release question with them &mdash; Brian Gamlin in-district is the person to ask.</span></li>

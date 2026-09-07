@@ -19,3 +19,10 @@
 [[edge_functions]]
   path = "/*"
   function = "password-gate"
+
+# The QR on Card 03 ("Who is #89?") points here. Keep it forever — it's on
+# printed cards. Lands on the reveal band of the home page.
+[[redirects]]
+  from = "/89"
+  to = "/#reveal"
+  status = 302

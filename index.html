@@ -287,6 +287,33 @@ a { color: inherit; }
   .ld-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 
+/* ───── REVEAL / "WHO IS #89?" (QR on Card 03 lands here via /89) ───── */
+.reveal { background: var(--maroon); color: #fff; padding: 88px 0; scroll-margin-top: 72px; }
+.reveal-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 56px; align-items: center; }
+.reveal-grid > * { min-width: 0; }
+.reveal-card { position: relative; max-width: 360px; margin: 0 auto; transform: rotate(-3deg); }
+.reveal-card img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+.reveal-card .reveal-no { position: absolute; top: -18px; right: -18px; width: 68px; height: 68px; border-radius: 50%; background: var(--gold); color: var(--black); display: grid; place-items: center; font-weight: 900; font-size: .78rem; line-height: 1.05; text-align: center; box-shadow: 0 8px 22px rgba(0,0,0,.35); transform: rotate(6deg); }
+.reveal .eyebrow { color: var(--gold); }
+.reveal h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 900; line-height: 1.05; margin-bottom: 18px; }
+.reveal h2 .accent { color: var(--gold); }
+.reveal p { font-size: 1.08rem; color: rgba(255,255,255,.9); margin-bottom: 14px; max-width: 600px; }
+.reveal-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 26px 0 22px; max-width: 600px; }
+.reveal-tier { background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 16px 14px; text-align: center; }
+.reveal-tier .rt-amt { font-weight: 900; font-size: 1.5rem; color: var(--gold); line-height: 1; }
+.reveal-tier .rt-cards { font-weight: 800; font-size: 1rem; margin-top: 8px; }
+.reveal-tier .rt-note { font-size: .8rem; color: rgba(255,255,255,.7); margin-top: 4px; }
+.reveal-tier.full { background: var(--black); border-color: var(--gold); }
+.reveal-more { font-size: .92rem; color: rgba(255,255,255,.8); max-width: 600px; }
+.reveal-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 20px; }
+.reveal-ctas .btn-outline { color: #fff; }
+@media (max-width: 860px) {
+  .reveal { padding: 64px 0; }
+  .reveal-grid { grid-template-columns: 1fr; gap: 40px; }
+  .reveal-card { max-width: 260px; }
+  .reveal-tiers { grid-template-columns: 1fr; }
+}
+
 /* ───── HONOR / IMPACT ───── */
 .honor { padding: 100px 0; background: #fff; }
 .honor-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
@@ -739,6 +766,35 @@ a { color: inherit; }
             </div>
           </div>
           <div class="video-hint" id="tributeHint">Click to play with sound</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── REVEAL: the QR on Card 03 ("Who is #89?") lands here via /89 ───── -->
+<section class="reveal" id="reveal">
+  <div class="container">
+    <div class="reveal-grid">
+      <div class="reveal-card">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_720/v1788534779/piron-legacy/cards/card03-front-web.jpg" alt="Card 3 of 10: a Batavia receiver wearing number 89, 1980 to 1983" width="720" height="1008" loading="lazy">
+        <span class="reveal-no">CARD<br>3 of 10</span>
+      </div>
+      <div class="reveal-copy">
+        <span class="eyebrow">You scanned the card</span>
+        <h2>Number 89 is <span class="accent">Coach Dennis Piron.</span></h2>
+        <p>A Batavia receiver, 1980 to 1983, standing on the same field he has coached on most Friday nights for thirty years. This is his final season as head football coach. That photo belongs to his family, and until it was handed to you at the gate, it had never been published anywhere.</p>
+        <p>He also spent ten years teaching Batavia High's INCubator class, where nearly 700 students learned to build a business. His former mentors are endowing a scholarship in his name so a Batavia senior gets it every year, permanently, with every dollar matched by the Dunham Foundation.</p>
+        <p><strong>That card is 3 of 10. The other nine only come to you when you give.</strong></p>
+        <div class="reveal-tiers">
+          <div class="reveal-tier"><div class="rt-amt">$25</div><div class="rt-cards">3 cards</div><div class="rt-note">A three-card pack</div></div>
+          <div class="reveal-tier"><div class="rt-amt">$50</div><div class="rt-cards">5 cards</div><div class="rt-note">Half the set</div></div>
+          <div class="reveal-tier full"><div class="rt-amt">$100</div><div class="rt-cards">All 10</div><div class="rt-note">The complete set, sleeved</div></div>
+        </div>
+        <p class="reveal-more">Give $500 or more and the set comes in a gold parallel edition numbered out of fifty. At $1,000, a card signed by Dennis, numbered 1 of 700 for the students he taught. Sets ship this fall; your tax letter comes right away.</p>
+        <div class="reveal-ctas">
+          <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give Now</a>
+          <a href="/set" class="btn btn-outline">See the whole set →</a>
         </div>
       </div>
     </div>
@@ -1370,5 +1426,9 @@ if (pironVideo && pironVideoEl) {
 }
 </script>
 
+<script>
+/* Card 03's QR resolves to /89 → /#reveal. Also accept #89 typed by hand. */
+(function(){ if (location.hash === '#89') { var r = document.getElementById('reveal'); if (r) { history.replaceState(null, '', '#reveal'); r.scrollIntoView(); } } })();
+</script>
 </body>
 </html>

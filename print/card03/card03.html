@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card 03 — Who Is #89? — print artwork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   CARD 03 · WHO IS #89? — press artwork (mystery edition)
+   Trim 2.5" × 3.5". Bleed 0.125" all round → 2.75" × 3.75" page.
+   Safety 0.125" inside trim; nothing that must survive the guillotine
+   sits outside it. Page box IS the bleed box, so Chrome's PDF is
+   already bleed-sized — the printer trims 0.125" off every edge.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --maroon:#7a0f14; --gold:#facc08; --paper:#f7f2e6;
+  --bleed:0.125in; --trim-w:2.5in; --trim-h:3.5in;
+}
+@page{ size:2.75in 3.75in; margin:0; }
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{background:#fff}
+
+.page{position:relative;width:2.75in;height:3.75in;overflow:hidden;page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto;break-after:auto}
+
+/* the trim rectangle, centred inside the bleed page */
+.trim{position:absolute;top:var(--bleed);left:var(--bleed);width:var(--trim-w);height:var(--trim-h)}
+
+/* ── FRONT ───────────────────────────────────────────────── */
+/* Woodgrain runs edge to edge of the BLEED, not the trim, so a
+   guillotine drifting 1/16" still lands on wood and never on white. */
+.wood{position:absolute;inset:0;background:
+  repeating-linear-gradient(94deg,#8a5a2b 0 .028in,#7a4d22 .028in .047in,#9c6a35 .047in .085in,#8a5a2b .085in .122in)}
+
+.front-in{position:absolute;top:var(--bleed);left:var(--bleed);width:var(--trim-w);height:var(--trim-h);
+  padding:.108in .108in 0}
+.frame{position:relative;height:2.70in;overflow:hidden;border:.018in solid #fff;
+  box-shadow:0 .008in .026in rgba(0,0,0,.4)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+.team{position:absolute;top:0;left:0;background:var(--maroon);color:var(--gold);
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:5.2pt;letter-spacing:.019in;padding:.042in .075in}
+.pennant{position:absolute;bottom:0;right:0;width:0;height:0;
+  border-left:.46in solid transparent;border-bottom:.46in solid var(--gold)}
+.pennant-txt{position:absolute;bottom:.05in;right:.05in;font-family:'Montserrat',sans-serif;
+  font-weight:900;font-size:8.6pt;color:#2a1416;z-index:2}
+
+.plate{padding:.075in .033in 0;text-align:center}
+.plate .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11.6pt;color:#fff;
+  text-shadow:.008in .008in 0 #4a2c10;letter-spacing:.002in;line-height:1}
+.plate .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:5.6pt;letter-spacing:.022in;
+  color:#ffe9a8;margin-top:.033in;text-transform:uppercase}
+
+/* ── BACK ────────────────────────────────────────────────── */
+/* Paper stock colour bleeds too — same reasoning as the woodgrain. */
+.back-bleed{position:absolute;inset:0;background:var(--paper)}
+.back-in{position:absolute;top:var(--bleed);left:var(--bleed);width:var(--trim-w);height:var(--trim-h);
+  padding:.15in .165in;display:flex;flex-direction:column}
+
+.bh{display:flex;justify-content:space-between;align-items:flex-start;
+  border-bottom:.017in solid var(--maroon);padding-bottom:.058in}
+.bh .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:9.4pt;line-height:1.05;color:#14161a}
+.bh .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:4.6pt;letter-spacing:.015in;
+  text-transform:uppercase;color:var(--maroon);margin-top:.022in}
+.bh .no{font-family:'Bebas Neue',sans-serif;font-size:16.5pt;color:var(--maroon);line-height:.8;text-align:right}
+.bh .no small{display:block;font-family:'Montserrat',sans-serif;font-size:3.9pt;letter-spacing:.012in;
+  color:#8b8578;font-weight:700}
+
+.statline{width:100%;border-collapse:collapse;margin-top:.078in}
+.statline th{font-family:'Montserrat',sans-serif;font-weight:800;font-size:4.1pt;letter-spacing:.011in;
+  color:#8b8578;text-transform:uppercase;padding:.022in 0;border-bottom:.008in solid #ddd7c6}
+.statline td{font-family:'Bebas Neue',sans-serif;font-size:10.5pt;color:#14161a;text-align:center;
+  padding:.033in 0 .022in;letter-spacing:.006in}
+.statline .tbd{color:#b0a894}
+
+.story{font-family:'Open Sans',sans-serif;font-size:5.9pt;line-height:1.72;color:#3d4249;margin-top:.088in}
+.story b{color:#14161a;font-weight:700}
+
+.ask{margin-top:.11in;display:flex;gap:.068in;align-items:center;
+  border-top:.008in solid #ddd7c6;padding-top:.072in}
+.ask .qr{width:.52in;height:.52in;flex:0 0 auto}
+.ask .qr svg{width:100%;height:100%;display:block}
+.ask .txt{font-family:'Open Sans',sans-serif;font-size:5.3pt;line-height:1.52;color:#3d4249}
+.ask .txt b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:6.1pt;
+  color:var(--maroon);margin-bottom:.014in}
+
+.fine{font-family:'Open Sans',sans-serif;font-size:3.9pt;line-height:1.42;color:#8b8578;margin-top:auto;padding-top:.06in}
+
+/* ── PROOF GUIDES — body.proof only; never in the press file ── */
+.guides{display:none}
+body.proof .guides{display:block;position:absolute;inset:0;z-index:99;pointer-events:none}
+body.proof .g-trim{position:absolute;top:var(--bleed);left:var(--bleed);width:var(--trim-w);height:var(--trim-h);
+  outline:.006in dashed #00b0ff}
+body.proof .g-safe{position:absolute;top:.25in;left:.25in;width:2.25in;height:3.25in;
+  outline:.006in dashed #14e08a}
+body.proof .g-lbl{position:absolute;bottom:.012in;left:.02in;font:700 3.4pt 'Montserrat',sans-serif;color:#00b0ff}
+</style>
+</head>
+<body>
+
+<!-- ══════════ FRONT ══════════ -->
+<div class="page">
+  <div class="wood"></div>
+  <div class="front-in">
+    <div class="frame">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_95,f_jpg/v1787077358/piron-legacy/cards/player-89-cardfront.jpg" alt="Dennis Piron in a Batavia football uniform, number 89, mid-1980s">
+      <span class="team">BATAVIA &middot; 89</span>
+      <span class="pennant"></span><span class="pennant-txt">03</span>
+    </div>
+    <div class="plate">
+      <div class="nm">WHO IS #89?</div>
+      <div class="pos">Batavia &middot; Receiver &middot; 1980&ndash;83</div>
+    </div>
+  </div>
+  <div class="guides"><div class="g-trim"></div><div class="g-safe"></div><div class="g-lbl">TRIM 2.5×3.5 · SAFE 2.25×3.25 · BLEED 2.75×3.75</div></div>
+</div>
+
+<!-- ══════════ BACK ══════════ -->
+<div class="page">
+  <div class="back-bleed"></div>
+  <div class="back-in">
+    <div class="bh">
+      <div>
+        <div class="nm">WHO IS #89?</div>
+        <div class="pos">Batavia Bulldogs &middot; Receiver</div>
+      </div>
+      <div class="no">03<small>OF 10</small></div>
+    </div>
+
+    <table class="statline">
+      <tr><th>SCHOOL</th><th>POSITION</th><th>YEARS</th><th>NUMBER</th></tr>
+      <tr><td>BATAVIA</td><td>RECEIVER</td><td>1980&ndash;83</td><td>89</td></tr>
+    </table>
+
+    <p class="story">Batavia. 1980 to &rsquo;83. A receiver wearing <b>89</b>.<br><br>
+      He never really left this field. He's been on it most Friday nights for thirty years,
+      and you've probably cheered for him without knowing it. You have almost certainly never
+      seen this picture. It's his family's own photo, and it has never been published.<br><br>
+      <b>Know who it is?</b> Scan the code and find out.</p>
+
+    <div class="ask">
+      <span class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290" shape-rendering="crispEdges"><rect width="290" height="290" fill="#fff"/><path transform="scale(10)" stroke="#000" d="M2 2.5h7M14 2.5h3M20 2.5h7M2 3.5h1M8 3.5h1M10 3.5h1M15 3.5h1M18 3.5h1M20 3.5h1M26 3.5h1M2 4.5h1M4 4.5h3M8 4.5h1M10 4.5h1M12 4.5h2M16 4.5h2M20 4.5h1M22 4.5h3M26 4.5h1M2 5.5h1M4 5.5h3M8 5.5h1M10 5.5h2M13 5.5h1M15 5.5h1M18 5.5h1M20 5.5h1M22 5.5h3M26 5.5h1M2 6.5h1M4 6.5h3M8 6.5h1M12 6.5h2M15 6.5h2M18 6.5h1M20 6.5h1M22 6.5h3M26 6.5h1M2 7.5h1M8 7.5h1M11 7.5h1M14 7.5h1M18 7.5h1M20 7.5h1M26 7.5h1M2 8.5h7M10 8.5h1M12 8.5h1M14 8.5h1M16 8.5h1M18 8.5h1M20 8.5h7M10 9.5h4M16 9.5h3M2 10.5h1M8 10.5h1M10 10.5h1M15 10.5h1M17 10.5h1M19 10.5h2M23 10.5h3M2 11.5h4M7 11.5h1M9 11.5h5M15 11.5h3M21 11.5h5M2 12.5h2M7 12.5h4M15 12.5h4M23 12.5h1M25 12.5h2M2 13.5h2M6 13.5h1M11 13.5h2M18 13.5h3M23 13.5h1M26 13.5h1M2 14.5h1M4 14.5h1M6 14.5h3M11 14.5h1M13 14.5h2M17 14.5h2M20 14.5h1M26 14.5h1M2 15.5h1M4 15.5h1M11 15.5h1M14 15.5h2M17 15.5h3M21 15.5h1M25 15.5h1M2 16.5h1M4 16.5h2M7 16.5h6M15 16.5h3M20 16.5h4M25 16.5h2M2 17.5h1M12 17.5h1M14 17.5h1M21 17.5h1M23 17.5h2M26 17.5h1M2 18.5h1M6 18.5h1M8 18.5h1M11 18.5h1M13 18.5h1M15 18.5h2M18 18.5h5M24 18.5h1M10 19.5h1M12 19.5h3M16 19.5h1M18 19.5h1M22 19.5h1M2 20.5h7M13 20.5h2M16 20.5h1M18 20.5h1M20 20.5h1M22 20.5h1M26 20.5h1M2 21.5h1M8 21.5h1M11 21.5h2M14 21.5h1M17 21.5h2M22 21.5h1M2 22.5h1M4 22.5h3M8 22.5h1M12 22.5h2M15 22.5h8M24 22.5h1M2 23.5h1M4 23.5h3M8 23.5h1M12 23.5h3M16 23.5h1M19 23.5h2M25 23.5h2M2 24.5h1M4 24.5h3M8 24.5h1M12 24.5h1M15 24.5h2M18 24.5h1M23 24.5h2M26 24.5h1M2 25.5h1M8 25.5h1M11 25.5h1M13 25.5h1M16 25.5h1M18 25.5h2M21 25.5h2M26 25.5h1M2 26.5h7M10 26.5h1M12 26.5h1M14 26.5h1M16 26.5h1M18 26.5h1M23 26.5h1M26 26.5h1"/></svg></span>
+      <span class="txt"><b>Scan to reveal #89.</b>Then finish the set: nine more cards, and this is the only one being handed out.</span>
+    </div>
+
+    <p class="fine">Card 3 of 10. A fundraising card for a Batavia High School scholarship held by the
+      Batavia Foundation for Educational Excellence, a 501(c)(3). Gifts tax-deductible as allowed by law.</p>
+  </div>
+  <div class="guides"><div class="g-trim"></div><div class="g-safe"></div><div class="g-lbl">TRIM 2.5×3.5 · SAFE 2.25×3.25 · BLEED 2.75×3.75</div></div>
+</div>
+
+</body>
+</html>

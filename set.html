@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Piron Collection — Dennis Piron Legacy Scholarship</title>
+<meta name="description" content="You're holding Card 3 of 10. Here's what the card is, what your gift builds, and how the rest of the set reaches you.">
+<!-- Canonical is the EXTENSIONLESS url — see the clean-URL rule in CLAUDE.md.
+     This page is handed out on a physical card, so /set must keep resolving
+     forever. Never rename it. -->
+<link rel="canonical" href="https://pironlegacy.org/set">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     THE SET — the page a card-holder lands on.
+
+     WRITTEN FOR ONE READER: someone standing at a football game holding
+     a physical card, on a phone, with about twenty seconds of patience.
+     Short blocks, one ask, no scroll-hunting for the button.
+
+     HONESTY RULES FOR THIS PAGE, because it makes promises to donors:
+       · Only Card 3 exists today. Everything else ships later, and the
+         page says so in plain language rather than implying a shelf
+         full of cards that isn't built yet.
+       · The gift ladder below is the committee's, not marketing copy.
+         If the tiers change, change them HERE and in Ashley's
+         acknowledgment-letter template together — she is the one who
+         actually fulfils these from her donation records.
+       · The match language mirrors the landing page word for word:
+         it releases when our half is raised AND received.
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<style>
+:root{
+  --maroon:#AC161D; --maroon-deep:#7a0f14; --gold:#FACC08;
+  --ink:#1a1a1a; --muted:#5b5b5b; --paper:#f7f5f0; --line:#e3ded4; --black:#000;
+  --f-display:'Montserrat',system-ui,sans-serif;
+  --f-body:'Open Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);line-height:1.65;
+  -webkit-font-smoothing:antialiased}
+.container{width:min(1080px,92vw);margin:0 auto}
+a{color:var(--maroon)}
+
+/* ── sticky give bar: the ask must never be more than a thumb away ── */
+.givebar{position:sticky;top:0;z-index:50;background:rgba(20,13,13,.97);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(250,204,8,.28)}
+.givebar .container{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0}
+.givebar .mark{font-family:var(--f-display);font-weight:900;font-size:.74rem;letter-spacing:2px;
+  text-transform:uppercase;color:#f1ece2}
+.givebar .mark b{color:var(--gold)}
+.btn{display:inline-block;font-family:var(--f-display);font-weight:800;font-size:.92rem;
+  letter-spacing:.4px;text-decoration:none;border-radius:8px;padding:12px 22px;transition:transform .16s,filter .16s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.btn-gold{background:var(--gold);color:#2a1416}
+.btn-maroon{background:var(--maroon);color:#fff}
+.givebar .btn{padding:10px 18px;font-size:.84rem;white-space:nowrap;flex:0 0 auto}
+/* At phone width the full lockup steals the room the button needs, so the
+   descriptor drops and only the name stays. The ask never wraps. */
+@media(max-width:430px){
+  .givebar .mark{font-size:.62rem;letter-spacing:1.4px}
+  .givebar .mark b{display:none}
+  .givebar .btn{padding:10px 15px}
+}
+
+/* ── hero ── */
+.hero{background:linear-gradient(168deg,#2a1416 0%,#140d0d 52%,#000 100%);color:#f4efe6;
+  padding:54px 0 60px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--maroon),var(--gold) 60%,#fff6d6)}
+.hero-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
+.hero-card{width:300px;border-radius:10px;box-shadow:0 26px 60px rgba(0,0,0,.6);display:block}
+.eyebrow{font-family:var(--f-display);font-weight:900;font-size:.7rem;letter-spacing:2.6px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(2rem,5vw,3.1rem);
+  line-height:1.06;letter-spacing:-.5px;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:1.06rem;color:#d8d2c6;margin-bottom:16px;max-width:52ch}
+.hero p b{color:#fff}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+@media(max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;justify-items:center;text-align:center}
+  .hero p{margin-inline:auto}
+  .hero-ctas{justify-content:center}
+  .hero-card{width:min(250px,62vw)}
+}
+
+/* ── generic section ── */
+section{padding:64px 0}
+.section-title{font-family:var(--f-display);font-weight:900;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  line-height:1.15;letter-spacing:-.3px;margin-bottom:14px}
+.lede{font-size:1.05rem;color:var(--muted);max-width:64ch;margin-bottom:32px}
+
+/* ── what it builds ── */
+.builds{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.three .cell{border-left:3px solid var(--gold);padding-left:18px}
+.three .n{font-family:var(--f-display);font-weight:900;font-size:2rem;line-height:1;color:var(--maroon)}
+.three h3{font-family:var(--f-display);font-weight:800;font-size:1.02rem;margin:8px 0 6px}
+.three p{font-size:.94rem;color:var(--muted)}
+@media(max-width:820px){.three{grid-template-columns:1fr;gap:22px}}
+
+/* ── the ladder ── */
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 24px 22px;position:relative}
+.tier .amt{font-family:var(--f-display);font-weight:900;font-size:1.55rem;color:var(--maroon);line-height:1}
+.tier h3{font-family:var(--f-display);font-weight:800;font-size:1.04rem;margin:10px 0 7px}
+.tier p{font-size:.93rem;color:var(--muted)}
+.tier.flag{border-color:var(--gold);box-shadow:0 0 0 3px rgba(250,204,8,.16)}
+.tier .pin{position:absolute;top:-11px;right:18px;background:var(--gold);color:#2a1416;
+  font-family:var(--f-display);font-weight:900;font-size:.6rem;letter-spacing:1.4px;
+  text-transform:uppercase;padding:5px 10px;border-radius:100px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+
+/* ── the honest timing note ── */
+.timing{background:#fff8e6;border:1px solid #f0d9a0;border-radius:12px;padding:22px 24px;margin-top:26px}
+.timing h3{font-family:var(--f-display);font-weight:800;font-size:1rem;margin-bottom:8px;color:#5c4708}
+.timing p{font-size:.95rem;color:#6b5716}
+.timing p + p{margin-top:10px}
+
+/* ── the card, both faces ── */
+.faces{background:#efece5;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faces-grid{display:grid;grid-template-columns:repeat(2,minmax(0,300px));gap:34px;justify-content:center;margin-top:30px}
+.faces-grid img{width:100%;border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,.18);display:block}
+.faces figcaption{font-family:var(--f-display);font-weight:800;font-size:.66rem;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--muted);text-align:center;margin-top:12px}
+@media(max-width:680px){.faces-grid{grid-template-columns:1fr;max-width:290px;margin-inline:auto}}
+
+/* ── final ── */
+.final{background:linear-gradient(168deg,#2a1416 0%,#140d0d 60%,#000 100%);color:#f4efe6;text-align:center}
+.final h2{font-family:var(--f-display);font-weight:900;font-size:clamp(1.6rem,4vw,2.4rem);
+  line-height:1.12;margin-bottom:16px}
+.final p{color:#d8d2c6;max-width:56ch;margin:0 auto 28px}
+.foot{background:#0d0a0a;color:#8b8578;font-size:.83rem;padding:30px 0;text-align:center}
+.foot a{color:#b8b3a6}
+.foot p + p{margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="givebar">
+  <div class="container">
+    <span class="mark">Dennis Piron <b>Legacy Scholarship</b></span>
+    <a class="btn btn-gold" href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer">Give Now</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <img class="hero-card" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_700/v1788534779/piron-legacy/cards/card03-front-web.jpg" alt="Card 3 of 10 — Dennis Piron in a Batavia football uniform, number 89, early 1980s">
+    <div>
+      <p class="eyebrow">Card 03 of 10</p>
+      <h1>#89 is <em>Coach Dennis Piron.</em></h1>
+      <p>That's Coach Piron at Batavia, <b>number 89</b>, somewhere between 1980 and 1983 — on the same field he coaches on now. It's his family's own photo. It has never been published anywhere.</p>
+      <p>There are nine more cards. <b>The only way to get them is to give.</b></p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer">Give Now</a>
+        <a class="btn btn-maroon" href="#what">What your gift builds</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="builds" id="what">
+  <div class="container">
+    <h2 class="section-title">What your gift actually builds</h2>
+    <p class="lede">Not a one-time award that runs out. An endowment — the money stays invested, and only what it earns is given away. That's what makes it permanent.</p>
+    <div class="three">
+      <div class="cell">
+        <div class="n">2&times;</div>
+        <h3>Every dollar is doubled</h3>
+        <p>A $50,000 matching gift is secured. It releases as soon as our half is raised and received — so your gift counts twice toward the goal.</p>
+      </div>
+      <div class="cell">
+        <div class="n">$100K</div>
+        <h3>The endowment goal</h3>
+        <p>Our $50,000 plus the $50,000 match. Fully funded, it pays out a scholarship every year without ever spending the principal.</p>
+      </div>
+      <div class="cell">
+        <div class="n">1</div>
+        <h3>Batavia senior, every year</h3>
+        <p>Not once. Not while the money lasts. One student handed the ball every single year, permanently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">What comes back to you</h2>
+    <p class="lede">The card in your hand is free — we handed it to everyone at the gate. The other nine aren't for sale anywhere. They arrive because you gave.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="amt">$25</div>
+        <h3>Three-card pack</h3>
+        <p>A randomized three-card pack from the set. Duplicates happen, which is the point — duplicates are how a set becomes a thing people trade.</p>
+      </div>
+      <div class="tier">
+        <div class="amt">$50</div>
+        <h3>Five-card pack</h3>
+        <p>Half the set in one go — five different cards, no duplicates. Enough to see where the story is headed.</p>
+      </div>
+      <div class="tier flag">
+        <span class="pin">Most popular</span>
+        <h3 style="margin-top:0"><span class="amt" style="display:block;margin-bottom:10px">$100</span>The complete set</h3>
+        <p>All ten cards, sleeved — including Card 3, so if you weren't at the game you're not missing one.</p>
+      </div>
+      <div class="tier">
+        <div class="amt">$500</div>
+        <h3>Gold parallel set</h3>
+        <p>The full set in a gold parallel edition, hand-numbered out of fifty. Fifty exist and the number is printed on the card.</p>
+      </div>
+      <div class="tier">
+        <div class="amt">$1,000+</div>
+        <h3>Signed card, 1 of 700</h3>
+        <p>A card signed by Dennis and numbered against the roughly 700 students he taught in ten years. The number is the message.</p>
+      </div>
+    </div>
+
+    <div class="timing">
+      <h3>Straight answer on when these arrive</h3>
+      <p><b>Card 3 is the only card that exists right now.</b> It's the one we printed for the game. The other nine still have to be designed and printed, and a few of the photographs still need permission from the photographers who took them.</p>
+      <p>So: <b>the set ships this fall, not next week.</b> Give now and your name goes on the list — your tax acknowledgment letter comes on the normal schedule, and the cards follow when they're real. We'd rather tell you that than promise a date we can't hit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faces">
+  <div class="container" style="text-align:center">
+    <h2 class="section-title">Both sides of Card 3</h2>
+    <p class="lede" style="margin-inline:auto">Every card in the set is a real card — a stat line, a story, and the ask on the back.</p>
+    <div class="faces-grid">
+      <figure>
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_700/v1788534779/piron-legacy/cards/card03-front-web.jpg" alt="Front of Card 3 — Dennis Piron in a Batavia uniform, number 89">
+        <figcaption>Front</figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_700/v1788538966/piron-legacy/cards/card03-back-web.jpg" alt="Back of Card 3 — stat line, story and the ask">
+        <figcaption>Back</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <h2>He gave Batavia ten years. This makes it permanent.</h2>
+    <p>Ten years in the classroom, roughly seven hundred students, and a football program he still runs. The scholarship is how that keeps going after him.</p>
+    <a class="btn btn-gold" href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer">Give Now</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="container">
+    <p>The Dennis Piron Legacy Scholarship is held by the <b>Batavia Foundation for Educational Excellence</b>, a 501(c)(3). Gifts are tax-deductible as allowed by law.</p>
+    <p><a href="/">pironlegacy.org</a> &nbsp;·&nbsp; <a href="/press">Press</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

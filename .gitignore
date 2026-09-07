@@ -26,3 +26,11 @@ scratchpad/
 
 # Source photos for the trading-card concepts (news photos — not ours to redistribute)
 assets/playing-cards/
+
+# Raw flatbed scans (100MB+ TIFFs) — source material, never committed
+assets/*.tiff
+
+# Print rasters + intermediate renders (art lives on Cloudinary; PDFs are the deliverable)
+print/card03/*.png
+print/card03/*.jpg
+print/card03/card03-proof.html
