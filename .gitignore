@@ -34,3 +34,6 @@ assets/*.tiff
 print/card03/*.png
 print/card03/*.jpg
 print/card03/card03-proof.html
+
+# Scoreboard slide rasters (send as attachments; HTML is the source)
+print/scoreboard/*.png
