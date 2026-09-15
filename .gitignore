@@ -37,3 +37,6 @@ print/card03/card03-proof.html
 
 # Scoreboard slide rasters (send as attachments; HTML is the source)
 print/scoreboard/*.png
+
+# Story of the Season weekly ad renders (source .html is tracked; PNG goes to Tracy)
+print/sots/*.png
