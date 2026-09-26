@@ -40,3 +40,6 @@ print/scoreboard/*.png
 
 # Story of the Season weekly ad renders (source .html is tracked; PNG goes to Tracy)
 print/sots/*.png
+
+# Card 01 web render — raster, lives on Cloudinary
+print/card01/*.png
