@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card 02 — The Prospect — front art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   CARD 02 · THE PROSPECT — front art, web render.
+   Same design language as print/card03/card03.html (woodgrain to the
+   edge, white-bordered frame, maroon team tag, gold pennant, plate),
+   sized to the TRIM only (2.5" × 3.5") because this render is for
+   screen and for the Story of the Season page — not for the printer.
+   If this card ever goes to press, rebuild it from card03.html so it
+   inherits the 0.125" bleed page box.
+
+   Photo: piron-legacy/cards/prospect-real — the Piron family's own
+   scan of a grade-school portrait, cleared to print (no photographer,
+   no watermark). The scan's white border is cropped off first
+   (c_crop), then g_auto:faces as on every card except 01.
+   Plate deliberately carries no grade or age: we don't know it.
+   ═══════════════════════════════════════════════════════════════ */
+:root{ --maroon:#7a0f14; --gold:#facc08; }
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{background:#fff;width:2.5in;height:3.5in;overflow:hidden}
+
+.card{position:relative;width:2.5in;height:3.5in;overflow:hidden}
+.wood{position:absolute;inset:0;background:
+  repeating-linear-gradient(94deg,#8a5a2b 0 .028in,#7a4d22 .028in .047in,#9c6a35 .047in .085in,#8a5a2b .085in .122in)}
+.front-in{position:absolute;inset:0;padding:.108in .108in 0}
+.frame{position:relative;height:2.70in;overflow:hidden;border:.018in solid #fff;
+  box-shadow:0 .008in .026in rgba(0,0,0,.4)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+.team{position:absolute;top:0;left:0;background:var(--maroon);color:var(--gold);
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:5.2pt;letter-spacing:.019in;padding:.042in .075in}
+.pennant{position:absolute;bottom:0;right:0;width:0;height:0;
+  border-left:.46in solid transparent;border-bottom:.46in solid var(--gold)}
+.pennant-txt{position:absolute;bottom:.05in;right:.05in;font-family:'Montserrat',sans-serif;
+  font-weight:900;font-size:8.6pt;color:#2a1416;z-index:2}
+
+.plate{padding:.075in .033in 0;text-align:center}
+.plate .nm{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11.6pt;color:#fff;
+  text-shadow:.008in .008in 0 #4a2c10;letter-spacing:.002in;line-height:1}
+.plate .pos{font-family:'Montserrat',sans-serif;font-weight:700;font-size:5.6pt;letter-spacing:.022in;
+  color:#ffe9a8;margin-top:.033in;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="wood"></div>
+  <div class="front-in">
+    <div class="frame">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/c_crop,x_90,y_45,w_1760,h_2830/c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1787076412/piron-legacy/cards/prospect-real.jpg" alt="Dennis Piron as a grade-schooler, school portrait">
+      <span class="team">SCOUTING REPORT</span>
+      <span class="pennant"></span><span class="pennant-txt">02</span>
+    </div>
+    <div class="plate">
+      <div class="nm">DENNIS PIRON</div>
+      <div class="pos">The Prospect</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

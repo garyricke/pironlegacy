@@ -43,3 +43,4 @@ print/sots/*.png
 
 # Card 01 web render — raster, lives on Cloudinary
 print/card01/*.png
+print/card02/*.png
