@@ -291,7 +291,7 @@ a { color: inherit; }
 .pday { position: relative; overflow: hidden; background: #000; color: #fff; padding: 112px 0 0; }
 .pday::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 11%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 0 100%); }
 .pday::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 30%; background: var(--maroon); clip-path: polygon(70% 0, 100% 0, 100% 100%, 8% 100%); }
-.pday-inner { position: relative; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: end; }
+.pday-inner { position: relative; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: end; }
 .pday-inner > * { min-width: 0; }
 .pday-copy { padding: 0 0 64px; }
 .pday-kicker { font-family: 'Oswald', sans-serif; font-weight: 700; font-style: italic; text-transform: uppercase; font-size: clamp(1.3rem, 3vw, 2.2rem); line-height: 1; letter-spacing: .01em; transform: skewX(-8deg); }
@@ -301,8 +301,9 @@ a { color: inherit; }
 .pday h2 .pd-date { color: #d21f27; margin-left: .18em; }
 .pday p { max-width: 520px; font-size: 1.05rem; color: rgba(255,255,255,.88); margin-bottom: 20px; }
 .pday-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-.pday-photo { align-self: end; }
-.pday-photo img { display: block; width: 100%; max-width: 400px; height: auto; margin-left: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); -webkit-mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); }
+.pday-photo { align-self: end; position: relative; }
+.pday-credit { position: absolute; right: 6px; bottom: 8px; font-size: .68rem; letter-spacing: .04em; color: rgba(255,255,255,.75); }
+.pday-photo img { display: block; width: 100%; max-width: 460px; height: auto; margin-left: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); -webkit-mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); }
 .pday + .hero { padding-top: 88px; min-height: 0; }
 @media (max-width: 760px) {
   .pday { padding-top: 96px; }
@@ -776,7 +777,8 @@ a { color: inherit; }
       </div>
     </div>
     <div class="pday-photo">
-      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_4:5,g_auto:faces,w_800/v1785517358/piron-legacy/press/dennis-piron-portrait.jpg" alt="Dennis Piron, smiling" width="800" height="1000">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_4:5,g_auto:faces,w_900/v1787076275/piron-legacy/cards/moment-fay.jpg" alt="Coach Dennis Piron grinning and pointing at the camera on the Bulldog sideline" width="900" height="1125">
+      <span class="pday-credit">Photo: Ced Jay Photography</span>
     </div>
   </div>
 </section>
