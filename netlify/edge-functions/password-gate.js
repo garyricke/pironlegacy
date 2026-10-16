@@ -82,6 +82,27 @@ const SHARED_PATHS = [
   /^\/cards(\.html)?(\/|$)/,
 ];
 
+/* ── Tier 1c: committee ────────────────────────────────────────────────── */
+
+/**
+ * The committee's ask list: prospect names, the BFEE balance, who is asking
+ * whom. More private than /cards, so it does NOT use the inline "piron"
+ * password (this repo is public, so that password is effectively public too).
+ * Its password lives only in the COMMITTEE_GATE_PASSWORD env var, and like
+ * Tier 2 it FAILS CLOSED when that is unset.
+ *
+ * /api/asks is the data behind the page. The function re-checks this same
+ * cookie itself, so the data stays sealed even if a request reaches it some
+ * other way. An admin session also opens this tier.
+ */
+const COMMITTEE_ENV_VAR = "COMMITTEE_GATE_PASSWORD";
+const COMMITTEE_COOKIE_NAME = "piron_committee";
+const COMMITTEE_MAX_AGE = 60 * 60 * 24 * 120; // ~a season: these are busy people, ask once
+const COMMITTEE_PATHS = [
+  /^\/asks(\.html)?(\/|$)/,
+  /^\/api\/asks(\/|$)/,
+];
+
 /* ── Always public ─────────────────────────────────────────────────────── */
 
 /**
@@ -134,8 +155,8 @@ function safeEqual(a, b) {
 // The admin cookie value is derived from the password, so ROTATING
 // ADMIN_GATE_PASSWORD automatically invalidates every outstanding admin
 // session — no separate token to remember to bump.
-async function adminToken(secret) {
-  const data = new TextEncoder().encode("piron-admin-v1:" + secret);
+async function adminToken(secret, prefix = "piron-admin-v1:") {
+  const data = new TextEncoder().encode(prefix + secret);
   const buf = await crypto.subtle.digest("SHA-256", data);
   return Array.from(new Uint8Array(buf))
     .map((b) => b.toString(16).padStart(2, "0"))
@@ -159,17 +180,23 @@ function htmlHeaders() {
 
 /* ── Gate page ─────────────────────────────────────────────────────────── */
 
-function gatePage({ admin = false, error = false, locked = false } = {}) {
+function gatePage({ admin = false, committee = false, error = false, locked = false } = {}) {
   const title = locked
-    ? "Admin Unavailable"
+    ? (committee ? "Committee Page Unavailable" : "Admin Unavailable")
     : admin
       ? "Admin Access"
-      : "Private Preview";
+      : committee
+        ? "Committee Only"
+        : "Private Preview";
   const sub = locked
-    ? "The admin password isn't configured on this deploy, so these pages are sealed. Set ADMIN_GATE_PASSWORD in Netlify to restore access."
+    ? (committee
+        ? "This page's password isn't configured on this deploy, so it's sealed. Set COMMITTEE_GATE_PASSWORD in Netlify to restore access."
+        : "The admin password isn't configured on this deploy, so these pages are sealed. Set ADMIN_GATE_PASSWORD in Netlify to restore access.")
     : admin
       ? "This is an internal page. Enter the admin password."
-      : "This site isn't public yet. Enter the password to view it.";
+      : committee
+        ? "For the scholarship committee. Enter the committee password. You'll only need it once on this device."
+        : "This site isn't public yet. Enter the password to view it.";
   const err = error
     ? `<p id="pw-error">Incorrect password. Try again.</p>`
     : `<p id="pw-error"></p>`;
@@ -281,6 +308,35 @@ export default async (request) => {
       status: 401,
       headers: htmlHeaders(),
     });
+  }
+
+  /* Tier 1c — committee. Own password, fails closed, independent of preview. */
+  if (COMMITTEE_PATHS.some((re) => re.test(path))) {
+    const committeePassword = readEnv(COMMITTEE_ENV_VAR);
+    const isApi = path.startsWith("/api/");
+    if (!committeePassword) {
+      return isApi
+        ? new Response('{"error":"locked"}', { status: 503, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } })
+        : new Response(gatePage({ committee: true, locked: true }), { status: 503, headers: htmlHeaders() });
+    }
+    const token = await adminToken(committeePassword, "piron-committee-v1:");
+    if (hasCookie(request, COMMITTEE_COOKIE_NAME, token)) return;
+    const adminPassword = readEnv(ADMIN_ENV_VAR);
+    if (adminPassword && hasCookie(request, ADMIN_COOKIE_NAME, await adminToken(adminPassword))) return;
+
+    // The API never shows a password form — it just refuses.
+    if (isApi) {
+      return new Response('{"error":"password_required"}', { status: 401, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
+    }
+    if (request.method === "POST") {
+      if (safeEqual((await submittedPassword(request)).trim().toLowerCase(), committeePassword.trim().toLowerCase())) {
+        return redirectWithCookies(url, [
+          `${COMMITTEE_COOKIE_NAME}=${token}; Path=/; Max-Age=${COMMITTEE_MAX_AGE}; HttpOnly; Secure; SameSite=Lax`,
+        ]);
+      }
+      return new Response(gatePage({ committee: true, error: true }), { status: 401, headers: htmlHeaders() });
+    }
+    return new Response(gatePage({ committee: true }), { status: 401, headers: htmlHeaders() });
   }
 
   /* Tier 1b — shared. Checked before the PREVIEW_ENABLED early return, so
