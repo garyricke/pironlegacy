@@ -48,14 +48,26 @@ h2{font-size:24px;font-weight:800}
 .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:0;padding:0;list-style:none}
 .rules li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px}
 .rules li b{font-family:var(--display);display:block;margin-bottom:2px}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch;justify-content:space-between}
 .toolbar select{font:600 13px var(--body);padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 .callout{background:var(--warn-bg);color:var(--ink);border-radius:8px;padding:10px 14px;font-size:14px}
 .claimrow{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.toolbar input[type=search]{flex:1 1 220px;min-width:0;font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
-.seg button{font:600 13px var(--body);border:0;background:transparent;color:var(--ink);padding:8px 12px;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--maroon);color:#fff}
+.toolbar input[type=search]{flex:0 1 300px;min-width:0;font:inherit;font-size:15px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{font:800 16px var(--display);border:0;border-right:1px solid var(--line);background:transparent;color:var(--ink);padding:13px 22px;cursor:pointer;min-height:48px}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:var(--chip)}
+.seg button[aria-pressed=true],.seg button[aria-pressed=true]:hover{background:var(--maroon);color:#fff}
+@media (max-width:820px){.toolbar input[type=search]{flex:1 1 100%}
+.seg{width:100%;display:grid;grid-template-columns:repeat(6,1fr)}
+.seg button{padding:12px 6px;font-size:15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.seg button:nth-child(1),.seg button:nth-child(2){grid-column:span 3}
+.seg button:nth-child(n+3){grid-column:span 2;border-bottom:0}
+.seg button:nth-child(2),.seg button:nth-child(5){border-right:0}}
+.contact{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:6px;font-size:14px}
+.contact a{color:var(--maroon);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;word-break:break-all}
+.contact a:hover,.contact a:focus-visible{text-decoration:underline}
+.contact svg{width:16px;height:16px;flex:none}
 .seg button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 .who{font-size:13px;color:var(--muted)}
 .list{display:flex;flex-direction:column;gap:8px}
@@ -149,7 +161,7 @@ dialog#namebox .row button.go{background:var(--maroon);border-color:var(--maroon
     <h1>Who we ask, and how</h1>
     <p class="lede">The people closest to Dennis and the INCubator, ranked so each of us can take the ones we know. Press <b>Claim</b> on anyone you'll ask yourself. Everyone on the committee sees who has whom, so nobody gets asked twice.</p>
     <div class="me" id="me"></div>
-    <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private to the committee. Please don't forward. Contact details are with Gary.</span>
+    <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private to the committee. Please don't forward. Tier A phone numbers and emails are on each card; ask Gary for anyone else's.</span>
     <nav class="jump" aria-label="Sections"><a href="#stand">Where we stand</a><a href="#asks">Personal asks</a><a href="#vendors">Football sponsors</a><a href="#email">The email to everyone else</a></nav>
   </header>
 
@@ -177,7 +189,6 @@ dialog#namebox .row button.go{background:var(--maroon);border-color:var(--maroon
       <li><b>Check with Ashley first.</b>BFEE has the list of who has already given. Some of these people may have.</li>
     </ul>
     <div class="toolbar">
-      <input type="search" id="q" placeholder="Search a name or company" aria-label="Search prospects">
       <div class="seg" role="group" aria-label="Show">
         <button type="button" data-f="A" aria-pressed="true">Tier A</button>
         <button type="button" data-f="B" aria-pressed="false">Tier B</button>
@@ -185,6 +196,7 @@ dialog#namebox .row button.go{background:var(--maroon);border-color:var(--maroon
         <button type="button" data-f="claimed" aria-pressed="false">Claimed</button>
         <button type="button" data-f="mine" aria-pressed="false">Mine</button>
       </div>
+      <input type="search" id="q" placeholder="Search a name or company" aria-label="Search prospects">
     </div>
     <div class="callout" id="callout" hidden></div>
     <div class="list" id="list"><div class="loading">Loading the list…</div></div>
