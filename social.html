@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Video Kit — Dennis Piron Day</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://pironlegacy.org/social">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SOCIAL VIDEO KIT — Dennis Piron Day, Friday Oct 16 2026.
+
+     For whoever is posting to Instagram, TikTok, Facebook, YouTube and
+     LinkedIn: one card per video, in posting order, with the time to post,
+     a download button and copy-ready captions. Unlinked from the site and
+     noindex'd; it is a working page, not a public one.
+
+     The videos live on Cloudinary (piron-legacy/social/), never in this
+     repo. Playback uses the ORIGINAL upload URL (no transformation) so it
+     streams with byte ranges; the download button uses an fl_attachment
+     derivative, which was warmed with curl when this page went up — if
+     you change a public_id or version, re-warm the new download URL.
+
+     Captions never quote a dollar total (the committee removed the public
+     running total Aug 7) and always spell out pironlegacy.org, because
+     nobody has the site in their bio.
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+
+<style>
+:root { --gold:#FACC08; --maroon:#AC161D; --ink:#1a1a1a; --muted:#5b5b5b; --paper:#f7f5f0; --line:#e4dfd4; }
+* { box-sizing:border-box; }
+html,body { margin:0; }
+body { font-family:'Open Sans',system-ui,sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; }
+.wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+h1,h2,h3 { font-family:'Montserrat',sans-serif; line-height:1.12; margin:0; }
+
+.masthead { background:radial-gradient(125% 125% at 50% 0%, #2a1416 0%, #140d0d 46%, #000 100%); color:#fff; padding:40px 0 34px; }
+.mh-top { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
+.mh-top img { width:56px; height:56px; }
+.mh-name { font-family:'Montserrat',sans-serif; font-weight:900; font-size:.8rem; letter-spacing:2.5px; text-transform:uppercase; line-height:1.35; }
+.mh-name span { display:block; color:var(--gold); }
+.masthead h1 { font-size:clamp(1.8rem,4.8vw,2.8rem); font-weight:900; }
+.masthead h1 .accent { color:var(--gold); }
+.masthead p { max-width:640px; color:rgba(255,255,255,.85); margin:12px 0 0; }
+
+.tips { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:26px 0 8px; }
+.tips h2 { font-size:1rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--maroon); margin-bottom:8px; }
+.tips ul { margin:0; padding-left:20px; }
+.tips li { margin-bottom:4px; }
+
+.schedule { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:8px; margin:18px 0 6px; }
+.schedule a { display:block; text-decoration:none; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+.schedule a:hover { border-color:var(--maroon); }
+.schedule .n { font-family:'Montserrat',sans-serif; font-weight:900; color:var(--maroon); font-size:.78rem; }
+.schedule .t { font-weight:700; font-size:.95rem; display:block; }
+.schedule .v { font-size:.8rem; color:var(--muted); }
+
+.day { font-family:'Montserrat',sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:2px; font-size:.82rem; color:var(--muted); margin:38px 0 12px; display:flex; align-items:center; gap:12px; }
+.day::after { content:''; flex:1; height:1px; background:var(--line); }
+
+.post { display:grid; grid-template-columns:260px 1fr; gap:26px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:18px; scroll-margin-top:16px; }
+.post > * { min-width:0; }
+.player { position:relative; }
+.player video { width:100%; aspect-ratio:9/16; display:block; border-radius:12px; background:#000; }
+.order { position:absolute; top:-12px; left:-12px; width:46px; height:46px; border-radius:50%; background:var(--gold); color:#000; display:grid; place-items:center; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.15rem; box-shadow:0 6px 16px rgba(0,0,0,.25); }
+.when { display:inline-flex; align-items:center; gap:8px; background:var(--maroon); color:#fff; font-weight:700; font-size:.9rem; padding:6px 12px; border-radius:999px; }
+.when svg { width:18px; height:18px; }
+.post h3 { font-size:1.45rem; font-weight:900; margin:12px 0 4px; }
+.why { color:var(--muted); margin:0 0 12px; }
+.meta { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.chip { font-size:.75rem; font-weight:700; border:1px solid var(--line); border-radius:999px; padding:3px 10px; background:var(--paper); }
+.dl { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
+.btn { display:inline-flex; align-items:center; gap:8px; font-family:'Open Sans',sans-serif; font-weight:700; font-size:.92rem; text-decoration:none; border-radius:10px; padding:10px 16px; cursor:pointer; border:2px solid var(--ink); }
+.btn svg { width:20px; height:20px; flex:none; }
+.btn-primary { background:var(--gold); border-color:var(--gold); color:#000; }
+.btn-ghost { background:#fff; color:var(--ink); }
+.btn:focus-visible { outline:3px solid var(--maroon); outline-offset:2px; }
+.cap { border:1px solid var(--line); border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.cap-head { display:flex; justify-content:space-between; align-items:center; gap:10px; background:var(--paper); padding:8px 12px; }
+.cap-head b { font-size:.82rem; text-transform:uppercase; letter-spacing:1px; }
+.cap pre { margin:0; padding:12px 14px; white-space:pre-wrap; overflow-wrap:anywhere; font-family:'Open Sans',sans-serif; font-size:.92rem; }
+.copy { display:inline-flex; align-items:center; gap:6px; font:700 .8rem 'Open Sans',sans-serif; background:#fff; border:1px solid var(--ink); border-radius:8px; padding:5px 10px; cursor:pointer; }
+.copy svg { width:16px; height:16px; }
+.copy.done { background:#1a7f37; border-color:#1a7f37; color:#fff; }
+.alt { font-size:.85rem; color:var(--muted); margin:8px 0 0; }
+.alt a { color:var(--maroon); font-weight:700; }
+footer { text-align:center; color:var(--muted); font-size:.85rem; padding:30px 0 50px; }
+@media (max-width:720px) {
+  .post { grid-template-columns:1fr; padding:18px; }
+  .player { max-width:300px; margin:0 auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mh-top">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_140/v1782508679/piron-legacy/piron-legacy-badge.png" alt="" width="56" height="56">
+      <div class="mh-name">Dennis Piron<span>Legacy Scholarship</span></div>
+    </div>
+    <h1>Dennis Piron Day <span class="accent">social video kit</span></h1>
+    <p>Seven vertical videos, in posting order. Each one has the time to post it, a download button and a caption ready to paste. Tonight is his last home game, 7 PM kickoff.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="tips" aria-labelledby="how">
+    <h2 id="how">How to post</h2>
+    <ul>
+      <li><strong>Instagram:</strong> post as a <strong>Reel</strong> (not a feed post) and share it to your Story too. Tag the accounts in the caption.</li>
+      <li><strong>TikTok and Instagram:</strong> keep the original audio. Don't add a TikTok sound, because it replaces the voice and music.</li>
+      <li><strong>YouTube:</strong> upload as a <strong>Short</strong> and use the title given with each video.</li>
+      <li><strong>Facebook:</strong> post as a Reel. <strong>LinkedIn:</strong> upload the video file directly instead of sharing a link.</li>
+      <li>Every video ends on <strong>pironlegacy.org</strong>, and every caption spells it out, since nobody has the link in their bio.</li>
+    </ul>
+  </section>
+
+  <nav class="schedule" id="schedule" aria-label="Posting schedule"></nav>
+  <div id="posts"></div>
+</main>
+
+<footer>Questions: Gary Ricke · (630) 492-0642 · Photos by Ced Jay Photography</footer>
+
+<script>
+const CLD='https://res.cloudinary.com/dsbllwpbh/video/upload/';
+const TAGS='@bataviabulldogsfootball @bataviaathletic';
+const POSTS=[
+ {id:'v1-its-official',ver:'1792185718',file:'Dennis-Piron-Day-1-Its-Official',day:'Friday, Oct 16',time:'4:15 PM · post now',title:"It's Official",len:'15 sec',
+  why:'Announces the day. Loud and fast, music only.',where:['Instagram Reel','TikTok','Facebook Reel','YouTube Short'],
+  caps:[['Instagram · TikTok · Facebook',`It's official. Mayor Schielke has declared October 16 Dennis Piron Day in Batavia.\n\nCelebrate with a gift in his honor. Every dollar to the Dennis Piron Legacy Scholarship is doubled by the Dunham Foundation. Give at pironlegacy.org.\n\nPhotos: @cedjayphotos\n${TAGS}\n#DennisPironDay #BataviaBulldogs #Batavia`],['YouTube Short title','Dennis Piron Day is official #DennisPironDay #Batavia']]},
+ {id:'v5-card-break',ver:'1792185717',file:'Dennis-Piron-Day-2-Card-Break',day:'Friday, Oct 16',time:'4:45 PM',title:'The Card Break',len:'33 sec',
+  why:'A parody of TikTok card-break videos, where every card pulled is Coach. Built for TikTok first.',where:['TikTok','Instagram Reel','Facebook Reel','YouTube Short'],
+  alt:{id:'v5-card-break-music',ver:'1792185718',file:'Dennis-Piron-Day-2-Card-Break-music-only',label:'music-only version (25 sec, no voice)'},
+  caps:[['TikTok · Instagram · Facebook',`Dennis Piron Day break. Every pull is Coach.\n\n$25 = 3 cards. $100 = all 10. $500 = the gold /50. Every dollar doubled by the Dunham Foundation. Give at pironlegacy.org.\n\n${TAGS}\n#cardbreak #tradingcards #DennisPironDay #BataviaBulldogs`],['YouTube Short title','Dennis Piron Day card break #tradingcards #cardbreak']]},
+ {id:'v4-last-home-game',ver:'1792185718',file:'Dennis-Piron-Day-3-Last-Home-Game',day:'Friday, Oct 16',time:'5:45 PM · before kickoff',title:'Last Home Game',len:'18 sec',
+  why:'Gets people to the stadium tonight and to the site. Voiceover.',where:['Instagram Reel + Story','Facebook Reel','TikTok','YouTube Short'],
+  alt:{id:'v4-last-home-game-text',ver:'1792185718',file:'Dennis-Piron-Day-3-Last-Home-Game-text-only',label:'text-only version (20 sec, no voice)'},
+  caps:[['Instagram · TikTok · Facebook',`Tonight is Coach Dennis Piron's last home game on the Bulldog sideline, on the day Batavia named after him. 7 PM kickoff.\n\nBe there. And help make his name last: the Dennis Piron Legacy Scholarship, every gift doubled by the Dunham Foundation. Give at pironlegacy.org.\n\nPhotos: @cedjayphotos\n${TAGS}\n#DennisPironDay #BataviaBulldogs #FridayNightLights`],['YouTube Short title',"Coach Piron's last home game #FridayNightLights #Batavia"]]},
+ {id:'v6-scouting-report',ver:'1792185718',file:'Dennis-Piron-Day-4-Scouting-Report',day:'Friday, Oct 16',time:'6:15 PM · during warmups',title:'The Scouting Report',len:'32 sec',
+  why:'A dead-serious draft scouting report on Dennis, set to absurdly epic music.',where:['Instagram Reel','TikTok','Facebook Reel','YouTube Short'],
+  alt:{id:'v6-scouting-report-music',ver:'1792185718',file:'Dennis-Piron-Day-4-Scouting-Report-music-only',label:'music-only version (30 sec, no voice)'},
+  caps:[['Instagram · TikTok · Facebook',`Prospect report: Piron, Dennis. Pro comparison: nobody.\n\nProjection: a Batavia senior every year, forever. The Dennis Piron Legacy Scholarship, every gift doubled. Give at pironlegacy.org.\n\nPhotos: @cedjayphotos\n${TAGS}\n#DennisPironDay #BataviaBulldogs #ScoutingReport`],['YouTube Short title','Scouting report: Piron, Dennis #DennisPironDay']]},
+ {id:'v7-how-it-started',ver:'1792185717',file:'Dennis-Piron-Day-5-How-It-Started',day:'Friday, Oct 16',time:'8:00 PM · halftime',title:'How It Started',len:'9 sec loop',
+  why:'A quick meme for halftime scrolling. It loops.',where:['Instagram Reel + Story','TikTok','Facebook Reel'],
+  caps:[['Instagram · TikTok · Facebook',`How it started: 1983. How it's going: Dennis Piron Day. How it's going to go: a scholarship in his name, forever. pironlegacy.org\n\n${TAGS}\n#DennisPironDay #BataviaBulldogs`]]},
+ {id:'v8-pov-2046',ver:'1792185743',file:'Dennis-Piron-Day-6-POV-2046',day:'Friday, Oct 16',time:'9:45 PM · after the game',title:'POV: 2046',len:'23 sec',
+  why:'Quiet and emotional. A future Batavia senior who never met him.',where:['Instagram Reel','TikTok','Facebook Reel','LinkedIn'],
+  caps:[['Instagram · TikTok · Facebook',`POV: it's 2046, and you never met Coach Piron. His scholarship still shows up for you.\n\nThat's what an endowment does. Every gift doubled by the Dunham Foundation. pironlegacy.org\n\n${TAGS}\n#DennisPironDay #Batavia`],['LinkedIn',`Tonight Coach Dennis Piron coached his last home game in Batavia, on the day the city named after him.\n\nFor ten years he also taught Batavia High School's INCubator class, where nearly 700 students learned to build real businesses. His former mentors are endowing the Dennis Piron Legacy Scholarship so a Batavia senior receives it every year, permanently. The Dunham Foundation is matching every gift dollar for dollar.\n\npironlegacy.org\n\n#DennisPironDay #Entrepreneurship #Batavia`]]},
+ {id:'v2-who-is-89',ver:'1792185718',file:'Dennis-Piron-Day-7-Who-Is-89',day:'Saturday, Oct 17',time:'10:00 AM',title:'Who Is #89?',len:'28 sec',
+  why:'The trading card story, from the mystery card at the gate to the reveal. Voiceover.',where:['Instagram Reel','TikTok','Facebook Reel','YouTube Short'],
+  caps:[['Instagram · TikTok · Facebook',`Who is #89? A Batavia receiver, 1980 to 1983. Today, Coach Dennis Piron.\n\nCard 3 of 10 in the Dennis Piron Legacy set. Give $25 for 3 cards, $50 for 5, or $100 for all 10. Every dollar doubled by the Dunham Foundation. pironlegacy.org\n\n${TAGS}\n#DennisPironDay #BataviaBulldogs #TradingCards`],['YouTube Short title','Who is #89? #DennisPironDay #tradingcards']]},
+];
+const I={
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ dl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>',
+ copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'
+};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const src=p=>`${CLD}v${p.ver}/piron-legacy/social/${p.id}.mp4`;
+const dl=p=>`${CLD}fl_attachment:${p.file}/v${p.ver}/piron-legacy/social/${p.id}.mp4`;
+const poster=p=>`${CLD}so_1.5,w_520,f_jpg,q_auto/v${p.ver}/piron-legacy/social/${p.id}.jpg`;
+document.getElementById('schedule').innerHTML=POSTS.map((p,i)=>`<a href="#${p.id}"><span class="n">${i+1} · ${p.day.split(',')[0]}</span><span class="t">${p.time.split(' · ')[0]}</span><span class="v">${esc(p.title)}</span></a>`).join('');
+let lastDay='', html='';
+POSTS.forEach((p,i)=>{
+  if(p.day!==lastDay){ html+=`<h2 class="day">${p.day}</h2>`; lastDay=p.day; }
+  html+=`<article class="post" id="${p.id}">
+    <div class="player"><span class="order" aria-label="Post number ${i+1}">${i+1}</span>
+      <video controls playsinline preload="none" poster="${poster(p)}" src="${src(p)}"></video></div>
+    <div>
+      <span class="when">${I.clock}${esc(p.time)}</span>
+      <h3>${esc(p.title)}</h3>
+      <p class="why">${esc(p.why)}</p>
+      <div class="meta"><span class="chip">${p.len}</span><span class="chip">9:16 vertical</span>${p.where.map(w=>`<span class="chip">${esc(w)}</span>`).join('')}</div>
+      <div class="dl"><a class="btn btn-primary" href="${dl(p)}" download>${I.dl}Download video</a></div>
+      ${p.caps.map(([k,t])=>`<div class="cap"><div class="cap-head"><b>${esc(k)}</b><button class="copy" type="button" data-t="${esc(t)}">${I.copy}<span>Copy</span></button></div><pre>${esc(t)}</pre></div>`).join('')}
+      ${p.alt?`<p class="alt">Also available: <a href="${dl(p.alt)}" download>${esc(p.alt.label)}</a></p>`:''}
+    </div></article>`;
+});
+document.getElementById('posts').innerHTML=html;
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('.copy'); if(!b) return;
+  const lab=b.querySelector('span');
+  try{ await navigator.clipboard.writeText(b.dataset.t); b.classList.add('done'); lab.textContent='Copied'; }
+  catch(err){ const r=document.createRange(); r.selectNodeContents(b.closest('.cap').querySelector('pre')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); lab.textContent='Press ⌘C'; }
+  setTimeout(()=>{ b.classList.remove('done'); lab.textContent='Copy'; },2000);
+});
+</script>
+</body>
+</html>
