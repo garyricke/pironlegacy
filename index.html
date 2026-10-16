@@ -25,7 +25,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
 
 <!-- Favicon -->
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -285,6 +285,32 @@ a { color: inherit; }
 .ld-meter-foot strong { color: var(--gold); }
 @media (max-width: 860px) {
   .ld-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ───── DENNIS PIRON DAY (Oct 16 2026, declared by Mayor Schielke) ───── */
+.pday { position: relative; overflow: hidden; background: #000; color: #fff; padding: 112px 0 0; }
+.pday::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 11%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.pday::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 30%; background: var(--maroon); clip-path: polygon(70% 0, 100% 0, 100% 100%, 8% 100%); }
+.pday-inner { position: relative; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: end; }
+.pday-inner > * { min-width: 0; }
+.pday-copy { padding: 0 0 64px; }
+.pday-kicker { font-family: 'Oswald', sans-serif; font-weight: 700; font-style: italic; text-transform: uppercase; font-size: clamp(1.3rem, 3vw, 2.2rem); line-height: 1; letter-spacing: .01em; transform: skewX(-8deg); }
+.pday h2 { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; line-height: .92; margin: 10px 0 18px; transform: skewX(-8deg); }
+.pday h2 .pd-name { display: block; white-space: nowrap; color: var(--gold); font-size: clamp(3.1rem, 7.2vw, 6.4rem); text-shadow: 5px 5px 0 var(--maroon); }
+.pday h2 .pd-day { display: block; white-space: nowrap; font-size: clamp(2.7rem, 6.2vw, 5.4rem); }
+.pday h2 .pd-date { color: #d21f27; margin-left: .18em; }
+.pday p { max-width: 520px; font-size: 1.05rem; color: rgba(255,255,255,.88); margin-bottom: 20px; }
+.pday-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.pday-photo { align-self: end; }
+.pday-photo img { display: block; width: 100%; max-width: 400px; height: auto; margin-left: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); -webkit-mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); mask-image: radial-gradient(50% 78% at 50% 40%, #000 58%, transparent 100%); }
+.pday + .hero { padding-top: 88px; min-height: 0; }
+@media (max-width: 760px) {
+  .pday { padding-top: 96px; }
+  .pday::before { width: 18%; height: 90px; bottom: auto; }
+  .pday::after { width: 100%; top: auto; height: 6px; clip-path: none; }
+  .pday-inner { grid-template-columns: 1fr; gap: 0; }
+  .pday-copy { padding: 0 0 8px; }
+  .pday-photo img { max-width: 260px; margin: 0 auto; }
 }
 
 /* ───── REVEAL / "WHO IS #89?" (QR on Card 03 lands here via /89) ───── */
@@ -737,6 +763,23 @@ a { color: inherit; }
     </span>
   </div>
 </nav>
+
+<!-- ───── DENNIS PIRON DAY: Mayor Schielke's proclamation, Oct 16 2026 ───── -->
+<section class="pday" id="piron-day" aria-labelledby="pday-title">
+  <div class="pday-inner">
+    <div class="pday-copy">
+      <div class="pday-kicker">Declared by Mayor Schielke</div>
+      <h2 id="pday-title"><span class="pd-name">Dennis Piron</span><span class="pd-day">Day <span class="pd-date">Oct. 16</span></span></h2>
+      <p>It's official: Mayor Schielke has declared October 16 Dennis Piron Day in Batavia. Celebrate it with a gift that lasts as long as his name does. Every dollar to his scholarship is doubled by the Dunham Foundation.</p>
+      <div class="pday-ctas">
+        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give in His Honor</a>
+      </div>
+    </div>
+    <div class="pday-photo">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_4:5,g_auto:faces,w_800/v1785517358/piron-legacy/press/dennis-piron-portrait.jpg" alt="Dennis Piron, smiling" width="800" height="1000">
+    </div>
+  </div>
+</section>
 
 <!-- ───── HERO ───── -->
 <section class="hero" id="top">
