@@ -80,6 +80,8 @@ const ADMIN_PATHS = [
  */
 const SHARED_PATHS = [
   /^\/cards(\.html)?(\/|$)/,
+  // /proof: the final 10-card donor set, for committee approval (Nov 2026).
+  /^\/proof(\.html)?(\/|$)/,
 ];
 
 /* ── Tier 1c: committee ────────────────────────────────────────────────── */
