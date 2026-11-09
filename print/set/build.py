@@ -53,10 +53,10 @@ CARDS = [
       ask=("Thank you for giving.", "You&rsquo;re holding the first of ten. Scan to see the whole set."),
       credit="Piron family photo."),
  dict(n="02", team="SCOUTING REPORT", nm="DENNIS PIRON", pos="The Prospect",
-      img="c_crop,x_90,y_45,w_1760,h_2830/c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1787076412/piron-legacy/cards/prospect-real.jpg",
-      alt="Dennis Piron as a grade-school boy, picture day",
-      bnm="THE PROSPECT", bpos="Scouting Report &middot; Grade School",
-      stats=[("MOTOR","A+"),("COACHABLE","A"),("CONDUCT","B&minus;"),("HAIR","1970s")],
+      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263925/piron-legacy/cards/teen-glasses-real.jpg",
+      alt="Dennis Piron as a teenager in glasses, school portrait",
+      bnm="THE PROSPECT", bpos="Scouting Report &middot; Picture Day",
+      stats=[("MOTOR","A+"),("COACHABLE","A"),("FRAMES","XL"),("HAIR","MAXIMUM")],
       story="<b>SCOUT&rsquo;S NOTES:</b> High motor. Coachable. Natural leader. Other kids listen "
             "to him, which is either a gift or a discipline problem depending on the day.<br><br>"
             "<b>PROJECTION:</b> Teacher. Coach. Both, probably. Will spend decades giving other "
@@ -98,15 +98,15 @@ CARDS = [
       ask=("You gave. Thank you.", "Now hand this to someone who hasn&rsquo;t. pironlegacy.org"),
       credit=CED),
  dict(n="06", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Still Got It",
-      img="c_crop,w_0.78,h_1.0,g_east/c_fill,w_1200,h_1419,g_north,q_95,f_jpg/piron-legacy/cedjay/cedjay-piron-04.jpg",
-      alt="Coach Dennis Piron tossing a football at practice",
-      bnm="STILL GOT IT", bpos="Practice Field &middot; Undisputed",
+      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263926/piron-legacy/cards/coach-young-real.jpg",
+      alt="A young Coach Dennis Piron in sunglasses, winding up to throw a football",
+      bnm="STILL GOT IT", bpos="Sideline &middot; Undisputed",
       stats=[("ARM","CLASSIFIED"),("SPIRAL","TIGHT-ISH"),("ASKED TO","NO"),("POINT MADE","YES")],
       story="Nobody asked him to throw it. He threw it anyway, in front of teenagers with "
-            "younger arms and better knees, at full commitment.<br><br>"
+            "younger arms and better knees, in sunglasses, at full commitment.<br><br>"
             "Every player he ever coached has seen this exact face.",
       ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
-      credit=CED),
+      credit="Piron family photo."),
  dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Moment",
       img="c_crop,w_0.80,h_0.88,g_south_west/" + FILL + "piron-legacy/cards/moment-fay.jpg",
       alt="Coach Dennis Piron grinning and pointing at the camera in a 100 hoodie",
