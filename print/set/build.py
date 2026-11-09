@@ -53,10 +53,10 @@ CARDS = [
       ask=("Thank you for giving.", "You&rsquo;re holding the first of ten. Scan to see the whole set."),
       credit="Piron family photo."),
  dict(n="02", team="SCOUTING REPORT", nm="DENNIS PIRON", pos="The Prospect",
-      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263925/piron-legacy/cards/teen-glasses-real.jpg",
-      alt="Dennis Piron as a teenager in glasses, school portrait",
-      bnm="THE PROSPECT", bpos="Scouting Report &middot; Picture Day",
-      stats=[("MOTOR","A+"),("COACHABLE","A"),("FRAMES","XL"),("HAIR","MAXIMUM")],
+      img="c_crop,x_90,y_45,w_1760,h_2830/c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1787076412/piron-legacy/cards/prospect-real.jpg",
+      alt="Dennis Piron as a grade-school boy, picture day",
+      bnm="THE PROSPECT", bpos="Scouting Report &middot; Grade School",
+      stats=[("MOTOR","A+"),("COACHABLE","A"),("CONDUCT","B&minus;"),("HAIR","1970s")],
       story="<b>SCOUT&rsquo;S NOTES:</b> High motor. Coachable. Natural leader. Other kids listen "
             "to him, which is either a gift or a discipline problem depending on the day.<br><br>"
             "<b>PROJECTION:</b> Teacher. Coach. Both, probably. Will spend decades giving other "
@@ -85,18 +85,17 @@ CARDS = [
             "single year, permanently.</b>",
       ask=("Scan it. Give.", "The Dunham Foundation doubles the first $50,000, dollar for dollar."),
       credit=CED),
- dict(n="05", team="GAME-USED RELIC", nm="DENNIS PIRON", pos="The Whistle &middot; Relic Card",
-      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/piron-legacy/cedjay/cedjay-piron-08.jpg",
-      alt="Coach Dennis Piron in a headset, calling out from the sideline",
-      relic=True,
-      bnm="THE WHISTLE", bpos="Authentic Relic &middot; /50",
-      stats=[("MATERIAL","LANYARD"),("TONE","SHRILL"),("RANGE","40 YD"),("IGNORED","NEVER")],
-      story="The card you are holding contains an actual snip of Coach&rsquo;s lanyard. Not "
-            "game-used in any sense that would survive a lawyer. Used, though. By a coach. "
-            "That&rsquo;s more than most relic cards can honestly say.<br><br>"
-            "Fifty of these exist. This one is <span class=\"serial\">No. ____ / 50</span>",
-      ask=("You gave. Thank you.", "Now hand this to someone who hasn&rsquo;t. pironlegacy.org"),
-      credit=CED),
+ dict(n="05", team="CLASS PHOTO", nm="DENNIS PIRON", pos="Picture Day",
+      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263925/piron-legacy/cards/teen-glasses-real.jpg",
+      alt="Dennis Piron as a teenager in glasses, school portrait",
+      bnm="PICTURE DAY", bpos="Class Portrait",
+      stats=[("FRAMES","XL"),("HAIR","MAXIMUM"),("SWEATER","V-NECK"),("COLLAR","OUT")],
+      story="Before the headset, the whistle and all those Friday nights, there was picture day.<br><br>"
+            "Big frames. Bigger hair. A Batavia kid with no idea he&rsquo;d spend his life on the "
+            "other side of the desk, <b>making sure the next kid in that chair had someone in "
+            "their corner.</b>",
+      ask=("Went to school with him?", "Pass it on. pironlegacy.org"),
+      credit="Piron family photo."),
  dict(n="06", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Still Got It",
       img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263926/piron-legacy/cards/coach-young-real.jpg",
       alt="A young Coach Dennis Piron in sunglasses, winding up to throw a football",
