@@ -107,7 +107,7 @@ CARDS = [
       ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
       credit="Piron family photo."),
  dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
-      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794269398/piron-legacy/cards/suit-portrait-real.jpg",
+      img="c_crop,x_430,y_300,w_1620,h_1915/c_fill,w_1200,h_1419,q_95,f_jpg/v1794269398/piron-legacy/cards/suit-portrait-real.jpg",
       alt="A young Dennis Piron in a corduroy three-piece suit, studio portrait",
       bnm="THREE-PIECE", bpos="Studio Portrait &middot; Formal",
       stats=[("CORDUROY","100%"),("VEST","YES"),("TIE","KNIT"),("CURLS","UNTAMED")],
