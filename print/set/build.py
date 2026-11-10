@@ -106,17 +106,17 @@ CARDS = [
             "Every player he ever coached has seen this exact face.",
       ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
       credit="Piron family photo."),
- dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Moment",
-      img="c_crop,w_0.80,h_0.88,g_south_west/" + FILL + "piron-legacy/cards/moment-fay.jpg",
-      alt="Coach Dennis Piron grinning and pointing at the camera in a 100 hoodie",
-      bnm="THE MOMENT", bpos="Sideline &middot; Friday Night",
-      stats=[("HOODIE","100"),("EFFORT","100"),("SMILING","YES"),("POINTING AT","YOU")],
-      story="Grinning, finger out, &ldquo;100&rdquo; across his chest. He isn&rsquo;t pointing at "
-            "himself. He never was.<br><br>"
+ dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
+      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794269398/piron-legacy/cards/suit-portrait-real.jpg",
+      alt="A young Dennis Piron in a corduroy three-piece suit, studio portrait",
+      bnm="THREE-PIECE", bpos="Studio Portrait &middot; Formal",
+      stats=[("CORDUROY","100%"),("VEST","YES"),("TIE","KNIT"),("CURLS","UNTAMED")],
+      story="Three pieces. All corduroy. Gazing off toward a future nobody in that studio "
+            "could have guessed.<br><br>"
             "When he walked out of the classroom in 2026, a group of us decided that "
             "shouldn&rsquo;t be the end of it. <b>So we&rsquo;re making it permanent.</b>",
       ask=("Make it permanent.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
-      credit=CED),
+      credit="Piron family photo."),
  dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Mentor",
       img=FILL + "piron-legacy/cards/mentor-clean.jpg",
       alt="Coach Dennis Piron with his arm around player number 81",
