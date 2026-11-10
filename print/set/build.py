@@ -16,7 +16,7 @@ RULES baked into this copy (see project memory):
   - Coaching retirement is NOT announced: no "last/final season/game".
   - Scholarship is for college, trade school or an apprenticeship; number of
     recipients is undecided, so never say "one senior".
-  - Card 08 is the wedding portrait (family scan); the #81 Mentor card was retired Nov 9 2026.
+  - Cards run in age order (Nov 9 2026). Wedding = Card 07 (family scan); #81 Mentor card retired.
 """
 import html, pathlib
 
@@ -63,29 +63,7 @@ CARDS = [
             "people&rsquo;s kids the thing he got.",
       ask=("The projection was right.", "Help make it permanent at pironlegacy.org."),
       credit="Piron family photo."),
- dict(n="03", team="BATAVIA &middot; 89", nm="DENNIS PIRON", pos="Batavia &middot; Receiver &middot; 1980&ndash;83",
-      img="q_95,f_jpg/v1787077358/piron-legacy/cards/player-89-cardfront.jpg",
-      alt="Dennis Piron in a Batavia football uniform, number 89",
-      bnm="THE PLAYER", bpos="Batavia Bulldogs &middot; #89",
-      stats=[("SCHOOL","BATAVIA"),("POSITION","RECEIVER"),("YEARS","1980&ndash;83"),("NUMBER","89")],
-      story="Batavia. 1980 to &rsquo;83. A receiver wearing <b>89</b>.<br><br>"
-            "This is the hinge of the set. On this card he&rsquo;s a Batavia kid being coached. "
-            "On every card after it, he&rsquo;s the one doing the coaching, and eventually the "
-            "teaching, which turned out to be the same job with different equipment.",
-      ask=("Cards 4 through 10:", "what he did with it. pironlegacy.org"),
-      credit="Piron family photo, never before published."),
- dict(n="04", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Head Coach &middot; Batavia Bulldogs",
-      img="c_crop,x_900,y_0,w_3450,h_4078/c_fill,w_1200,h_1419,q_95,f_jpg/v1787076273/piron-legacy/cards/headcoach-fay.jpg",
-      alt="Coach Dennis Piron on the sideline, arms crossed",
-      bnm="DENNIS PIRON", bpos="Head Coach &middot; Batavia Bulldogs",
-      stats=[("2026","8&ndash;3"),("ALMA MATER","BATAVIA"),("WORE","#89"),("ARMS","CROSSED")],
-      story="Friday nights, arms crossed, on the Bulldog sideline.<br><br>"
-            "Dennis retired from teaching in 2026. What ended was the classroom, and that is "
-            "exactly what this scholarship carries on: <b>the next Batavia senior, funded every "
-            "single year, permanently.</b>",
-      ask=("Scan it. Give.", "The Dunham Foundation doubles the first $50,000, dollar for dollar."),
-      credit=CED),
- dict(n="05", team="CLASS PHOTO", nm="DENNIS PIRON", pos="Picture Day",
+ dict(n="03", team="CLASS PHOTO", nm="DENNIS PIRON", pos="Picture Day",
       img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263925/piron-legacy/cards/teen-glasses-real.jpg",
       alt="Dennis Piron as a teenager in glasses, school portrait",
       bnm="PICTURE DAY", bpos="Class Portrait",
@@ -96,17 +74,18 @@ CARDS = [
             "their corner.</b>",
       ask=("Went to school with him?", "Pass it on. pironlegacy.org"),
       credit="Piron family photo."),
- dict(n="06", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Still Got It",
-      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794271436/piron-legacy/cards/coach-throw-batavia.png",
-      alt="Coach Dennis Piron in a Batavia cap, polo and sunglasses, winding up to throw a football",
-      bnm="STILL GOT IT", bpos="Sideline &middot; Undisputed",
-      stats=[("ARM","CLASSIFIED"),("SPIRAL","TIGHT-ISH"),("ASKED TO","NO"),("POINT MADE","YES")],
-      story="Nobody asked him to throw it. He threw it anyway, in front of teenagers with "
-            "younger arms and better knees, in sunglasses, at full commitment.<br><br>"
-            "Every player he ever coached has seen this exact face.",
-      ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
-      credit="Piron family photo."),
- dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
+ dict(n="04", team="BATAVIA &middot; 89", nm="DENNIS PIRON", pos="Batavia &middot; Receiver &middot; 1980&ndash;83",
+      img="q_95,f_jpg/v1787077358/piron-legacy/cards/player-89-cardfront.jpg",
+      alt="Dennis Piron in a Batavia football uniform, number 89",
+      bnm="THE PLAYER", bpos="Batavia Bulldogs &middot; #89",
+      stats=[("SCHOOL","BATAVIA"),("POSITION","RECEIVER"),("YEARS","1980&ndash;83"),("NUMBER","89")],
+      story="Batavia. 1980 to &rsquo;83. A receiver wearing <b>89</b>.<br><br>"
+            "This is the hinge of the set. On this card he&rsquo;s a Batavia kid being coached. "
+            "On every card after it, he&rsquo;s the one doing the coaching, and eventually the "
+            "teaching, which turned out to be the same job with different equipment.",
+      ask=("Cards 4 through 10:", "what he did with it. pironlegacy.org"),
+      credit="Piron family photo, never before published."),
+ dict(n="05", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
       img="c_crop,x_430,y_300,w_1620,h_1915/c_fill,w_1200,h_1419,q_95,f_jpg/v1794269398/piron-legacy/cards/suit-portrait-real.jpg",
       alt="A young Dennis Piron in a corduroy three-piece suit, studio portrait",
       bnm="THREE-PIECE", bpos="Studio Portrait &middot; Formal",
@@ -117,18 +96,7 @@ CARDS = [
             "shouldn&rsquo;t be the end of it. <b>So we&rsquo;re making it permanent.</b>",
       ask=("Make it permanent.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
- dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Best Pick",
-      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270148/piron-legacy/cards/wedding-couple-real.jpg",
-      alt="Dennis Piron in a tuxedo with his bride on their wedding day",
-      bnm="BEST PICK", bpos="Off the Field &middot; Wedding Day",
-      stats=[("TUX","BLACK"),("BOW TIE","YES"),("ROSES","RED"),("BEST CALL","THIS ONE")],
-      story="Every coach will tell you the biggest calls get made off the field. "
-            "This was his.<br><br>"
-            "Behind every Friday night, every late class and every kid who needed someone "
-            "in their corner, <b>there was a family making room for it.</b>",
-      ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
-      credit="Piron family photo."),
- dict(n="09", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
+ dict(n="06", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
       img="c_crop,x_0,y_140,w_1086,h_1284/c_fill,w_1200,h_1419,q_95,f_jpg/v1794270804/piron-legacy/cards/college-days-real.png",
       alt="Dennis Piron in his college football days, black-and-white portrait",
       bnm="COLLEGE DAYS", bpos="North Central College",
@@ -140,6 +108,39 @@ CARDS = [
             "willing they are to do it.&rdquo; <b>&mdash;&nbsp;Dennis Piron</b>",
       ask=("Keep his classroom going.", "Give at pironlegacy.org"),
       credit="Piron family photo."),
+ dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Best Pick",
+      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270148/piron-legacy/cards/wedding-couple-real.jpg",
+      alt="Dennis Piron in a tuxedo with his bride on their wedding day",
+      bnm="BEST PICK", bpos="Off the Field &middot; Wedding Day",
+      stats=[("TUX","BLACK"),("BOW TIE","YES"),("ROSES","RED"),("BEST CALL","THIS ONE")],
+      story="Every coach will tell you the biggest calls get made off the field. "
+            "This was his.<br><br>"
+            "Behind every Friday night, every late class and every kid who needed someone "
+            "in their corner, <b>there was a family making room for it.</b>",
+      ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
+      credit="Piron family photo."),
+ dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Early Years",
+      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794271436/piron-legacy/cards/coach-throw-batavia.png",
+      alt="Coach Dennis Piron in a Batavia cap, polo and sunglasses, winding up to throw a football",
+      bnm="THE EARLY YEARS", bpos="Batavia Sideline &middot; Coaching",
+      stats=[("CAP","BATAVIA"),("SHADES","ON"),("ARM","LIVE"),("POLO","TUCKED")],
+      story="Early in his coaching years, back home at Batavia, and the arm still worked. "
+            "He was happy to prove it.<br><br>"
+            "Same shades, same full commitment. The players changed every four years. "
+            "<b>He stayed.</b>",
+      ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
+      credit="Piron family photo."),
+ dict(n="09", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Head Coach &middot; Batavia Bulldogs",
+      img="c_crop,x_900,y_0,w_3450,h_4078/c_fill,w_1200,h_1419,q_95,f_jpg/v1787076273/piron-legacy/cards/headcoach-fay.jpg",
+      alt="Coach Dennis Piron on the sideline, arms crossed",
+      bnm="DENNIS PIRON", bpos="Head Coach &middot; Batavia Bulldogs",
+      stats=[("2026","8&ndash;3"),("ALMA MATER","BATAVIA"),("WORE","#89"),("ARMS","CROSSED")],
+      story="Friday nights, arms crossed, on the Bulldog sideline.<br><br>"
+            "Dennis retired from teaching in 2026. What ended was the classroom, and that is "
+            "exactly what this scholarship carries on: <b>the next Batavia senior, funded every "
+            "single year, permanently.</b>",
+      ask=("Scan it. Give.", "The Dunham Foundation doubles the first $50,000, dollar for dollar."),
+      credit=CED),
  dict(n="10", team="THE LEGACY", nm="DENNIS PIRON", pos="The Legacy &middot; Endowed Forever",
       img=FILL + "piron-legacy/cedjay/cedjay-piron-06.jpg",
       alt="Coach Dennis Piron walking off the field at night in a 100 hoodie",
