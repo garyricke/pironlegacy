@@ -85,7 +85,17 @@ CARDS = [
             "teaching, which turned out to be the same job with different equipment.",
       ask=("Cards 4 through 10:", "what he did with it. pironlegacy.org"),
       credit="Piron family photo, never before published."),
- dict(n="05", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
+ dict(n="05", team="PROM NIGHT", nm="DENNIS PIRON", pos="Prom Night",
+      img="c_crop,x_100,y_150,w_1850,h_2187/c_fill,w_1200,h_1419,q_95,f_jpg/v1794272534/piron-legacy/cards/prom-real.jpg",
+      alt="A teenage Dennis Piron in a white tuxedo with tails at prom, beside his seated date",
+      bnm="PROM NIGHT", bpos="Formal Wear &middot; Batavia High",
+      stats=[("TUX","WHITE"),("TAILS","YES"),("RUFFLES","BLUE"),("BALLOONS","PLENTY")],
+      story="White tux. Tails. Ruffled shirt with a blue bow tie to match. Balloons, a peacock "
+            "chair and wood paneling as far as the eye can see.<br><br>"
+            "Every great career has a formal-wear phase. <b>This one went all in.</b>",
+      ask=("Remember your prom?", "Pass it on at pironlegacy.org"),
+      credit="Piron family photo."),
+ dict(n="06", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Three-Piece",
       img="c_crop,x_430,y_300,w_1620,h_1915/c_fill,w_1200,h_1419,q_95,f_jpg/v1794269398/piron-legacy/cards/suit-portrait-real.jpg",
       alt="A young Dennis Piron in a corduroy three-piece suit, studio portrait",
       bnm="THREE-PIECE", bpos="Studio Portrait &middot; Formal",
@@ -96,7 +106,7 @@ CARDS = [
             "shouldn&rsquo;t be the end of it. <b>So we&rsquo;re making it permanent.</b>",
       ask=("Make it permanent.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
- dict(n="06", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
+ dict(n="07", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
       img="c_crop,x_0,y_140,w_1086,h_1284/c_fill,w_1200,h_1419,q_95,f_jpg/v1794270804/piron-legacy/cards/college-days-real.png",
       alt="Dennis Piron in his college football days, black-and-white portrait",
       bnm="COLLEGE DAYS", bpos="North Central College",
@@ -108,7 +118,7 @@ CARDS = [
             "willing they are to do it.&rdquo; <b>&mdash;&nbsp;Dennis Piron</b>",
       ask=("Keep his classroom going.", "Give at pironlegacy.org"),
       credit="Piron family photo."),
- dict(n="07", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Best Pick",
+ dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Best Pick",
       img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270148/piron-legacy/cards/wedding-couple-real.jpg",
       alt="Dennis Piron in a tuxedo with his bride on their wedding day",
       bnm="BEST PICK", bpos="Off the Field &middot; Wedding Day",
@@ -119,7 +129,7 @@ CARDS = [
             "in their corner, <b>there was a family making room for it.</b>",
       ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
- dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Early Years",
+ dict(n="09", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Early Years",
       img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794271436/piron-legacy/cards/coach-throw-batavia.png",
       alt="Coach Dennis Piron in a Batavia cap, polo and sunglasses, winding up to throw a football",
       bnm="THE EARLY YEARS", bpos="Batavia Sideline &middot; Coaching",
@@ -130,27 +140,16 @@ CARDS = [
             "<b>He stayed.</b>",
       ask=("Played for him? Then you know.", "Pass it on at pironlegacy.org"),
       credit="Piron family photo."),
- dict(n="09", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Head Coach &middot; Batavia Bulldogs",
+ dict(n="10", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Head Coach &middot; The Legacy",
       img="c_crop,x_900,y_0,w_3450,h_4078/c_fill,w_1200,h_1419,q_95,f_jpg/v1787076273/piron-legacy/cards/headcoach-fay.jpg",
       alt="Coach Dennis Piron on the sideline, arms crossed",
-      bnm="DENNIS PIRON", bpos="Head Coach &middot; Batavia Bulldogs",
-      stats=[("2026","8&ndash;3"),("ALMA MATER","BATAVIA"),("WORE","#89"),("ARMS","CROSSED")],
+      bnm="THE LEGACY", bpos="Head Coach &middot; Endowed Scholarship",
+      stats=[("ALMA MATER","BATAVIA"),("WORE","#89"),("GOAL","$100,000"),("LASTS","FOREVER")],
       story="Friday nights, arms crossed, on the Bulldog sideline.<br><br>"
-            "Dennis retired from teaching in 2026. What ended was the classroom, and that is "
-            "exactly what this scholarship carries on: <b>the next Batavia senior, funded every "
-            "single year, permanently.</b>",
-      ask=("Scan it. Give.", "The Dunham Foundation doubles the first $50,000, dollar for dollar."),
-      credit=CED),
- dict(n="10", team="THE LEGACY", nm="DENNIS PIRON", pos="The Legacy &middot; Endowed Forever",
-      img=FILL + "piron-legacy/cedjay/cedjay-piron-06.jpg",
-      alt="Coach Dennis Piron walking off the field at night in a 100 hoodie",
-      bnm="THE LEGACY", bpos="Endowed Scholarship",
-      stats=[("GOAL","$100,000"),("MATCH","$50,000"),("AWARDED","YEARLY"),("LASTS","FOREVER")],
-      story="Endowed means the fund is never spent. It&rsquo;s invested, and what it earns pays "
-            "Batavia High School scholarships for college, trade school or an apprenticeship: "
-            "this year, next year, and in a year when nobody reading this is still on the "
-            "committee.<br><br><b>The Dunham Foundation matches the community&rsquo;s first "
-            "$50,000</b>, released once that $50,000 is received.",
+            "Endowed means the fund is never spent. It&rsquo;s invested, and what it earns pays "
+            "Batavia High School scholarships for college, trade school or an apprenticeship, "
+            "every year, for good. <b>The Dunham Foundation matches the community&rsquo;s first "
+            "$50,000.</b>",
       ask=("That&rsquo;s the whole set.", "Finish what he started at pironlegacy.org"),
       credit=CED),
 ]
