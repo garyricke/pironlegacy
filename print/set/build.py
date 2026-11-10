@@ -129,7 +129,7 @@ CARDS = [
       ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
  dict(n="09", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
-      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270804/piron-legacy/cards/college-days-real.png",
+      img="c_crop,x_0,y_140,w_1086,h_1284/c_fill,w_1200,h_1419,q_95,f_jpg/v1794270804/piron-legacy/cards/college-days-real.png",
       alt="Dennis Piron in his college football days, black-and-white portrait",
       bnm="COLLEGE DAYS", bpos="North Central College",
       stats=[("CURLS","ELITE"),("STARE","LOCKED IN"),("SMILING","LATER"),("NECK","YES")],
