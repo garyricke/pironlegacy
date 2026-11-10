@@ -97,8 +97,8 @@ CARDS = [
       ask=("Went to school with him?", "Pass it on. pironlegacy.org"),
       credit="Piron family photo."),
  dict(n="06", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Still Got It",
-      img="c_fill,w_1200,h_1419,g_auto:faces,q_95,f_jpg/v1794263926/piron-legacy/cards/coach-young-real.jpg",
-      alt="A young Coach Dennis Piron in sunglasses, winding up to throw a football",
+      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794271436/piron-legacy/cards/coach-throw-batavia.png",
+      alt="Coach Dennis Piron in a Batavia cap, polo and sunglasses, winding up to throw a football",
       bnm="STILL GOT IT", bpos="Sideline &middot; Undisputed",
       stats=[("ARM","CLASSIFIED"),("SPIRAL","TIGHT-ISH"),("ASKED TO","NO"),("POINT MADE","YES")],
       story="Nobody asked him to throw it. He threw it anyway, in front of teenagers with "
