@@ -128,18 +128,18 @@ CARDS = [
             "in their corner, <b>there was a family making room for it.</b>",
       ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
- dict(n="09", team="INCUBATOR@BHS", nm="MR. PIRON", pos="INCubator@BHS &middot; Teacher",
-      img=FILL + "piron-legacy/cards/teamday-kilburg.jpg",
-      alt="Dennis Piron portrait in a Batavia Football shirt",
-      bnm="MR. PIRON", bpos="INCubator@BHS &middot; Teacher",
-      stats=[("YEARS","10"),("STUDENTS","~700"),("CLASS","INCUBATOR"),("RETIRED","2026")],
-      story="In his class, teenagers built real companies. In 2026 a student team built "
-            "<b>The Windmill Weekly</b>, a large-type newspaper for care-center residents, "
-            "because a grandmother missed her paper.<br><br>"
-            "&ldquo;What good people children are. Given the opportunity to serve&hellip; how "
+ dict(n="09", team="NORTH CENTRAL", nm="DENNIS PIRON", pos="College Days",
+      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270804/piron-legacy/cards/college-days-real.png",
+      alt="Dennis Piron in his college football days, black-and-white portrait",
+      bnm="COLLEGE DAYS", bpos="North Central College",
+      stats=[("CURLS","ELITE"),("STARE","LOCKED IN"),("SMILING","LATER"),("NECK","YES")],
+      story="Before he was Coach, before he was Mr. Piron, he was a college kid with a lot of "
+            "hair and a very serious stare.<br><br>"
+            "Later he&rsquo;d spend 10 years in Batavia&rsquo;s INCubator, where nearly 700 "
+            "teenagers built real companies. &ldquo;Given the opportunity to serve&hellip; how "
             "willing they are to do it.&rdquo; <b>&mdash;&nbsp;Dennis Piron</b>",
       ask=("Keep his classroom going.", "Give at pironlegacy.org"),
-      credit="Photo: Kathleen Kilburg Photography."),
+      credit="Piron family photo."),
  dict(n="10", team="THE LEGACY", nm="DENNIS PIRON", pos="The Legacy &middot; Endowed Forever",
       img=FILL + "piron-legacy/cedjay/cedjay-piron-06.jpg",
       alt="Coach Dennis Piron walking off the field at night in a 100 hoodie",
