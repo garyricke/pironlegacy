@@ -80,11 +80,11 @@ CARDS = [
       bnm="THE PLAYER", bpos="Batavia Bulldogs &middot; #89",
       stats=[("SCHOOL","BATAVIA"),("POSITION","RECEIVER"),("YEARS","1980&ndash;83"),("NUMBER","89")],
       story="Batavia. 1980 to &rsquo;83. A receiver wearing <b>89</b>.<br><br>"
-            "This is the hinge of the set. On this card he&rsquo;s a Batavia kid being coached. "
-            "On every card after it, he&rsquo;s the one doing the coaching, and eventually the "
-            "teaching, which turned out to be the same job with different equipment.",
-      ask=("Cards 4 through 10:", "what he did with it. pironlegacy.org"),
-      credit="Piron family photo, never before published."),
+            "Here he&rsquo;s a Batavia kid being coached. Years later he&rsquo;d be the one doing "
+            "the coaching, and eventually the teaching, which turned out to be the same job "
+            "with different equipment.",
+      ask=("Where it started.", "Keep going: the rest is what he did with it."),
+      credit="Piron family photo."),
  dict(n="05", team="PROM NIGHT", nm="DENNIS PIRON", pos="Prom Night",
       img="c_crop,x_100,y_150,w_1850,h_2187/c_fill,w_1200,h_1419,q_95,f_jpg/v1794272534/piron-legacy/cards/prom-real.jpg",
       alt="A teenage Dennis Piron in a white tuxedo with tails at prom, beside his seated date",
