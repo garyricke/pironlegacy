@@ -89,8 +89,8 @@ CARDS = [
       img="c_crop,x_100,y_150,w_1850,h_2187/c_fill,w_1200,h_1419,q_95,f_jpg/v1794272534/piron-legacy/cards/prom-real.jpg",
       alt="A teenage Dennis Piron in a white tuxedo with tails at prom, beside his seated date",
       bnm="PROM NIGHT", bpos="Formal Wear &middot; Batavia High",
-      stats=[("TUX","WHITE"),("TAILS","YES"),("RUFFLES","BLUE"),("BALLOONS","PLENTY")],
-      story="White tux. Tails. Ruffled shirt with a blue bow tie to match. Balloons, a peacock "
+      stats=[("TUX","WHITE"),("TAILS","YES"),("RUFFLES","MAX"),("BALLOONS","PLENTY")],
+      story="White tux. Tails. Ruffled shirt, white bow tie, boutonniere. Balloons, a peacock "
             "chair and wood paneling as far as the eye can see.<br><br>"
             "Every great career has a formal-wear phase. <b>This one went all in.</b>",
       ask=("Remember your prom?", "Pass it on at pironlegacy.org"),
