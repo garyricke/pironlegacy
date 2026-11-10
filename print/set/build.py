@@ -16,7 +16,7 @@ RULES baked into this copy (see project memory):
   - Coaching retirement is NOT announced: no "last/final season/game".
   - Scholarship is for college, trade school or an apprenticeship; number of
     recipients is undecided, so never say "one senior".
-  - Card 08 photo (player #81): family OK received per Gary, Nov 9 2026.
+  - Card 08 is the wedding portrait (family scan); the #81 Mentor card was retired Nov 9 2026.
 """
 import html, pathlib
 
@@ -117,17 +117,17 @@ CARDS = [
             "shouldn&rsquo;t be the end of it. <b>So we&rsquo;re making it permanent.</b>",
       ask=("Make it permanent.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
       credit="Piron family photo."),
- dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="The Mentor",
-      img=FILL + "piron-legacy/cards/mentor-clean.jpg",
-      alt="Coach Dennis Piron with his arm around player number 81",
-      bnm="THE MENTOR", bpos="The Whole Point",
-      stats=[("YEARS","10"),("STUDENTS","~700"),("SHORT ANSWERS","0"),("FORGOT HIM","NONE")],
-      story="This is the card that isn&rsquo;t a joke.<br><br>Ask anyone who came through his "
-            "classroom or his program what Piron did for them, and you won&rsquo;t get a short "
-            "answer. You&rsquo;ll get a specific one. <b>Nearly 700 students have a version of "
-            "that story.</b>",
-      ask=("Add the next one.", "The next Batavia senior, every year, for good. pironlegacy.org"),
-      credit="Used with the player&rsquo;s family&rsquo;s permission."),
+ dict(n="08", team="BATAVIA BULLDOGS", nm="DENNIS PIRON", pos="Best Pick",
+      img="c_fill,w_1200,h_1419,g_north,q_95,f_jpg/v1794270148/piron-legacy/cards/wedding-couple-real.jpg",
+      alt="Dennis Piron in a tuxedo with his bride on their wedding day",
+      bnm="BEST PICK", bpos="Off the Field &middot; Wedding Day",
+      stats=[("TUX","BLACK"),("BOW TIE","YES"),("ROSES","RED"),("BEST CALL","THIS ONE")],
+      story="Every coach will tell you the biggest calls get made off the field. "
+            "This was his.<br><br>"
+            "Behind every Friday night, every late class and every kid who needed someone "
+            "in their corner, <b>there was a family making room for it.</b>",
+      ask=("Back the whole team.", "Every dollar doubled by the Dunham Foundation, up to $50,000."),
+      credit="Piron family photo."),
  dict(n="09", team="INCUBATOR@BHS", nm="MR. PIRON", pos="INCubator@BHS &middot; Teacher",
       img=FILL + "piron-legacy/cards/teamday-kilburg.jpg",
       alt="Dennis Piron portrait in a Batavia Football shirt",
