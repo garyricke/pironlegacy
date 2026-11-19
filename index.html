@@ -729,6 +729,37 @@ a { color: inherit; }
   #adm-lock, #adm-scrim { animation: none; }
   .adm-shake { animation: none; }
 }
+
+/* ───── APPLICATION-FIRST (preview branch apply-first, Nov 2026) ───── */
+.preview-bar{background:var(--gold);color:var(--black);text-align:center;font:700 .85rem/1.4 "Montserrat",sans-serif;padding:9px 16px;position:fixed;left:0;right:0;bottom:0;z-index:2000;box-shadow:0 -4px 16px rgba(0,0,0,.3)}
+.nav-give{color:#fff;font:700 .85rem 'Montserrat',sans-serif;text-decoration:none;opacity:.85;margin-right:14px}
+.nav-give:hover{opacity:1;text-decoration:underline}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 24px}
+.hero-facts span{background:rgba(250,204,8,.12);border:1px solid rgba(250,204,8,.45);color:#fff;border-radius:999px;padding:7px 14px;font-size:.9rem}
+.hero-facts b{color:var(--gold)}
+.hero-ctas .btn + .btn{margin-left:10px}
+.applysec{padding:96px 0;background:#fff}
+.applysec .section-sub{max-width:720px}
+.apply-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin:44px 0 36px;text-align:left}
+.apply-card{background:var(--paper);border-radius:14px;padding:26px 24px;border-top:4px solid var(--maroon)}
+.apply-card .ac-icon{width:40px;height:40px;color:var(--maroon);margin-bottom:12px}
+.apply-card h3{font-size:1.15rem;font-weight:800;margin-bottom:8px}
+.apply-card p,.apply-card li{color:#333;font-size:.98rem}
+.apply-card ul{padding-left:18px;margin-top:6px}
+.apply-qs{max-width:760px;margin:0 auto 36px;text-align:left;background:#140d0d;color:#f1ece2;border-radius:14px;padding:28px 30px}
+.apply-qs h3{color:var(--gold);font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px}
+.apply-qs ol{padding-left:22px}
+.apply-qs li{margin:8px 0;font-size:1.05rem}
+.apply-note{color:var(--muted);font-size:.95rem;margin-top:14px}
+.scholars{padding:90px 0;background:var(--paper)}
+.scholar-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px}
+.scholar-slot{border:2px dashed #cfc6b4;border-radius:14px;padding:34px 20px;text-align:center;color:var(--muted)}
+.scholar-slot svg{width:44px;height:44px;color:#bdb3a0;margin-bottom:10px}
+.scholar-slot b{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:4px}
+.giveband{padding:80px 0;background:#140d0d;color:#f1ece2;text-align:center}
+.giveband h2{color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin-bottom:14px}
+.giveband p{max-width:640px;margin:0 auto 26px;color:#d9d2c4;font-size:1.08rem}
+.giveband .accent{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -745,6 +776,7 @@ a { color: inherit; }
      tier is independent of it and stays locked either way.
      ============================================================ -->
 <!-- ───── NAV ───── -->
+<div class="preview-bar">Preview for committee review: the landing page once applications open. Not live.</div>
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="#top" class="nav-brand" aria-label="Dennis Piron Legacy Scholarship">
@@ -758,44 +790,28 @@ a { color: inherit; }
              Murtaugh confirmed by test donation on July 25, 2026. (An earlier
              /ncp/payment/ link she sent that morning did NOT offer fee cover
              and must not be used.) -->
-        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="nav-cta">Give Now</a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="nav-give">Give</a>
+        <a href="/apply" class="nav-cta">Apply</a>
       </span>
-      <span class="nav-deadline">$50K match secured</span>
+      <span class="nav-deadline">Class of 2027 &middot; Deadline [TBD]</span>
     </span>
   </div>
 </nav>
-
-<!-- ───── DENNIS PIRON DAY: Mayor Schielke's proclamation, Oct 16 2026 ───── -->
-<section class="pday" id="piron-day" aria-labelledby="pday-title">
-  <div class="pday-inner">
-    <div class="pday-copy">
-      <div class="pday-kicker">Declared by Mayor Schielke</div>
-      <h2 id="pday-title"><span class="pd-name">Dennis Piron</span><span class="pd-day">Day <span class="pd-date">Oct. 16</span></span></h2>
-      <p>It's official: Mayor Schielke has declared October 16 Dennis Piron Day in Batavia. Celebrate it with a gift that lasts as long as his name does. Every dollar to his scholarship is doubled by the Dunham Foundation.</p>
-      <div class="pday-ctas">
-        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give in His Honor</a>
-      </div>
-    </div>
-    <div class="pday-photo">
-      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,ar_4:5,g_auto:faces,w_900/v1787076275/piron-legacy/cards/moment-fay.jpg" alt="Coach Dennis Piron grinning and pointing at the camera on the Bulldog sideline" width="900" height="1125">
-      <span class="pday-credit">Photo: Ced Jay Photography</span>
-    </div>
-  </div>
-</section>
 
 <!-- ───── HERO ───── -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-copy">
       <img class="hero-badge" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/v1782508679/piron-legacy/piron-legacy-badge.png" alt="Dennis Piron Legacy Scholarship emblem" width="124" height="124">
-      <span class="hero-eyebrow">A Permanent Tribute · Batavia, Illinois</span>
+      <span class="hero-eyebrow">Now accepting applications · Batavia High School</span>
       <h1>The Dennis Piron<br><span class="accent">Legacy Scholarship</span></h1>
-      <p class="hero-sub">For a decade, Dennis Piron turned Batavia students into entrepreneurs. Now we're endowing a scholarship in his name — <span class="hero-hl">funded forever, with no annual fundraising.</span></p>
-      <div class="hero-matchpill">Every gift <strong>doubled</strong> — the Dunham Foundation's <strong>$50,000 match is secured</strong>, released when our half is raised</div>
+      <p class="hero-sub">For graduating seniors who took part in <span class="hero-hl">INCubator or Field Study</span> and are heading to college, a trade school, an apprenticeship or a training program.</p>
+      <div class="hero-facts"><span><b>Up to $4,000</b> each year</span><span>Essay or video</span><span>No GPA required</span></div>
       <div class="hero-ctas">
-        <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give Now</a>
+        <a href="/apply" class="btn btn-gold">Apply now</a>
+        <a href="#apply" class="btn btn-outline">Who can apply</a>
       </div>
-      <a href="#match" class="hero-link">See how your gift doubles →</a>
+      <a href="#match" class="hero-link">Want to give instead? Help us finish the endowment →</a>
     </div>
 
     <div class="hero-video-col">
@@ -817,6 +833,56 @@ a { color: inherit; }
   </div>
 </section>
 
+<!-- ───── APPLY (criteria from the Nov 18, 2026 committee meeting) ───── -->
+<section class="applysec" id="apply">
+  <div class="container center">
+    <span class="eyebrow">The Scholarship</span>
+    <h2 class="section-title">Tell us where you&rsquo;re headed</h2>
+    <p class="section-sub">Dennis Piron spent ten years helping Batavia students find out what they were capable of. This scholarship goes to a student who demonstrates drive and passion to pursue their future plans.</p>
+    <div class="apply-grid">
+      <div class="apply-card">
+        <svg class="ac-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Who can apply</h3>
+        <p>Graduating Batavia High seniors who have taken part in INCubator or Field Study, this year or an earlier one.</p>
+      </div>
+      <div class="apply-card">
+        <svg class="ac-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <h3>What it pays for</h3>
+        <p>Up to $4,000 each year, given to one student or shared among several. It&rsquo;s paid to your college, trade school, union or training program, not to you directly.</p>
+      </div>
+      <div class="apply-card">
+        <svg class="ac-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+        <h3>How to apply</h3>
+        <p>Answer three questions in a written essay (at least 300 words), a 3 to 5 minute video, or both. No GPA, transcript or financial information needed.</p>
+      </div>
+    </div>
+    <div class="apply-qs">
+      <h3>The three questions</h3>
+      <ol>
+        <li>How would this scholarship support your goals for the future?</li>
+        <li>How has participating in INCubator or Field Study helped shape your goals for the future?</li>
+        <li>In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</li>
+      </ol>
+    </div>
+    <a href="/apply" class="btn btn-maroon">Start your application</a>
+    <p class="apply-note">Deadline: [to be set by the committee]. Questions? Ask your counselor.</p>
+  </div>
+</section>
+
+<!-- ───── PIRON SCHOLARS: placeholder until the first recipients are chosen (~March 2027) ───── -->
+<section class="scholars" id="scholars">
+  <div class="container center">
+    <span class="eyebrow">Piron Scholars</span>
+    <h2 class="section-title">Meet the students</h2>
+    <p class="section-sub">The first Piron Scholars will be chosen this spring. Once they are, this is where you&rsquo;ll meet them and hear where they&rsquo;re headed.</p>
+    <div class="scholar-slots">
+      <div class="scholar-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg><b>Class of 2027</b>Coming this spring</div>
+      <div class="scholar-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg><b>Class of 2027</b>Coming this spring</div>
+      <div class="scholar-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg><b>Class of 2027</b>Coming this spring</div>
+    </div>
+  </div>
+</section>
+
 <!-- ───── REVEAL: the QR on Card 03 ("Who is #89?") lands here via /89 ───── -->
 <section class="reveal" id="reveal">
   <div class="container">
@@ -828,7 +894,7 @@ a { color: inherit; }
       <div class="reveal-copy">
         <span class="eyebrow">You scanned the card</span>
         <h2>Number 89 is <span class="accent">Coach Dennis Piron.</span></h2>
-        <p>A Batavia receiver, 1980 to 1983, thirty-some years before he took over the Bulldog sideline he has run most Friday nights since. This is his final season as head football coach. That photo belongs to his family, and until it was handed to you at the gate, it had never been published anywhere.</p>
+        <p>A Batavia receiver, 1980 to 1983, thirty-some years before he took over the Bulldog sideline he has run most Friday nights since. That photo belongs to his family, and until it was handed to you at the gate, it had never been published anywhere.</p>
         <p>He also spent ten years teaching Batavia High's INCubator class, where nearly 700 students learned to build a business. His former mentors are endowing a scholarship in his name so a Batavia senior gets it every year, permanently, with every dollar matched by the Dunham Foundation.</p>
         <p><strong>That card is 3 of 10. The other nine only come to you when you give.</strong></p>
         <div class="reveal-tiers">
@@ -846,41 +912,13 @@ a { color: inherit; }
   </div>
 </section>
 
-<!-- ───── MATCH / MATH ───── -->
-<section class="match" id="match">
-  <div class="container center">
-    <span class="eyebrow">The Match Is Secured</span>
-    <h2>Your gift is doubled — dollar for dollar</h2>
-    <p class="match-lead">We're raising <strong>$100,000</strong> to permanently endow the scholarship. The <strong>Dunham Foundation has approved a $50,000 matching grant</strong> — so every dollar the community commits is now <strong>guaranteed to be matched dollar-for-dollar</strong>, up to $50,000. The grant is <strong>released once the community's first $50,000 has been raised and received</strong> — so every gift given today moves the match closer to releasing.</p>
-
-    <div class="match-grid">
-      <div class="match-card">
-        <div class="mc-num">$100K</div>
-        <div class="mc-label">The Endowment Goal</div>
-        <div class="mc-desc">Fully funds the scholarship in perpetuity — no annual fundraising, ever.</div>
-      </div>
-      <div class="match-card lead">
-        <div class="mc-num">$50K</div>
-        <div class="mc-label">Community Half</div>
-        <div class="mc-desc">Raised from lead donors like you — and received in full, which is what triggers the match.</div>
-      </div>
-      <div class="match-card">
-        <div class="mc-num">$50K</div>
-        <div class="mc-label">Dunham Match</div>
-        <div class="mc-desc">A dollar-for-dollar matching grant, approved and secured — released to the endowment once our $50,000 half is in the bank.</div>
-      </div>
-    </div>
-
-    <div class="match-doubler">
-      <div class="md-row">
-        <span class="md-amt you">$2,500</span>
-        <span class="md-plus">+</span>
-        <span class="md-amt them">$2,500</span>
-        <span class="md-eq">=</span>
-        <span class="md-amt them">$5,000</span>
-      </div>
-      <div class="md-cap">A <strong>$2,500</strong> leadership gift becomes <strong>$5,000</strong> toward the endowment. Lead gifts of <strong>$2,000–$5,000</strong> are what get us there.</div>
-    </div>
+<!-- ───── GIVE: compact band (keeps #match for old links) ───── -->
+<section class="giveband" id="match">
+  <div class="container">
+    <span class="eyebrow">Help Finish It</span>
+    <h2>We&rsquo;re close to <span class="accent">$100,000.</span></h2>
+    <p>Gifts from this community and the Dunham Foundation&rsquo;s $50,000 match have nearly endowed the scholarship for good. A gift now helps finish it, and every dollar stays invested so the scholarship is paid every year, permanently.</p>
+    <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Give Now</a>
   </div>
 </section>
 
@@ -1148,10 +1186,11 @@ a { color: inherit; }
 <!-- ───── FINAL CTA ───── -->
 <section class="finalcta">
   <div class="container">
-    <h2>Help us raise our half — every gift is now doubled</h2>
-    <p>The $50,000 match is secured, and it releases as soon as our half is raised and received. A single leadership gift, doubled, moves us meaningfully toward $100,000.</p>
+    <h2>Batavia seniors: tell us where you&rsquo;re headed</h2>
+    <p>If you took part in INCubator or Field Study, this scholarship is for you. Apply with an essay, a video, or both.</p>
     <div class="finalcta-ctas">
-      <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-maroon">Give Now</a>
+      <a href="/apply" class="btn btn-maroon">Apply now</a>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=VZUFTNTFE9MU8" target="_blank" rel="noopener noreferrer" class="btn btn-maroon" style="background:transparent;color:var(--black);border:2px solid var(--black);margin-left:10px">Give</a>
     </div>
   </div>
 </section>
