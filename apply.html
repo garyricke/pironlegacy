@@ -222,7 +222,7 @@ button svg{width:20px;height:20px}
     var progs=[]; data.forEach(function(v,k){ if(k==='program') progs.push(v); else body.append(k,v); }); body.append('program',progs.join(', '));
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
       .then(function(r){ if(!r.ok) throw new Error(r.status); f.classList.add('hidden'); show('done',true); window.scrollTo(0,document.getElementById('done').offsetTop-20); })
-      .catch(function(){ btn.disabled=false; setStatus('Something went wrong and your application was not sent. Please try again, or email Ashley Murtaugh at the Batavia Foundation for Educational Excellence.',true); });
+      .catch(function(){ btn.disabled=false; setStatus('Something went wrong and your application was not sent. Please try again, or email the Batavia Foundation for Educational Excellence at info@bataviafoundation.org.',true); });
   });
 })();
 </script>
