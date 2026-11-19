@@ -51,6 +51,13 @@ textarea{min-height:260px;resize:vertical;line-height:1.55}
 .count{font-size:.85rem;color:var(--muted);text-align:right;margin-top:4px}
 .count.over{color:var(--err);font-weight:700}
 .hidden{display:none}
+.q{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}
+.q:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.q-text{font-weight:700;margin-bottom:10px;display:flex;gap:10px}
+.q-n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--maroon);color:#fff;font:800 .85rem/26px 'Montserrat',sans-serif;text-align:center}
+.q-choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.q-choice{grid-template-columns:1fr}}
+.q textarea{min-height:200px}
 .hp{position:absolute;left:-9999px}
 .err-msg{color:var(--err);font-size:.85rem;margin-top:4px}
 button{display:inline-flex;align-items:center;gap:8px;background:var(--maroon);color:#fff;border:0;border-radius:9px;font:700 1.05rem 'Montserrat',sans-serif;padding:14px 26px;cursor:pointer}
@@ -79,10 +86,10 @@ button svg{width:20px;height:20px}
     <h2><span class="n">1</span> About the scholarship</h2>
     <p style="margin-bottom:14px">The scholarship goes to a student who demonstrates drive and passion to pursue their future plans.</p>
     <ul class="facts">
-      <li><b>Award:</b> up to $4,000 in total each year, given to one student or shared among several</li>
+      <li><b>Award:</b> up to $4,000 this year, given to one student or shared among several</li>
       <li><b>Paid to:</b> your college, trade school, union or training program, not to you directly</li>
       <li><b>Who can apply:</b> graduating seniors who have taken part in INCubator or Field Study, now or in an earlier year</li>
-      <li><b>Your answer:</b> a written essay (at least 300 words), a video (3 to 5 minutes), or both</li>
+      <li><b>Your answers:</b> three questions, answered either in writing (at least 300 words for each question) or in one 3 to 5&nbsp;minute video that covers all&nbsp;three</li>
       <li><b>No GPA, transcript or financial information needed.</b> We want your story.</li>
       <li><b>Deadline:</b> [to be set by the committee]</li>
     </ul>
@@ -125,27 +132,40 @@ button svg{width:20px;height:20px}
     </section>
 
     <section class="box">
-      <h2><span class="n">4</span> Your answer</h2>
-      <p>Answer these three questions in a written essay, a video, or both:</p>
-      <ol class="qs">
-        <li>How would this scholarship support your goals for the future?</li>
-        <li>How has participating in INCubator or Field Study helped shape your goals for the future?</li>
-        <li>In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</li>
-      </ol>
-      <div class="field">
-        <label class="choice"><input type="radio" name="format" value="Essay" required> Written essay (at least 300 words)</label>
-        <label class="choice"><input type="radio" name="format" value="Video"> Video (3 to 5 minutes)</label>
-        <label class="choice"><input type="radio" name="format" value="Both"> Both</label>
-        <div class="err-msg hidden" id="format-err">Please choose an essay, a video, or both.</div>
+      <h2><span class="n">4</span> Your answers</h2>
+      <p style="margin-bottom:10px">Answer the three questions below in one of two ways:</p>
+      <div class="q-choice">
+        <label class="choice"><input type="radio" name="format" value="Written"> Write an answer to each question (at least 300 words&nbsp;each)</label>
+        <label class="choice"><input type="radio" name="format" value="Video"> Record one 3 to 5 minute video that answers all three&nbsp;questions</label>
       </div>
-      <div class="field hidden" id="essay-wrap">
-        <label for="essay">Your essay</label>
-        <textarea id="essay" name="essay"></textarea>
-        <div class="count" id="count">0 words (at least 300)</div>
+      <div class="err-msg hidden" id="format-err">Please choose how you&rsquo;ll answer.</div>
+      <div class="q" data-q="1">
+        <p class="q-text"><span class="q-n">1</span> How would this scholarship support your goals for the future?</p>
+        <div class="field hidden written" id="q1-written">
+          <label for="q1-answer">Your answer</label>
+          <textarea id="q1-answer" name="q1-answer"></textarea>
+          <div class="count" id="q1-count">0 words (at least 300)</div>
+        </div>
       </div>
-      <div class="field hidden" id="video-wrap">
+      <div class="q" data-q="2">
+        <p class="q-text"><span class="q-n">2</span> How has participating in INCubator or Field Study helped shape your goals for the future?</p>
+        <div class="field hidden written" id="q2-written">
+          <label for="q2-answer">Your answer</label>
+          <textarea id="q2-answer" name="q2-answer"></textarea>
+          <div class="count" id="q2-count">0 words (at least 300)</div>
+        </div>
+      </div>
+      <div class="q" data-q="3">
+        <p class="q-text"><span class="q-n">3</span> In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</p>
+        <div class="field hidden written" id="q3-written">
+          <label for="q3-answer">Your answer</label>
+          <textarea id="q3-answer" name="q3-answer"></textarea>
+          <div class="count" id="q3-count">0 words (at least 300)</div>
+        </div>
+      </div>
+      <div class="field hidden" id="videowrap">
         <label for="video">Link to your video <span class="hint">Upload it to YouTube (unlisted is fine) or Google Drive, set it so anyone with the link can view, and paste the link here.</span></label>
-        <input id="video" name="video-link" type="url" placeholder="https://">
+        <input id="video" name="video" type="url" placeholder="https://">
       </div>
     </section>
 
@@ -168,14 +188,16 @@ button svg{width:20px;height:20px}
 </main>
 <script>
 (function(){
-  var f=document.getElementById('app'), essay=document.getElementById('essay'), count=document.getElementById('count');
-  var MIN=300;
+  var f=document.getElementById('app'), MIN=300, QN=[1,2,3];
   function words(s){return (s.trim().match(/\S+/g)||[]).length;}
-  essay.addEventListener('input',function(){var n=words(essay.value);count.textContent=n+' words'+(n<MIN?' (at least 300)':'');count.classList.toggle('over',n>0&&n<MIN);});
+  QN.forEach(function(i){
+    var ta=document.getElementById('q'+i+'-answer'), ct=document.getElementById('q'+i+'-count');
+    ta.addEventListener('input',function(){var n=words(ta.value);ct.textContent=n+' words'+(n<MIN?' (at least 300)':'');ct.classList.toggle('over',n>0&&n<MIN);});
+  });
   f.querySelectorAll('input[name=format]').forEach(function(r){r.addEventListener('change',function(){
     var v=f.querySelector('input[name=format]:checked').value;
-    document.getElementById('essay-wrap').classList.toggle('hidden',v==='Video');
-    document.getElementById('video-wrap').classList.toggle('hidden',v==='Essay');
+    QN.forEach(function(i){document.getElementById('q'+i+'-written').classList.toggle('hidden',v!=='Written');});
+    document.getElementById('videowrap').classList.toggle('hidden',v!=='Video');
   });});
   function show(id,on){document.getElementById(id).classList.toggle('hidden',!on);}
   function setStatus(m,bad){var s=document.getElementById('status');s.textContent=m;s.className='status'+(bad?' bad':'');}
@@ -187,9 +209,12 @@ button svg{width:20px;height:20px}
     var em=document.getElementById('email'), bps=/@(\w+\.)?bps101\.net\s*$/i.test(em.value);
     show('email-err',bps); if(bps||(em.value&&!em.checkValidity())) fail(em);
     var prog=f.querySelectorAll('input[name=program]:checked').length>0; show('program-err',!prog); if(!prog) fail(f.querySelector('input[name=program]'));
-    var fmt=f.querySelector('input[name=format]:checked'); show('format-err',!fmt); if(!fmt) fail(f.querySelector('input[name=format]'));
-    if(fmt&&fmt.value!=='Video'){var n=words(essay.value); if(n<MIN){fail(essay); if(n>0) setStatus('Your essay is '+n+' words. Please write at least 300.',true);}}
-    if(fmt&&fmt.value!=='Essay'){var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
+    var shortQ=0, fm=f.querySelector('input[name=format]:checked'); show('format-err',!fm);
+    if(!fm) fail(f.querySelector('input[name=format]'));
+    else if(fm.value==='Written'){
+      QN.forEach(function(i){var ta=document.getElementById('q'+i+'-answer'), n=words(ta.value); if(n<MIN){fail(ta); if(n>0&&!shortQ) shortQ=i;}});
+    } else {var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
+    if(shortQ) setStatus('Your answer to question '+shortQ+' is under 300 words. Please write at least 300 for each question, or record a video instead.',true);
     var c=f.querySelector('input[name=confirm]'); if(!c.checked) fail(c);
     if(!ok){ if(!document.getElementById('status').textContent) setStatus('Please fill in the highlighted items.',true); first.focus(); return; }
     var btn=document.getElementById('submit'); btn.disabled=true; setStatus('Sending…');
