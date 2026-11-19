@@ -82,6 +82,10 @@ const SHARED_PATHS = [
   /^\/cards(\.html)?(\/|$)/,
   // /proof: the final 10-card donor set, for committee approval (Nov 2026).
   /^\/proof(\.html)?(\/|$)/,
+  // /notes + /apply: Nov 18 criteria notes and the DRAFT scholarship
+  // application, for committee review. Remove /apply here when it opens.
+  /^\/notes(\.html)?(\/|$)/,
+  /^\/apply(\.html)?(\/|$)/,
 ];
 
 /* ── Tier 1c: committee ────────────────────────────────────────────────── */

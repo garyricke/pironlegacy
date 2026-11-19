@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply: Dennis Piron Legacy Scholarship</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://pironlegacy.org/apply">
+<!-- Scholarship application. DRAFT for committee review (Nov 2026), built from
+     the Nov 18 criteria meeting notes (see /notes).
+     Gated by the SHARED tier (password-gate.js SHARED_PATHS, password "piron")
+     until the committee approves it and sets a deadline. To go public: remove
+     /apply from SHARED_PATHS, delete the .draft bar, fill in the deadline.
+     Netlify Form "scholarship-application". Submits by fetch to "/" (ungated),
+     shows success only on res.ok. No payment details: BFEE handles checks. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico">
+<style>
+:root{--maroon:#AC161D;--maroon-deep:#7a0f14;--gold:#FACC08;--ink:#1a1a1a;--muted:#5b5b5b;--paper:#f7f5f0;--line:#e3ded4;--err:#b42318}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Open Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{width:min(760px,92vw);margin:0 auto}
+.draft{background:var(--gold);color:#140d0d;font:700 .85rem 'Montserrat',sans-serif;text-align:center;padding:9px 4vw}
+header{background:#140d0d;color:#f1ece2;padding:44px 0 38px;border-bottom:4px solid var(--gold)}
+.eyebrow{font:800 .72rem 'Montserrat',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+h1{font:900 clamp(1.9rem,4.6vw,2.7rem)/1.08 'Montserrat',sans-serif;margin:10px 0 14px}
+header p{color:#d9d2c4}
+main{padding:34px 0 60px}
+.box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-bottom:20px}
+h2{font:800 1.05rem 'Montserrat',sans-serif;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+h2 .n{background:var(--maroon-deep);color:var(--gold);font-size:.78rem;padding:3px 8px;border-radius:5px}
+.facts{list-style:none;display:grid;gap:8px}
+.facts li{padding-left:18px;position:relative}
+.facts li:before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--maroon)}
+label{display:block;font-weight:700;font-size:.93rem;margin-bottom:5px}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.field{margin-bottom:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.row3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+@media(max-width:600px){.row,.row3{grid-template-columns:1fr}}
+input[type=text],input[type=email],input[type=tel],input[type=url],textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1.5px solid #cfc8bb;border-radius:8px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:none;border-color:var(--maroon);box-shadow:0 0 0 3px rgba(172,22,29,.15)}
+textarea{min-height:260px;resize:vertical;line-height:1.55}
+.choice{display:flex;align-items:flex-start;gap:10px;font-weight:600;padding:10px 12px;border:1.5px solid #e1dbcf;border-radius:8px;margin-bottom:8px;cursor:pointer}
+.choice input{margin-top:5px;accent-color:var(--maroon);width:18px;height:18px;flex:none}
+.choice:has(input:checked){border-color:var(--maroon);background:#fdf6f5}
+.qs{padding-left:22px;margin:4px 0 14px}
+.qs li{margin:6px 0}
+.count{font-size:.85rem;color:var(--muted);text-align:right;margin-top:4px}
+.count.over{color:var(--err);font-weight:700}
+.hidden{display:none}
+.hp{position:absolute;left:-9999px}
+.err-msg{color:var(--err);font-size:.85rem;margin-top:4px}
+button{display:inline-flex;align-items:center;gap:8px;background:var(--maroon);color:#fff;border:0;border-radius:9px;font:700 1.05rem 'Montserrat',sans-serif;padding:14px 26px;cursor:pointer}
+button:hover{background:var(--maroon-deep)}
+button[disabled]{opacity:.6;cursor:wait}
+button svg{width:20px;height:20px}
+.status{margin-top:14px;font-weight:600}
+.status.bad{color:var(--err)}
+.done{text-align:center;padding:36px 26px}
+.done svg{width:48px;height:48px;color:#1a7f37}
+.done h2{justify-content:center;font-size:1.4rem;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="draft">Draft for committee review. Not open to students yet.</div>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Batavia High School &middot; Class of 2027</div>
+    <h1>Dennis Piron Legacy Scholarship application</h1>
+    <p>For graduating seniors who took part in INCubator or Field Study and are heading to a trade school, an educational program, community college, or a 4-year college or university.</p>
+  </div>
+</header>
+<main class="wrap">
+
+  <section class="box">
+    <h2><span class="n">1</span> About the scholarship</h2>
+    <p style="margin-bottom:14px">The scholarship goes to a student who demonstrates drive and passion to pursue their future plans.</p>
+    <ul class="facts">
+      <li><b>Award:</b> up to $4,000</li>
+      <li><b>Paid to:</b> your school or program, not to you directly</li>
+      <li><b>Who can apply:</b> graduating seniors who took part in INCubator or Field Study</li>
+      <li><b>Your answer:</b> a written essay (300 words) or a video (3 to 5 minutes)</li>
+      <li><b>Deadline:</b> [to be set by the committee]</li>
+    </ul>
+  </section>
+
+  <form id="app" name="scholarship-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="scholarship-application">
+    <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+    <section class="box">
+      <h2><span class="n">2</span> About you</h2>
+      <div class="row">
+        <div class="field"><label for="first">First name</label><input id="first" name="first-name" type="text" autocomplete="given-name" required></div>
+        <div class="field"><label for="last">Last name</label><input id="last" name="last-name" type="text" autocomplete="family-name" required></div>
+      </div>
+      <div class="field"><label for="street">Street address</label><input id="street" name="street" type="text" autocomplete="street-address" required></div>
+      <div class="row3">
+        <div class="field"><label for="city">City</label><input id="city" name="city" type="text" autocomplete="address-level2" value="Batavia" required></div>
+        <div class="field"><label for="state">State</label><input id="state" name="state" type="text" autocomplete="address-level1" value="IL" required></div>
+        <div class="field"><label for="zip">ZIP</label><input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="email">Personal email <span class="hint">Not your BPS school address</span></label><input id="email" name="email" type="email" autocomplete="email" required>
+          <div class="err-msg hidden" id="email-err">Please use a personal email, not a bps101.net address. Your school account may close after graduation.</div></div>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2><span class="n">3</span> Your program and your plans</h2>
+      <div class="field">
+        <label>Which did you take part in? <span class="hint">Check all that apply</span></label>
+        <label class="choice"><input type="checkbox" name="program" value="INCubator"> INCubator</label>
+        <label class="choice"><input type="checkbox" name="program" value="Field Study"> Field Study</label>
+        <div class="err-msg hidden" id="program-err">Please check at least one.</div>
+      </div>
+      <div class="field"><label for="school">School or program you plan to attend</label><input id="school" name="school" type="text" required></div>
+      <div class="field"><label for="major">Major or industry</label><input id="major" name="major" type="text" required></div>
+    </section>
+
+    <section class="box">
+      <h2><span class="n">4</span> Your answer</h2>
+      <p>Answer these three questions in a written essay or a video:</p>
+      <ol class="qs">
+        <li>How would this scholarship support your goals for the future?</li>
+        <li>How has participating in INCubator or Field Study helped shape your goals for the future?</li>
+        <li>In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</li>
+      </ol>
+      <div class="field">
+        <label class="choice"><input type="radio" name="format" value="Essay" required> Written essay (300 words)</label>
+        <label class="choice"><input type="radio" name="format" value="Video"> Video (3 to 5 minutes)</label>
+        <div class="err-msg hidden" id="format-err">Please choose an essay or a video.</div>
+      </div>
+      <div class="field hidden" id="essay-wrap">
+        <label for="essay">Your essay</label>
+        <textarea id="essay" name="essay"></textarea>
+        <div class="count" id="count">0 / 300 words</div>
+      </div>
+      <div class="field hidden" id="video-wrap">
+        <label for="video">Link to your video <span class="hint">Upload it to YouTube (unlisted is fine) or Google Drive, set it so anyone with the link can view, and paste the link here.</span></label>
+        <input id="video" name="video-link" type="url" placeholder="https://">
+      </div>
+    </section>
+
+    <section class="box">
+      <div class="field">
+        <label class="choice"><input type="checkbox" name="confirm" value="Yes" required> I am a graduating senior at Batavia High School, and everything in this application is my own work.</label>
+      </div>
+      <button type="submit" id="submit">Submit my application
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </section>
+  </form>
+
+  <section class="box done hidden" id="done">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+    <h2>Application received</h2>
+    <p>Thank you. Your application went to the Batavia Foundation for Educational Excellence, and we&rsquo;ll be in touch using the email you gave us.</p>
+  </section>
+
+</main>
+<script>
+(function(){
+  var f=document.getElementById('app'), essay=document.getElementById('essay'), count=document.getElementById('count');
+  var LIMIT=300;
+  function words(s){return (s.trim().match(/\S+/g)||[]).length;}
+  essay.addEventListener('input',function(){var n=words(essay.value);count.textContent=n+' / '+LIMIT+' words';count.classList.toggle('over',n>LIMIT);});
+  f.querySelectorAll('input[name=format]').forEach(function(r){r.addEventListener('change',function(){
+    var v=f.querySelector('input[name=format]:checked').value;
+    document.getElementById('essay-wrap').classList.toggle('hidden',v!=='Essay');
+    document.getElementById('video-wrap').classList.toggle('hidden',v!=='Video');
+  });});
+  function show(id,on){document.getElementById(id).classList.toggle('hidden',!on);}
+  function setStatus(m,bad){var s=document.getElementById('status');s.textContent=m;s.className='status'+(bad?' bad':'');}
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); setStatus('');
+    var ok=true, first=null;
+    function fail(el){ok=false; if(!first) first=el;}
+    ['first','last','street','city','state','zip','phone','email','school','major'].forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim();el.setAttribute('aria-invalid',bad);if(bad)fail(el);});
+    var em=document.getElementById('email'), bps=/@(\w+\.)?bps101\.net\s*$/i.test(em.value);
+    show('email-err',bps); if(bps||(em.value&&!em.checkValidity())) fail(em);
+    var prog=f.querySelectorAll('input[name=program]:checked').length>0; show('program-err',!prog); if(!prog) fail(f.querySelector('input[name=program]'));
+    var fmt=f.querySelector('input[name=format]:checked'); show('format-err',!fmt); if(!fmt) fail(f.querySelector('input[name=format]'));
+    if(fmt&&fmt.value==='Essay'){var n=words(essay.value); if(n===0||n>LIMIT){fail(essay); if(n>LIMIT) setStatus('Your essay is '+n+' words. Please keep it to 300.',true);}}
+    if(fmt&&fmt.value==='Video'){var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
+    var c=f.querySelector('input[name=confirm]'); if(!c.checked) fail(c);
+    if(!ok){ if(!document.getElementById('status').textContent) setStatus('Please fill in the highlighted items.',true); first.focus(); return; }
+    var btn=document.getElementById('submit'); btn.disabled=true; setStatus('Sending…');
+    var data=new FormData(f), body=new URLSearchParams();
+    var progs=[]; data.forEach(function(v,k){ if(k==='program') progs.push(v); else body.append(k,v); }); body.append('program',progs.join(', '));
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); f.classList.add('hidden'); show('done',true); window.scrollTo(0,document.getElementById('done').offsetTop-20); })
+      .catch(function(){ btn.disabled=false; setStatus('Something went wrong and your application was not sent. Please try again, or email Ashley Murtaugh at the Batavia Foundation for Educational Excellence.',true); });
+  });
+})();
+</script>
+</body>
+</html>
