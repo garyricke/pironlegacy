@@ -89,7 +89,7 @@ button svg{width:20px;height:20px}
       <li><b>Award:</b> up to $4,000 this year, given to one student or shared among several</li>
       <li><b>Paid to:</b> your college, trade school, union or training program, not to you directly</li>
       <li><b>Who can apply:</b> graduating seniors who have taken part in INCubator or Field Study, now or in an earlier year</li>
-      <li><b>Your answers:</b> three questions, each answered in writing (at least 300 words) or on video (3 to 5 minutes)</li>
+      <li><b>Your answers:</b> three questions, answered either in writing (at least 300 words for each question) or in one 3 to 5&nbsp;minute video that covers all&nbsp;three</li>
       <li><b>No GPA, transcript or financial information needed.</b> We want your story.</li>
       <li><b>Deadline:</b> [to be set by the committee]</li>
     </ul>
@@ -133,58 +133,39 @@ button svg{width:20px;height:20px}
 
     <section class="box">
       <h2><span class="n">4</span> Your answers</h2>
-      <p style="margin-bottom:6px">Answer each of the three questions below. For each one, you choose: write at least 300 words, or record a 3 to 5 minute video.</p>
-      <p class="hint" style="margin-bottom:18px">For a video, upload it to YouTube (unlisted is fine) or Google Drive, set it so anyone with the link can view, and paste the link.</p>
+      <p style="margin-bottom:10px">Answer the three questions below in one of two ways:</p>
+      <div class="q-choice">
+        <label class="choice"><input type="radio" name="format" value="Written"> Write an answer to each question (at least 300 words&nbsp;each)</label>
+        <label class="choice"><input type="radio" name="format" value="Video"> Record one 3 to 5 minute video that answers all three&nbsp;questions</label>
+      </div>
+      <div class="err-msg hidden" id="format-err">Please choose how you&rsquo;ll answer.</div>
       <div class="q" data-q="1">
         <p class="q-text"><span class="q-n">1</span> How would this scholarship support your goals for the future?</p>
-        <div class="q-choice">
-          <label class="choice"><input type="radio" name="q1-format" value="Written"> Write it (at least 300 words)</label>
-          <label class="choice"><input type="radio" name="q1-format" value="Video"> Record a video (3 to 5 minutes)</label>
-        </div>
-        <div class="err-msg hidden" id="q1-err">Please choose how you&rsquo;ll answer this question.</div>
-        <div class="field hidden" id="q1-written">
+        <div class="field hidden written" id="q1-written">
           <label for="q1-answer">Your answer</label>
           <textarea id="q1-answer" name="q1-answer"></textarea>
           <div class="count" id="q1-count">0 words (at least 300)</div>
         </div>
-        <div class="field hidden" id="q1-videowrap">
-          <label for="q1-video">Link to your video</label>
-          <input id="q1-video" name="q1-video" type="url" placeholder="https://">
-        </div>
       </div>
       <div class="q" data-q="2">
         <p class="q-text"><span class="q-n">2</span> How has participating in INCubator or Field Study helped shape your goals for the future?</p>
-        <div class="q-choice">
-          <label class="choice"><input type="radio" name="q2-format" value="Written"> Write it (at least 300 words)</label>
-          <label class="choice"><input type="radio" name="q2-format" value="Video"> Record a video (3 to 5 minutes)</label>
-        </div>
-        <div class="err-msg hidden" id="q2-err">Please choose how you&rsquo;ll answer this question.</div>
-        <div class="field hidden" id="q2-written">
+        <div class="field hidden written" id="q2-written">
           <label for="q2-answer">Your answer</label>
           <textarea id="q2-answer" name="q2-answer"></textarea>
           <div class="count" id="q2-count">0 words (at least 300)</div>
         </div>
-        <div class="field hidden" id="q2-videowrap">
-          <label for="q2-video">Link to your video</label>
-          <input id="q2-video" name="q2-video" type="url" placeholder="https://">
-        </div>
       </div>
       <div class="q" data-q="3">
         <p class="q-text"><span class="q-n">3</span> In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</p>
-        <div class="q-choice">
-          <label class="choice"><input type="radio" name="q3-format" value="Written"> Write it (at least 300 words)</label>
-          <label class="choice"><input type="radio" name="q3-format" value="Video"> Record a video (3 to 5 minutes)</label>
-        </div>
-        <div class="err-msg hidden" id="q3-err">Please choose how you&rsquo;ll answer this question.</div>
-        <div class="field hidden" id="q3-written">
+        <div class="field hidden written" id="q3-written">
           <label for="q3-answer">Your answer</label>
           <textarea id="q3-answer" name="q3-answer"></textarea>
           <div class="count" id="q3-count">0 words (at least 300)</div>
         </div>
-        <div class="field hidden" id="q3-videowrap">
-          <label for="q3-video">Link to your video</label>
-          <input id="q3-video" name="q3-video" type="url" placeholder="https://">
-        </div>
+      </div>
+      <div class="field hidden" id="videowrap">
+        <label for="video">Link to your video <span class="hint">Upload it to YouTube (unlisted is fine) or Google Drive, set it so anyone with the link can view, and paste the link here.</span></label>
+        <input id="video" name="video" type="url" placeholder="https://">
       </div>
     </section>
 
@@ -212,12 +193,12 @@ button svg{width:20px;height:20px}
   QN.forEach(function(i){
     var ta=document.getElementById('q'+i+'-answer'), ct=document.getElementById('q'+i+'-count');
     ta.addEventListener('input',function(){var n=words(ta.value);ct.textContent=n+' words'+(n<MIN?' (at least 300)':'');ct.classList.toggle('over',n>0&&n<MIN);});
-    f.querySelectorAll('input[name=q'+i+'-format]').forEach(function(r){r.addEventListener('change',function(){
-      var v=f.querySelector('input[name=q'+i+'-format]:checked').value;
-      document.getElementById('q'+i+'-written').classList.toggle('hidden',v!=='Written');
-      document.getElementById('q'+i+'-videowrap').classList.toggle('hidden',v!=='Video');
-    });});
   });
+  f.querySelectorAll('input[name=format]').forEach(function(r){r.addEventListener('change',function(){
+    var v=f.querySelector('input[name=format]:checked').value;
+    QN.forEach(function(i){document.getElementById('q'+i+'-written').classList.toggle('hidden',v!=='Written');});
+    document.getElementById('videowrap').classList.toggle('hidden',v!=='Video');
+  });});
   function show(id,on){document.getElementById(id).classList.toggle('hidden',!on);}
   function setStatus(m,bad){var s=document.getElementById('status');s.textContent=m;s.className='status'+(bad?' bad':'');}
   f.addEventListener('submit',function(e){
@@ -228,14 +209,12 @@ button svg{width:20px;height:20px}
     var em=document.getElementById('email'), bps=/@(\w+\.)?bps101\.net\s*$/i.test(em.value);
     show('email-err',bps); if(bps||(em.value&&!em.checkValidity())) fail(em);
     var prog=f.querySelectorAll('input[name=program]:checked').length>0; show('program-err',!prog); if(!prog) fail(f.querySelector('input[name=program]'));
-    var shortQ=0;
-    QN.forEach(function(i){
-      var fm=f.querySelector('input[name=q'+i+'-format]:checked'); show('q'+i+'-err',!fm);
-      if(!fm){fail(f.querySelector('input[name=q'+i+'-format]'));return;}
-      if(fm.value==='Written'){var ta=document.getElementById('q'+i+'-answer'), n=words(ta.value); if(n<MIN){fail(ta); if(n>0&&!shortQ) shortQ=i;}}
-      else {var v=document.getElementById('q'+i+'-video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
-    });
-    if(shortQ) setStatus('Your answer to question '+shortQ+' is under 300 words. Please write at least 300, or record a video instead.',true);
+    var shortQ=0, fm=f.querySelector('input[name=format]:checked'); show('format-err',!fm);
+    if(!fm) fail(f.querySelector('input[name=format]'));
+    else if(fm.value==='Written'){
+      QN.forEach(function(i){var ta=document.getElementById('q'+i+'-answer'), n=words(ta.value); if(n<MIN){fail(ta); if(n>0&&!shortQ) shortQ=i;}});
+    } else {var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
+    if(shortQ) setStatus('Your answer to question '+shortQ+' is under 300 words. Please write at least 300 for each question, or record a video instead.',true);
     var c=f.querySelector('input[name=confirm]'); if(!c.checked) fail(c);
     if(!ok){ if(!document.getElementById('status').textContent) setStatus('Please fill in the highlighted items.',true); first.focus(); return; }
     var btn=document.getElementById('submit'); btn.disabled=true; setStatus('Sending…');
