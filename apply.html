@@ -79,10 +79,11 @@ button svg{width:20px;height:20px}
     <h2><span class="n">1</span> About the scholarship</h2>
     <p style="margin-bottom:14px">The scholarship goes to a student who demonstrates drive and passion to pursue their future plans.</p>
     <ul class="facts">
-      <li><b>Award:</b> up to $4,000</li>
-      <li><b>Paid to:</b> your school or program, not to you directly</li>
-      <li><b>Who can apply:</b> graduating seniors who took part in INCubator or Field Study</li>
-      <li><b>Your answer:</b> a written essay (300 words) or a video (3 to 5 minutes)</li>
+      <li><b>Award:</b> up to $4,000 in total each year, given to one student or shared among several</li>
+      <li><b>Paid to:</b> your college, trade school, union or training program, not to you directly</li>
+      <li><b>Who can apply:</b> graduating seniors who have taken part in INCubator or Field Study, now or in an earlier year</li>
+      <li><b>Your answer:</b> a written essay (at least 300 words), a video (3 to 5 minutes), or both</li>
+      <li><b>No GPA, transcript or financial information needed.</b> We want your story.</li>
       <li><b>Deadline:</b> [to be set by the committee]</li>
     </ul>
   </section>
@@ -120,25 +121,27 @@ button svg{width:20px;height:20px}
       </div>
       <div class="field"><label for="school">School or program you plan to attend</label><input id="school" name="school" type="text" required></div>
       <div class="field"><label for="major">Major or industry</label><input id="major" name="major" type="text" required></div>
+      <div class="field"><label for="uses">What would the scholarship pay for? <span class="hint">For example tuition, books, union dues, or tools and fees for a training program. Include an amount if you know it.</span></label><input id="uses" name="uses" type="text" required></div>
     </section>
 
     <section class="box">
       <h2><span class="n">4</span> Your answer</h2>
-      <p>Answer these three questions in a written essay or a video:</p>
+      <p>Answer these three questions in a written essay, a video, or both:</p>
       <ol class="qs">
         <li>How would this scholarship support your goals for the future?</li>
         <li>How has participating in INCubator or Field Study helped shape your goals for the future?</li>
         <li>In what ways have you positively impacted a team, at school, or the Batavia community, or plan to in the future?</li>
       </ol>
       <div class="field">
-        <label class="choice"><input type="radio" name="format" value="Essay" required> Written essay (300 words)</label>
+        <label class="choice"><input type="radio" name="format" value="Essay" required> Written essay (at least 300 words)</label>
         <label class="choice"><input type="radio" name="format" value="Video"> Video (3 to 5 minutes)</label>
-        <div class="err-msg hidden" id="format-err">Please choose an essay or a video.</div>
+        <label class="choice"><input type="radio" name="format" value="Both"> Both</label>
+        <div class="err-msg hidden" id="format-err">Please choose an essay, a video, or both.</div>
       </div>
       <div class="field hidden" id="essay-wrap">
         <label for="essay">Your essay</label>
         <textarea id="essay" name="essay"></textarea>
-        <div class="count" id="count">0 / 300 words</div>
+        <div class="count" id="count">0 words (at least 300)</div>
       </div>
       <div class="field hidden" id="video-wrap">
         <label for="video">Link to your video <span class="hint">Upload it to YouTube (unlisted is fine) or Google Drive, set it so anyone with the link can view, and paste the link here.</span></label>
@@ -166,13 +169,13 @@ button svg{width:20px;height:20px}
 <script>
 (function(){
   var f=document.getElementById('app'), essay=document.getElementById('essay'), count=document.getElementById('count');
-  var LIMIT=300;
+  var MIN=300;
   function words(s){return (s.trim().match(/\S+/g)||[]).length;}
-  essay.addEventListener('input',function(){var n=words(essay.value);count.textContent=n+' / '+LIMIT+' words';count.classList.toggle('over',n>LIMIT);});
+  essay.addEventListener('input',function(){var n=words(essay.value);count.textContent=n+' words'+(n<MIN?' (at least 300)':'');count.classList.toggle('over',n>0&&n<MIN);});
   f.querySelectorAll('input[name=format]').forEach(function(r){r.addEventListener('change',function(){
     var v=f.querySelector('input[name=format]:checked').value;
-    document.getElementById('essay-wrap').classList.toggle('hidden',v!=='Essay');
-    document.getElementById('video-wrap').classList.toggle('hidden',v!=='Video');
+    document.getElementById('essay-wrap').classList.toggle('hidden',v==='Video');
+    document.getElementById('video-wrap').classList.toggle('hidden',v==='Essay');
   });});
   function show(id,on){document.getElementById(id).classList.toggle('hidden',!on);}
   function setStatus(m,bad){var s=document.getElementById('status');s.textContent=m;s.className='status'+(bad?' bad':'');}
@@ -180,13 +183,13 @@ button svg{width:20px;height:20px}
     e.preventDefault(); setStatus('');
     var ok=true, first=null;
     function fail(el){ok=false; if(!first) first=el;}
-    ['first','last','street','city','state','zip','phone','email','school','major'].forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim();el.setAttribute('aria-invalid',bad);if(bad)fail(el);});
+    ['first','last','street','city','state','zip','phone','email','school','major','uses'].forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim();el.setAttribute('aria-invalid',bad);if(bad)fail(el);});
     var em=document.getElementById('email'), bps=/@(\w+\.)?bps101\.net\s*$/i.test(em.value);
     show('email-err',bps); if(bps||(em.value&&!em.checkValidity())) fail(em);
     var prog=f.querySelectorAll('input[name=program]:checked').length>0; show('program-err',!prog); if(!prog) fail(f.querySelector('input[name=program]'));
     var fmt=f.querySelector('input[name=format]:checked'); show('format-err',!fmt); if(!fmt) fail(f.querySelector('input[name=format]'));
-    if(fmt&&fmt.value==='Essay'){var n=words(essay.value); if(n===0||n>LIMIT){fail(essay); if(n>LIMIT) setStatus('Your essay is '+n+' words. Please keep it to 300.',true);}}
-    if(fmt&&fmt.value==='Video'){var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
+    if(fmt&&fmt.value!=='Video'){var n=words(essay.value); if(n<MIN){fail(essay); if(n>0) setStatus('Your essay is '+n+' words. Please write at least 300.',true);}}
+    if(fmt&&fmt.value!=='Essay'){var v=document.getElementById('video'); if(!/^https?:\/\/\S+\.\S+/.test(v.value.trim())) fail(v);}
     var c=f.querySelector('input[name=confirm]'); if(!c.checked) fail(c);
     if(!ok){ if(!document.getElementById('status').textContent) setStatus('Please fill in the highlighted items.',true); first.focus(); return; }
     var btn=document.getElementById('submit'); btn.disabled=true; setStatus('Sending…');
